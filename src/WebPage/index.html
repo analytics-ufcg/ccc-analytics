@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>CCC</title>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script> 
+<script type="text/javascript">
+$(document).ready(function() {	
+
+	$('a[name=modal]').click(function(e) {
+		e.preventDefault();
+		
+		var id = $(this).attr('href');
+	
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+	
+		$(id).fadeIn(2000); 
+	
+	});
+	
+	$('.window .close').click(function (e) {
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+	});		
+	
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});			
+	
+});
+</script>
+<style type="text/css">
+<!--
+textcolor {
+	color: #666;
+}
+-->
+</style>
+</head>
+
+<body>
+    
+        <div id="top">
+            <p class="header"><a href="index.html"><img src="image/header.png" width="569" height="101" border="0"></a></p>
+        </div>
+         
+<div id="menu">
+<table width="804" border="0" align="center">
+	      <tr>
+  			    <td colspan="5"><img src="image/detail2.png" width="890" height="21"></td>
+		    </tr>
+	      <tr>
+	        <td width="152"><img src="image/01.png" width="177" height="177"></td>
+	        <td width="172"><img src="image/02.png" width="177" height="177"></td>
+	        <td width="146"><img src="image/03.png" width="177" height="177"></td>
+	        <td width="152"><img src="image/04.png" width="177" height="177"></td>
+	        <td width="156"><img src="image/05.png" width="177" height="177"></td>
+    </tr>
+  			  <tr id="fonte">
+  			    <td><a href="01.html">Obtenção dos dados</a></td>
+  			    <td><a href="02.html">Diferença entre disciplinas<br>
+do DSC e fora do DSC</a></td>
+  			    <td><p><a href="03.html">Percentual de alunos<br>na final</a></p></td>
+  			    <td><a href="04.html">Variação de desempenho<br>
+nas disciplinas</span></a></td>
+  			    <td><a href="05.html">Variação de desempenho<br>
+médio por entrada</a></td>
+		      </tr>
+  			  <tr>
+  			    <td colspan="5">&nbsp;</td>
+		      </tr>
+  			  <tr>
+  			    <td colspan="5">&nbsp;</td>
+    </tr>
+  			  <tr>
+  			    <td colspan="5"><img src="image/detail2.png" width="890" height="21"></td>
+		    </tr>
+		  </table>
+</div>
+	<div id="content">
+	  <p>&nbsp;</p>
+</div>  
+        
+</body>
+
+</html>
