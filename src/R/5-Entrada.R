@@ -1,7 +1,7 @@
 library(ggplot2)
 library(gridExtra)
 
-d = read.csv("C:/CCC/CCC/Dados/notas.txt",sep = "\t", encoding = "UTF-8")
+d = read.csv("../data/notas.txt",sep = "\t", encoding = "UTF-8")
 
 for(i in 1:nrow(d)){
   d$periodo[i] <- paste(d$ano[i],d$periodo[i],sep = ".")

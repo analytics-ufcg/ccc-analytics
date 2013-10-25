@@ -1,7 +1,7 @@
 library(ggplot2)
 library(gridExtra)
 
-dados = read.csv("C:/CCC/CCC/Resultados/notas_alunos.csv",sep = "|", encoding = "UTF-8")
+dados = read.csv("../data/notas_alunos.csv",sep = "|", encoding = "UTF-8")
 names(dados)[8] <- "Taxa"
 
 outros <- c("Administração", "Álgebra Linear", "Álgebra Vetorial e Geometria Analítica", 
