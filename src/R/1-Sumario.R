@@ -1,6 +1,6 @@
 library(ggplot2)
 library(gridExtra)
-dados = read.csv("../data/notas_alunos.csv",sep = "|", encoding = "UTF-8")
+dados = read.csv("../../data/notas_alunos.csv",sep = "|", encoding = "UTF-8")
 
 outros <- c("Administração", "Álgebra Linear", "Álgebra Vetorial e Geometria Analítica", 
             "BASQUETE   MASC/FEM",  "BASQUETEBOL - FEM", "BASQUETEBOL - MASC", 

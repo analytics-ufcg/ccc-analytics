@@ -1,5 +1,5 @@
 library(ggplot2)
-dados = read.csv("../data/notas.txt", sep = "\t",dec=",",encoding = "UTF-8")
+dados = read.csv("../../data/notas.txt", sep = "\t",dec=",",encoding = "UTF-8")
 
 # Transformando a apresentaco do periodo
 for(i in 1:(length(dados$periodo))){
