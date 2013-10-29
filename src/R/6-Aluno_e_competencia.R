@@ -50,4 +50,4 @@ gravarArquivo <- function(dados, destino){
 }
 
 # Salvando o arquivo das competencias
-gravarArquivo(df, "../../data/competencia.csv")
+gravarArquivo(na.omit(df), "../../data/competencia.csv")
