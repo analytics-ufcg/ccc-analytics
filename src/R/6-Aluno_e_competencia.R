@@ -2,50 +2,7 @@ library(ggplot2)
 library(plyr)
 library(shiny)
 
-d = read.csv("../../data/notas.txt",sep = "\t", encoding = "UTF-8")
-
-for(i in 1:nrow(d)){
-  d$periodo[i] <- paste(d$ano[i],d$periodo[i],sep = ".")
-}
-
-outros <- c("Administração", "Álgebra Linear", "Álgebra Vetorial e Geometria Analítica", 
-            "BASQUETE   MASC/FEM",  "BASQUETEBOL - FEM", "BASQUETEBOL - MASC", 
-            "Cálculo Diferencial e Integral I", "Cálculo Diferencial e Integral II", 
-            "Cálculo Diferencial e Integral III", "Direito e Cidadania", "Economia", 
-            "EQUACOES DIFERENCIAIS", "EXPRESSAO GRAFICA", "Fundamentos de Física Clássica", 
-            "Fundamentos de Física Moderna", "Futsal", "Informática e Sociedade", "Inglês", 
-            "Introdução à Arquitetura", "Leitura e Produção de Textos", "Métodos Estatísticos", 
-            "Probabilidade e Estatística", "Química Geral", "Relações Humanas", "Sociologia Industrial I" )
-
-dsc <- c("Análise e Técnicas de Algoritmos", "Avaliação de Desempenho de Sistemas Discretos", 
-         "Banco de Dados I", "Banco de Dados II", 
-         "Compiladores", "Empreendedorismo", 
-         "Engenharia de Software I", "Estágio Integrado", 
-         "Estruturas de Dados e Algoritmos", "Gerência da Informação", 
-         "GERENCIA DE Redes de Computadores", "Inteligência Artificial I", "Interconexão de Redes de Computadores", 
-         "Introdução à Computação", "Lab. de Engenharia de Software", 
-         "Lab. de Estruturas de Dados e Algoritmos", "Lab. de Interconexão de Redes de Computadores", 
-         "Lab. de Organização e Arquitetura de Computadores", "Lab. de Programação I", 
-         "Lab. de Programação II", "Lógica Matemática", 
-         "Matemática Discreta", "Metodologia Científica", "Métodos e Software Numéricos", 
-         "Organização e Arquitetura de Computadores", 
-         "Paradigmas de Linguagem de Programação", 
-         "Programação I", "Programação II", "Projeto de Redes de Computadores", 
-         "Projeto em Computação I", "Projeto em Computação II", 
-         "Redes de Computadores", "Redes Neurais", 
-         "Seminários (Educação Ambiental)", "Sistemas de Informação I", 
-         "Sistemas de Informação II", "Sistemas de Informações Geográficas", 
-         "Sistemas Operacionais", "TEC (Princípios de Administração Financeira)", 
-         "TECC (Administração de Sistemas)", "TECC (Algoritmos Avançados I)", 
-         "TECC (Algoritmos Avançados II)", "TECC (Algoritmos Avançados III)", 
-         "TECC (Economia de Tecnologia da Informação)", "TECC (Estágio Integrado II)", 
-         "TECC (Fundamentos e Aplicações de Realidade Virtual)", "TECC (Métodos Formais)", 
-         "TECC (Modelagem de Ambientes Virtuais)", "TECC (Redes Ad Hoc Sem Fio)", 
-         "TECC (Segurança em Redes de Computadores)", "TECC (Sistemas de Recuperação da Informação)", 
-         "TECC (Visão Computacional)", "TECC(DIDATICA EM CIENCIA DA COMPUTACAO II)", 
-         "TECC(DIDATICA EM CIENCIA DA COMPUTACAO)", "TECC(Empreendedorismo em Software)   ", 
-         "TECC(Fundamentos de Prog. Concorrente)", "TECC(METODOS E P T G M DADOS HISTORICOS)", 
-         "Teoria da Computação", "Teoria dos Grafos")
+d = read.table("../../data/dados.txt",sep = "\t", header=T)
 
 # Retirando os dados dos alunos reprovados por falta ou trancamento
 dados_validos = subset(d, d$situacao %in% c("A","R"))
@@ -72,5 +29,25 @@ getCompetenciaDisciplina <- function(disci, aluno) {
   return (resultado)
 }
 
-# Exibicao
-runApp("Competencia")
+# Gerando o arquivo com todas as competencias
+df <- data.frame( disciplina=rep(""), matricula=rep(""), competencia=rep(""), stringsAsFactors=FALSE) 
+disciplinas <- levels(t$disciplina)
+matriculas <- unique(t$matricula)
+i = 1
+m = 1
+while (i < length(disciplinas)) {
+  while (m < length(matriculas)) {
+    df<- rbind(df, as.list(c(disciplinas[i],matriculas[m], getCompetenciaDisciplina(disciplinas[i], matriculas[m]))))
+    m = m +1
+  }
+  m = 1
+  i = i + 1
+}
+
+# Funcao para salvar um data frame
+gravarArquivo <- function(dados, destino){
+  write.table(dados, file = destino, col.names = TRUE, row.names=FALSE, fileEncoding = "UTF-8")  
+}
+
+# Salvando o arquivo das competencias
+gravarArquivo(df, "../../data/competencia.csv")
