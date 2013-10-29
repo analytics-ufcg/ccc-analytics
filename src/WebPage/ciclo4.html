@@ -9,11 +9,14 @@
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>  
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <script type="text/javascript" src="javascript/d3.v3.js"></script>
-  <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascript/bootstrap.js"></script>
   <script type="text/javascript" src="javascript/matricula.js"></script>
   
+  <script type="text/javascript" src="javascript/bootstrap-select.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
 
 <style type="text/css">
 <!--
@@ -25,18 +28,35 @@ body {
 </style>
 </head>
 
-<body onload="loadData();">
-    
-        
+<body>        
   <div id="top">
             <p class="header"><a href="index.html"><img src="image/header.png" width="343" height="61" border="0"></a></p>
   </div>
-  <div id="content"> 
-  <text >Matrícula:</text>
-  <select id="matriculaList" class="btn dropdown-toggle btn-default"  data-size="auto" data-live-search="true" onchange="getMatricula(this)">
-  </select>
- 
+  <div id="content">
+    <div class="navbar-inner">
+    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <div class="nav-collapse"> 
+    <ul class="nav nav-tabs">
+      <li><a href="#" id="botao_competencia" class="big-link" onClick= "showcompetencia();"  data-reveal-id="id_competencia">Competência</a></li>
+      <li><a href="#" id="botao_desempenho" class="big-link" onClick= "showdesempenho();"  data-reveal-id="id_desempenho">Desempenho</a></li>
+    </ul>
+    </div> <!-- nav-collapse-->
+  </div> <!-- nav-inner -->
+  </div> <!-- content-->
 
+  <div id="id_competencia" class="plot-info"  style="display:none">
+      <text size="14px">Selecione uma matrícula:</text> 
+      <select id="mycompetencia" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getCompetencia(this)">
+      </select>
+  </div>
+  <div id="id_desempenho" class="plot-info" style="display:none">
+      <text size="14px">Selecione uma matrícula:</text> 
+      <select id="mydesempenho" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getDesempenho(this)">
+      </select> 
   </div>
 </body>
 
