@@ -1,10 +1,11 @@
 var aluno = "";
+var competencias_aluno = "";
 var dados_notas = [];
+var file_comp = [];
 
 
 /*Funcao para mostrar a div de competencia*/
 function showcompetencia(){
-	loadData();
 	$("#id_desempenho").hide();
 	$("#id_competencia").show();
 }
@@ -18,16 +19,12 @@ function showdesempenho(){
 
 /*Funcao que seleciona um aluno*/
 function getCompetencia(selection){
-	//$("#id_competencia") -- limpar texto da div
 	aluno = selection.options[selection.selectedIndex].value;
-	console.log(aluno);
-	$("#id_competencia").empty();
 	competencia(aluno); 
 }
 
 function getDesempenho(selection){
 	aluno = selection.options[selection.selectedIndex].value;
-	console.log(aluno);	
 }
 
 function loadData(){
@@ -35,27 +32,36 @@ function loadData(){
 		dados_notas = data;		
 		var mat = data.map(function(d){return d.matricula;});
 		var mycompetencia = d3.selectAll("#mycompetencia");
-		
+		var mydesempenho = d3.selectAll("#mydesempenho");
 		mycompetencia.selectAll("option").data(mat).enter().append("option")
 		.attr("value",function(d){return d;})
 		.attr("label",function(d){return d;})
 		.text(function(d){return d+"";});
-		
+		mydesempenho.selectAll("option").data(mat).enter().append("option")
+		.attr("value",function(d){return d;})
+		.attr("label",function(d){return d;})
+		.text(function(d){return d+"";});
+
 		$('.selectpicker').selectpicker({'selectedText': 'cat'});
+
+
 	});
 }
 
 /*Funcao que filtra as competencias de um aluno*/
 function competencia(id_aluno){
 	d3.csv("dados/competencia.csv", function(data){
-		var file_comp = data;
+		file_comp = data;
 		var contentArray = file_comp.filter(function(d){return d.matricula == id_aluno;}); // filtra apenas para ter as disciplinas
-		var otp = '';
+		var opt = "";
 		$.each(contentArray, function(i,val){
-			otp+= " Faz parte dos " +	val.taxa + " na disciplina " + val.disciplina +"<br>";// mudar de acordo com o nome no JSON
-
+			var taxa = val.competencia;
+			var disc = val.disciplina;
+			opt += "<li>Faz parte dos "+ taxa +" na disciplina "+disc+"</li>";			
 		});	
-		var todas_competencias = "<ul> <li> Informacoes de Competencia do aluno: "+id+" </li> <br>" + otp+ " </ul>";
-		$("#id_competencia").append(todas_competencias);
+		competencias_aluno = "<ul> Informações de Competencia do aluno: "+id_aluno+" <br>"+opt+"</ul>"; 
+		console.log(competencias_aluno);
+		$("#infos").empty();
+		$("#infos").append(competencias_aluno);
 	});
 }
