@@ -12,6 +12,7 @@ function showcompetencia(){
 
 /*Funcao para mostrar a div de desempenho*/
 function showdesempenho(){
+	$("#infos").empty();
 	$("#id_competencia").hide();
 	$("#id_desempenho").show();
 }
@@ -40,11 +41,9 @@ function loadData(){
 		mydesempenho.selectAll("option").data(mat).enter().append("option")
 		.attr("value",function(d){return d;})
 		.attr("label",function(d){return d;})
-		.text(function(d){return d+"";});
+		.text(function(d){return d+"";});	
 
 		$('.selectpicker').selectpicker({'selectedText': 'cat'});
-
-
 	});
 }
 
@@ -55,13 +54,25 @@ function competencia(id_aluno){
 		var contentArray = file_comp.filter(function(d){return d.matricula == id_aluno;}); // filtra apenas para ter as disciplinas
 		var opt = "";
 		$.each(contentArray, function(i,val){
-			var taxa = val.competencia;
+			var taxa = parseInt(val.competencia);
 			var disc = val.disciplina;
-			opt += "<li>Faz parte dos "+ taxa +" na disciplina "+disc+"</li>";			
+			opt += "<li> Faz parte dos "+ intervalo_competencia(taxa) +" na disciplina "+disc+"</li>";		
 		});	
 		competencias_aluno = "<ul> Informações de Competencia do aluno: "+id_aluno+" <br>"+opt+"</ul>"; 
 		console.log(competencias_aluno);
 		$("#infos").empty();
 		$("#infos").append(competencias_aluno);
 	});
+}
+
+
+function intervalo_competencia(valor){
+	if (valor < 50){
+		var c = " <font color='#339900'>"+ valor +"% melhores </font> ";
+		return c;
+	}else{
+		var v = 100 - valor;
+		var c = " <font color='FF6600'>"+ v +"% piores </font> ";
+		return c;
+	};
 }
