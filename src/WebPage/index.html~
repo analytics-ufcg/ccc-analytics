@@ -75,7 +75,7 @@ textcolor {
 	        <td width="156"><img src="image/05.png" width="177" height="177"></td>
     </tr>
   			  <tr id="fonte">
-  			    <td><a href="01.html">Análise geral</a></td>
+  			    <td><a href="01.html">Obtenção dos dados</a></td>
   			    <td><a href="02.html">Diferença entre disciplinas<br>
 do DSC e fora do DSC</a></td>
   			    <td><p><a href="03.html">Percentual de alunos<br>na final</a></p></td>

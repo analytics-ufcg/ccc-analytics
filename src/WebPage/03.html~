@@ -49,10 +49,13 @@ body {
 					</tr>
 					  <tr>
 					    <td colspan="5">Percentual de alunos na final</td>
-					  </tr>
+    </tr>
 					  <tr>
 					    <td colspan="5">&nbsp;</td>
-					  </tr>
+    </tr>
+					  <tr>
+					    <td colspan="5">&nbsp;</td>
+    </tr>
 					  <tr>
 					    <td colspan="5" bgcolor="#A9DFF1"><br />
 Observando o percentual de alunos na final, em cada disciplina, percebemos que, no geral, disciplinas<br />ofertadas por outros departamentos apresentaram

@@ -27,7 +27,7 @@ body {
 <div id="menu">
 <table width="804" border="0" align="center">
 				  <tr>
-					<td width="152"><img src="image/01.png" width="80" height="80"></td>
+					<td width="152"><img src="image/01.png" width="80" height="80"></td>>
 					<td width="172"><img src="image/02.png" width="80" height="80"></td>
 					<td width="146"><img src="image/03.png" width="80" height="80"></td>
 					<td width="152"><img src="image/04.png" width="80" height="80"></td>

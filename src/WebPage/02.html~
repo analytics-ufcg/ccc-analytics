@@ -127,9 +127,6 @@ body {
             <tr>
               <td colspan="4" bgcolor="#A9DFF1"><a href="02-detalhes.html">Visualização detalhada de mais disciplinas</a></td>
             </tr>
-	    <tr>
-              <td colspan="4">&nbsp;</td>
-            </tr>
             <tr>
               <td colspan="4"><img src="image/detail3.png" width="600" height="21" /></td>
             </tr>
