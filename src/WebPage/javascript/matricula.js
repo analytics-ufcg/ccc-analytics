@@ -164,11 +164,11 @@ function plot_alunos(svg, dados, cor, min, max, y0){
 
 	var inf = dados.filter(function(d){return d.matricula == aluno});
 	svg.append("text")
-		.attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 30;})
+		.attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 15;})
 		.attr("y",(y0 - 20))
 		.attr("text-anchor", "middle")
 		.attr("font-weight", "bold")
-		.text("Competência :" + comp_aluno(inf[0].competencia));
+		.text("Competência: " + comp_aluno(inf[0].competencia));
 
 	var g = svg.append("g");
 	console.log(dados.length);
