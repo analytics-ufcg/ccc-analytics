@@ -187,6 +187,8 @@ function plot_alunos(svg, dados, cor, min, max, y0){
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
 		.style("fill","white")
+		.style("stroke","white")
+		.style("stroke-width",2)
         .text(nota);
     } 
     
