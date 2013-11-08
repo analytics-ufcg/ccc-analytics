@@ -12,11 +12,11 @@ function loadData(){
         mycompetencia.selectAll("option").data(mat).enter().append("option")
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
-        .text(function(d){return d+"";});
+        .text(function(d){return d;}); // texto da matricula no combobox da competencia
         mydesempenho.selectAll("option").data(mat).enter().append("option")
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
-        .text(function(d){return d+"";});    
+        .text(function(d){return d;}); // texto da matricula no combobox do desempenho
 
         $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
@@ -56,7 +56,8 @@ function plot_bar_disciplina(nome){
     
     plot_ranges(svg, line_disc, h1);
     plot_bars(svg, line_disc, h1);
-     
+    
+	// Imprime o nome da disciplina escolhida
     svg.append("text")
         .attr("y", h1-50)
         .attr("x", 0)
@@ -90,19 +91,19 @@ function plot_ranges(svg, dados, y0){
         
         // Adiciona o texto "Min"
         svg.append("text")
-            .attr("x", x1(dados[0].x) - 40)
-            .attr("y", (y0 + 7 )) // Altura onde o texto vai aparecer
+            .attr("x", x1(dados[0].x) - 80) // X de onde o texto vai aparecer
+            .attr("y", (y0 + 7 ))           // Y de onde o texto vai aparecer
             .text("Min");
 
         // Adiciona o texto "Max"
         svg.append("text")
-            .attr("x", x1(dados[1].x) + 10)
-            .attr("y", (y0 + 7)) // Altura onde o texto vai aparecer
+            .attr("x", x1(dados[1].x) + 10) // X de onde o texto vai aparecer
+            .attr("y", (y0 + 7))            // Y de onde o texto vai aparecer	
             .text("Max");    
 
 }
 
-
+/* Funcao para plotar uma barrinha*/
 function addLine(svg,x1,x2,y1,y2,cor){
     
     if(y1 > 100){
@@ -136,8 +137,8 @@ function plot_bars(svg, dados,y0){
           .domain([dados[0].x, dados[1].x])
           .range([120, 750]);
     
-    addLine(svg,x1(dados[0].x),x1(dados[1].x),y0,y0,"#E0E0E0",10);
-    //addLine(svg,x1(dados[0].x), largura_da_barra ,y0,y0, cor ,10);    
+    addLine(svg,x1(dados[0].x),x1(dados[1].x),y0,y0,"#E0E0E0");
+    //addLine(svg,x_inicial, x_final ,y0,y0, cor);    
 }
 
 
@@ -228,18 +229,17 @@ function plot_alunos(svg, dados, cor, min, max, y0){
                     .style("stroke","#0000a1") // Cor da linha
                     .attr("stroke-width",5)    // Largura da linha
                     .attr("text",function(d){return d.matricula;});
-    g.selectAll("line").on("mouseover", function(d){mouseover();}) 
-					   .on("mouseout", function(d){mouseout(d.media);}) 
+    g.selectAll("line").on("mouseout", function(d){mouseout(d.media);}) 
                        .on("mousemove", function(d){mousemove(d.media);})
                        .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
 
 
-    // Adiciona a linha correspondente a media do aluno
+    // Adiciona a linha correspondente a media do aluno escolhido
     svg.append("line")
-            .attr("x1", function(d){ return convert(inf[0].media,min.x,max.x);}) // Angulacao superior da linha
-            .attr("x2", function(d){ return convert(inf[0].media,min.x,max.x);}) // Angulacao inferior da linha 
-            .attr("y1",y0-12) // Altura superior da linha
-            .attr("y2",y0+12) // Altura inferior da linha
+            .attr("x1", function(d){ return convert(inf[0].media,min.x,max.x);}) // X inicial da linha
+            .attr("x2", function(d){ return convert(inf[0].media,min.x,max.x);}) // X final da linha 
+            .attr("y1",y0-12) // Y inicial da linha
+            .attr("y2",y0+12) // Y final da linha
             .attr("class","linha_aluno")
             .transition().duration(duration)  // Transicao
             .style("stroke","red") // Cor da linha
@@ -247,7 +247,7 @@ function plot_alunos(svg, dados, cor, min, max, y0){
             .attr("text",function(d){return d.matricula;});
     
     svg.selectAll("line").on("mouseover", function(d){mouseover();}) 
-                       .on("mouseout", function(d){mouseout();}) 
+                       .on("mouseout", function(d){mouseout(d.media);}) 
                     .on("mousemove", function(d){mousemove(d.media);})
                     .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
 
