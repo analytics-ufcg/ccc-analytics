@@ -16,6 +16,8 @@ var line = d3.svg.line().defined(function(d) { return !isNaN(d[1]); }),
 var svg;
 
 var tooltip;
+var matricula_selecionada;
+var dados_competencia;
 
 
 //@width  largura do svg
@@ -40,13 +42,17 @@ function buildSvg(width, height,body){
 //@inicia as variaveis iniciais das cordenadas paralelas e instancia o svg
 //@width  largura do svg
 //@height altura do svg
-function init(width, height,body){
+function init(width, height,body,aluno,dados){
+        matricula_selecionada = aluno;
+	dados_competencia = dados;
 	m = [10, 10, 10, 10],
 	w = width - m[1] - m[3],  //calcula a largura das colunas
         h = height - m[0] - m[2];  //calcula a altura das colunas
 
         x = d3.scale.ordinal().rangePoints([0, w], 1);	
+
 	buildSvg(width, height,body);
+
 }
 
 //@ smin = valor minimo da escala da coluna
@@ -55,8 +61,9 @@ function init(width, height,body){
 //OBS. para nao processar a coluna especificada colocar o caractere '#' no inicio do nome do campo
 function executa(data_file, smin,smax,col){
 	colunas = col;
-	d3.csv(data_file, function(data) {
+	d3.csv(data_file, function(data) { //TODO encontrar uma forma de tirar isso
 	campos = 0;
+	  
 	  // Extract the list of dimensions and create a scale for each.
 	  x.domain(dimensions = d3.keys(data[0]).filter(function(d) {
 		campos +=1;

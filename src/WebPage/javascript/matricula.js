@@ -21,7 +21,7 @@ function loadData(){
         $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
 
-    d3.csv("dados/competencia3.csv", function(data){
+    d3.csv("dados/aluno.csv", function(data){
         dados_competencia = data;        
     });
 }
@@ -303,4 +303,13 @@ function showBar(selection){
 
 function getDesempenho(selection){
     aluno = selection.options[selection.selectedIndex].value;
+    console.log(aluno);
+    init(1200, 600,"#infos",aluno,dados_competencia);
+    executa("dados/alunos.csv", 0,10,4);
+    console.info("imprime");
+
+
+
+
+
 }
