@@ -9,9 +9,10 @@ svg {
   shape-rendering: crispEdges;
 }
 
-.foreground path {
+.foreground path { 
   fill: none;
   stroke: steelblue;
+  stroke-width: 7px;
   stroke-opacity: .7;
 }
 
