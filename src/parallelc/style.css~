@@ -22,13 +22,6 @@ svg {
   stroke-width: 1px;
 }
 
-path.fade:hover {
-  stroke:orange;
-  stroke-opacity: 1;
-  stroke-width: 17px;
-  font-size: 20px;
-}
-
 .brush .extent {
   fill-opacity: .3;
   stroke: #fff;

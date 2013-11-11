@@ -119,7 +119,7 @@ function executa(data_file, smin,smax,col){
 	    
 	    svg.classed("active", false);
 	    projection.classed("inactive", false);
-	    return tooltip.style("visibility", "hidden");
+	    return tooltip.style("visibility", "visible");
 	  }
 
 	  function moveToFront() {
