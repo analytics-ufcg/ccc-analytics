@@ -16,6 +16,12 @@ svg {
   stroke-opacity: .7;
 }
 
+.foreground path.inactive {
+  stroke: #ccc;
+  stroke-opacity: .5;
+  stroke-width: 1px;
+}
+
 .brush .extent {
   fill-opacity: .3;
   stroke: #fff;
