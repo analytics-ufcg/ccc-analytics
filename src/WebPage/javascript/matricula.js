@@ -2,6 +2,8 @@ var aluno = "";
 var dados_notas = [];
 var dados_competencia = [];
 var duration = 1000;
+var dados_desemp = [];
+
 
 function loadData(){
     d3.csv("dados/matriculas.csv" , function (data){    
@@ -21,9 +23,14 @@ function loadData(){
         $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
 
-    d3.csv("dados/aluno.csv", function(data){
+    d3.csv("dados/competencia3.csv", function(data){
         dados_competencia = data;        
     });
+
+    d3.csv("dados/alunos.csv",function(data){
+        dados_desemp = data;
+    });
+
 }
 
 
@@ -302,14 +309,12 @@ function showBar(selection){
 }
 
 function getDesempenho(selection){
-    aluno = selection.options[selection.selectedIndex].value;
-    console.log(aluno);
-    init(1200, 600,"#infos",aluno,dados_competencia);
-    executa("dados/alunos.csv", 0,10,4);
-    console.info("imprime");
+    id_aluno = selection.options[selection.selectedIndex].value;
+    init(1200, 600,"#infos");
+    var data_fil = dados_desemp.filter(function(d){return d.matricula == id_aluno});
+    console.log(data_fil);
+    executa(data_fil, 0,10,4);
 
-
-
-
+   
 
 }

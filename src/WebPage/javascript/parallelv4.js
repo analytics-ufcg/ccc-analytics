@@ -42,10 +42,8 @@ function buildSvg(width, height,body){
 //@inicia as variaveis iniciais das cordenadas paralelas e instancia o svg
 //@width  largura do svg
 //@height altura do svg
-function init(width, height,body,aluno,dados){
-        matricula_selecionada = aluno;
-	dados_competencia = dados;
-	m = [10, 10, 10, 10],
+function init(width, height,body){
+    m = [10, 10, 10, 10],
 	w = width - m[1] - m[3],  //calcula a largura das colunas
         h = height - m[0] - m[2];  //calcula a altura das colunas
 
@@ -60,10 +58,23 @@ function init(width, height,body,aluno,dados){
 //@ col = numero de colunas a ser plotado
 //OBS. para nao processar a coluna especificada colocar o caractere '#' no inicio do nome do campo
 function executa(data_file, smin,smax,col){
+	console.log(data_file);
 	colunas = col;
+	campos = 0;
+
+	x.domain(dimensions = d3.keys(data_file[0]).filter(function(d){
+		campos += 1;
+		if(campos <= colunas){
+			return d[0] != "1" && (y[d]= d3.scale.linear().domain([smin,smax]).range([h,0]));
+		}
+	}));
+	console.log(2);
+
+	/*
 	d3.csv(data_file, function(data) { //TODO encontrar uma forma de tirar isso
 	campos = 0;
-	  
+	 
+
 	  // Extract the list of dimensions and create a scale for each.
 	  x.domain(dimensions = d3.keys(data[0]).filter(function(d) {
 		campos +=1;
@@ -78,13 +89,13 @@ function executa(data_file, smin,smax,col){
 		}
 	  }));
 	
-	
+	*/
 
 	  // pinta as linhas estrangeiras de cinza
 	  background = svg.append("svg:g")
 	      .attr("class", "background")
 	    .selectAll("path")
-	      .data(data)
+	      .data(data_file)
 	    .enter().append("svg:path")
 	      .attr("d", path);
 	      
@@ -93,7 +104,7 @@ function executa(data_file, smin,smax,col){
 	  foreground = svg.append("svg:g")
 	      .attr("class", "foreground")
 	    .selectAll("path")
-	      .data(data)
+	      .data(data_file)
 	    .enter().append("svg:path")
 	      .attr("d", path);
 
@@ -135,7 +146,7 @@ function executa(data_file, smin,smax,col){
 	    this.parentNode.appendChild(this);
 	  }
 
-	});
+
 }
 
 
