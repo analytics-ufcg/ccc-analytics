@@ -9,6 +9,7 @@ function loadData(){
         var mat = data.map(function(d){return d.matricula;});
         var mycompetencia = d3.selectAll("#mycompetencia");
         var mydesempenho = d3.selectAll("#mydesempenho");
+		var myranking = d3.selectAll("#myranking");
         mycompetencia.selectAll("option").data(mat).enter().append("option")
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
@@ -17,6 +18,10 @@ function loadData(){
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
         .text(function(d){return d;}); // texto da matricula no combobox do desempenho
+		myranking.selectAll("option").data(mat).enter().append("option")
+        .attr("value",function(d){return d;})
+        .attr("label",function(d){return d;})
+        .text(function(d){return d;}); // texto da matricula no combobox do ranking
 
         $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
@@ -26,6 +31,10 @@ function loadData(){
     });
 
     d3.csv("dados/alunos.csv",function(data){
+        dados_desemp_aluno = data;
+    });
+	
+	d3.csv("dados/ranking.csv",function(data){
         dados_desemp_aluno = data;
     });
 
@@ -40,7 +49,7 @@ function showcompetencia(){
     $("#id_competencia").show();
 }
 
-/*Funcao para mostrar a div de desempenho*/
+/*Funcao para mostrar a div de desempenho do aluno*/
 function showdesempenho(){
     $("#infos").empty();
     $("#id_competencia").hide();
@@ -49,6 +58,7 @@ function showdesempenho(){
     $("#id_desempenho").show();
 }
 
+/*Funcao para mostrar a div de desempenho da disciplina*/
 function showdesempenhoDisc(){
     $("#infos").empty();
     $("#id_competencia").hide();
@@ -57,6 +67,7 @@ function showdesempenhoDisc(){
     $("id_desempenho_disciplina").show();   
 }
 
+/*Funcao para mostrar a div do ranking*/
 function showranking(){
     $("#infos").empty();
     $("#id_competencia").hide();
