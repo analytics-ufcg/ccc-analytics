@@ -1,4 +1,3 @@
-var aluno = "";
 var duration = 1000;
 
 
@@ -35,9 +34,8 @@ function plot_bar_disciplina(nome){
         .attr("text-anchor", "center")
         .attr("font-weight", "bold")
         .text(nome);
-        
-    plot_alunos(svg, val_disc, "blue",line_disc[0], line_disc[1],h1);
 
+    plot_alunos(svg, val_disc, "blue",line_disc[0], line_disc[1],h1);
 }
 
 
@@ -54,12 +52,6 @@ function plot_ranges(svg, dados, y0){
             .tickValues([parseFloat(valor1),parseFloat(valor2)])
             .ticks(6);
     
-        //adiciona as notas nos extremos
-        /*svg.append("g")
-          .attr("class", "x axis")
-          .attr("transform", "translate(0," + (y0+12) + ")")
-          .transition().duration(duration).delay(500)
-          .call(xAxis);*/
         
         // Adiciona o texto "Min"
         svg.append("text")
@@ -120,7 +112,6 @@ function plot_bars(svg, dados,y0){
           .range([120, 750]);
     
     addLine(svg,x1(dados[0].x),x1(dados[1].x),y0,y0,"#E0E0E0");
-    //addLine(svg,x_inicial, x_final ,y0,y0, cor);    
 }
 
 
@@ -131,27 +122,7 @@ function convert(nota,min,max){
 function plot_alunos(svg, dados, cor, min, max, y0){
 
     var inf = dados.filter(function(d){return d.matricula == aluno});
-    
-    //var div = svg.append("div");
-    //function mousemove(nota) { 
-    //    div 
-    //      .text(nota) 
-    //      .style("left", 50 + "px") 
-    //     .style("top", 50 + "px"); 
-    //} 
-    //
-    // Funcao que faz o tolltip sumir 
-    //function mouseout() { 
-    //  div.transition() 
-    //     .duration(500) 
-    //     .style("opacity", 1e-6); 
-    //} 
-    //function mouseover() { 
-    //    div.transition() 
-    //           .duration(100) 
-    //       .style("opacity", 1); 
-    //}
-	
+
 	function mousemove(nota) { 
         svg.append("text")
         .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
@@ -195,7 +166,7 @@ function plot_alunos(svg, dados, cor, min, max, y0){
     
 
     var g = svg.append("g");
-    console.log(dados.length); // Quantidade de notas
+
 
 
     // Adiciona as linhas correspondente as notas de cada aluno
@@ -211,6 +182,7 @@ function plot_alunos(svg, dados, cor, min, max, y0){
                     .style("stroke","#0000a1") // Cor da linha
                     .attr("stroke-width",5)    // Largura da linha
                     .attr("text",function(d){return d.matricula;});
+
     g.selectAll("line").on("mouseout", function(d){mouseout(d.media);}) 
                        .on("mousemove", function(d){mousemove(d.media);})
                        .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
@@ -232,6 +204,7 @@ function plot_alunos(svg, dados, cor, min, max, y0){
                        .on("mouseout", function(d){mouseout(d.media);}) 
                     .on("mousemove", function(d){mousemove(d.media);})
                     .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
+
 
 }
 

@@ -2,7 +2,7 @@
 var dados_notas = [];
 var dados_competencia = [];
 var dados_desemp_aluno = [];
-
+var aluno = "";
 function loadData(){
     d3.csv("dados/matriculas.csv" , function (data){    
         dados_notas = data;        
@@ -94,14 +94,13 @@ function getDesempenho(selection){
     var id_aluno = selection.options[selection.selectedIndex].value;
     init(1200, 600,"#infos");
     var data_fil = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno});
-    console.log(data_fil);
-    console.log("2");
     executa(data_fil, 0,10,4);
 }
 
 /*Funcao para mostrar a competencia de um aluno selecionado*/
 function getCompetencia(selection){
     var id_aluno = selection.options[selection.selectedIndex].value;
+    aluno = id_aluno;
     var disciplinas_pagas = getDisciplinas(id_aluno);
     $("#infos").empty();
     $('#mydisciplinas').empty();
