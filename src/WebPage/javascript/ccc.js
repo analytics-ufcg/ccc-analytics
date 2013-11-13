@@ -2,6 +2,7 @@
 var dados_notas = [];
 var dados_competencia = [];
 var dados_desemp_aluno = [];
+var dados_ranking = [];
 var aluno = "";
 function loadData(){
     d3.csv("dados/matriculas.csv" , function (data){    
@@ -46,7 +47,7 @@ function loadData(){
     });
 	
 	d3.csv("dados/ranking.csv",function(data){
-        dados_desemp_aluno = data;
+        dados_ranking = data;
     });
 
 }
@@ -117,13 +118,6 @@ function getDesempDisc(selection){
     var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc });
     console.log(dados_disc);
 }
-
-/*Funcao para mostrar a competencia de um aluno selecionado*/
-function getRanking(selection){
-    var id_aluno = selection.options[selection.selectedIndex].value;
-    $("#infos").empty();
-}
-
 
 /*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
 function getDisciplinas(id_aluno){

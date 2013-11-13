@@ -1,47 +1,61 @@
-/*Funcao para mostrar a competencia de um aluno selecionado*/
-function getRankingNew(selection){
-    var selected = selection.options[selection.selectedIndex].value;
-	$("#infos").empty();  
-	plot_bar_ranking(selected);
+var duration = 1000;
+
+
+//funcao para plotar a barra de acordo com o que foi selecionado
+function getRanking(selection){
+    var id_aluno = selection.options[selection.selectedIndex].value;
+    $("#infos").empty();
+    console.log("selecionou um aluno "+id_aluno);
+    plot_bar_disciplina_ranking(id_aluno);
+    console.log("fim do getRanking");
 }
 
-function plot_bar_ranking(aluno){
-
+function plot_bar_disciplina_ranking(nome){
+    console.log("inicio do plot_bar_disciplina_ranking");
     var h1 = 60;
     var margin = {top: 30, right: 120, bottom: 40, left: 60},
             width = 950 - margin.left - margin.right,
             height = 600 - margin.top - margin.bottom;
     d3.select("#infos").select("svg").remove();
     var svg = d3.select("#infos");
-
+    
     svg = d3.select("#infos").append("svg")
         .attr("width", 800)
         .attr("height", 600);
 
-    var val_disc = dados_competencia.filter(function(d){ return d.maticula == aluno});
-    var line_disc =  [{'x' : d3.min(val_disc,function(d){return parseFloat(d.posicao);}) , 'y' : h1},
-                         {'x':(d3.max(val_disc,function(d){return parseFloat(d.posicao);})), 'y' : h1}];
+    var periodo_aluno = nome.substring(1,4);
     
+    console.log("periodo do aluno "+periodo_aluno);
+    
+    var val_disc = dados_ranking.filter(function(d){ return d.periodo == periodo_aluno});
+    var line_disc =  [{'x' : d3.min(val_disc,function(d){return parseFloat(d.media);}) , 'y' : h1},
+                         {'x':(d3.max(val_disc,function(d){return parseFloat(d.media);})), 'y' : h1}];
+    console.log(val_disc);
+    console.log("------------");
+    console.log(line_disc);
     plot_ranges_ranking(svg, line_disc, h1);
     plot_bars_ranking(svg, line_disc, h1);
     
-	// Imprime o nome da disciplina escolhida
-    svg.append("text")
+    // Imprime o nome da disciplina escolhida
+    /*svg.append("text")
         .attr("y", h1-50)
         .attr("x", 0)
         .attr("text-anchor", "center")
         .attr("font-weight", "bold")
         .text(nome);
-        
+    colocar o periodo do aluno
+    */ 
     plot_alunos_ranking(svg, val_disc, "blue",line_disc[0], line_disc[1],h1);
 }
 
 
-
-
 function plot_ranges_ranking(svg, dados, y0){
+    console.log("entrou em plot_ranges_ranking");
     var valor1 = String(dados[0].x).replace(/\,/g,'');
     var valor2 = String(dados[1].x).replace(/\,/g,'');
+    
+    console.log("valor1 " + valor1);
+    console.log("valor2 " + valor2);
     var x1 = d3.scale.linear()
           .domain([parseFloat(valor1), parseFloat(valor2)])
           .range([120, 750]);    
@@ -51,13 +65,14 @@ function plot_ranges_ranking(svg, dados, y0){
             .orient("bottom")
             .tickValues([parseFloat(valor1),parseFloat(valor2)])
             .ticks(6);
-      
+    
+        
         // Adiciona o texto "Min"
         svg.append("text")
             .attr("x", x1(dados[0].x) - 40) // X de onde o texto vai aparecer
             .attr("y", (y0 + 7 ))           // Y de onde o texto vai aparecer
             .text("Min");
-        // Adiciona a nota minima
+        //adiciona a nota minima
         svg.append("text")
             .attr("x",x1(dados[0].x) - 40)
             .attr("y",(y0 + 17))
@@ -66,14 +81,14 @@ function plot_ranges_ranking(svg, dados, y0){
         // Adiciona o texto "Max"
         svg.append("text")
             .attr("x", x1(dados[1].x) + 10) // X de onde o texto vai aparecer
-            .attr("y", (y0 + 7))            // Y de onde o texto vai aparecer	
+            .attr("y", (y0 + 7))            // Y de onde o texto vai aparecer   
             .text("Max");    
-        // Adiciona a nota maxima
+        //adiciona a nota minima
         svg.append("text")
             .attr("x",x1(dados[1].x) + 10)
             .attr("y",(y0 + 17))
             .text(valor2);
-
+    console.log("saiu de plot_ranges_rankings");
 }
 
 /* Funcao para plotar uma barrinha*/
@@ -111,90 +126,69 @@ function plot_bars_ranking(svg, dados,y0){
           .range([120, 750]);
     
     addLine_ranking(svg,x1(dados[0].x),x1(dados[1].x),y0,y0,"#E0E0E0");
-    //addLine_ranking(svg,x_inicial, x_final ,y0,y0, cor);    
 }
 
 
-function convert_ranking(posicao,min,max){
-    return (((posicao- min)/(posicao-min))*(750-120)) + 120;
+function convert(nota,min,max){
+    return (((nota- min)/(max-min))*(750-120)) + 120;
 }
 
 function plot_alunos_ranking(svg, dados, cor, min, max, y0){
 
     var inf = dados.filter(function(d){return d.matricula == aluno});
-    
-    //var div = svg.append("div");
-    //function mousemove(nota) { 
-    //    div 
-    //      .text(nota) 
-    //      .style("left", 50 + "px") 
-    //     .style("top", 50 + "px"); 
-    //} 
-    //
-    // Funcao que faz o tolltip sumir 
-    //function mouseout() { 
-    //  div.transition() 
-    //     .duration(500) 
-    //     .style("opacity", 1e-6); 
-    //} 
-    //function mouseover() { 
-    //    div.transition() 
-    //           .duration(100) 
-    //       .style("opacity", 1); 
-    //}
-	
-	function mousemove(posicao) { 
+
+    function mousemove(nota) { 
         svg.append("text")
-        .attr("x", function(d){ return convert_ranking(posicao,min.x,max.x) ;})
+        .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
         .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-		.style("fill","black")
-        .text(posicao);
+        .style("fill","black")
+        .text(nota);
     } 
     
     // Funcao que faz o tolltip sumir 
-    function mouseout(posicao) { 
+    function mouseout(nota) { 
       svg.append("text")
-        .attr("x", function(d){ return convert_ranking(posicao,min.x,max.x) ;})
+        .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
         .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-		.style("fill","white")
-		.style("stroke","white")
-		.style("stroke-width",2)
+        .style("fill","white")
+        .style("stroke","white")
+        .style("stroke-width",2)
         .text(nota);
     } 
     
     // Adiciona o texto da competencia 
     svg.append("text")
-        .attr("x", function(d){ return convert_ranking(inf[0].posicao,min.x,max.x) - 15;})
+        .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 15;})
         .attr("y",(y0 - 20)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Competência: " + comp_aluno(inf[0].competencia));
+        .text("Ranking: "+ d.posicao);
     
     // Adiciona o texto da nota do aluno selecionado 
     svg.append("text")
-        .attr("x", function(d){ return convert_ranking(inf[0].posicao,min.x,max.x) ;})
+        .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) ;})
         .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text(inf[0].posicao);
+        .text(inf[0].media);
 
 
     
 
     var g = svg.append("g");
-    console.log(dados.length); // Quantidade de notas
+
 
 
     // Adiciona as linhas correspondente as notas de cada aluno
     g.selectAll("line").data(dados)
                     .enter()
                     .append("line")
-                    .attr("x1", function(d){ return convert_ranking(d.posicao,min.x,max.x);}) // Angulacao superior da linha 
-                    .attr("x2", function(d){ return convert_ranking(d.posicao,min.x,max.x);}) // Angulacao inferior da linha
+                    .attr("x1", function(d){ return convert(d.media,min.x,max.x);}) // Angulacao superior da linha 
+                    .attr("x2", function(d){ return convert(d.media,min.x,max.x);}) // Angulacao inferior da linha
                     .attr("y1",y0-12) // Altura superior da linha
                     .attr("y2",y0+12) // Altura inferior da linha
                     .attr("class","linha_aluno")
@@ -202,15 +196,16 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
                     .style("stroke","#0000a1") // Cor da linha
                     .attr("stroke-width",5)    // Largura da linha
                     .attr("text",function(d){return d.matricula;});
-    g.selectAll("line").on("mouseout", function(d){mouseout(d.posicao);}) 
-                       .on("mousemove", function(d){mousemove(d.posicao);})
-                       .on("click", function(d) {console.log(d.matricula + "  " + d.posicao);});
+
+    g.selectAll("line").on("mouseout", function(d){mouseout(d.media);}) 
+                       .on("mousemove", function(d){mousemove(d.media);})
+                       .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
 
 
-    // Adiciona a linha correspondente a posicao do aluno escolhido
+    // Adiciona a linha correspondente a media do aluno escolhido
     svg.append("line")
-            .attr("x1", function(d){ return convert_ranking(inf[0].posicao,min.x,max.x);}) // X inicial da linha
-            .attr("x2", function(d){ return convert_ranking(inf[0].posicao,min.x,max.x);}) // X final da linha 
+            .attr("x1", function(d){ return convert(inf[0].media,min.x,max.x);}) // X inicial da linha
+            .attr("x2", function(d){ return convert(inf[0].media,min.x,max.x);}) // X final da linha 
             .attr("y1",y0-12) // Y inicial da linha
             .attr("y2",y0+12) // Y final da linha
             .attr("class","linha_aluno")
@@ -220,8 +215,9 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
             .attr("text",function(d){return d.matricula;});
     
     svg.selectAll("line").on("mouseover", function(d){mouseover();}) 
-                       .on("mouseout", function(d){mouseout(d.posicao);}) 
-                    .on("mousemove", function(d){mousemove(d.posicao);})
-                    .on("click", function(d) {console.log(d.matricula + "  " + d.posicao);});
+                       .on("mouseout", function(d){mouseout(d.media);}) 
+                    .on("mousemove", function(d){mousemove(d.media);})
+                    .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
+
 
 }

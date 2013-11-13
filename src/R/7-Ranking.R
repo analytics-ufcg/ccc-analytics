@@ -4,7 +4,7 @@ d = read.table("../../data/competencia3.csv",sep = " ", header=T)
 d$contador = 1 
 
 # Agregando os dados e calculando a média
-t <- ddply(d, c("matricula"), summarise, media = sum(media)/sum(contador))
+t <- ddply(d, c("matricula"), summarise, media = round(sum(media)/sum(contador), digits = 2))
 t$periodo<-(substr(t$matricula, 2, 4))
 t$posicao = -1
 
