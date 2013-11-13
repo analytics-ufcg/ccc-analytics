@@ -14,7 +14,8 @@
 
   <script type="text/javascript" src="javascript/d3.v3.js"></script>
   <script type="text/javascript" src="javascript/bootstrap.js"></script>
-  <script type="text/javascript" src="javascript/matricula.js"></script>
+  <script type="text/javascript" src="javascript/ccc.js"></script>
+  <script type="text/javascript" src="javascript/barras.js"></script>
   <script type="text/javascript" src="javascript/parallelv4.js"></script>
   
   <script type="text/javascript" src="javascript/bootstrap-select.js"></script>
@@ -37,7 +38,24 @@
     <div class="nav-collapse"> 
     <ul class="nav nav-tabs">
       <li><a href="#" id="botao_competencia" class="big-link" onClick= "showcompetencia();"  data-reveal-id="id_competencia">Competência</a></li>
-      <li><a href="#" id="botao_desempenho" class="big-link" onClick= "showdesempenho();"  data-reveal-id="id_desempenho">Desempenho</a></li>
+      <!-- inicio dropdow de Desempenho-->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Desempenho<span class="caret"></span></a>
+        <ul class="dropdown-menu"  style="text-align:left;">
+          <li>
+            <a href="#" id="botao_desempenho" class="big-link" onClick= "showdesempenho();"  data-reveal-id="id_desempenho">
+              Aluno
+            </a>
+          </li>
+          <li>
+            <a href="#" id="botao_desempenho_disciplina" class="big-link" onClick= "showdesempenhoDisc()"  data-reveal-id="id_desempenho_disciplina">
+              Disciplina
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- fim dropdow de Desempenho-->
+      <li><a href="#" id="botao_ranking" class="big-link" onClick="showranking();" data-reveal-id="id_ranking">Ranking</a></li>
     </ul>
     </div> <!-- nav-collapse-->
   </div> <!-- nav-inner -->
@@ -56,6 +74,19 @@
       <select id="mydesempenho" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getDesempenho(this)">
       </select> 
   </div>
+  <div id="id_desempenho_disciplina" class="plot-info" style="display:none">
+      <text size="14px">Selecione uma Disciplina:</text> 
+      <select id="mydesempenho" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getDesempenho(this)">
+      </select> 
+  </div>
+  <div id="id_ranking" class="plot-info" style="display:none">
+      <text size="14px">Selecione uma matrícula:</text> 
+      <select id="myrank" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getRanking(this)">
+      </select> 
+  </div>
+
+  
+  
   <div id="infos" class="plot-info2" style="text-align:left; font-size : 14px;">
   </div>
 </body>

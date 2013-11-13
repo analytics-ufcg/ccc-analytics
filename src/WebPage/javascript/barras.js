@@ -1,48 +1,12 @@
 var aluno = "";
-var dados_notas = [];
-var dados_competencia = [];
 var duration = 1000;
-var dados_desemp = [];
 
 
-function loadData(){
-    d3.csv("dados/matriculas.csv" , function (data){    
-        dados_notas = data;        
-        var mat = data.map(function(d){return d.matricula;});
-        var mycompetencia = d3.selectAll("#mycompetencia");
-        var mydesempenho = d3.selectAll("#mydesempenho");
-        mycompetencia.selectAll("option").data(mat).enter().append("option")
-        .attr("value",function(d){return d;})
-        .attr("label",function(d){return d;})
-        .text(function(d){return d;}); // texto da matricula no combobox da competencia
-        mydesempenho.selectAll("option").data(mat).enter().append("option")
-        .attr("value",function(d){return d;})
-        .attr("label",function(d){return d;})
-        .text(function(d){return d;}); // texto da matricula no combobox do desempenho
-
-        $('.selectpicker').selectpicker({'selectedText': 'cat'});
-    });
-
-    d3.csv("dados/competencia3.csv", function(data){
-        dados_competencia = data;        
-    });
-
-    d3.csv("dados/alunos.csv",function(data){
-        dados_desemp = data;
-    });
-
+//funcao para plotar a barra de acordo com o que foi selecionado
+function showBar(selection){
+    var selected = selection.options[selection.selectedIndex].value;
+    plot_bar_disciplina(selected);
 }
-
-
-
-/*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
-function getDisciplinas(id_aluno){
-    var disc_aluno = dados_competencia.filter(function(d){return d.matricula == id_aluno});
-     var json1 = $.map(disc_aluno, function (r) {
-            return r["disciplina"];});
-    return json1;
-}
-
 
 function plot_bar_disciplina(nome){
 
@@ -90,23 +54,34 @@ function plot_ranges(svg, dados, y0){
             .tickValues([parseFloat(valor1),parseFloat(valor2)])
             .ticks(6);
     
-        svg.append("g")
+        //adiciona as notas nos extremos
+        /*svg.append("g")
           .attr("class", "x axis")
           .attr("transform", "translate(0," + (y0+12) + ")")
           .transition().duration(duration).delay(500)
-          .call(xAxis);
+          .call(xAxis);*/
         
         // Adiciona o texto "Min"
         svg.append("text")
-            .attr("x", x1(dados[0].x) - 80) // X de onde o texto vai aparecer
+            .attr("x", x1(dados[0].x) - 40) // X de onde o texto vai aparecer
             .attr("y", (y0 + 7 ))           // Y de onde o texto vai aparecer
             .text("Min");
+        //adiciona a nota minima
+        svg.append("text")
+            .attr("x",x1(dados[0].x) - 40)
+            .attr("y",(y0 + 17))
+            .text(valor1);
 
         // Adiciona o texto "Max"
         svg.append("text")
             .attr("x", x1(dados[1].x) + 10) // X de onde o texto vai aparecer
             .attr("y", (y0 + 7))            // Y de onde o texto vai aparecer	
             .text("Max");    
+        //adiciona a nota minima
+        svg.append("text")
+            .attr("x",x1(dados[1].x) + 10)
+            .attr("y",(y0 + 17))
+            .text(valor2);
 
 }
 
@@ -269,52 +244,6 @@ function comp_aluno(valor){
     }
 }
 
-/*Funcao para mostrar a div de competencia*/
-function showcompetencia(){
-
-    $("#infos").empty();
-    $("#id_desempenho").hide();
-    $("#id_competencia").show();
-}
-
-/*Funcao para mostrar a div de desempenho*/
-function showdesempenho(){
-    $("#infos").empty();
-    $("#id_competencia").hide();
-    $("#id_desempenho").show();
-}
 
 
-/*Funcao que seleciona um aluno*/
-function getCompetencia(selection){
-    aluno = selection.options[selection.selectedIndex].value;
-    var disciplinas_pagas = getDisciplinas(aluno);
 
-    aluno = selection.options[selection.selectedIndex].value;
-    var disciplinas_pagas = getDisciplinas(aluno);
-    $('#mydisciplinas').empty();
-    $.each(disciplinas_pagas,function(d){
-    var newOption = $('<option>');
-    newOption.attr('value',disciplinas_pagas[d]).text(disciplinas_pagas[d]);
-     $('#mydisciplinas').append(newOption);    
-    });
-    //plot_bar_disciplina(disciplinas_pagas);
-
-}
-
-function showBar(selection){
-    var n_disciplina = selection.options[selection.selectedIndex].value;
-    console.log(n_disciplina); // Nome da disciplina
-    plot_bar_disciplina(n_disciplina);
-}
-
-function getDesempenho(selection){
-    id_aluno = selection.options[selection.selectedIndex].value;
-    init(1200, 600,"#infos");
-    var data_fil = dados_desemp.filter(function(d){return d.matricula == id_aluno});
-    console.log(data_fil);
-    executa(data_fil, 0,10,4);
-
-   
-
-}
