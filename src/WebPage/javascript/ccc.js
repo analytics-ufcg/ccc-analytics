@@ -27,6 +27,17 @@ function loadData(){
 
     d3.csv("dados/alunos.csv",function(data){
         dados_desemp_aluno = data;
+        function sortComparer(a,b){
+            return a.localeCompare(b);
+        };
+        var materias = dados_desemp_aluno.map(function(d){return d.disciplina;}).unique().sort(sortComparer);
+        var mydiscdesempenho = d3.select("#mydiscdesempenho");
+        mydiscdesempenho.selectAll("option").data(materias[0]).enter().append("option")
+        .attr("value",function(d){return d;})
+        .attr("label",function(d){ console.log(d); return d; })
+        .text(function(d){return d;});
+
+        $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
 
 }
@@ -36,7 +47,7 @@ function showcompetencia(){
     $("#infos").empty();
     $("#id_desempenho").hide();
     $("#id_ranking").hide();
-    $("id_desempenho_disciplina").hide();
+    $("#id_disciplina_desempenho").hide();
     $("#id_competencia").show();
 }
 
@@ -45,7 +56,7 @@ function showdesempenho(){
     $("#infos").empty();
     $("#id_competencia").hide();
     $("#id_ranking").hide();
-    $("id_desempenho_disciplina").hide();
+    $("#id_disciplina_desempenho").hide();
     $("#id_desempenho").show();
 }
 
@@ -54,33 +65,34 @@ function showdesempenhoDisc(){
     $("#id_competencia").hide();
     $("#id_ranking").hide();
     $("#id_desempenho").hide();
-    $("id_desempenho_disciplina").show();   
+    $("#id_disciplina_desempenho").show();  
+    console.log("ooo") 
 }
 
 function showranking(){
     $("#infos").empty();
     $("#id_competencia").hide();
     $("#id_desempenho").hide();
-    $("id_desempenho_disciplina").hide();
+    $("#id_disciplina_desempenho").hide();
     $("#id_ranking").show();
 }
 
 
 /*Funcao para mostrar o Desempenho de um aluno selecionado*/
 function getDesempenho(selection){
-    id_aluno = selection.options[selection.selectedIndex].value;
+    var id_aluno = selection.options[selection.selectedIndex].value;
     init(1200, 600,"#infos");
-    var data_fil = dados_desemp.filter(function(d){return d.matricula == id_aluno});
+    var data_fil = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno});
+    console.log(data_fil);
+    console.log("2");
     executa(data_fil, 0,10,4);
 }
 
 /*Funcao para mostrar a competencia de um aluno selecionado*/
 function getCompetencia(selection){
-    aluno = selection.options[selection.selectedIndex].value;
-    var disciplinas_pagas = getDisciplinas(aluno);
+    var id_aluno = selection.options[selection.selectedIndex].value;
+    var disciplinas_pagas = getDisciplinas(id_aluno);
     $("#infos").empty();
-    aluno = selection.options[selection.selectedIndex].value;
-    var disciplinas_pagas = getDisciplinas(aluno);
     $('#mydisciplinas').empty();
     $.each(disciplinas_pagas,function(d){
     var newOption = $('<option>');
@@ -89,9 +101,16 @@ function getCompetencia(selection){
     });
 }
 
+/*Funcao para mostrar o Desempenho de uma disciplina selecionada*/
+function getDesempDisc(selection){
+    var id_disc = selection.options[selection.selectedIndex].value;
+    var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc });
+    console.log(dados_disc);
+}
+
 /*Funcao para mostrar a competencia de um aluno selecionado*/
 function getRanking(selection){
-    id_aluno = selection.options[selection.selectedIndex].value;
+    var id_aluno = selection.options[selection.selectedIndex].value;
     $("#infos").empty();
 }
 
