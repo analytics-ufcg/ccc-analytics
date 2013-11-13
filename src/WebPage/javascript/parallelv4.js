@@ -58,7 +58,7 @@ function init(width, height,body){
 //@ col = numero de colunas a ser plotado
 //OBS. para nao processar a coluna especificada colocar o caractere '#' no inicio do nome do campo
 function executa(data_file, smin,smax,col){
-	console.log("3");
+	console.log(data_file);
 	colunas = col;
 	campos = 0;
 
@@ -68,7 +68,6 @@ function executa(data_file, smin,smax,col){
 			return d[0] != "1" && (y[d]= d3.scale.linear().domain([smin,smax]).range([h,0]));
 		}
 	}));
-	console.log("4");
 
 	/*
 	d3.csv(data_file, function(data) { //TODO encontrar uma forma de tirar isso

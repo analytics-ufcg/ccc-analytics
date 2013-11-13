@@ -31,8 +31,9 @@ function loadData(){
         dados_competencia = data;        
     });
 
-    d3.csv("dados/alunos.csv",function(data){
+    d3.csv("dados/arquivo_notas_disciplinas.csv",function(data){
         dados_desemp_aluno = data;
+        console.log(dados_desemp_aluno)
         function sortComparer(a,b){
             return a.localeCompare(b);
         };
@@ -94,7 +95,8 @@ function showranking(){
 function getDesempenho(selection){
     var id_aluno = selection.options[selection.selectedIndex].value;
     init(1200, 600,"#infos");
-    var data_fil = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno});
+    console.log(id_aluno)
+    var data_fil = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
     executa(data_fil, 0,10,4);
 }
 
@@ -115,8 +117,8 @@ function getCompetencia(selection){
 /*Funcao para mostrar o Desempenho de uma disciplina selecionada*/
 function getDesempDisc(selection){
     var id_disc = selection.options[selection.selectedIndex].value;
-    var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc });
-    console.log(dados_disc);
+   // var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc });
+    //console.log(dados_disc);
 }
 
 /*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
