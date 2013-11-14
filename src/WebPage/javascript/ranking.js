@@ -12,7 +12,6 @@ function getRanking(selection){
 }
 
 function plot_bar_disciplina_ranking(nome){
-    console.log("inicio do plot_bar_disciplina_ranking");
     var h1 = 60;
     var margin = {top: 30, right: 120, bottom: 40, left: 60},
             width = 950 - margin.left - margin.right,
@@ -25,8 +24,6 @@ function plot_bar_disciplina_ranking(nome){
         .attr("height", 600);
 
     var periodo_aluno = nome.substring(1,4);
-    
-    console.log("periodo do aluno "+periodo_aluno);
     
     var val_per = dados_ranking.filter(function(d){ return d.periodo == periodo_aluno});
     var line_per =  [{'x' : d3.min(val_per,function(d){return parseFloat(d.media);}) , 'y' : h1},
@@ -142,63 +139,58 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
     var inf = dados.filter(function(d) {return d.matricula == aluno});
     
     
-    function mousemove(nota) { 
+    function mousemove(nota, matricula) { 
         svg.append("text")
         .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
-        .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
+        .attr("y",(y0 +34)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
-        .attr("font-weight", "bold")
+        //.attr("font-weight", "bold")
+        .attr("id", "texto_nota_matricula")
         .style("fill","black")
-        .text(nota);
+        .text(matricula + ": " + nota);
     } 
-    console.log("depois 1");
-    console.log(dados);
-    
+
     // Funcao que faz o tolltip sumir 
-    function mouseout(nota) { 
+    function mouseout(nota, matricula) {
+        //var paths = svg.getElementsByID("texto_nota_matricula");
+        //var last_path = paths[paths.length - 1];
+        //last_path.parentNode.removeChild(last_path); 
+
+        //svg.selec  selectAll("texto_nota_matricula").text("00000000000000000000000");
+        //element = document.getElementById("texto_nota_matricula");
+        //svg.removeChild(element);
+        //svg.removeChild(svg.lastChild);
+        //$("#texto_nota_matricula").text("");
       svg.append("text")
         .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
-        .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
+        .attr("y",(y0 +34)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .style("fill","white")
         .style("stroke","white")
         .style("stroke-width",2)
-        .text(nota);
+        .text(matricula + ": " + nota);
+        
     } 
-    console.log("depois 2");
-    console.log(dados);
-    console.log(inf[0].media);
-    // Adiciona o texto da competencia 
+
+    // Adiciona o texto do ranking
     svg.append("text")
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 15;})
         .attr("y",(y0 - 20)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text("Ranking: " + inf[0].posicao + "º colocado");
-    
-    console.log("depois 3");
-    console.log(dados);
 
     
     // Adiciona o texto da nota do aluno selecionado 
     svg.append("text")
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) ;})
-        .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
+        .attr("y",(y0 +25)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text(inf[0].media);
 
-    console.log("depois 4");
-    console.log(dados);
-    
-    
-
     var g = svg.append("g");
-
-    console.log("depois 5");
-    console.log(dados);
-    
 
     // Adiciona as linhas correspondente as notas de cada aluno
     g.selectAll("line").data(dados)
@@ -214,8 +206,8 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
                     .attr("stroke-width",5)    // Largura da linha
                     .attr("text",function(d){return d.matricula;});
 
-    g.selectAll("line").on("mouseout", function(d){mouseout(d.media);}) 
-                       .on("mousemove", function(d){mousemove(d.media);})
+    g.selectAll("line").on("mouseout", function(d){mouseout(d.media, d.matricula);}) 
+                       .on("mousemove", function(d){mousemove(d.media, d.matricula);})
                        .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
 
 
@@ -232,8 +224,8 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
             .attr("text",function(d){return d.matricula;});
     
     svg.selectAll("line").on("mouseover", function(d){mouseover();}) 
-                       .on("mouseout", function(d){mouseout(d.media);}) 
-                    .on("mousemove", function(d){mousemove(d.media);})
+                       .on("mouseout", function(d){mouseout(d.media, d.matricula);}) 
+                    .on("mousemove", function(d){mousemove(d.media, d.matricula);})
                     .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
 
 
