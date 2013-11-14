@@ -29,27 +29,54 @@ function plot_bar_disciplina_ranking(nome){
     var line_per =  [{'x' : d3.min(val_per,function(d){return parseFloat(d.media);}) , 'y' : h1},
                          {'x':(d3.max(val_per,function(d){return parseFloat(d.media);})), 'y' : h1}];
 
-    console.log(val_per);
-    plot_ranges_ranking(svg, line_per, h1);
-    plot_bars_ranking(svg, line_per, h1);
-    
-    // Imprime a matricula escolhido
-    svg.append("text")
-        .attr("y", h1-50)
-        .attr("x", 50)
-        .attr("text-anchor", "center")
-        .attr("font-weight", "bold")
-        .text("Aluno: "+ nome);
-
-    // Imprime o periodo do aluno escolhido
-    svg.append("text")
-        .attr("y", h1-40)
-        .attr("x", 50)
-        .attr("text-anchor", "center")
-        .attr("font-weight", "bold")
-        .text("Período: 20" + periodo_aluno.substring(0,2) + "\." + periodo_aluno.substring(2,3));
+    console.log(val_per.length);
+    if (val_per.length<2) {
+        // Imprime mensagem
+        svg.append("text")
+            .attr("y", h1-30)
+            .attr("x", 550)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Este é o único aluno do período 20" + periodo_aluno.substring(0,2) + "\." + periodo_aluno.substring(2,3));
+    }else{
+        plot_ranges_ranking(svg, line_per, h1);
+        plot_bars_ranking(svg, line_per, h1);
         
-    plot_alunos_ranking(svg, val_per, "blue",line_per[0], line_per[1],h1);
+        // Imprime a matricula escolhido
+        svg.append("text")
+            .attr("y", h1-50)
+            .attr("x", 20)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Aluno: ");
+        svg.append("text")
+            .attr("y", h1-50)
+            .attr("x", 75)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            //.attr("font-weight", "bold")
+            .text(nome);
+
+        // Imprime o periodo do aluno escolhido
+        svg.append("text")
+            .attr("y", h1-38)
+            .attr("x", 20)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Período:");
+        svg.append("text")
+            .attr("y", h1-38)
+            .attr("x", 75)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            //.attr("font-weight", "bold")
+            .text("20" + periodo_aluno.substring(0,2) + "\." + periodo_aluno.substring(2,3));
+            
+        plot_alunos_ranking(svg, val_per, "blue",line_per[0], line_per[1],h1);
+    };
 }
 
 
@@ -178,8 +205,9 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 15;})
         .attr("y",(y0 - 20)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
-        .attr("font-weight", "bold")
-        .text("Ranking: " + inf[0].posicao + "º colocado");
+        //.attr("font-weight", "bold")
+        .attr("font-size", "12px")
+        .text(inf[0].posicao + "º colocado");
 
     
     // Adiciona o texto da nota do aluno selecionado 
