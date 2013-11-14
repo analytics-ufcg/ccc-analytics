@@ -4,6 +4,7 @@ var duration = 1000;
 //funcao para plotar a barra de acordo com o que foi selecionado
 function getRanking(selection){
     var id_aluno = selection.options[selection.selectedIndex].value;
+    aluno = id_aluno;
     $("#infos").empty();
     console.log("selecionou um aluno "+id_aluno);
     plot_bar_disciplina_ranking(id_aluno);
@@ -27,30 +28,35 @@ function plot_bar_disciplina_ranking(nome){
     
     console.log("periodo do aluno "+periodo_aluno);
     
-    var val_disc = dados_ranking.filter(function(d){ return d.periodo == periodo_aluno});
-    var line_disc =  [{'x' : d3.min(val_disc,function(d){return parseFloat(d.media);}) , 'y' : h1},
-                         {'x':(d3.max(val_disc,function(d){return parseFloat(d.media);})), 'y' : h1}];
-    console.log(val_disc);
-    console.log("------------");
-    console.log(line_disc);
-    plot_ranges_ranking(svg, line_disc, h1);
-    plot_bars_ranking(svg, line_disc, h1);
+    var val_per = dados_ranking.filter(function(d){ return d.periodo == periodo_aluno});
+    var line_per =  [{'x' : d3.min(val_per,function(d){return parseFloat(d.media);}) , 'y' : h1},
+                         {'x':(d3.max(val_per,function(d){return parseFloat(d.media);})), 'y' : h1}];
+
+    console.log(val_per);
+    plot_ranges_ranking(svg, line_per, h1);
+    plot_bars_ranking(svg, line_per, h1);
     
-    // Imprime o nome da disciplina escolhida
-    /*svg.append("text")
+    // Imprime a matricula escolhido
+    svg.append("text")
         .attr("y", h1-50)
-        .attr("x", 0)
+        .attr("x", 50)
         .attr("text-anchor", "center")
         .attr("font-weight", "bold")
-        .text(nome);
-    colocar o periodo do aluno
-    */ 
-    plot_alunos_ranking(svg, val_disc, "blue",line_disc[0], line_disc[1],h1);
+        .text("Aluno: "+ nome);
+
+    // Imprime o periodo do aluno escolhido
+    svg.append("text")
+        .attr("y", h1-40)
+        .attr("x", 50)
+        .attr("text-anchor", "center")
+        .attr("font-weight", "bold")
+        .text("Período: 20" + periodo_aluno.substring(0,2) + "\." + periodo_aluno.substring(2,3));
+        
+    plot_alunos_ranking(svg, val_per, "blue",line_per[0], line_per[1],h1);
 }
 
 
 function plot_ranges_ranking(svg, dados, y0){
-    console.log("entrou em plot_ranges_ranking");
     var valor1 = String(dados[0].x).replace(/\,/g,'');
     var valor2 = String(dados[1].x).replace(/\,/g,'');
     
@@ -69,26 +75,25 @@ function plot_ranges_ranking(svg, dados, y0){
         
         // Adiciona o texto "Min"
         svg.append("text")
-            .attr("x", x1(dados[0].x) - 40) // X de onde o texto vai aparecer
-            .attr("y", (y0 + 7 ))           // Y de onde o texto vai aparecer
+            .attr("x", x1(dados[0].x) - 30) // X de onde o texto vai aparecer
+            .attr("y", (y0 -2))           // Y de onde o texto vai aparecer
             .text("Min");
         //adiciona a nota minima
         svg.append("text")
-            .attr("x",x1(dados[0].x) - 40)
-            .attr("y",(y0 + 17))
+            .attr("x",x1(dados[0].x) - 30)
+            .attr("y",(y0 + 8))
             .text(valor1);
 
         // Adiciona o texto "Max"
         svg.append("text")
             .attr("x", x1(dados[1].x) + 10) // X de onde o texto vai aparecer
-            .attr("y", (y0 + 7))            // Y de onde o texto vai aparecer   
+            .attr("y", (y0 -2))            // Y de onde o texto vai aparecer   
             .text("Max");    
         //adiciona a nota minima
         svg.append("text")
             .attr("x",x1(dados[1].x) + 10)
-            .attr("y",(y0 + 17))
+            .attr("y",(y0 + 8))
             .text(valor2);
-    console.log("saiu de plot_ranges_rankings");
 }
 
 /* Funcao para plotar uma barrinha*/
@@ -134,9 +139,9 @@ function convert(nota,min,max){
 }
 
 function plot_alunos_ranking(svg, dados, cor, min, max, y0){
-
-    var inf = dados.filter(function(d){return d.matricula == aluno});
-
+    var inf = dados.filter(function(d) {return d.matricula == aluno});
+    
+    
     function mousemove(nota) { 
         svg.append("text")
         .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
@@ -146,6 +151,8 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .style("fill","black")
         .text(nota);
     } 
+    console.log("depois 1");
+    console.log(dados);
     
     // Funcao que faz o tolltip sumir 
     function mouseout(nota) { 
@@ -159,14 +166,20 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .style("stroke-width",2)
         .text(nota);
     } 
-    
+    console.log("depois 2");
+    console.log(dados);
+    console.log(inf[0].media);
     // Adiciona o texto da competencia 
     svg.append("text")
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 15;})
         .attr("y",(y0 - 20)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text("Ranking: "+ d.posicao);
+        .text("Ranking: " + inf[0].posicao + "º colocado");
+    
+    console.log("depois 3");
+    console.log(dados);
+
     
     // Adiciona o texto da nota do aluno selecionado 
     svg.append("text")
@@ -176,12 +189,16 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .attr("font-weight", "bold")
         .text(inf[0].media);
 
-
+    console.log("depois 4");
+    console.log(dados);
+    
     
 
     var g = svg.append("g");
 
-
+    console.log("depois 5");
+    console.log(dados);
+    
 
     // Adiciona as linhas correspondente as notas de cada aluno
     g.selectAll("line").data(dados)

@@ -38,7 +38,7 @@ function loadData(){
         my_disciplinadesempenho.selectAll("option").data(materias).enter().append("option")
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d; })
-        .text(function(d){console.log(d); return d;});
+        .text(function(d){return d;});
 
         $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
@@ -82,8 +82,7 @@ function showdesempenhoDisc(){
     $("#id_ranking").hide();
     $("#id_desempenho").hide();
     $("#id_disciplina").show();  
-    console.log("ooo") 
-}
+ }
 
 /*Funcao para mostrar a div do ranking*/
 function showranking(){
@@ -99,7 +98,6 @@ function showranking(){
 function getDesempenho(selection){
     var id_aluno = selection.options[selection.selectedIndex].value;
     init(1200, 600,"#infos");
-    console.log(id_aluno)
     var data_fil = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
     executa(data_fil, 0,10,4);
 }
@@ -121,10 +119,8 @@ function getCompetencia(selection){
 /*Funcao para mostrar o Desempenho de uma disciplina selecionada*/
 function getDesempDisc(selection){
     var id_disc = selection.options[selection.selectedIndex].value;
-    console.log(id_disc);
     var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc;});
     init(1200,600,"#infos");
-    console.log(dados_disc);
     //executa(dados_disc,0,10,4);
 }
 
