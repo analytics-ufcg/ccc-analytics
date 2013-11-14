@@ -1,10 +1,10 @@
-var m ,//
+var margin = {top: 0, right: 40, bottom: 20, left: 200},
     w, //calcula a largura das colunas
     h; //calcula a altura das colunas
     colunas = 3; //numero de colunas a serem plotados
     campos = 0; // para contar o numero de campos, isso evita de ficar declarando a variavel em toda funcao
 
-var x,
+var x,t
     y = {},
     dragging = {};
 
@@ -19,6 +19,7 @@ var tooltip;
 var matricula_selecionada;
 var dados_competencia;
 var projection;
+var data;
 
 
 //@width  largura do svg
@@ -29,7 +30,8 @@ function buildSvg(width, height,body){
 	svg = d3.select(body);
 	svg = d3.select(body).append("svg")
 		.attr("width", width)
-		.attr("height", height);
+		.attr("height", height)
+                .attr("transform", "translate(" + margin.bottom + "," + margin.top + ")");
 
 	tooltip = d3.select(body)
 		.append("div")	//TODO ver isso depois
@@ -44,9 +46,9 @@ function buildSvg(width, height,body){
 //@width  largura do svg
 //@height altura do svg
 function init(width, height,body){
-    m = [10, 10, 10, 10],
-	w = width - m[1] - m[3],  //calcula a largura das colunas
-        h = height - m[0] - m[2];  //calcula a altura das colunas
+	
+   	 w = width - margin.left - margin.right;
+    	 h = height - margin.top - margin.bottom;
 
         x = d3.scale.ordinal().rangePoints([0, w], 1);	
 
@@ -59,10 +61,11 @@ function init(width, height,body){
 //@ col = numero de colunas a ser plotado
 //OBS. para nao processar a coluna especificada colocar o caractere '#' no inicio do nome do campo
 function executa(data_file, smin,smax,col){
-	console.log(data_file);
+	//console.log("arquivo = "+data_file);
 	colunas = col;
 	campos = 0;
-
+	data = data_file;
+        
 	x.domain(dimensions = d3.keys(data_file[0]).filter(function(d){
 		campos += 1;
 		if(campos <= colunas){
@@ -184,7 +187,7 @@ function showAxis(g){
       .attr("class", "axis")
       .each(function(d) { 
 		campos += 1;
-		console.info(campos);			
+		//console.info(campos);			
 		
 		//limita o numero de colunas a ser plotado
 		if (campos <= colunas)
@@ -194,8 +197,8 @@ function showAxis(g){
     .append("svg:text")
       .attr("class", "title")
       .attr("text-anchor", "middle")
-      .attr("y", -9)
-      .text(String);
+      .attr("y", -12)
+      .text(function(d) { return d.name; });
 
   // Add and store a brush for each axis.
   //executa a quantidade de campos a serem plotados
@@ -215,13 +218,28 @@ function showAxis(g){
 
 //------------------------------Funcoes utilitarias-----------------------
 
-function dragstart(d) {}
-function drag(d) {}
-function dragend(d) {}
+ function dragstart(d) {}
+ function drag(d) {}
+ function dragend(d) {}
 
-function moveToFront() {
-	    this.parentNode.appendChild(this);
+ function moveToFront() {
+     this.parentNode.appendChild(this);
  }
+
+ //esta funcao e responsavel por descobrir qual variavel foi filtrada
+ function variableFixed(d){
+
+        //console.info(d);
+	//var teste = d3.keys(data[0]);
+	//var teste2 = d3.items(data[0]);
+	
+	//console.info(d3.keys(data[0]));
+        //teste.map(function(p){ console.info("p ="+p+"valor = "+d[p]);});
+ }
+
+ 
+ 
+
 
 //----------------------------  Eventos -------------------------
 
@@ -236,16 +254,24 @@ function moveToFront() {
   function mouseout(d) {
     
     tooltip.style("visibility", "hidden");
-    console.info("mouseout");
     svg.classed("active", false);
     projection.classed("inactive", false);
+   
+    
    
   }
 
   function mousemove(d){
-        tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+17)+"px").style({color: 'black'});			  
+        tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+17)+"px").style({color: 'black'});
+        //dimensions.map(function(p){ console.info("valor = "+d[p]);});			  
+        //dimensions.map(function(p){ tooltip.text(d[p]+"-"+d.disciplina);});
 	tooltip.text(d.disciplina);
+	//tooltip.text("Matricula :"+d.matricula+"    Disciplina : "+d.disciplina);
+        //tooltip.style("top", "140px").style("left","70px").style({color: 'black'});
         tooltip.style("visibility", "visible");
+	//console.info("passou mouse");
+        //variableFixed(d);
+        
   }
 
 

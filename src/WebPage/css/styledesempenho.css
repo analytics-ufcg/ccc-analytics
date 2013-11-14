@@ -30,20 +30,34 @@ svg {
   shape-rendering: crispEdges;
 }
 
-.axis line, .axis path {
+.axis .title {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.axis line,
+.axis path {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
 
-.axis .title {
-  font-size: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
+.label {
+  -webkit-transition: fill 125ms linear;
 }
 
-.axis text {
-  text-shadow: 0 1px 0 #fff;
-  cursor: move;
+.active .label:not(.inactive) {
+  font-weight: bold;
+}
+
+.label.inactive {
+  fill: #ccc;
+}
+
+.foreground path.inactive {
+  stroke: #ccc;
+  stroke-opacity: .5;
+  stroke-width: 1px;
 }
 
