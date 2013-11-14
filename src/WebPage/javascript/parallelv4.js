@@ -18,6 +18,7 @@ var svg;
 var tooltip;
 var matricula_selecionada;
 var dados_competencia;
+var projection;
 
 
 //@width  largura do svg
@@ -97,7 +98,8 @@ function executa(data_file, smin,smax,col){
 	      .data(data_file)
 	    .enter().append("svg:path")
 	      .attr("d", path);
-	      
+	     
+
 
 	  // pinta as linhas que estao focadas de azul
 	  foreground = svg.append("svg:g")
@@ -106,6 +108,8 @@ function executa(data_file, smin,smax,col){
 	      .data(data_file)
 	    .enter().append("svg:path")
 	      .attr("d", path);
+	      
+	      
 
 	  // Add a group element for each dimension.
 	  campos = 0;
@@ -118,32 +122,14 @@ function executa(data_file, smin,smax,col){
 	      .on("dragstart", dragstart)
 	      .on("drag", drag)
 	      .on("dragend", dragend);
-//	      .origin(function(d) { return {x: x(d)}; });
 	      
                showAxis(g);
 	 
-         var projection = svg.selectAll(".background path,.foreground path")
+         projection = svg.selectAll(".background path,.foreground path")
              .on("mouseover", mouseover)
-             .on("mouseout", mouseout);
-
-	  function mouseover(d) {
-	    
-	    svg.classed("active", true);
-	    projection.classed("inactive", function(p) { return p !== d; });
-	    projection.filter(function(p) { return p === d; }).each(moveToFront);
-	   
-	  }
-
-	  function mouseout(d) {	   
-	    
-	    svg.classed("active", false);
-	    projection.classed("inactive", false);
-	   
-	  }
-
-	  function moveToFront() {
-	    this.parentNode.appendChild(this);
-	  }
+             .on("mouseout", mouseout)
+	     .on("mousemove",mousemove);
+	  
 
 
 }
@@ -227,14 +213,40 @@ function showAxis(g){
       .attr("width", 16);
 }
 
-//-------------------para permitir mover as colunas colocar isso-----------------------
+//------------------------------Funcoes utilitarias-----------------------
 
 function dragstart(d) {}
 function drag(d) {}
 function dragend(d) {}
 
+function moveToFront() {
+	    this.parentNode.appendChild(this);
+ }
 
+//----------------------------  Eventos -------------------------
 
+  function mouseover(d) {
+	  
+    svg.classed("active", true);
+    projection.classed("inactive", function(p) { return p !== d; });
+    projection.filter(function(p) { return p === d; }).each(moveToFront);
+   
+  }
+
+  function mouseout(d) {
+    
+    tooltip.style("visibility", "hidden");
+    console.info("mouseout");
+    svg.classed("active", false);
+    projection.classed("inactive", false);
+   
+  }
+
+  function mousemove(d){
+        tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+17)+"px").style({color: 'black'});			  
+	tooltip.text(d.disciplina);
+        tooltip.style("visibility", "visible");
+  }
 
 
 
