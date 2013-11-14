@@ -24,7 +24,6 @@ function loadData(){
         .attr("label",function(d){return d;})
         .text(function(d){return d;}); // texto da matricula no combobox do ranking
 
-        $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
 
     d3.csv("dados/competencia3.csv", function(data){
@@ -121,7 +120,7 @@ function getDesempDisc(selection){
     var id_disc = selection.options[selection.selectedIndex].value;
     var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc;});
     init(1200,600,"#infos");
-    //executa(dados_disc,0,10,4);
+    executa(dados_disc,0,10,4);
 }
 
 /*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
