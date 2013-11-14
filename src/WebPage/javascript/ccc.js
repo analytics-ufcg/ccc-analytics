@@ -33,16 +33,12 @@ function loadData(){
 
     d3.csv("dados/arquivo_notas_disciplinas.csv",function(data){
         dados_desemp_aluno = data;
-        console.log(dados_desemp_aluno)
-        function sortComparer(a,b){
-            return a.localeCompare(b);
-        };
-        var materias = dados_desemp_aluno.map(function(d){return d.disciplina;}).unique().sort(sortComparer);
-        var mydiscdesempenho = d3.select("#mydiscdesempenho");
-        mydiscdesempenho.selectAll("option").data(materias[0]).enter().append("option")
+        var materias = dados_desemp_aluno.map(function(d){return d.disciplina;}).unique();
+        var my_disciplinadesempenho = d3.select("#my_disciplinadesempenho");
+        my_disciplinadesempenho.selectAll("option").data(materias).enter().append("option")
         .attr("value",function(d){return d;})
-        .attr("label",function(d){ console.log(d); return d; })
-        .text(function(d){return d;});
+        .attr("label",function(d){return d; })
+        .text(function(d){console.log(d); return d;});
 
         $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
@@ -53,12 +49,20 @@ function loadData(){
 
 }
 
+/*Funcao unique */
+Array.prototype.unique = function() {
+    var o = {}, i, l = this.length, r = [];
+    for(i=0; i<l;i+=1) o[this[i]] = this[i];
+    for(i in o) r.push(o[i]);
+    return r;
+};
+
 /*Funcao para mostrar a div de competencia*/
 function showcompetencia(){
     $("#infos").empty();
     $("#id_desempenho").hide();
     $("#id_ranking").hide();
-    $("#id_disciplina_desempenho").hide();
+    $("#id_disciplina").hide();
     $("#id_competencia").show();
 }
 
@@ -67,7 +71,7 @@ function showdesempenho(){
     $("#infos").empty();
     $("#id_competencia").hide();
     $("#id_ranking").hide();
-    $("#id_disciplina_desempenho").hide();
+    $("#id_disciplina").hide();
     $("#id_desempenho").show();
 }
 
@@ -77,7 +81,7 @@ function showdesempenhoDisc(){
     $("#id_competencia").hide();
     $("#id_ranking").hide();
     $("#id_desempenho").hide();
-    $("#id_disciplina_desempenho").show();  
+    $("#id_disciplina").show();  
     console.log("ooo") 
 }
 
@@ -86,7 +90,7 @@ function showranking(){
     $("#infos").empty();
     $("#id_competencia").hide();
     $("#id_desempenho").hide();
-    $("#id_disciplina_desempenho").hide();
+    $("#id_disciplina").hide();
     $("#id_ranking").show();
 }
 
@@ -117,8 +121,11 @@ function getCompetencia(selection){
 /*Funcao para mostrar o Desempenho de uma disciplina selecionada*/
 function getDesempDisc(selection){
     var id_disc = selection.options[selection.selectedIndex].value;
-   // var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc });
-    //console.log(dados_disc);
+    console.log(id_disc);
+    var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc;});
+    init(1200,600,"#infos");
+    console.log(dados_disc);
+    //executa(dados_disc,0,10,4);
 }
 
 /*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
