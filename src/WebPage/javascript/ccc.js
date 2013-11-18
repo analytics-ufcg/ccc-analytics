@@ -120,7 +120,7 @@ function getDesempDisc(selection){
     var id_disc = selection.options[selection.selectedIndex].value;
     var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc;});
     init(1200,600,"#infos");
-    executa(dados_disc,0,10,4);
+    executa2(dados_disc,0,10,4,id_disc);
 }
 
 /*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/

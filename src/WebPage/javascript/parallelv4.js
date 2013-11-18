@@ -20,6 +20,7 @@ var matricula_selecionada;
 var dados_competencia;
 var projection;
 var data;
+var porDisciplina;
 
 
 //@width  largura do svg
@@ -46,7 +47,7 @@ function buildSvg(width, height,body){
 //@width  largura do svg
 //@height altura do svg
 function init(width, height,body){
-	
+	porDisciplina = false;
    	 w = width - margin.left - margin.right;
     	 h = height - margin.top - margin.bottom;
 
@@ -56,6 +57,18 @@ function init(width, height,body){
 
 }
 
+
+//@ smin = valor minimo da escala da coluna
+//@ smax = valor maximo da escala da coluna
+//@ col = numero de colunas a ser plotado
+//@ d  = disciplina selecionada 
+//OBS. para nao processar a coluna especificada colocar o caractere '#' no inicio do nome do campo
+//TODO o java script nao aceita sobrecarga
+function executa2(data_file, smin,smax,col,d){
+	porDisciplina = true;
+	disciplina = d;
+        executa(data_file, smin,smax,col);
+}
 //@ smin = valor minimo da escala da coluna
 //@ smax = valor maximo da escala da coluna
 //@ col = numero de colunas a ser plotado
@@ -263,14 +276,12 @@ function showAxis(g){
 
   function mousemove(d){
         tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+17)+"px").style({color: 'black'});
-        //dimensions.map(function(p){ console.info("valor = "+d[p]);});			  
-        //dimensions.map(function(p){ tooltip.text(d[p]+"-"+d.disciplina);});
-	tooltip.text(d.disciplina);
-	//tooltip.text("Matricula :"+d.matricula+"    Disciplina : "+d.disciplina);
-        //tooltip.style("top", "140px").style("left","70px").style({color: 'black'});
+	console.info(porDisciplina);
+	if (porDisciplina == true)
+		tooltip.text(d.matricula);
+	else
+	    tooltip.text(d.disciplina);
         tooltip.style("visibility", "visible");
-	//console.info("passou mouse");
-        //variableFixed(d);
         
   }
 
