@@ -17,4 +17,4 @@ gravarArquivo <- function(dados, destino){
 }
 
 # Salvando o arquivo das competencias
-gravarArquivo(a <- na.omit(repetentes), "../../data/repetentes.csv")
+gravarArquivo(a <- na.omit(repetentes), "../../data/repetencia.csv")

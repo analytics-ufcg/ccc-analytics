@@ -23,6 +23,10 @@ function loadData(){
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
         .text(function(d){return d;}); // texto da matricula no combobox do ranking
+        myrepetencia.selectAll("option").data(mat).enter().append("option")
+        .attr("value",function(d){return d;})
+        .attr("label",function(d){return d;})
+        .text(function(d){return d;}); // texto da matricula no combobox do ranking
 
     });
 
@@ -46,6 +50,10 @@ function loadData(){
         dados_ranking = data;
     });
 
+    d3.csv("dados/repetencia.csv",function(data){
+        dados_repetencia = data;
+    });
+
 }
 
 /*Funcao unique */
@@ -62,6 +70,7 @@ function showcompetencia(){
     $("#id_desempenho").hide();
     $("#id_ranking").hide();
     $("#id_disciplina").hide();
+    $("#id_repetencia").hide();
     $("#id_competencia").show();
 }
 
@@ -71,6 +80,7 @@ function showdesempenho(){
     $("#id_competencia").hide();
     $("#id_ranking").hide();
     $("#id_disciplina").hide();
+    $("#id_repetencia").hide();
     $("#id_desempenho").show();
 }
 
@@ -80,6 +90,7 @@ function showdesempenhoDisc(){
     $("#id_competencia").hide();
     $("#id_ranking").hide();
     $("#id_desempenho").hide();
+    $("#id_repetencia").hide();
     $("#id_disciplina").show();  
  }
 
@@ -89,8 +100,19 @@ function showranking(){
     $("#id_competencia").hide();
     $("#id_desempenho").hide();
     $("#id_disciplina").hide();
+    $("#id_repetencia").hide();
     $("#id_ranking").show();
 }
+
+/*Funcao para mostrar a div do ranking*/
+function showrepetencia(){
+    $("#infos").empty();
+    $("#id_competencia").hide();
+    $("#id_desempenho").hide();
+    $("#id_disciplina").hide();
+    $("#id_ranking").hide();
+    $("#id_repetencia").show();
+ }
 
 
 /*Funcao para mostrar o Desempenho de um aluno selecionado*/
