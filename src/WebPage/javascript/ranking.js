@@ -84,8 +84,6 @@ function plot_ranges_ranking(svg, dados, y0){
     var valor1 = String(dados[0].x).replace(/\,/g,'');
     var valor2 = String(dados[1].x).replace(/\,/g,'');
     
-    console.log("valor1 " + valor1);
-    console.log("valor2 " + valor2);
     var x1 = d3.scale.linear()
           .domain([parseFloat(valor1), parseFloat(valor2)])
           .range([120, 750]);    
@@ -171,23 +169,12 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
         .attr("y",(y0 +34)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
-        //.attr("font-weight", "bold")
-        .attr("id", "texto_nota_matricula")
         .style("fill","black")
         .text(matricula + ": " + nota);
     } 
 
     // Funcao que faz o tolltip sumir 
     function mouseout(nota, matricula) {
-        //var paths = svg.getElementsByID("texto_nota_matricula");
-        //var last_path = paths[paths.length - 1];
-        //last_path.parentNode.removeChild(last_path); 
-
-        //svg.selec  selectAll("texto_nota_matricula").text("00000000000000000000000");
-        //element = document.getElementById("texto_nota_matricula");
-        //svg.removeChild(element);
-        //svg.removeChild(svg.lastChild);
-        //$("#texto_nota_matricula").text("");
       svg.append("text")
         .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
         .attr("y",(y0 +34)) // Altura de onde o texto vai aparecer
@@ -197,7 +184,6 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .style("stroke","white")
         .style("stroke-width",2)
         .text(matricula + ": " + nota);
-        
     } 
 
     // Adiciona o texto do ranking
@@ -205,15 +191,13 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 15;})
         .attr("y",(y0 - 20)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
-        //.attr("font-weight", "bold")
         .attr("font-size", "12px")
         .text(inf[0].posicao + "º colocado");
-
     
     // Adiciona o texto da nota do aluno selecionado 
     svg.append("text")
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) ;})
-        .attr("y",(y0 +25)) // Altura de onde o texto vai aparecer
+        .attr("y",(y0 + 25)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text(inf[0].media);

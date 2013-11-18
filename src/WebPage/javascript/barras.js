@@ -42,6 +42,7 @@ function plot_bar_disciplina(nome){
 function plot_ranges(svg, dados, y0){
     var valor1 = String(dados[0].x).replace(/\,/g,'');
     var valor2 = String(dados[1].x).replace(/\,/g,'');
+    
     var x1 = d3.scale.linear()
           .domain([parseFloat(valor1), parseFloat(valor2)])
           .range([120, 750]);    
@@ -55,24 +56,24 @@ function plot_ranges(svg, dados, y0){
         
         // Adiciona o texto "Min"
         svg.append("text")
-            .attr("x", x1(dados[0].x) - 40) // X de onde o texto vai aparecer
-            .attr("y", (y0 + 7 ))           // Y de onde o texto vai aparecer
+            .attr("x", x1(dados[0].x) - 30) // X de onde o texto vai aparecer
+            .attr("y", (y0 -2))           // Y de onde o texto vai aparecer
             .text("Min");
         //adiciona a nota minima
         svg.append("text")
-            .attr("x",x1(dados[0].x) - 40)
-            .attr("y",(y0 + 17))
+            .attr("x",x1(dados[0].x) - 30)
+            .attr("y",(y0 + 8))
             .text(valor1);
 
         // Adiciona o texto "Max"
         svg.append("text")
             .attr("x", x1(dados[1].x) + 10) // X de onde o texto vai aparecer
-            .attr("y", (y0 + 7))            // Y de onde o texto vai aparecer	
+            .attr("y", (y0 - 2))            // Y de onde o texto vai aparecer	
             .text("Max");    
         //adiciona a nota minima
         svg.append("text")
             .attr("x",x1(dados[1].x) + 10)
-            .attr("y",(y0 + 17))
+            .attr("y",(y0 + 8))
             .text(valor2);
 
 }
@@ -126,9 +127,8 @@ function plot_alunos(svg, dados, cor, min, max, y0){
 	function mousemove(nota) { 
         svg.append("text")
         .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
-        .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
+        .attr("y",(y0 +34)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
-        .attr("font-weight", "bold")
 		.style("fill","black")
         .text(nota);
     } 
@@ -137,7 +137,7 @@ function plot_alunos(svg, dados, cor, min, max, y0){
     function mouseout(nota) { 
       svg.append("text")
         .attr("x", function(d){ return convert(nota,min.x,max.x) ;})
-        .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
+        .attr("y",(y0 +34)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
 		.style("fill","white")
@@ -151,23 +151,18 @@ function plot_alunos(svg, dados, cor, min, max, y0){
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 15;})
         .attr("y",(y0 - 20)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
-        .attr("font-weight", "bold")
+        .attr("font-size", "12px")
         .text("Competência: " + comp_aluno(inf[0].competencia));
     
     // Adiciona o texto da nota do aluno selecionado 
     svg.append("text")
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) ;})
-        .attr("y",(y0 +30)) // Altura de onde o texto vai aparecer
+        .attr("y",(y0 + 25)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
         .text(inf[0].media);
 
-
-    
-
     var g = svg.append("g");
-
-
 
     // Adiciona as linhas correspondente as notas de cada aluno
     g.selectAll("line").data(dados)
