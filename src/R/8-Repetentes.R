@@ -12,6 +12,9 @@ parte2 <- d[parte2, ]
 repetentes <- rbind(parte1,parte2)
 repetentes <- repetentes[order(repetentes$matricula),]
 
+
+matriculas <- unique(d$matricula)
+                     
 # Funcao para salvar um data frame
 gravarArquivo <- function(dados, destino){
   write.table(dados, file = destino, col.names = TRUE, row.names=FALSE, fileEncoding = "UTF-8")  
@@ -19,3 +22,4 @@ gravarArquivo <- function(dados, destino){
 
 # Salvando o arquivo das competencias
 gravarArquivo(a <- na.omit(repetentes), "../../data/repetentes2.csv")
+gravarArquivo(a <- na.omit(matriculas), "../../data/matriculasRepetente.csv")
