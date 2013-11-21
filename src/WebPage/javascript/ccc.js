@@ -3,7 +3,9 @@ var dados_notas = [];
 var dados_competencia = [];
 var dados_desemp_aluno = [];
 var dados_ranking = [];
+var data_fil_repetencia = [];
 var aluno = "";
+
 function loadData(){
     d3.csv("dados/matriculas.csv" , function (data){    
         dados_notas = data;        
@@ -23,16 +25,40 @@ function loadData(){
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
         .text(function(d){return d;}); // texto da matricula no combobox do ranking
+    });
+
+    d3.csv("dados/repetencia.csv",function(data){
+        dados_repetencia = data;
+    });
+
+    d3.csv("dados/matriculasRepetente.csv" , function (data){ 
+        // adiciona as matriculas no combobox da repetencia por aluno
+        var mat = data.map(function(d){return d.x;});
+        var myrepetencia = d3.selectAll("#myrepetenciaAluno");
         myrepetencia.selectAll("option").data(mat).enter().append("option")
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
-        .text(function(d){return d;}); // texto da matricula no combobox do ranking
+        .text(function(d){return d;}); 
 
+        // adiciona as disciplinas no combobox da repetencia por disciplina
+        var materias = dados_repetencia.map(function(d){return d.disciplina;}).unique();
+        var mydisciplinasRepetentesDici = d3.select("#mydisciplinasRepetentesDici");
+        mydisciplinasRepetentesDici.selectAll("option").data(materias).enter().append("option")
+        .attr("value",function(d){return d;})
+        .attr("label",function(d){return d; })
+        .text(function(d){return d;}); 
+
+        //$('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
 
     d3.csv("dados/competencia3.csv", function(data){
         dados_competencia = data;        
     });
+
+    d3.csv("dados/ranking.csv",function(data){
+        dados_ranking = data;
+    });
+
 
     d3.csv("dados/arquivo_notas_disciplinas.csv",function(data){
         dados_desemp_aluno = data;
@@ -46,13 +72,7 @@ function loadData(){
         $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
 	
-	d3.csv("dados/ranking.csv",function(data){
-        dados_ranking = data;
-    });
 
-    d3.csv("dados/repetencia.csv",function(data){
-        dados_repetencia = data;
-    });
 
 }
 
@@ -70,7 +90,8 @@ function showcompetencia(){
     $("#id_desempenho").hide();
     $("#id_ranking").hide();
     $("#id_disciplina").hide();
-    $("#id_repetencia").hide();
+    $("#id_repetenciaAluno").hide();
+    $("#id_repetenciaDisci").hide();
     $("#id_competencia").show();
 }
 
@@ -80,7 +101,8 @@ function showdesempenho(){
     $("#id_competencia").hide();
     $("#id_ranking").hide();
     $("#id_disciplina").hide();
-    $("#id_repetencia").hide();
+    $("#id_repetenciaAluno").hide();
+    $("#id_repetenciaDisci").hide();
     $("#id_desempenho").show();
 }
 
@@ -90,7 +112,8 @@ function showdesempenhoDisc(){
     $("#id_competencia").hide();
     $("#id_ranking").hide();
     $("#id_desempenho").hide();
-    $("#id_repetencia").hide();
+    $("#id_repetenciaAluno").hide();
+    $("#id_repetenciaDisci").hide();
     $("#id_disciplina").show();  
  }
 
@@ -100,18 +123,31 @@ function showranking(){
     $("#id_competencia").hide();
     $("#id_desempenho").hide();
     $("#id_disciplina").hide();
-    $("#id_repetencia").hide();
+    $("#id_repetenciaAluno").hide();
+    $("#id_repetenciaDisci").hide();
     $("#id_ranking").show();
 }
 
-/*Funcao para mostrar a div do ranking*/
-function showrepetencia(){
+/*Funcao para mostrar a div da repetencia por aluno*/
+function showrepetenciaAluno(){
     $("#infos").empty();
     $("#id_competencia").hide();
     $("#id_desempenho").hide();
     $("#id_disciplina").hide();
     $("#id_ranking").hide();
-    $("#id_repetencia").show();
+    $("#id_repetenciaDisci").hide();
+    $("#id_repetenciaAluno").show();
+ }
+
+/*Funcao para mostrar a div da repetencia por disciplina*/
+function showrepetenciaDisci(){
+    $("#infos").empty();
+    $("#id_competencia").hide();
+    $("#id_desempenho").hide();
+    $("#id_disciplina").hide();
+    $("#id_ranking").hide();
+    $("#id_repetenciaAluno").hide();
+    $("#id_repetenciaDisci").show();
  }
 
 
@@ -127,7 +163,7 @@ function getDesempenho(selection){
 function getCompetencia(selection){
     var id_aluno = selection.options[selection.selectedIndex].value;
     aluno = id_aluno;
-    var disciplinas_pagas = getDisciplinas(id_aluno);
+    var disciplinas_pagas = getDisciplinasCompetencia(id_aluno);
     $("#infos").empty();
     $('#mydisciplinas').empty();
     $.each(disciplinas_pagas,function(d){
@@ -146,11 +182,49 @@ function getDesempDisc(selection){
 }
 
 /*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
-function getDisciplinas(id_aluno){
+function getDisciplinasCompetencia(id_aluno){
     var disc_aluno = dados_competencia.filter(function(d){return d.matricula == id_aluno});
      var json1 = $.map(disc_aluno, function (r) {
             return r["disciplina"];});
     return json1;
 }
 
+//-------------------------------------REPETENCIA ALUNO----------------------------------------
+
+function getRepetenciaDici(selection){
+    var id_disc = selection.options[selection.selectedIndex].value;
+    var dados_disc = dados_repetencia.filter(function(d){return d.disciplina == id_disc;});
+    init(1200,600,"#infos");
+    executa2(dados_disc,0,10,4,id_disc);
+}
+/*Funcao para mostrar o Desempenho de um aluno selecionado*/
+function getRepetenciaAluno(selection){
+    
+    id_aluno = selection.options[selection.selectedIndex].value;
+    init(1200, 600,"#infos");
+    data_fil_repetencia = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
+    var disciplinas_pagas = data_fil_repetencia.map(function(d){return d.disciplina;}).unique();
+    $('#mydisciplinasRepetentesAluno').empty();
+    $.each(disciplinas_pagas,function(d){
+    var newOption = $('<option>');
+    newOption.attr('value',disciplinas_pagas[d]).text(disciplinas_pagas[d]);
+     $('#mydisciplinasRepetentesAluno').append(newOption);    
+    });
+    
+    executa(data_fil_repetencia, 0,10,4);
+}
+
+/*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
+function getDisciplinasRepetencia(id_aluno){
+    var disc_aluno = dados_repetencia.filter(function(d){return d.matricula == id_aluno});
+    var json1 = $.map(disc_aluno, function (r) {return r["disciplina"];});
+    return json1;
+}
+
+function processaRepetenciaAluno(selection){
+    var disciplina = selection.options[selection.selectedIndex].value;
+    var val_disc = data_fil_repetencia.filter(function(d){ return d.disciplina == disciplina});
+    init(1200, 600,"#infos");
+    executa(val_disc, 0,10,4);
+}
 

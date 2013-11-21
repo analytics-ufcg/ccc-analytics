@@ -1,7 +1,6 @@
 library(plyr)
 
 # Lendo os dados
-d2 = read.table("../../data/competencia3.csv",sep = " ", header=T)
 d = read.table("../../data/arquivo_notas_disciplinas.csv",sep = ",", header=T)
 
 # Selecionando os alunos que cursaram alguma disciplina mais de uma vez
@@ -14,12 +13,12 @@ repetentes <- repetentes[order(repetentes$matricula),]
 
 
 matriculas <- unique(d$matricula)
-                     
+matriculados                     
 # Funcao para salvar um data frame
 gravarArquivo <- function(dados, destino){
   write.table(dados, file = destino, col.names = TRUE, row.names=FALSE, fileEncoding = "UTF-8")  
 }
 
 # Salvando o arquivo das competencias
-gravarArquivo(a <- na.omit(repetentes), "../../data/repetentes2.csv")
+gravarArquivo(a <- na.omit(repetentes), "../../data/repentecia.csv")
 gravarArquivo(a <- na.omit(matriculas), "../../data/matriculasRepetente.csv")
