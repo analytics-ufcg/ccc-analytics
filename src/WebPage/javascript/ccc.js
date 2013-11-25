@@ -5,6 +5,8 @@ var dados_desemp_aluno = [];
 var dados_ranking = [];
 var data_fil_repetencia = [];
 var aluno = "";
+var rep_filtro = false;
+var rep_tipo = "";
 
 function loadData(){
     d3.csv("dados/matriculas.csv" , function (data){    
@@ -195,6 +197,8 @@ function getRepetenciaDici(selection){
     var id_disc = selection.options[selection.selectedIndex].value;
     var dados_disc = dados_repetencia.filter(function(d){return d.disciplina == id_disc;});
     init(1200,600,"#infos");
+    rep_filtro = true;
+    rep_tipo = "matricula";
     executa2(dados_disc,0,10,4,id_disc);
 }
 /*Funcao para mostrar o Desempenho de um aluno selecionado*/
@@ -203,6 +207,8 @@ function getRepetenciaAluno(selection){
     id_aluno = selection.options[selection.selectedIndex].value;
     init(1200, 600,"#infos");
     data_fil_repetencia = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
+    rep_filtro = true;
+    rep_tipo = "disciplina";
     var disciplinas_pagas = data_fil_repetencia.map(function(d){return d.disciplina;}).unique();
     $('#mydisciplinasRepetentesAluno').empty();
     $.each(disciplinas_pagas,function(d){

@@ -259,9 +259,14 @@ function showAxis(g){
   function mouseover(d) {
 	  
     svg.classed("active", true);
-    projection.classed("inactive", function(p) { return p !== d; });
-    projection.filter(function(p) { return p === d; }).each(moveToFront);
-   
+   	if(rep_filtro){
+   		console.log(rep_tipo);
+    	projection.classed("inactive", function(p) { return p[rep_tipo] !== d[rep_tipo]; });
+    	projection.filter(function(p) { return p[rep_tipo] === d[rep_tipo]; }).each(moveToFront);
+   	}else{
+    	projection.classed("inactive", function(p) { return p !== d; });
+    	projection.filter(function(p) { return p === d; }).each(moveToFront);
+   	}
   }
 
   function mouseout(d) {
