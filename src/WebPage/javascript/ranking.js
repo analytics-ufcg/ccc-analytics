@@ -75,6 +75,23 @@ function plot_bar_disciplina_ranking(nome){
             //.attr("font-weight", "bold")
             .text("20" + periodo_aluno.substring(0,2) + "\." + periodo_aluno.substring(2,3));
             
+        // Imprime a quantidade de alunos do periodo escolhido
+        svg.append("text")
+            .attr("y", h1-26)
+            .attr("x", 20)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Turma:");
+        svg.append("text")
+            .attr("y", h1-26)
+            .attr("x", 75)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            //.attr("font-weight", "bold")
+            .text(val_per.length + " alunos");
+            
+
         plot_alunos_ranking(svg, val_per, "blue",line_per[0], line_per[1],h1);
     };
 }
@@ -189,7 +206,7 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
     // Adiciona o texto do ranking
     svg.append("text")
         .attr("x", function(d){ return convert(inf[0].media,min.x,max.x) - 15;})
-        .attr("y",(y0 - 20)) // Altura de onde o texto vai aparecer
+        .attr("y",(y0 - 15)) // Altura de onde o texto vai aparecer
         .attr("text-anchor", "middle")
         .attr("font-size", "12px")
         .text(inf[0].posicao + "º colocado");

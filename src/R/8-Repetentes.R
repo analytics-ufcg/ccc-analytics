@@ -16,7 +16,7 @@ matriculas <- unique(d$matricula)
                      
 # Funcao para salvar um data frame
 gravarArquivo <- function(dados, destino){
-  write.table(dados, file = destino, col.names = TRUE, row.names=FALSE, fileEncoding = "UTF-8")  
+  write.table(dados,sep = ",", file = destino, col.names = TRUE, row.names=FALSE, fileEncoding = "UTF-8")  
 }
 
 # Salvando o arquivo das competencias
