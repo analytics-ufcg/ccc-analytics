@@ -283,9 +283,9 @@ function showAxis(g){
         tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+17)+"px").style({color: 'black'});
 	console.info(porDisciplina);
 	if (porDisciplina == true)
-		tooltip.text(d.matricula);
+		tooltip.text(d.matricula+ " - "+ d.periodo);
 	else
-	    tooltip.text(d.disciplina);
+	    tooltip.text(d.disciplina+ " - "+ d.periodo);
         tooltip.style("visibility", "visible");
         
   }
