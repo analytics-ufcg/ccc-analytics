@@ -281,13 +281,15 @@ function showAxis(g){
 
   function mousemove(d){
         tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+17)+"px").style({color: 'black'});
-	console.info(porDisciplina);
-	if (porDisciplina == true)
+		//var ano = d.periodo.substring(0,4);
+		//var parte = d.periodo.substring(4,);
+		//console.log(ano+parte)
+	if (porDisciplina == true){
 		tooltip.text(d.matricula+ " - "+ d.periodo);
-	else
+	}else{
 	    tooltip.text(d.disciplina+ " - "+ d.periodo);
-        tooltip.style("visibility", "visible");
-        
+    }    
+    tooltip.style("visibility", "visible");
   }
 
 

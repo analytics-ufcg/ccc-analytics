@@ -31,7 +31,6 @@ function loadData(){
 
     d3.csv("dados/repetencia.csv",function(data){
         dados_repetencia = data;
-        console.log(dados_repetencia);
     });
 
     d3.csv("dados/matriculasRepetente.csv" , function (data){ 
@@ -44,6 +43,7 @@ function loadData(){
         .text(function(d){return d;}); 
 
         // adiciona as disciplinas no combobox da repetencia por disciplina
+        console.log(dados_repetencia);
         var materias = dados_repetencia.map(function(d){return d.disciplina;}).unique();
         var mydisciplinasRepetentesDici = d3.select("#mydisciplinasRepetentesDici");
         mydisciplinasRepetentesDici.selectAll("option").data(materias).enter().append("option")
@@ -51,7 +51,6 @@ function loadData(){
         .attr("label",function(d){return d; })
         .text(function(d){return d;}); 
 
-        //$('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
 
     d3.csv("dados/competencia3.csv", function(data){
@@ -63,7 +62,7 @@ function loadData(){
     });
 
 
-    d3.csv("dados/arquivo_notas_disciplinas.csv",function(data){
+    d3.csv("dados/arquivo_notas_disciplinas_.csv",function(data){
         dados_desemp_aluno = data;
         var materias = dados_desemp_aluno.map(function(d){return d.disciplina;}).unique();
         var my_disciplinadesempenho = d3.select("#my_disciplinadesempenho");
