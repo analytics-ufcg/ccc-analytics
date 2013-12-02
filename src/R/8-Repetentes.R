@@ -1,11 +1,11 @@
 library(plyr)
 
 # Lendo os dados
-d = read.table("../../data/notas_normalizadas.csv",sep = ",", header=T)
+d = read.csv("../../data/notas_3_normalizadas.csv",sep = ",", header=T)
 
 # Selecionando os alunos que cursaram alguma disciplina mais de uma vez
-parte1 <- duplicated(d[7:8], fromLast = T)
-parte2 <- duplicated(d[7:8], fromLast = F)
+parte1 <- duplicated(d[8:9], fromLast = T)
+parte2 <- duplicated(d[8:9], fromLast = F)
 parte1 <- d[parte1, ]
 parte2 <- d[parte2, ]
 repetentes <- rbind(parte1,parte2)
