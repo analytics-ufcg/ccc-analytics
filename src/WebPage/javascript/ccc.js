@@ -31,6 +31,7 @@ function loadData(){
 
     d3.csv("dados/repetencia.csv",function(data){
         dados_repetencia = data;
+        console.log(dados_repetencia)
     });
 
     d3.csv("dados/matriculasRepetente.csv" , function (data){ 
