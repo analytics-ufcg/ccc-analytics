@@ -62,7 +62,7 @@ function loadData(){
     });
 
 
-    d3.csv("dados/arquivo_notas_disciplinas_.csv",function(data){
+    d3.csv("dados/arquivo_notas_disciplinas.csv",function(data){
         dados_desemp_aluno = data;
         var materias = dados_desemp_aluno.map(function(d){return d.disciplina;}).unique();
         var my_disciplinadesempenho = d3.select("#my_disciplinadesempenho");
