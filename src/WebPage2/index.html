@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="description">
+	<meta content="" name="author">
+	<title>CCC-Analytics</title>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/justified-nav.css">
+	<script src="javascript/jquery-1.9.1.js" type="text/javascript"></script>
+	<script type="text/javascript" src="javascript/ccc.js"></script>
+
+	</head>
+	<body>
+		<div class="container">
+			<!-- inicio da div masthead -->
+			<div class="masthead">
+				<img class="CCC" src="imgs/header.png">
+				<ul class="nav nav-justified">
+					<li class="active">
+						<a id="bt_inicio" href="#" onClick= "show_inicio();">Início</a>
+					</li>
+					<li>
+						<a id="bt_sobre" href="#" onClick="show_info()">Sobre</a>
+					</li>
+					<li>
+						<a id="bt_cntc"href="#" onClick="show_contato()">Contato</a>
+					</li>
+				</ul>
+			</div>
+			<!-- fim da div masthead -->
+
+			<!-- inicio da div jumbotron -->
+			<div id="div_inicio" class="jumbotron">
+				<!-- ver como colocar uma imagem CCC-Analytics -->
+				
+				<h3> Bem Vindo ao CCC-Analytics!</h3>
+				<p> Qual tipo de avaliação você deseja? </p>
+				<p>
+					<a class="btn btn-primary" id="aval_alunos" role="button" href="/alunos.html">Avaliação por Alunos</a>
+					<a class="btn btn-primary" id="aval_disc" role="button" href="/disciplinas.html">Avaliação por Disciplinas</a>
+				</p>
+
+			</div>
+			<!-- fim da div jumbotron -->
+
+			
+			<!-- inicio da div row -->
+			<div id="div_sobre" class="row" style="display:none">
+				<div class="col-lg-4">
+					<p>O CCC-Analytics foi desenvolvido com o propósito de...</p>
+				</div>
+			</div>
+			<div id="div_contato" class="row" style="display:none">
+				<div class="col-lg-4">
+					<h2>Membros:</h2>
+					<p> Nazareno Andrade (Orientador)</p>
+					<p> Cláudio Cavalcanti (Scrum Master & GURU)</p>
+					<p> Diego Pedro (Desenvolvedor)</p>
+					<p> Iury Gregory (Desenvolvedor)</p>
+					<p> Larissa Costa (Desenvolvedor)</p>
+				</div>
+			</div>
+			<!-- fim da div row -->
+			
+			<!--  inicio da div footer-->
+			<div class="footer">
+				<p align="center"> Projeto FRH/Analytics - UFCG (2013) </p>
+			</div>
+			<!-- fim da div footer -->
+		</div>
+	</body>
+
+</html>
