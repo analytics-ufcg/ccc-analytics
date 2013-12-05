@@ -49,6 +49,8 @@ plot(ds_04, distancia[1:2])
 plot(ds_05, distancia[1:2])
 plot(ds_06, distancia[1:2])
 
+g1 <- subset(validacao, grupo=1)
+
 #png(file="../../plots/4-Agrupamento/dbscan-01.png", 1400, 1400)
 db01 <- plot(distancia[1:2][ds_01$cluster > 0,], col=ds_01$cluster[ds_01$cluster>0])
 db02 <- plot(distancia[1:2][ds_02$cluster > 0,], col=ds_02$cluster[ds_02$cluster>0])
