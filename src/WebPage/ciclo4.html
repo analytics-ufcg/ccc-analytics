@@ -82,20 +82,30 @@
       <select id="mycompetencia" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getCompetencia(this)">
       </select>
       <text size="14px">Selecione uma disciplina:</text>
-      <select id="mydisciplinas" data-size="auto" onchange="showBar(this)">
+      <select id="mydisciplinas"  class="selectpicker show-tick" data-size="auto" onchange="showBar(this)">
       </select>
   </div>
-  <div id="id_desempenho" class="plot-info" style="display:none">
+  <div id="id_desempenho" class="plot-info" style="display:none" align="left">
       <text size="14px">Selecione uma matrícula:</text> 
       <select id="mydesempenho" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getDesempenho(this)">
       </select> 
+      <text size="14px">Selecione um período:</text>
+      <select id="my_desempenhp_periodo"  class="selectpicker show-tick" data-size="auto" onchange="getDesempDiscPorPeriodo(this)">
+        <option value="1">Todos os períodos</option>
+      </select>
   </div>
-  <div id="id_disciplina" class="plot-info" style="display:none">
+  <div id="id_disciplina" class="plot-info" style="display:none" align="left">
       <text size="14px">Selecione uma Disciplina:</text> 
-      <select id="my_disciplinadesempenho" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getDesempDisc(this)">
+      <select id="my_disciplinadesempenho" class="selectpicker show-tick" data-size="auto" data-live-search="true" onchange="getDesempDisc(this)">
       </select> 
+      <text size="14px">Selecione um período:</text>
+      <select name = "selValue" id="my_disciplina_periodo"  class="selectpicker show-tick" data-size="auto" onchange="getDesempDiscPorPeriodo(this)">
+        <option value="1">Todos os períodos</option>
+      </select>
+
+
   </div>
-  <div id="id_ranking" class="plot-info" style="display:none">
+  <div id="id_ranking" class="plot-info" style="display:none" align="left">
       <text size="14px">Selecione uma matrícula:</text> 
       <select id="myranking" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getRanking(this)">
       </select> 
@@ -105,7 +115,7 @@
       <select id="myrepetenciaAluno" class="selectpicker show-tick"  data-size="auto" data-live-search="true" onchange="getRepetenciaAluno(this)">
       </select> 
       <text size="14px">Selecione uma disciplina:</text>
-      <select id="mydisciplinasRepetentesAluno" data-size="auto" onchange="processaRepetenciaAluno(this)">
+      <select id="mydisciplinasRepetentesAluno"  class="selectpicker show-tick"   data-size="auto" onchange="processaRepetenciaAluno(this)">
       </select>
   </div>
   <div id="id_repetenciaDisci" class="plot-info" style="display:none" align="left">

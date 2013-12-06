@@ -7,6 +7,8 @@ var data_fil_repetencia = [];
 var aluno = "";
 var rep_filtro = false;
 var rep_tipo = "";
+var dados_disc = [];
+var id_disci;
 
 function loadData(){
     d3.csv("dados/matriculas.csv" , function (data){    
@@ -31,7 +33,6 @@ function loadData(){
 
     d3.csv("dados/repetencia.csv",function(data){
         dados_repetencia = data;
-        console.log(dados_repetencia)
     });
 
     d3.csv("dados/matriculasRepetente.csv" , function (data){ 
@@ -44,7 +45,6 @@ function loadData(){
         .text(function(d){return d;}); 
 
         // adiciona as disciplinas no combobox da repetencia por disciplina
-        console.log(dados_repetencia);
         var materias = dados_repetencia.map(function(d){return d.disciplina;}).unique();
         var mydisciplinasRepetentesDici = d3.select("#mydisciplinasRepetentesDici");
         mydisciplinasRepetentesDici.selectAll("option").data(materias).enter().append("option")
@@ -65,9 +65,19 @@ function loadData(){
 
     d3.csv("dados/arquivo_notas_disciplinas.csv",function(data){
         dados_desemp_aluno = data;
-        var materias = dados_desemp_aluno.map(function(d){return d.disciplina;}).unique();
+        var materias = dados_desemp_aluno.map(function(d){return d.disciplina;}).unique().sort();
         var my_disciplinadesempenho = d3.select("#my_disciplinadesempenho");
         my_disciplinadesempenho.selectAll("option").data(materias).enter().append("option")
+        .attr("value",function(d){return d;})
+        .attr("label",function(d){return d; })   
+        .text(function(d){return d;});
+
+        var todos = ["Todos os períodos"];
+        var periodos_disci = dados_desemp_aluno.map(function(d){return d.periodo;}).unique();
+        periodos_disci = todos.concat(periodos_disci);
+        console.log(periodos_disci);
+        var my_disciplina_periodo = d3.select("#my_disciplina_periodo");
+        my_disciplina_periodo.selectAll("option").data(periodos_disci).enter().append("option")
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d; })
         .text(function(d){return d;});
@@ -178,10 +188,36 @@ function getCompetencia(selection){
 
 /*Funcao para mostrar o Desempenho de uma disciplina selecionada*/
 function getDesempDisc(selection){
-    var id_disc = selection.options[selection.selectedIndex].value;
-    var dados_disc = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disc;});
+$('select[name=selValue]').val(1);$('.selectpicker').selectpicker('refresh');
+    id_disci = selection.options[selection.selectedIndex].value;
+    dados_disci = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disci;});
     init(1200,600,"#infos");
-    executa2(dados_disc,0,10,4,id_disc);
+    per =getPeriodosDisciplina();
+    if(per.contains("20111")){
+       $('select[name=selValue]').find('[value=20111]').remove();
+       $('select[name=selValue]').selectpicker('refresh'); 
+    }
+    if(!per.contains("20111")){
+       $('select[name=selValue]').find('[value=20112]').remove();
+       $('select[name=selValue]').selectpicker('refresh'); 
+    }
+
+    
+    executa2(dados_disci,0,10,4,id_disci);
+}
+
+/*Funcao para mostrar o Desempenho de uma disciplina selecionada*/
+function getDesempDiscPorPeriodo(selection){
+    var id_periodo = selection.options[selection.selectedIndex].value;
+    console.log(id_periodo);
+    if(id_periodo == "1"){ // Se selecionar a opção "Todos os períodos"
+        console.log("entrou");
+        executa2(dados_disci,0,10,4,id_disci);
+    }else{
+        var dados_periodo = dados_disci.filter(function(d){return d.periodo == id_periodo;});
+        init(1200,600,"#infos");
+        executa2(dados_periodo,0,10,4,id_disci);
+    }
 }
 
 /*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
@@ -225,6 +261,13 @@ function getRepetenciaAluno(selection){
 function getDisciplinasRepetencia(id_aluno){
     var disc_aluno = dados_repetencia.filter(function(d){return d.matricula == id_aluno});
     var json1 = $.map(disc_aluno, function (r) {return r["disciplina"];});
+    return json1;
+}
+
+/*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
+function getPeriodosDisciplina(id_disciplina){
+    var periodo_disc = dados_disci.filter(function(d){return d.disciplina == id_disciplina});
+    var json1 = $.map(dados_disc, function (r) {return r["periodo"];});
     return json1;
 }
 
