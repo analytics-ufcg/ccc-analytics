@@ -1,6 +1,6 @@
 library(plyr)
 
-d = read.table("../../data/competencia3.csv",sep = " ", header=T)
+d = read.table("../../data/dados.txt",sep = "\t", header=T)
 d$contador = 1 
 
 # Agregando os dados e calculando a média
