@@ -18,7 +18,7 @@ var svg;
 var tooltip;
 var matricula_selecionada;
 var dados_competencia;
-var projection;
+var projection, projectionR;
 var data;
 var porDisciplina;
 
@@ -141,7 +141,7 @@ function executa(data_file, smin,smax,col){
 	      
        showAxis(g);
 	 
-       projection = svg.selectAll(".background path,.foreground path")
+       /*projection = svg.selectAll(".background path,.foreground path")
 				.classed("dsc", function(p) { return p.departamento == "dsc"; })
 				.classed("dme", function(p) { return p.departamento == "dme"; })
 				.classed("fisica", function(p) { return p.departamento == "fisica"; })
@@ -150,92 +150,18 @@ function executa(data_file, smin,smax,col){
 				.on("mouseover", mouseover)
         		.on("mouseout", mouseout)
 	    		.on("mousemove",mousemove);
+	  	}*/
+
+       projection = svg.selectAll(".background path,.foreground path")
+				.classed("primeira", function(p) { return p.vez == "1"; })
+				.classed("segunda", function(p) { return p.vez == "2"; })
+				.classed("terceira", function(p) { return p.vez == "3"; })
+				.classed("quarta", function(p) { return p.vez == "4"; })
+				.on("mouseover", mouseover)
+        		.on("mouseout", mouseout)
+	    		.on("mousemove",mousemove);
 	  	}
-		/*	 .classed("adm", function(p) { return p.disciplina == "Administração"; })
-			 .classed("linear", function(p) { return p.disciplina == "Álgebra Linear"; })
-			 .classed("vetorial", function(p) { return p.disciplina == "Álgebra Vetorial e Geometria Analítica"; })
-			 .classed("atal", function(p) { return p.disciplina == "Análise e Técnicas de Algoritmos"; })
-			 .classed("adsd", function(p) { return p.disciplina == "Avaliação de Desempenho de Sistemas Discretos"; })
-			 .classed("bd1", function(p) { return p.disciplina == "Banco de Dados I"; })
-			 .classed("bd2", function(p) { return p.disciplina == "Banco de Dados II"; })
-			 .classed("basquete", 	function(p) { return p.disciplina == "BASQUETE   MASC/FEM"; })
-			 .classed("basquete", function(p) { return p.disciplina == "BASQUETEBOL - FEM"; })
-			 .classed("basquete", function(p) { return p.disciplina == "BASQUETEBOL - MASC"; })
-			 .classed("calculo1", function(p) { return p.disciplina == "Cálculo Diferencial e Integral I"; })
-			 .classed("calculo2", function(p) { return p.disciplina == "Cálculo Diferencial e Integral II"; })
-			 .classed("calculo3", function(p) { return p.disciplina == "Cálculo Diferencial e Integral III"; })
-			 .classed("compiladores", function(p) { return p.disciplina == "Compiladores"; })
-			 .classed("direito", function(p) { return p.disciplina == "Direito e Cidadania"; })
-			 .classed("economia", function(p) { return p.disciplina == "Economia"; })
-			 .classed("empreendedorismo", function(p) { return p.disciplina == "Empreendedorismo"; })
-			 .classed("es", function(p) { return p.disciplina == "Engenharia de Software I"; })
-			 .classed("eqdiferenciais", function(p) { return p.disciplina == "EQUACOES DIFERENCIAIS"; })
-			 .classed("estagio", function(p) { return p.disciplina == "Estágio Integrado"; })
-			 .classed("eda", function(p) { return p.disciplina == "Estruturas de Dados e Algoritmos"; })
-			 .classed("expgrafica", function(p) { return p.disciplina == "EXPRESSAO GRAFICA"; })
-			 .classed("classica", function(p) { return p.disciplina == "Fundamentos de Física Clássica"; })
-			 .classed("moderna", function(p) { return p.disciplina == "Fundamentos de Física Moderna"; })
-			 .classed("futsal", function(p) { return p.disciplina == "Futsal"; })
-			 .classed("gi", function(p) { return p.disciplina == "Gerência da Informação"; })
-			 .classed("gredes", function(p) { return p.disciplina == "GERENCIA DE Redes de Computadores"; })
-			 .classed("infosoc", function(p) { return p.disciplina == "Informática e Sociedade"; })
-			 .classed("ingles", function(p) { return p.disciplina == "Inglês"; })
-			 .classed("ia1", function(p) { return p.disciplina == "Inteligência Artificial I"; })
-			 .classed("irc", function(p) { return p.disciplina == "Interconexão de Redes de Computadores"; })
-			 .classed("ic", function(p) { return p.disciplina == "Introdução à Computação"; })
-			 .classed("les", function(p) { return p.disciplina == "Lab. de Engenharia de Software"; })
-			 .classed("leda", function(p) { return p.disciplina == "Lab. de Estruturas de Dados e Algoritmos"; })
-			 .classed("lirc", function(p) { return p.disciplina == "Lab. de Interconexão de Redes de Computadores"; })
-			 .classed("loac", function(p) { return p.disciplina == "Lab. de Organização e Arquitetura de Computadores"; })
-			 .classed("lp1", function(p) { return p.disciplina == "Lab. de Programação I"; })
-			 .classed("lp2", function(p) { return p.disciplina == "Lab. de Programação II"; })
-			 .classed("lpt", function(p) { return p.disciplina == "Leitura e Produção de Textos"; })
-			 .classed("logica", function(p) { return p.disciplina == "Lógica Matemática"; })
-			 .classed("discreta", function(p) { return p.disciplina == "Matemática Discreta"; })
-			 .classed("metodologia", function(p) { return p.disciplina == "Metodologia Científica"; })
-			 .classed("msn", function(p) { return p.disciplina == "Métodos e Software Numéricos"; })
-			 .classed("metodos", function(p) { return p.disciplina == "Métodos Estatísticos"; })
-			 .classed("oac", function(p) { return p.disciplina == "Organização e Arquitetura de Computadores"; })
-			 .classed("plp", function(p) { return p.disciplina == "Paradigmas de Linguagem de Programação"; })
-			 .classed("probabilidade", function(p) { return p.disciplina == "Probabilidade e Estatística"; })
-			 .classed("p1", function(p) { return p.disciplina == "Programação I"; })
-			 .classed("p2", function(p) { return p.disciplina == "Programação II"; })
-			 .classed("projredes", function(p) { return p.disciplina == "Projeto de Redes de Computadores"; })
-			 .classed("proj1", function(p) { return p.disciplina == "Projeto em Computação I"; })
-			 .classed("proj2", function(p) { return p.disciplina == "Projeto em Computação II"; })
-			 .classed("quimica", function(p) { return p.disciplina == "Química Geral"; })
-			 .classed("redes", function(p) { return p.disciplina == "Redes de Computadores"; })
-			 .classed("neurais", function(p) { return p.disciplina == "Redes Neurais"; })
-			 .classed("rh", function(p) { return p.disciplina == "Relações Humanas"; })
-			 .classed("seminarios", function(p) { return p.disciplina == "Seminários (Educação Ambiental)"; })
-			 .classed("si1", function(p) { return p.disciplina == "Sistemas de Informação I"; })
-			 .classed("si2", function(p) { return p.disciplina == "Sistemas de Informação II"; })
-			 .classed("sig", function(p) { return p.disciplina == "Sistemas de Informações Geográficas"; })
-			 .classed("so", function(p) { return p.disciplina == "Sistemas Operacionais"; })
-			 .classed("sociologia", function(p) { return p.disciplina == "Sociologia Industrial I"; })
-			 .classed("financeira", function(p) { return p.disciplina == "TEC (Princípios de Administração Financeira)"; })
-			 .classed("admsistemas", function(p) { return p.disciplina == "TECC (Administração de Sistemas)"; })
-			 .classed("aa1", function(p) { return p.disciplina == "TECC (Algoritmos Avançados I)"; })
-			 .classed("aa2", function(p) { return p.disciplina == "TECC (Algoritmos Avançados II)"; })
-			 .classed("aa3", function(p) { return p.disciplina == "TECC (Algoritmos Avançados III)"; })
-			 .classed("eti", function(p) { return p.disciplina == "TECC (Economia de Tecnologia da Informação)"; })
-			 .classed("estagio2", function(p) { return p.disciplina == "TECC (Estágio Integrado II)"; })
-			 .classed("rv", function(p) { return p.disciplina == "TECC (Fundamentos e Aplicações de Realidade Virtual)"; })
-			 .classed("metodosformais", function(p) { return p.disciplina == "TECC (Métodos Formais)"; })
-			 .classed("mav", function(p) { return p.disciplina == "TECC (Modelagem de Ambientes Virtuais)"; })
-			 .classed("redesadhoc", function(p) { return p.disciplina == "TECC (Redes Ad Hoc Sem Fio)"; })
-			 .classed("segredes", function(p) { return p.disciplina == "TECC (Segurança em Redes de Computadores)"; })
-			 .classed("sri", function(p) { return p.disciplina == "TECC (Sistemas de Recuperação da Informação)"; })
-			 .classed("visaocomputacional", function(p) { return p.disciplina == "TECC (Visão Computacional)"; })
-			 .classed("didatica1", function(p) { return p.disciplina == "TECC(DIDATICA EM CIENCIA DA COMPUTACAO II)"; })
-			 .classed("didatica2", function(p) { return p.disciplina == "TECC(DIDATICA EM CIENCIA DA COMPUTACAO)"; })
-			 .classed("empsof", function(p) { return p.disciplina == "TECC(Empreendedorismo em Software)"; })
-			 .classed("concorrente", function(p) { return p.disciplina == "TECC(Fundamentos de Prog. Concorrente)"; })
-			 .classed("eptgmdadoshistoricos", function(p) { return p.disciplina == "TECC(METODOS E P T G M DADOS HISTORICOS)"; })
-			 .classed("teoria", function(p) { return p.disciplina == "Teoria da Computação"; })
-			 .classed("grafos", function(p) { return p.disciplina == "Teoria dos Grafos"; })
-		*/
-	
+			
 
 
 function position(d) {

@@ -72,6 +72,19 @@
  stroke:#4DAF4A; /*verde*/
 }
 
+/*Vezes Cursadas - repeticoes*/
+.foreground path.primeira {
+ stroke: green ; 
+}
+.foreground path.segunda {
+ stroke: orange; 
+}
+.foreground path.terceira {
+ stroke: red; 
+}
+.foreground path.quarta {
+ stroke: black; 
+}
 
 /*Disciplinas*/
 .foreground path.adm {
