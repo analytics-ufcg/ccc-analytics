@@ -1,4 +1,3 @@
-library(fpc)
 library(ggplot2)
 library(fpc)
 library(cluster)

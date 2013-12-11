@@ -1,5 +1,5 @@
 var duration = 1000;
-
+var aluno = "";
 
 //funcao para plotar a barra de acordo com o que foi selecionado
 function getRanking(selection){
