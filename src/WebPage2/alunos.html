@@ -34,14 +34,78 @@
 
 				<div id="parametros" class="panel-group span3">
 					<div class="panel panel-default">
-						<div class="panel-heading">
+						
+
+						<div class="panel-heading" style="background-color:#4169E1;text-align:center;height:35px;">
 							<span class="panel-title">
-								<a href="#collapse_scenario_atts" data-parent="#parameter_bar_collapse" data-toggle="collapse"> Matrículas </a>
+								<a href="#collapse_scenario_atts" data-parent="#parameter_bar_collapse" data-toggle="collapse" style="color:#fff;text-align:center;font-size:14px;"><strong>Avaliação por aluno</strong></a>
 							</span>
 						</div>
-						<div id="collapse_scenario_atts" class="panel-collapse collapse in">
+
+						<div id="collapse_scenario_atts" class="panel-collapse collapse in" style="height:400px;">
 							<div class="panel-body">
-								<select id="mymatriculas" class="selectpicker show-tick" onchange="getRanking(this)"></select>
+								<span class="panel-title">
+									<a href="#collapse_scenario_atts" data-parent="#parameter_bar_collapse" style="font-size:14px;">Matrícula:</a>
+								</span>
+								<select id="mymatriculas" class="selectpicker show-tick" data-live-search="true" data-size="7" data-width="160px" onchange="getRanking(this)">
+								</select>
+							</div>
+
+
+
+							<div class="panel-heading" style="background-color:#4169E1;text-align:center;height:35px;">
+								<span class="panel-title">
+									<a href="#collapse_scenario_atts" data-parent="#parameter_bar_collapse"  style="color:#fff;text-align:center;font-size:14px;"><strong>Período</strong></a>
+								</span>
+							</div>
+							<div>
+								<input type="checkbox" name="nome_periodo" style="margin-left:15px;margin-top:15px;" id="p_todos" value="0"/>
+								<span style="width:100px;">Todos os períodos</span>
+							</div>
+							<div>						
+								<input type="checkbox" name="nome_periodo" style="margin-left:15px;" id="p_20111" value="20111"/>
+								<span style="width:80px;display:inline-block;">2011.1</span>
+								<input type="checkbox" name="nome_periodo" id="p_20112" value="20111"/>
+								<span style="width:60px;display:inline-block;">2011.2</span>
+							</div>
+							<div>
+								<input type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:15px;" id="p_20121" value="20111"/>
+								<span style="width:80px;display:inline-block;">2012.1</span>
+								<input type="checkbox" name="nome_periodo" id="p_20122" value="20111"/>
+								<span style="width:60px;display:inline-block;">2012.2</span>
+							</div>
+
+
+
+
+							<div class="panel-heading" style="background-color:#4169E1;height:35px;text-align:center;">
+								<span class="panel-title">
+									<a href="#collapse_scenario_atts" data-parent="#parameter_bar_collapse"  style="color:#fff;text-align:center;font-size:14px;"><strong>Departamento</strong></a>
+								</span>
+							</div>
+							<div>
+								<input type="checkbox" name="nome_periodo" style="margin-left:15px;margin-top:15px;" id="d_todos" value="0"/>
+								<span style="width:100px;">Todos os departamentos</span>
+							</div>
+							<div>						
+								<input type="checkbox" name="nome_periodo" style="margin-left:15px;" id="d_dsc" value="dsc"/>
+								<span style="width:50px;display:inline-block;">DSC</span>
+								<input type="checkbox" name="nome_periodo" id="d_fisica" value="fisica"/>
+								<span style="width:60px;display:inline-block;">Física</span>
+								<input type="checkbox" name="nome_periodo" id="d_esportes" value="esportes"/>
+								<span style="width:60px;display:inline-block;">Esportes</span>
+							</div>
+							<div>
+								<input type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:15px;" id="d_dme" value="dme"/>
+								<span style="width:50px;display:inline-block;">DME</span>
+								<input type="checkbox" name="nome_periodo" id="d_humanas" value="humanas"/>
+								<span style="width:60px;display:inline-block;">Humanas</span>
+							</div>
+
+
+
+
+							<div class="panel-body">
 							</div>
 						</div>
 					</div>
