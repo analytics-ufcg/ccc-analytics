@@ -83,10 +83,10 @@
  stroke: red; 
 }
 .foreground path.quarta {
- stroke: black; 
+ stroke: #472400; 
 }
 
-/*Disciplinas*/
+/*Disciplinas - (ainda não está sendo usada)*/
 .foreground path.adm {
  stroke:#080;
 }

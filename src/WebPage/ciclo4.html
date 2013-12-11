@@ -99,7 +99,7 @@
       <select id="my_disciplinadesempenho" class="selectpicker show-tick" data-size="auto" data-live-search="true" onchange="getDesempDisc(this)">
       </select> 
       <text size="14px">Selecione um período:</text>
-      <select name = "selValue" id="my_disciplina_periodo"  class="selectpicker show-tick" data-size="auto" onchange="getDesempDiscPorPeriodo(this)">
+      <select name = "selValue" id="my_disciplina_periodo"  class="selectpicker" data-size="auto" onchange="getDesempDiscPorPeriodo(this)">
         <option value="1">Todos os períodos</option>
       </select>
 
@@ -124,10 +124,30 @@
       </select>
   </div>
 
+
+
+
+  <div id="info" class="plot-info2">  
+    <div id="legendas" class='plot-info2' style="float:left;" >
+        <div id="legendaRep1" class="circle1" style="display:none">
+          <text size="14px" style="margin-left: 15px;">Primeira</text> 
+        </div>   
+        <div id="legendaRep2" class="circle2" style="display:none">
+          <text size="14px" style="margin-left: 15px;">Segunda</text> 
+        </div> 
+        <div id="legendaRep3" class="circle3" style="display:none">
+          <text size="14px" style="margin-left: 15px;">Terceira</text> 
+        </div> 
+        <div id="legendaRep4" class="circle4" style="display:none">
+          <text size="14px" style="margin-left: 15px;">Quarta</text> 
+        </div>   
+    </div>
+    <div id="infos" class="plot-info2" style="text-align:left; font-size : 14px; height: 1200px; width: 800px;">
+    </div>
+    
+  </div>  
+
   
-  
-  <div id="infos" class="plot-info2" style="text-align:left; font-size : 14px;">
-  </div>
 </body>
 
 </html>

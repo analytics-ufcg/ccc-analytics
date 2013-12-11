@@ -7,9 +7,9 @@ var data_fil_repetencia = [];
 var aluno = "";
 var rep_filtro = false;
 var rep_tipo = "";
-var dados_disc = [];
+var dados_disci = [];
 var id_disci;
-
+var periodos_disci = [];
 function loadData(){
     d3.csv("dados/matriculas.csv" , function (data){    
         dados_notas = data;        
@@ -73,7 +73,7 @@ function loadData(){
         .text(function(d){return d;});
 
         var todos = ["Todos os períodos"];
-        var periodos_disci = dados_desemp_aluno.map(function(d){return d.periodo;}).unique();
+        periodos_disci = dados_desemp_aluno.map(function(d){return d.periodo;}).unique();
         periodos_disci = todos.concat(periodos_disci);
         console.log(periodos_disci);
         var my_disciplina_periodo = d3.select("#my_disciplina_periodo");
@@ -105,6 +105,10 @@ function showcompetencia(){
     $("#id_disciplina").hide();
     $("#id_repetenciaAluno").hide();
     $("#id_repetenciaDisci").hide();
+    $("#legendaRep1").hide();
+    $("#legendaRep2").hide();
+    $("#legendaRep3").hide();
+    $("#legendaRep4").hide();
     $("#id_competencia").show();
 }
 
@@ -116,6 +120,10 @@ function showdesempenho(){
     $("#id_disciplina").hide();
     $("#id_repetenciaAluno").hide();
     $("#id_repetenciaDisci").hide();
+    $("#legendaRep1").hide();
+    $("#legendaRep2").hide();
+    $("#legendaRep3").hide();
+    $("#legendaRep4").hide();
     $("#id_desempenho").show();
 }
 
@@ -127,17 +135,25 @@ function showdesempenhoDisc(){
     $("#id_desempenho").hide();
     $("#id_repetenciaAluno").hide();
     $("#id_repetenciaDisci").hide();
+    $("#legendaRep1").hide();
+    $("#legendaRep2").hide();
+    $("#legendaRep3").hide();
+    $("#legendaRep4").hide();
     $("#id_disciplina").show();  
  }
 
 /*Funcao para mostrar a div do ranking*/
 function showranking(){
-    $("#infos").empty();
+     $("#infos").empty();
     $("#id_competencia").hide();
     $("#id_desempenho").hide();
     $("#id_disciplina").hide();
     $("#id_repetenciaAluno").hide();
     $("#id_repetenciaDisci").hide();
+    $("#legendaRep1").hide();
+    $("#legendaRep2").hide();
+    $("#legendaRep3").hide();
+    $("#legendaRep4").hide();
     $("#id_ranking").show();
 }
 
@@ -149,6 +165,10 @@ function showrepetenciaAluno(){
     $("#id_disciplina").hide();
     $("#id_ranking").hide();
     $("#id_repetenciaDisci").hide();
+    $("#legendaRep1").show();
+    $("#legendaRep2").show();
+    $("#legendaRep3").show();
+    $("#legendaRep4").show();
     $("#id_repetenciaAluno").show();
  }
 
@@ -160,6 +180,10 @@ function showrepetenciaDisci(){
     $("#id_disciplina").hide();
     $("#id_ranking").hide();
     $("#id_repetenciaAluno").hide();
+    $("#legendaRep1").show();
+    $("#legendaRep2").show();
+    $("#legendaRep3").show();
+    $("#legendaRep4").show();
     $("#id_repetenciaDisci").show();
  }
 
@@ -188,30 +212,33 @@ function getCompetencia(selection){
 
 /*Funcao para mostrar o Desempenho de uma disciplina selecionada*/
 function getDesempDisc(selection){
-$('select[name=selValue]').val(1);$('.selectpicker').selectpicker('refresh');
+    $('select[name=selValue]').val(1);
+    $('.selectpicker').selectpicker('refresh');
     id_disci = selection.options[selection.selectedIndex].value;
     dados_disci = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disci;});
-    init(1200,600,"#infos");
-    per =getPeriodosDisciplina();
-    if(per.contains("20111")){
-       $('select[name=selValue]').find('[value=20111]').remove();
-       $('select[name=selValue]').selectpicker('refresh'); 
-    }
-    if(!per.contains("20111")){
-       $('select[name=selValue]').find('[value=20112]').remove();
-       $('select[name=selValue]').selectpicker('refresh'); 
-    }
 
-    
+
+    init(1200,600,"#infos");
     executa2(dados_disci,0,10,4,id_disci);
+    per = getPeriodosDisciplina(id_disci);
+
+    // Retira da lista de períodos, os períodos que a disciplina não foi ofertada
+    for (var i = periodos_disci.length - 1; i >= 0; i--) {
+        if(per.indexOf(periodos_disci[i]) == -1){
+            $('select[name=selValue]').find('[value=' +periodos_disci[i]+']').prop('disabled', true);
+            $('select[name=selValue]').selectpicker('refresh'); 
+        }else{
+            $('select[name=selValue]').find('[value=' +periodos_disci[i]+']').prop('disabled', false);
+            $('select[name=selValue]').selectpicker('refresh'); 
+        }
+    };
 }
 
 /*Funcao para mostrar o Desempenho de uma disciplina selecionada*/
 function getDesempDiscPorPeriodo(selection){
     var id_periodo = selection.options[selection.selectedIndex].value;
-    console.log(id_periodo);
+
     if(id_periodo == "1"){ // Se selecionar a opção "Todos os períodos"
-        console.log("entrou");
         executa2(dados_disci,0,10,4,id_disci);
     }else{
         var dados_periodo = dados_disci.filter(function(d){return d.periodo == id_periodo;});
@@ -266,8 +293,8 @@ function getDisciplinasRepetencia(id_aluno){
 
 /*Funcao para retornar uma lista de todas as disciplinas que um aluno pagou*/
 function getPeriodosDisciplina(id_disciplina){
-    var periodo_disc = dados_disci.filter(function(d){return d.disciplina == id_disciplina});
-    var json1 = $.map(dados_disc, function (r) {return r["periodo"];});
+    var periodo_disc = dados_disci.filter(function(d){return d.disciplina == id_disci});
+    var json1 = $.map(dados_disci, function (r) {return r["periodo"];});
     return json1;
 }
 

@@ -27,19 +27,23 @@ var porDisciplina;
 //@height altura do svg
 function buildSvg(width, height,body){	
 	
+
 	d3.select(body).select("svg").remove();
+	//d3.select(body).select("#infos").remove();
+	
+
 	svg = d3.select(body);
 	svg = d3.select(body).append("svg")
 		.attr("width", width)
 		.attr("height", height)
                 .attr("transform", "translate(" + margin.bottom + "," + margin.top + ")");
-
+	
 	tooltip = d3.select(body)
 		.append("div")	//TODO ver isso depois
 		.style("position", "absolute","red")
 		.style("z-index", "10")
 		.style("visibility", "hidden")
-		.style("stroke","red")	
+		.style("stroke","red");	
 
 }
 
@@ -141,7 +145,8 @@ function executa(data_file, smin,smax,col){
 	      
        showAxis(g);
 	 
-       /*projection = svg.selectAll(".background path,.foreground path")
+	 	if (!rep_filtro) {
+      		projection = svg.selectAll(".background path,.foreground path")
 				.classed("dsc", function(p) { return p.departamento == "dsc"; })
 				.classed("dme", function(p) { return p.departamento == "dme"; })
 				.classed("fisica", function(p) { return p.departamento == "fisica"; })
@@ -150,9 +155,9 @@ function executa(data_file, smin,smax,col){
 				.on("mouseover", mouseover)
         		.on("mouseout", mouseout)
 	    		.on("mousemove",mousemove);
-	  	}*/
-
-       projection = svg.selectAll(".background path,.foreground path")
+	  
+	  	}else {
+       		projection = svg.selectAll(".background path,.foreground path")
 				.classed("primeira", function(p) { return p.vez == "1"; })
 				.classed("segunda", function(p) { return p.vez == "2"; })
 				.classed("terceira", function(p) { return p.vez == "3"; })
@@ -161,6 +166,7 @@ function executa(data_file, smin,smax,col){
         		.on("mouseout", mouseout)
 	    		.on("mousemove",mousemove);
 	  	}
+}
 			
 
 
