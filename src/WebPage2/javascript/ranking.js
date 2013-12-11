@@ -6,9 +6,7 @@ function getRanking(selection){
     var id_aluno = selection.options[selection.selectedIndex].value;
     aluno = id_aluno;
     $("#infos").empty();
-    console.log("selecionou um aluno "+id_aluno);
     plot_bar_disciplina_ranking(id_aluno);
-    console.log("fim do getRanking");
 }
 
 function plot_bar_disciplina_ranking(nome){
@@ -21,7 +19,7 @@ function plot_bar_disciplina_ranking(nome){
     
     svg = d3.select("#infos").append("svg")
         .attr("width", 800)
-        .attr("height", 600);
+        .attr("height", 115);
 
     var periodo_aluno = nome.substring(1,4);
     

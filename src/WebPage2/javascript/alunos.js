@@ -1,9 +1,14 @@
-dados_matricula = []
-dados_ranking = []
+dados_matricula = [];
+dados_ranking = [];
+dados_desemp_aluno = [];
 
 function loadmatriculas(){
     d3.csv("dados/ranking.csv",function(data){
         dados_ranking = data;
+    });
+
+    d3.csv("dados/arquivo_notas_disciplinas.csv",function(data){
+        dados_desemp_aluno = data;
     });
 
     d3.csv("dados/matriculas.csv" , function (data){    
@@ -17,5 +22,7 @@ function loadmatriculas(){
         .text(function(d){return d;}); // texto da matricula 
         $('.selectpicker').selectpicker({'selectedText': 'cat'});
     });
+
+
 
 }

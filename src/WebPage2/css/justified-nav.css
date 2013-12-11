@@ -46,8 +46,9 @@ body {
 .nav-justified > .active > a,
 .nav-justified > .active > a:hover,
 .nav-justified > .active > a:focus {
-	background-color: #ddd;
+	background-color: blue;
 	background-image: none;
+  color:red;
 	box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
 }
 .nav-justified > li:first-child > a {
