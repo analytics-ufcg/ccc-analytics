@@ -52,7 +52,7 @@
 								<span class="panel-title">
 									<a href="#collapse_scenario_atts" data-parent="#parameter_bar_collapse" style="font-size:14px;">Matrícula:</a>
 								</span>
-								<select id="mymatriculas" class="selectpicker show-tick" data-live-search="true" data-size="7" data-width="160px" onchange="getDesempenho(this);getRanking(this);verificaCK()">
+								<select id="mymatriculas" class="selectpicker show-tick" data-live-search="true" data-size="7" data-width="160px" onchange="getDesempenho(this);getRanking(this);desativarOpcoes();">
 								</select>
 							</div>
 
@@ -63,21 +63,28 @@
 									<a href="#collapse_scenario_atts" data-parent="#parameter_bar_collapse"  style="color:#fff;text-align:center;font-size:14px;"><strong>Período</strong></a>
 								</span>
 							</div>
+							<!--
 							<div>
-								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-top:15px;" id="p_todos" value="0"/>
+								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-top:15px;" id="p_todos" value="0" onchange="verificaPeriodo(this)" checked/>
 								<span style="width:100px;">Todos os períodos</span>
 							</div>
+							-->
+							
 							<div>						
-								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;" id="p_20111" value="20111"/>
+								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;" id="p_20111" value="20111" onchange="verificaPeriodo(this)" checked/>
 								<span style="width:80px;display:inline-block;">2011.1</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="p_20112" value="20111"/>
+								<input class="ck" type="checkbox" name="nome_periodo" id="p_20112" value="20112" onchange="verificaPeriodo(this)" checked/>
 								<span style="width:60px;display:inline-block;">2011.2</span>
 							</div>
 							<div>
-								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:25px;" id="p_20121" value="20111"/>
+								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:25px;" id="p_20121" value="20121" onchange="verificaPeriodo(this)" checked/>
 								<span style="width:80px;display:inline-block;">2012.1</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="p_20122" value="20111"/>
-								<span style="width:60px;display:inline-block;">2012.2</span>
+								
+								<input class="ck" type="checkbox" name="nome_periodo" id="p_20122" value="20122" onchange="verificaPeriodo(this)" checked/>
+								<span style="width:60px;display:inline-block;" checked>2012.2</span>
+							</div>
+							
+							<div id="div_periodos_checkbox">
 							</div>
 
 
@@ -88,22 +95,24 @@
 									<a href="#collapse_scenario_atts" data-parent="#parameter_bar_collapse"  style="color:#fff;text-align:center;font-size:14px;"><strong>Departamento</strong></a>
 								</span>
 							</div>
+							<!--
 							<div>
-								<input class="ck"  type="checkbox" name="nome_periodo" style="margin-left:15px;margin-top:15px;" id="d_todos" value="0"/>
+								<input class="ck"  type="checkbox" name="nome_periodo" style="margin-left:15px;margin-top:15px;" id="d_todos" value="0" onchange="verificaDepartamento(this)" checked/>
 								<span style="width:100px;">Todos os departamentos</span>
 							</div>
+							-->
 							<div>						
-								<input class="ck"  type="checkbox" name="nome_periodo" style="margin-left:15px;" id="d_dsc" value="dsc"/>
+								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;" id="d_dsc" value="dsc" onchange="verificaDepartamento(this);" checked/>
 								<span style="width:50px;display:inline-block;">DSC</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="d_fisica" value="fisica"/>
+								<input class="ck" type="checkbox" name="nome_periodo" id="d_fisica" value="fisica" onchange="verificaDepartamento(this);" checked/>
 								<span style="width:60px;display:inline-block;">Física</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="d_esportes" value="esportes"/>
+								<input class="ck" type="checkbox" name="nome_periodo" id="d_esportes" value="esportes" onchange="verificaDepartamento(this);" checked/>
 								<span style="width:60px;display:inline-block;">Esportes</span>
 							</div>
 							<div>
-								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:5px;" id="d_dme" value="dme"/>
+								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:5px;" id="d_dme" value="dme" onchange="verificaDepartamento(this);" checked/>
 								<span style="width:50px;display:inline-block;">DME</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="d_humanas" value="humanas"/>
+								<input class="ck" type="checkbox" name="nome_periodo" id="d_humanas" value="humanas" onchange="verificaDepartamento(this);" checked/>
 								<span style="width:60px;display:inline-block;">Humanas</span>
 							</div>
 

@@ -14,7 +14,6 @@ function loadmatriculas(){
     d3.csv("dados/matriculas.csv" , function (data){    
         dados_matricula = data;        
         var mat = data.map(function(d){return d.matricula;});
-        console.log(mat)
         var mymatriculas = d3.selectAll("#mymatriculas");
         mymatriculas.selectAll("option").data(mat).enter().append("option")
         .attr("value",function(d){return d;})
