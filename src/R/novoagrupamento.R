@@ -12,14 +12,33 @@ data = dados[,c(9,10,7,8,6,5,4)]
 data2 = data
 disc = unique(data$disciplina)
 n = 0
-for( d in disc) {
-
+#for( d in disc) {
+d = "Cálculo Diferencial e Integral I"
 data2 = subset(data,disciplina==d)
 n = n + nrow(data2)
     if(nrow(data2) > 1){
 	#calculando matriz sem normalizar
 	matriz_dist <- as.matrix(dist(data2[,1:2],method="euclidean",diag=TRUE,upper=TRUE))
+  
+  #calculando K-NN
+  al_ordenado = matrix(nrow = ncol(matriz_dist), ncol= ncol(matriz_dist) )
+  for(i in 1:(ncol(matriz_dist))){
+    al_atual = matriz_dist[,i]
+    al_ordenado[,i] = al_atual[order(al_atual)]
 
+  }
+	k=10
+  knndist = al_ordenado[k,order(al_ordenado[k,])]
+	plot(knndist)
+  dds=dbscan(data2[,1:2],eps=0.,MinPts=k)
+	data3 = cbind(data2,dds$cluster)
+	colnames(data3) = c("variacao1","variacao2","disciplina","matricula","periodo","media","final","cluster")
+	unique(data3$cluster)
+  plot(subset(x=data3,select=c(variacao1,variacao2)),col=data3)
+  
+  
+  
+  
 	menoresDistancias2 = vector()
 	for(i in 1:(ncol(matriz_dist)-1)){
   	menoresDistancias2[length(menoresDistancias2)+1] = min(matriz_dist[,i], na.rm = T)
