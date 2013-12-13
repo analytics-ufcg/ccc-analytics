@@ -10,8 +10,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap-select.css">
 	<link rel="stylesheet" type="text/css" href="css/styledesempenho.css">
-  	<link rel="stylesheet" type="text/css" href="css/style.css">
-
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="css/bootstrap-responsive.css" rel="stylesheet">
 
 	<script src="javascript/jquery-1.9.1.js" type="text/javascript"></script>
@@ -23,6 +22,7 @@
 	<script type="text/javascript" src="javascript/ranking.js"></script>
 	<script type="text/javascript" src="javascript/carregar.js"></script>
 	<script type="text/javascript" src="javascript/parallelv4.js"></script>
+	
 
 
 	</head>
@@ -43,13 +43,15 @@
 						
 
 						<div class="panel-heading" style="background-color:#4169E1;text-align:center;height:35px;">
-							<span style="color:#fff;text-align:center;font-size:14px;"><strong>Avaliação por aluno</strong></span>
+							<span style="color:#fff;text-align:center;font-size:14px;"><strong>Avaliação por disciplina</strong></span>
 						</div>
 
 						<div id="collapse_scenario_atts" class="panel-collapse collapse in" style="height:400px;">
-							<div class="panel-body">
-								<span style="font-size:14px;">Matrícula:</span>
-								<select id="mymatriculas" class="selectpicker show-tick" data-live-search="true" data-size="auto" data-width="160px" onchange="iniciarAluno(this);";>
+							<div style="margin-left:15px;margin-top:20px;">
+								<span style="font-size:14px;">Disciplina:</span>
+							</div>
+							<div style="margin-left:15px;margin-botton:20px;">
+								<select id="mydisciplinas" class="selectpicker show-tick" data-live-search="true" data-size="auto" data-width="225px" onchange="iniciarDisciplina(this);";>
 								</select>
 							</div>
 
@@ -74,26 +76,6 @@
 														
 
 
-							<div class="panel-heading" style="background-color:#4169E1;height:35px;text-align:center;">
-								<span style="color:#fff;text-align:center;font-size:14px;"><strong>Departamento</strong></span>
-							</div>
-							<div>						
-								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;" id="d_dsc" value="dsc" onchange="verificaDepartamento(this);" checked/>
-								<span style="width:50px;margin-top:20px;display:inline-block;">DSC</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="d_fisica" value="fisica" onchange="verificaDepartamento(this);" checked/>
-								<span style="width:60px;display:inline-block;">Física</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="d_esportes" value="esportes" onchange="verificaDepartamento(this);" checked/>
-								<span style="width:60px;display:inline-block;">Esportes</span>
-							</div>
-							<div>
-								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:5px;" id="d_dme" value="dme" onchange="verificaDepartamento(this);" checked/>
-								<span style="width:50px;display:inline-block;">DME</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="d_humanas" value="humanas" onchange="verificaDepartamento(this);" checked/>
-								<span style="width:60px;display:inline-block;margin-bottom:20px;">Humanas</span>
-							</div>
-
-
-
 							<div class="panel-heading" style="background-color:#4169E1;text-align:center;height:35px;">
 								<span style="color:#fff;text-align:center;font-size:14px;"><strong>Reprovação</strong></span>
 							</div>	
@@ -101,6 +83,7 @@
 								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:20px;margin-top:20px;" id="ckb_reprovacao" value="reprovacao" onchange="verificaReprovacao(this)"/>
 								<span style="display:inline-block;">Apenas repetências</span>
 							</div>
+
 
 						</div>
 					</div>

@@ -20,6 +20,7 @@ var matricula_selecionada;
 var dados_competencia;
 var projection, projectionR;
 var data;
+var porDisciplina;
 
 
 //@width  largura do svg
@@ -50,13 +51,29 @@ function buildSvg(width, height,body){
 //@width  largura do svg
 //@height altura do svg
 function init(width, height,body){
-	w = width - margin.left - margin.right;
-    h = height - margin.top - margin.bottom;
-    x = d3.scale.ordinal().rangePoints([0, w], 1);	
+	$("#infos2").empty();
+	porDisciplina = false;
+   	 w = width - margin.left - margin.right;
+    	 h = height - margin.top - margin.bottom;
+
+        x = d3.scale.ordinal().rangePoints([0, w], 1);	
+
 	buildSvg(width, height,body);
+
 }
 
 
+//@ smin = valor minimo da escala da coluna
+//@ smax = valor maximo da escala da coluna
+//@ col = numero de colunas a ser plotado
+//@ d  = disciplina selecionada 
+//OBS. para nao processar a coluna especificada colocar o caractere '#' no inicio do nome do campo
+//TODO o java script nao aceita sobrecarga
+function executa2(data_file, smin,smax,col,d){
+	porDisciplina = true;
+	disciplina = d;
+        executa(data_file, smin,smax,col);
+}
 //@ smin = valor minimo da escala da coluna
 //@ smax = valor maximo da escala da coluna
 //@ col = numero de colunas a ser plotado
@@ -73,6 +90,27 @@ function executa(data_file, smin,smax,col){
 			return d[0] != "1" && (y[d]= d3.scale.linear().domain([smin,smax]).range([h,0]));
 		}
 	}));
+
+	/*
+	d3.csv(data_file, function(data) { //TODO encontrar uma forma de tirar isso
+	campos = 0;
+	 
+
+	  // Extract the list of dimensions and create a scale for each.
+	  x.domain(dimensions = d3.keys(data[0]).filter(function(d) {
+		campos +=1;
+		//console.info("campos = "+campos);
+		
+		//mostre apenas o numero de colunas especificado
+		if (campos <= colunas){
+			    //d[0] != "1" -> se o primeiro caractere do nome do campo for 1 entao nao 'adicione' a coluna
+			    return d[0] != "1" && (y[d] = d3.scale.linear()
+				.domain([smin,smax])
+				.range([h, 0]));
+		}
+	  }));
+	
+	*/
 
 	  // pinta as linhas estrangeiras de cinza
 	  background = svg.append("svg:g")
@@ -108,7 +146,7 @@ function executa(data_file, smin,smax,col){
 	      
        showAxis(g);
 	 
-	 	if (!show_repetencia) {
+	 	if (!rep_filtro) {
       		projection = svg.selectAll(".background path,.foreground path")
 				.classed("dsc", function(p) { return p.departamento == "dsc"; })
 				.classed("dme", function(p) { return p.departamento == "dme"; })
@@ -241,10 +279,8 @@ function showAxis(g){
   function mouseover(d) {
 	  
     svg.classed("active", true);
-    console.log(rep_tipo);
-   	if(show_repetencia){
-   		console.log(rep_tipo);
-   		projection.classed("inactive", function(p) { return p[rep_tipo] !== d[rep_tipo]; });
+   	if(rep_filtro){
+    	projection.classed("inactive", function(p) { return p[rep_tipo] !== d[rep_tipo]; });
     	projection.filter(function(p) { return p[rep_tipo] === d[rep_tipo]; }).each(moveToFront);
    	}else{
     	projection.classed("inactive", function(p) { return p !== d; });
