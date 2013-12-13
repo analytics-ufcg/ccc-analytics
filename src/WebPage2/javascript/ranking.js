@@ -2,8 +2,7 @@ var duration = 1000;
 var aluno = "";
 
 //funcao para plotar a barra de acordo com o que foi selecionado
-function getRanking(selection){
-    var id_aluno = selection.options[selection.selectedIndex].value;
+function getRanking(){
     aluno = id_aluno;
     $("#infos").empty();
     plot_bar_disciplina_ranking(id_aluno);
