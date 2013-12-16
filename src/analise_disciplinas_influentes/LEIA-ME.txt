@@ -1,0 +1,16 @@
+***dados_sem_optativas.csv***
+contem os dados de todas as disciplinas nao optativas do curso totalizando 44 disciplinas
+
+***dados_44.csv*** 
+Arquivo gerado pelo parser coleta_dados_regressao.py para ser processado no r
+
+
+***coleta_dados_regressao.py***
+
+coleta_dados_regressao e um parser que converte os dados brutos de dados_sem_optativas para o arquivo dados_44.csv que contem as 44 disciplinas obrigatorias do curso e prontos para ser usado no R
+
+
+***calcula_influencia.r***
+script r que processa os dados de dados_44.csv a fim de encontrar as disciplinas que mais influenciam o CRE
+
+
