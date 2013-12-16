@@ -62,7 +62,11 @@ function init(width, height,body){
 //@ col = numero de colunas a ser plotado
 //OBS. para nao processar a coluna especificada colocar o caractere '#' no inicio do nome do campo
 function executa(data_file, smin,smax,col){
-	//console.log("arquivo = "+data_file);
+	console.log("arquivo = "+data_file.length);
+	if (data_file.length == 0){
+             data_file = [[[],[],[],[],[]],[[],[],[],[],[]],[[],[],[],[],[]]];
+	     colunas = 4;
+        }
 	colunas = col;
 	campos = 0;
 	data = data_file;
