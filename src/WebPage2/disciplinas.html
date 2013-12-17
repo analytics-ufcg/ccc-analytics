@@ -22,7 +22,23 @@
 	<script type="text/javascript" src="javascript/ranking.js"></script>
 	<script type="text/javascript" src="javascript/carregar.js"></script>
 	<script type="text/javascript" src="javascript/parallelv4.js"></script>
+	<script type="text/javascript" src="javascript/scatterplot.js"></script>
 	
+	<style>
+		.axis text {
+		    font-family: sans-serif;
+		    font-size: 11px;
+		}
+		 
+		.loading {
+		    font-family: sans-serif;
+		    font-size: 15px;
+		}
+		 
+		.circle {
+		    fill: red;
+		}
+	</style>
 
 
 	</head>
@@ -62,13 +78,13 @@
 							</div>
 							<div>						
 								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-top:20px;" id="p_20111" value="20111" onchange="verificaPeriodo(this)" checked/>
-								<span style="width:80px;display:inline-block;">2011.1</span>
+								<span style="width:90px;display:inline-block;">2011.1</span>
 								<input class="ck" type="checkbox" name="nome_periodo" id="p_20112" value="20112" onchange="verificaPeriodo(this)" checked/>
 								<span style="width:60px;display:inline-block;">2011.2</span>
 							</div>
 							<div>
 								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:20px;" id="p_20121" value="20121" onchange="verificaPeriodo(this)" checked/>
-								<span style="width:80px;display:inline-block;">2012.1</span>
+								<span style="width:90px;display:inline-block;">2012.1</span>
 								
 								<input class="ck" type="checkbox" name="nome_periodo" id="p_20122" value="20122" onchange="verificaPeriodo(this)" checked/>
 								<span style="width:60px;display:inline-block;" checked>2012.2</span>
@@ -81,7 +97,10 @@
 							</div>	
 							<div>						
 								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:20px;margin-top:20px;" id="ckb_reprovacao" value="reprovacao" onchange="verificaReprovacao(this)"/>
-								<span style="display:inline-block;">Apenas repetências</span>
+								<span style="width:100px;">Desempenho</span>
+
+								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:20px;margin-top:20px;" id="ckb_distribuicao" value="distribuicao" onchange="verificaReprovacaoDistribuicao(this)"/>
+								<span style="display:inline-block;">Distribuição</span>
 							</div>
 
 

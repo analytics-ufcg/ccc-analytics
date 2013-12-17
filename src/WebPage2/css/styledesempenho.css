@@ -64,12 +64,17 @@
 }
 .foreground path.dme {
  stroke:#E41A1C; /*vermelho*/
+ /*stroke-dasharray: 5,5;*/
 }
 .foreground path.humanas {
- stroke:#f8ea12; /*laranja*/
+ stroke:#FFCC00; /*laranja*/
 }
 .foreground path.esportes {
  stroke:#4DAF4A; /*verde*/
+}
+
+.foreground path.perdeu {
+ stroke-dasharray: 5,5;
 }
 
 /*Vezes Cursadas - repeticoes*/

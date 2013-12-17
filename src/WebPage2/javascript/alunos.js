@@ -7,6 +7,7 @@ dados_repetencia = [];
 
 show_repetencia = false;
 show_disciplina = false;
+show_distribuicao = false;
 rep_filtro = false;
 
 porDisciplina = false;
@@ -67,6 +68,10 @@ function iniciarDisciplina(selection){
 
 
 function mostrarBarrasParalelas(){
+    d3.select("#infos2").select("svg").remove();
+    d3.select("#infos").select("svg").remove();
+    $("#infos").empty();
+    $("#infos2").empty();
     if (show_disciplina) {
         if (show_repetencia) {
             porDisciplina = true;
@@ -96,13 +101,13 @@ function mostrarBarrasParalelas(){
 
 /*Funcao para mostrar o Desempenho de um aluno selecionado*/
 function getDesempenho(){
-    init(1200, 600,"#infos2");
+    init(1200, 500,"#infos2");
     executa(dados_atuais, 0,10,4);
 }
 
 function getRepetencia(){
     rep_filtro = true;
-    init(1200, 600,"#infos2");
+    init(1200, 500,"#infos2");
     executa(dados_atuais, 0,10,4);
 }
 
@@ -115,7 +120,7 @@ function atualizarCheckBox(){
     var periodosAluno = getPeriodos();
     var departamentosAluno = getDepartamentos();
 
-    if (periodosAluno.indexOf("20111") == -1) {
+    if (periodosAluno.indexOf("20111") == -1 || show_distribuicao == true) {
         $('#p_20111').prop('disabled', true);
         $('#p_20111').prop('checked', false);
     }else {
@@ -124,7 +129,7 @@ function atualizarCheckBox(){
         box_periodo = box_periodo.concat(["20111"]);
     };
 
-    if (periodosAluno.indexOf("20112") == -1) {
+    if (periodosAluno.indexOf("20112") == -1 || show_distribuicao == true) {
         $('#p_20112').prop('disabled', true);
         $('#p_20112').prop('checked', false);
     }else {
@@ -133,7 +138,7 @@ function atualizarCheckBox(){
         box_periodo = box_periodo.concat(["20112"]);
     };
 
-    if (periodosAluno.indexOf("20121") == -1) {
+    if (periodosAluno.indexOf("20121") == -1 || show_distribuicao == true) {
         $('#p_20121').prop('disabled', true);
         $('#p_20121').prop('checked', false);
     }else {
@@ -142,7 +147,7 @@ function atualizarCheckBox(){
         box_periodo = box_periodo.concat(["20121"]);
     };
 
-    if (periodosAluno.indexOf("20122") == -1) {
+    if (periodosAluno.indexOf("20122") == -1 || show_distribuicao == true) {
         $('#p_20122').prop('disabled', true);
         $('#p_20122').prop('checked', false);
     }else {
@@ -203,10 +208,16 @@ function atualizarCheckBox(){
             if((dados_repetencia.filter(function(d){return d.matricula == id_aluno;})).length == 0){
                 $('#ckb_reprovacao').prop('disabled', true);
                 $('#ckb_reprovacao').prop('checked', false);
+                $('#ckb_distribuicao').prop('disabled', true);
+                $('#ckb_distribuicao').prop('checked', false);
             }else {
                 $('#ckb_reprovacao').prop('disabled', false);
                 $('#ckb_reprovacao').prop('checked', false);
+                $('#ckb_distribuicao').prop('disabled', false);
+                $('#ckb_distribuicao').prop('checked', false);
             };
+
+            
         };
     
     }else{
@@ -261,10 +272,25 @@ function verificaDepartamento(box){
 function verificaReprovacao(box){
     if(box.checked){
         show_repetencia = true;
+        show_distribuicao = false;
+        $('#ckb_distribuicao').prop('checked', false);
     }else{
         show_repetencia = false;
     }
     mostrarBarrasParalelas();
+}
+
+/*Verifica checkbox de departamento*/
+function verificaReprovacaoDistribuicao(box){
+    if(box.checked){
+        show_distribuicao = true;
+        show_repetencia = false;
+        $('#ckb_reprovacao').prop('checked', false);
+    }else{
+        show_distribuicao = false;
+    }
+    atualizarCheckBox();
+    showDistribuicaoReprovacao();
 }
 
 
@@ -286,6 +312,6 @@ function filtrar(){
         dados_processados = dados_departamentos_filtrados;
     }
     
-    init(1200, 600,"#infos2");
+    init(1200, 500,"#infos2");
     executa(dados_processados, 0,10,4);
 }

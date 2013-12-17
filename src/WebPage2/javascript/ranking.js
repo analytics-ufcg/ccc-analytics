@@ -165,7 +165,7 @@ function plot_bars_ranking(svg, dados,y0){
           .domain([dados[0].x, dados[1].x])
           .range([120, 750]);
     
-    addLine_ranking(svg,x1(dados[0].x),x1(dados[1].x),y0,y0,"#E0E0E0");
+    addLine_ranking(svg,x1(dados[0].x),x1(dados[1].x),y0,y0,"#C7C7C7");
 }
 
 
@@ -227,7 +227,7 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
                     .attr("y2",y0+12) // Altura inferior da linha
                     .attr("class","linha_aluno")
                     .transition().duration(duration) // Transicao
-                    .style("stroke","#0000a1") // Cor da linha
+                    .style("stroke","#377EB8") // Cor da linha
                     .attr("stroke-width",5)    // Largura da linha
                     .attr("text",function(d){return d.matricula;});
 
@@ -244,7 +244,7 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
             .attr("y2",y0+12) // Y final da linha
             .attr("class","linha_aluno")
             .transition().duration(duration)  // Transicao
-            .style("stroke","red") // Cor da linha
+            .style("stroke","#E41A1C") // Cor da linha
             .attr("stroke-width",5)    // Largura da linha
             .attr("text",function(d){return d.matricula;});
     

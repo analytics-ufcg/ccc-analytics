@@ -4,19 +4,19 @@ body {
 	background-image: url(image/background.png);
 	background-repeat: repeat;
 	background-attachment:fixed;
-	margin-left: 20px;
-	margin-right: 20px;
+	
+	margin-left: -150px;
+	margin-right: 40px;
 	margin-bottom: 20px;
 }
 body,td,th {
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 	font-style: normal;
-	font-size: 12px;
+	font-size:12px;
 	color: #666;
 	font-weight: bold;
 	text-decoration:none;
 	background-image: url(image/background.png);
-	text-align: center;
 }
 
 #top {
@@ -142,4 +142,29 @@ margin-bottom: 5px;
 
 #legenda { 
 	float: right;
+}
+
+
+text {
+ font-family: sans-serif;
+ font-size: 11pt;
+}
+
+.y.axis text {
+  dominant-baseline: middle;
+  text-anchor: end;
+}
+
+.y.axis text.title {
+  text-anchor: middle;
+  fill: blue;
+}
+
+.x.axis text {
+  dominant-baseline: hanging;
+  text-anchor: middle;
+}
+
+.x.axis text.title {
+  fill: blue;
 }

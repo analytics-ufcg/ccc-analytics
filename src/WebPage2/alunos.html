@@ -29,8 +29,8 @@
 	<body onload="loadmatriculas();">
 		<div class="container">
 			<!-- inicio da div masthead -->
-			<div class="masthead">
-				<img class="CCC" src="imgs/header.png">
+			<div class="masthead" style="align:center;"> 
+				<img class="CCC" src="imgs/header.png" style="align:center;">
 			
 			</div>
 			<!-- fim da div masthead -->
@@ -48,7 +48,7 @@
 
 						<div id="collapse_scenario_atts" class="panel-collapse collapse in" style="height:400px;">
 							<div class="panel-body">
-								<span style="font-size:14px;">Matrícula:</span>
+								<span>Matrícula:</span>
 								<select id="mymatriculas" class="selectpicker show-tick" data-live-search="true" data-size="auto" data-width="160px" onchange="iniciarAluno(this);";>
 								</select>
 							</div>
@@ -79,15 +79,13 @@
 							</div>
 							<div>						
 								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;" id="d_dsc" value="dsc" onchange="verificaDepartamento(this);" checked/>
-								<span style="width:50px;margin-top:20px;display:inline-block;">DSC</span>
-								<input class="ck" type="checkbox" name="nome_periodo" id="d_fisica" value="fisica" onchange="verificaDepartamento(this);" checked/>
-								<span style="width:60px;display:inline-block;">Física</span>
+								<span style="width:80px;margin-top:20px;display:inline-block;">DSC</span>
 								<input class="ck" type="checkbox" name="nome_periodo" id="d_esportes" value="esportes" onchange="verificaDepartamento(this);" checked/>
 								<span style="width:60px;display:inline-block;">Esportes</span>
 							</div>
 							<div>
 								<input class="ck" type="checkbox" name="nome_periodo" style="margin-left:15px;margin-bottom:5px;" id="d_dme" value="dme" onchange="verificaDepartamento(this);" checked/>
-								<span style="width:50px;display:inline-block;">DME</span>
+								<span style="width:80px;display:inline-block;">Exatas</span>
 								<input class="ck" type="checkbox" name="nome_periodo" id="d_humanas" value="humanas" onchange="verificaDepartamento(this);" checked/>
 								<span style="width:60px;display:inline-block;margin-bottom:20px;">Humanas</span>
 							</div>
@@ -117,7 +115,7 @@
 
 			
 			<!--  inicio da div footer-->
-			<div class="footer">
+			<div class="footer" style="text-align:center;">
 				<p align="center"> Projeto FRH/Analytics - UFCG (2013) </p>
 			</div>
 			<!-- fim da div footer -->

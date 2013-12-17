@@ -43,14 +43,13 @@ function buildSvg(width, height,body){
 		.style("z-index", "10")
 		.style("visibility", "hidden")
 		.style("stroke","red");	
-
 }
 
 //@inicia as variaveis iniciais das cordenadas paralelas e instancia o svg
 //@width  largura do svg
 //@height altura do svg
 function init(width, height,body){
-	w = width - margin.left - margin.right;
+	w = width - margin.right -250;
     h = height - margin.top - margin.bottom;
     x = d3.scale.ordinal().rangePoints([0, w], 1);	
 	buildSvg(width, height,body);
@@ -64,7 +63,7 @@ function init(width, height,body){
 function executa(data_file, smin,smax,col){
 	console.log("arquivo = "+data_file.length);
 	if (data_file.length == 0){
-             data_file = [[[],[],[],[],[]],[[],[],[],[],[]],[[],[],[],[],[]]];
+             data_file = [[[-1],[-1],[-1],[-1],[-1]] ,  [[-1],[-1],[-1],[-1],[-1]] ,	 [[-1],[-1],[-1],[-1],[-1]], 			  [[-1],[-1],[-1],[-1],[-1]]];
 	     colunas = 4;
         }
 	colunas = col;
@@ -119,6 +118,7 @@ function executa(data_file, smin,smax,col){
 				.classed("fisica", function(p) { return p.departamento == "fisica"; })
 				.classed("humanas", function(p) { return p.departamento == "humanas"; })
 				.classed("esportes", function(p) { return p.departamento == "esportes"; })
+				.classed("perdeu", function(p) { return p.media < 5; })
 				.on("mouseover", mouseover)
         		.on("mouseout", mouseout)
 	    		.on("mousemove",mousemove);
@@ -129,6 +129,7 @@ function executa(data_file, smin,smax,col){
 				.classed("segunda", function(p) { return p.vez == "2"; })
 				.classed("terceira", function(p) { return p.vez == "3"; })
 				.classed("quarta", function(p) { return p.vez == "4"; })
+				.classed("perdeu", function(p) { return p.media < 5; })
 				.on("mouseover", mouseover)
         		.on("mouseout", mouseout)
 	    		.on("mousemove",mousemove);
