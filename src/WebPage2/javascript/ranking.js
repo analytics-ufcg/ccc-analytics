@@ -185,7 +185,7 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .style("fill","black")
         .text(matricula + ": " + nota);
 
-	mostrarBarrasParalelas2(matricula);
+	//mostrarBarrasParalelas2(matricula);
     } 
 
     // Funcao que faz o tolltip sumir 
@@ -235,7 +235,7 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
 
     g.selectAll("line").on("mouseout", function(d){mouseout(d.media, d.matricula);}) 
                        .on("mousemove", function(d){mousemove(d.media, d.matricula);})
-                       .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
+                       .on("click", function(d) {mostrarBarrasParalelas2(d.matricula);/*console.log(d.matricula + "  " + d.media);*/});
 
 
     // Adiciona a linha correspondente a media do aluno escolhido
