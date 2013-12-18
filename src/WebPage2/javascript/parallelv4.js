@@ -150,17 +150,33 @@ function executa(data_file, smin,smax,col){
        showAxis(g);
 	 
 	 	if (!show_repetencia) {
-      		projection = svg.selectAll(".background path,.foreground path")
-				.classed("dsc", function(p) { return p.departamento == "dsc"; })
-				.classed("dme", function(p) { return p.departamento == "dme"; })
-				.classed("fisica", function(p) { return p.departamento == "fisica"; })
-				.classed("humanas", function(p) { return p.departamento == "humanas"; })
-				.classed("esportes", function(p) { return p.departamento == "esportes"; })
-				.classed("perdeu", function(p) { return p.media < 5; })
-				.on("mouseover", mouseover)
-        		.on("mouseout", mouseout)
-	    		.on("mousemove",mousemove);
-	  
+      		if (show_agrupamento) {
+				projection = svg.selectAll(".background path,.foreground path")
+					.classed("grupo1", function(p) { return p.grupo == "1"; })
+					.classed("grupo2", function(p) { return p.grupo == "2"; })
+					.classed("grupo3", function(p) { return p.grupo == "3"; })
+					.classed("grupo4", function(p) { return p.grupo == "4"; })
+					.classed("grupo5", function(p) { return p.grupo == "5"; })
+					.classed("grupo6", function(p) { return p.grupo == "6"; })
+					.classed("grupo7", function(p) { return p.grupo == "7"; })
+					.classed("grupo8", function(p) { return p.grupo == "8"; })
+					.classed("grupo9", function(p) { return p.grupo == "0"; })
+					.classed("perdeu", function(p) { return p.media < 5; })
+					.on("mouseover", mouseover)
+	        		.on("mouseout", mouseout)
+		    		.on("mousemove",mousemove);
+      		}else{
+	      		projection = svg.selectAll(".background path,.foreground path")
+					.classed("dsc", function(p) { return p.departamento == "dsc"; })
+					.classed("dme", function(p) { return p.departamento == "dme"; })
+					.classed("fisica", function(p) { return p.departamento == "fisica"; })
+					.classed("humanas", function(p) { return p.departamento == "humanas"; })
+					.classed("esportes", function(p) { return p.departamento == "esportes"; })
+					.classed("perdeu", function(p) { return p.media < 5; })
+					.on("mouseover", mouseover)
+	        		.on("mouseout", mouseout)
+		    		.on("mousemove",mousemove);
+	  		}
 	  	}else {
        		projection = svg.selectAll(".background path,.foreground path")
 				.classed("primeira", function(p) { return p.vez == "1"; })
