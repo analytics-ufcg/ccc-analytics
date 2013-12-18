@@ -4,7 +4,9 @@ dados_desemp_aluno = [];
 dados_periodos_filtrados = [];
 dados_departamentos_filtrados = [];
 dados_repetencia = [];
+dados_agrupamento = [];
 
+show_agrupamento = false;
 show_repetencia = false;
 show_disciplina = false;
 show_distribuicao = false;
@@ -18,13 +20,14 @@ id_disciplina = "";
 
 box_periodo = [];
 box_departamento = [];
+box_grupo = [];
 
 function loadmatriculas(){
     d3.csv("dados/ranking.csv",function(data){
         dados_ranking = data;
     });
 
-    d3.csv("dados/arquivo_notas_disciplinas.csv",function(data){
+    d3.csv("dados/agrupamento.csv",function(data){
         dados_desemp_aluno = data;
         var materias = data.map(function(d){return d.disciplina;}).unique().sort();
         var my_disciplinadesempenho = d3.select("#mydisciplinas");
@@ -36,6 +39,10 @@ function loadmatriculas(){
 
     d3.csv("dados/repetencia.csv",function(data){
         dados_repetencia = data;
+    });
+
+    d3.csv("dados/lari.csv",function(data){
+        dados_agrupamento = data;
     });
 
     d3.csv("dados/matriculas.csv" , function (data){    
@@ -63,9 +70,9 @@ function iniciarDisciplina(selection){
     porDisciplina = true;
     show_distribuicao = false;
     rep_tipo = "matricula";
-    id_disciplina = selection.options[selection.selectedIndex].value;    
+    id_disciplina = selection.options[selection.selectedIndex].value;
     mostrarBarrasParalelas();
-    //console.log("iniciarDisciplina",id_disciplina);
+    // mostrarAgrupamento(false);
 }
 
 
@@ -77,52 +84,20 @@ function mostrarBarrasParalelas(){
 
 
     if (show_disciplina) {
+        porDisciplina = true;
         if (show_repetencia) {
-            porDisciplina = true;
             dados_atuais = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
             atualizarCheckBox();
             getRepetencia();  
-        } else { 
-            porDisciplina = true;
+        } else {
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disciplina;});
             atualizarCheckBox();
-            getDesempenho();
-        };
-    }else{
-        if (show_repetencia) {
-            dados_atuais = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
-            getRepetencia();
-            getRanking();
-        } else { 
-            dados_atuais = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
-            getDesempenho();
-            getRanking();
-        };
-    };
-}
-
-function mostrarBarrasParalelas2(id_aluno){
-    id_aluno = id_aluno;
-    d3.select("#infos2").select("svg").remove();
-    d3.select("#infos").select("svg").remove();
-    $("#infos").empty();
-    $("#infos2").empty();
-
-
-    if (show_disciplina) {
-        if (show_repetencia) {
-            porDisciplina = true;
-            dados_atuais = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
-            getRepetencia();  
-        } else { 
-            porDisciplina = true;
-            dados_atuais = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
-            getDesempenho();
-        };
+            if(show_agrupamento){
+                getAgrupamento();
+            }else{
+                getDesempenho();
+            }
+        } 
     }else{
         if (show_repetencia) {
             dados_atuais = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
@@ -144,6 +119,7 @@ function getDesempenho(){
     executa(dados_atuais, 0,10,4);
     showLegendasRepetencia(false);
     showLegendasDesempenho(true);
+    showLegendasAgrupamento(false);
 }
 
 function getRepetencia(){
@@ -152,6 +128,17 @@ function getRepetencia(){
     executa(dados_atuais, 0,10,4);
     showLegendasRepetencia(true);
     showLegendasDesempenho(false);  
+    showLegendasAgrupamento(false);
+}
+
+function getAgrupamento(){
+    init(1200, 500,"#infos2");
+    executa(dados_atuais, 0,10,4);
+    showLegendasRepetencia(false);
+    showLegendasDesempenho(false);
+    showLegendasAgrupamento(true);
+    show_agrupamento
+
 }
 
 
@@ -159,9 +146,11 @@ function getRepetencia(){
 function atualizarCheckBox(){
     box_periodo = [];
     box_departamento = [];
+    box_grupo = [];
 
     var periodosAluno = getPeriodos();
     var departamentosAluno = getDepartamentos();
+    var gruposAluno = getGrupos();
 
     if (periodosAluno.indexOf("20111") == -1 || show_distribuicao == true) {
         $('#p_20111').prop('disabled', true);
@@ -274,7 +263,64 @@ function atualizarCheckBox(){
                 $('#ckb_distribuicao').prop('disabled', false);
                 $('#ckb_distribuicao').prop('checked', false);
             };
+            
+            if (gruposAluno.indexOf("1") == -1) {
+                $('#grupo1').prop('disabled', true);
+                $('#grupo1').prop('checked', false);
+            }else {
+                $('#grupo1').prop('disabled', false);
+                $('#grupo1').prop('checked', true);
+                box_grupo = box_grupo.concat(["1"]);
+            };
+
+            if (gruposAluno.indexOf("2") == -1) {
+                $('#grupo2').prop('disabled', true);
+                $('#grupo2').prop('checked', false);
+            }else {
+                $('#grupo2').prop('disabled', false);
+                $('#grupo2').prop('checked', true);
+                box_grupo = box_grupo.concat(["2"]);
+            };
+
+            if (gruposAluno.indexOf("3") == -1) {
+                $('#grupo3').prop('disabled', true);
+                $('#grupo3').prop('checked', false);
+            }else {
+                $('#grupo3').prop('disabled', false);
+                $('#grupo3').prop('checked', true);
+                box_grupo = box_grupo.concat(["3"]);
+            };
+
+            if (gruposAluno.indexOf("4") == -1 || show_distribuicao == true) {
+                $('#grupo4').prop('disabled', true);
+                $('#grupo4').prop('checked', false);
+            }else {
+                $('#grupo4').prop('disabled', false);
+                $('#grupo4').prop('checked', true);
+                box_grupo = box_grupo.concat(["4"]);
+            };
+
+            if (gruposAluno.indexOf("5") == -1 || show_distribuicao == true) {
+                $('#grupo5').prop('disabled', true);
+                $('#grupo5').prop('checked', false);
+            }else {
+                $('#grupo5').prop('disabled', false);
+                $('#grupo5').prop('checked', true);
+                box_grupo = box_grupo.concat(["5"]);
+            };
+
+            if (gruposAluno.indexOf("6") == -1 || show_distribuicao == true) {
+                $('#grupo6').prop('disabled', true);
+                $('#grupo6').prop('checked', false);
+            }else {
+                $('#grupo6').prop('disabled', false);
+                $('#grupo6').prop('checked', true);
+                box_grupo = box_grupo.concat(["6"]);
+            };
+
         }
+
+
     };
     
 }
@@ -290,6 +336,12 @@ function getDepartamentos(){
     return json1.unique();
 }
 
+function getGrupos(){
+    var json1 = $.map(dados_atuais, function (r) {return r["grupo"];});
+    return json1.unique();
+}
+
+
 /*Verifica checkbox de periodo*/
 function verificaPeriodo(box){
     if(box.checked){
@@ -298,6 +350,21 @@ function verificaPeriodo(box){
         box_periodo.splice(box_periodo.indexOf(box.value), 1);
    }
     filtrar();
+}
+
+/*Verifica checkbox de periodo*/
+function verificaGrupo(box){
+    if(box.checked){
+        box_grupo = box_grupo.concat(box.value);
+        show_agrupamento = true;
+     }else{
+        box_grupo.splice(box_grupo.indexOf(box.value), 1);
+        if(box_grupo.length==0){
+            show_agrupamento = false;
+        }
+   }
+   filtrar();
+   // atualizarCheckBox();
 }
 
 /*Verifica checkbox de departamento*/
@@ -317,11 +384,13 @@ function verificaReprovacao(box){
         show_distribuicao = false;
         showLegendasRepetencia(true);
         showLegendasDesempenho(false);  
+        mostrarAgrupamento(false);
         $('#ckb_distribuicao').prop('checked', false);
     }else{
         if(show_distribuicao==false){
             showLegendasRepetencia(false);
-            showLegendasDesempenho(true);  
+            showLegendasDesempenho(true); 
+            mostrarAgrupamento(true); 
         }
         show_repetencia = false;
     }
@@ -337,7 +406,9 @@ function verificaReprovacaoDistribuicao(box){
         showDistribuicaoReprovacao();
         showLegendasRepetencia(false);
         showLegendasDesempenho(false);
+        mostrarAgrupamento(false);
     }else{
+        mostrarAgrupamento(true);
         show_distribuicao = false;
         show_repetencia();
 
@@ -350,6 +421,7 @@ function verificaReprovacaoDistribuicao(box){
 function filtrar(){
     dados_periodos_filtrados = [];
     dados_departamentos_filtrados = [];
+    dados_grupos_filtrados = [];
 
     for (var i = box_periodo.length - 1; i >= 0; i--) {
         dados_periodos_filtrados = dados_periodos_filtrados.concat(dados_atuais.filter(function(d){return d.periodo == box_periodo[i];}));
@@ -357,6 +429,12 @@ function filtrar(){
 
     if (show_disciplina) {
         dados_processados = dados_periodos_filtrados;
+        if (show_agrupamento==true){
+            for (var i = box_grupo.length - 1; i >= 0; i--) {
+                dados_grupos_filtrados = dados_grupos_filtrados.concat(dados_processados.filter(function(d){return d.grupo == box_grupo[i];}));
+            }
+            dados_processados = dados_grupos_filtrados;
+        }
     } else{
         for (var i = box_departamento.length - 1; i >= 0; i--) {
             dados_departamentos_filtrados = dados_departamentos_filtrados.concat(dados_periodos_filtrados.filter(function(d){return d.departamento == box_departamento[i];}));
@@ -412,3 +490,37 @@ function showLegendasDesempenho(mostrar){
         $("#bolinhaDes4").show();
     }
 }
+
+function mostrarAgrupamento(mostrar){
+    if(mostrar == false){
+        $('#grupo1').prop('disabled', true);
+        $('#grupo2').prop('disabled', true);
+        $('#grupo3').prop('disabled', true);
+        $('#grupo4').prop('disabled', true);
+        $('#grupo5').prop('disabled', true);
+        $('#grupo6').prop('disabled', true);
+        $('#grupo1').prop('checked', false);
+        $('#grupo2').prop('checked', false);
+        $('#grupo3').prop('checked', false);
+        $('#grupo4').prop('checked', false);
+        $('#grupo5').prop('checked', false);
+        $('#grupo6').prop('checked', false);
+    } else {
+        $('#grupo1').prop('disabled', false);
+        $('#grupo2').prop('disabled', false);
+        $('#grupo3').prop('disabled', false);
+        $('#grupo4').prop('disabled', false);
+        $('#grupo5').prop('disabled', false);
+        $('#grupo6').prop('disabled', false);
+        $('#grupo1').prop('checked', false);
+        $('#grupo2').prop('checked', false);
+        $('#grupo3').prop('checked', false);
+        $('#grupo4').prop('checked', false);
+        $('#grupo5').prop('checked', false);
+        $('#grupo6').prop('checked', false);
+    }
+}
+
+
+function showLegendasAgrupamento(mostrar){
+};
