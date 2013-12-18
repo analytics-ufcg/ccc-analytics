@@ -354,6 +354,33 @@ function atualizarCheckBox(){
                 box_grupo = box_grupo.concat(["6"]);
             };
 
+            if (gruposAluno.indexOf("7") == -1 || show_distribuicao == true) {
+                $('#grupo7').prop('disabled', true);
+                $('#grupo7').prop('checked', false);
+            }else {
+                $('#grupo7').prop('disabled', false);
+                $('#grupo7').prop('checked', true);
+                box_grupo = box_grupo.concat(["7"]);
+            };
+
+            if (gruposAluno.indexOf("8") == -1 || show_distribuicao == true) {
+                $('#grupo8').prop('disabled', true);
+                $('#grupo8').prop('checked', false);
+            }else {
+                $('#grupo8').prop('disabled', false);
+                $('#grupo8').prop('checked', true);
+                box_grupo = box_grupo.concat(["8"]);
+            };
+
+            if (gruposAluno.indexOf("0") == -1 || show_distribuicao == true) {
+                $('#grupo9').prop('disabled', true);
+                $('#grupo9').prop('checked', false);
+            }else {
+                $('#grupo9').prop('disabled', false);
+                $('#grupo9').prop('checked', true);
+                box_grupo = box_grupo.concat(["0"]);
+            };
+
         }
 
 
