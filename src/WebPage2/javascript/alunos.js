@@ -102,7 +102,7 @@ function mostrarBarrasParalelas(){
     };
 }
 
-/*Funcao para mostrar o Desempenho de um aluno selecionado*/
+/*Funcao para mostrar o Desempenho de um aluno/disciplina selecionado*/
 function getDesempenho(){
     init(1200, 500,"#infos2");
     executa(dados_atuais, 0,10,4);
@@ -306,8 +306,7 @@ function verificaReprovacaoDistribuicao(box){
         show_repetencia();
 
     }
-    atualizarCheckBox();
-    
+    atualizarCheckBox();   
 }
 
 

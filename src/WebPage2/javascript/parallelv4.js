@@ -27,7 +27,8 @@ var data;
 function buildSvg(width, height,body){	
 	
 
-	d3.select(body).select("svg").remove();
+	d3.select(body).selectAll("svg").remove();
+
 	//d3.select(body).select("#infos").remove();
 	
 
