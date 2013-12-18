@@ -184,6 +184,8 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
         .attr("text-anchor", "middle")
         .style("fill","black")
         .text(matricula + ": " + nota);
+
+	mostrarBarrasParalelas2(matricula);
     } 
 
     // Funcao que faz o tolltip sumir 
