@@ -113,6 +113,42 @@ function mostrarBarrasParalelas(){
     };
 }
 
+function mostrarBarrasParalelas2(id_aluno){
+    id_aluno = id_aluno;
+    d3.select("#infos2").select("svg").remove();
+    d3.select("#infos").select("svg").remove();
+    $("#infos").empty();
+    $("#infos2").empty();
+
+
+    if (show_disciplina) {
+        if (show_repetencia) {
+            porDisciplina = true;
+            dados_atuais = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
+            atualizarCheckBox();
+            getRepetencia();  
+        } else { 
+            porDisciplina = true;
+            dados_atuais = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disciplina;});
+            atualizarCheckBox();
+            getDesempenho();
+        };
+    }else{
+        if (show_repetencia) {
+            dados_atuais = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
+            atualizarCheckBox();
+            getRepetencia();
+            getRanking();
+        } else { 
+            dados_atuais = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
+            atualizarCheckBox();
+            getDesempenho();
+            getRanking();
+        };
+    };
+}
+
+
 /*Funcao para mostrar o Desempenho de um aluno/disciplina selecionado*/
 function getDesempenho(){
     init(1200, 500,"#infos2");
