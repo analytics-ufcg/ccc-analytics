@@ -420,10 +420,14 @@ function verificaGrupo(box){
     if(box.checked){
         box_grupo = box_grupo.concat(box.value);
         show_agrupamento = true;
+        showLegendasAgrupamento(true);
+        showLegendasDesempenho(false);
      }else{
         box_grupo.splice(box_grupo.indexOf(box.value), 1);
         if(box_grupo.length==0){
             show_agrupamento = false;
+            showLegendasAgrupamento(false);
+            showLegendasDesempenho(true);
         }
    }
    filtrar();
@@ -447,12 +451,21 @@ function verificaReprovacao(box){
         show_distribuicao = false;
         showLegendasRepetencia(true);
         showLegendasDesempenho(false);  
+        showLegendasAgrupamento(false);
         mostrarAgrupamento(false);
         $('#ckb_distribuicao').prop('checked', false);
     }else{
         if(show_distribuicao==false){
             showLegendasRepetencia(false);
-            showLegendasDesempenho(true); 
+            if(show_agrupamento==true){
+                showLegendasAgrupamento(true);
+                showLegendasDesempenho(false); 
+                showLegendasRepetencia(false);
+            }else{
+                showLegendasDesempenho(true); 
+                showLegendasRepetencia(false);
+                showLegendasAgrupamento(false);
+            }
             mostrarAgrupamento(true); 
         }
         show_repetencia = false;
@@ -466,6 +479,7 @@ function verificaReprovacaoDistribuicao(box){
         show_distribuicao = true;
         show_repetencia = false;
         $('#ckb_reprovacao').prop('checked', false);
+        $('#ckb_distribuicao').prop('checked', true);
         showDistribuicaoReprovacao();
         showLegendasRepetencia(false);
         showLegendasDesempenho(false);
@@ -554,6 +568,53 @@ function showLegendasDesempenho(mostrar){
     }
 }
 
+
+function showLegendasAgrupamento(mostrar){
+   if(mostrar == false){
+        $("#legendaGrupo1").hide();
+        $("#legendaGrupo2").hide();
+        $("#legendaGrupo3").hide();
+        $("#legendaGrupo4").hide();
+        $("#legendaGrupo5").hide();
+        $("#legendaGrupo6").hide();
+        $("#legendaGrupo7").hide();
+        $("#legendaGrupo8").hide();
+        $("#legendaGrupo9").hide();
+        
+        $("#bolinhaGrupo1").hide();
+        $("#bolinhaGrupo2").hide();
+        $("#bolinhaGrupo3").hide();
+        $("#bolinhaGrupo4").hide();
+        $("#bolinhaGrupo5").hide();
+        $("#bolinhaGrupo6").hide();
+        $("#bolinhaGrupo7").hide();
+        $("#bolinhaGrupo8").hide();
+        $("#bolinhaGrupo9").hide();
+    } else{
+        $("#legendaGrupo1").show();
+        $("#legendaGrupo2").show();
+        $("#legendaGrupo3").show();
+        $("#legendaGrupo4").show();
+        $("#legendaGrupo5").show();
+        $("#legendaGrupo6").show();
+        $("#legendaGrupo7").show();
+        $("#legendaGrupo8").show();
+        $("#legendaGrupo9").show();
+
+        $("#bolinhaGrupo1").show();
+        $("#bolinhaGrupo2").show();
+        $("#bolinhaGrupo3").show();
+        $("#bolinhaGrupo4").show();
+        $("#bolinhaGrupo5").show();
+        $("#bolinhaGrupo6").show();
+        $("#bolinhaGrupo7").show();
+        $("#bolinhaGrupo8").show();
+        $("#bolinhaGrupo9").show();
+    }
+};
+
+
+
 function mostrarAgrupamento(mostrar){
     if(mostrar == false){
         $('#grupo1').prop('disabled', true);
@@ -562,12 +623,20 @@ function mostrarAgrupamento(mostrar){
         $('#grupo4').prop('disabled', true);
         $('#grupo5').prop('disabled', true);
         $('#grupo6').prop('disabled', true);
+        $('#grupo7').prop('disabled', true);
+        $('#grupo8').prop('disabled', true);
+        $('#grupo9').prop('disabled', true);
+        
+
         $('#grupo1').prop('checked', false);
         $('#grupo2').prop('checked', false);
         $('#grupo3').prop('checked', false);
         $('#grupo4').prop('checked', false);
         $('#grupo5').prop('checked', false);
         $('#grupo6').prop('checked', false);
+        $('#grupo7').prop('checked', false);
+        $('#grupo8').prop('checked', false);
+        $('#grupo9').prop('checked', false);
     } else {
         $('#grupo1').prop('disabled', false);
         $('#grupo2').prop('disabled', false);
@@ -575,15 +644,20 @@ function mostrarAgrupamento(mostrar){
         $('#grupo4').prop('disabled', false);
         $('#grupo5').prop('disabled', false);
         $('#grupo6').prop('disabled', false);
+        $('#grupo7').prop('disabled', false);
+        $('#grupo8').prop('disabled', false);
+        $('#grupo9').prop('disabled', false);
+
         $('#grupo1').prop('checked', false);
         $('#grupo2').prop('checked', false);
         $('#grupo3').prop('checked', false);
         $('#grupo4').prop('checked', false);
         $('#grupo5').prop('checked', false);
         $('#grupo6').prop('checked', false);
+        $('#grupo7').prop('checked', false);
+        $('#grupo8').prop('checked', false);
+        $('#grupo9').prop('checked', false);
     }
 }
 
 
-function showLegendasAgrupamento(mostrar){
-};

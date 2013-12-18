@@ -91,6 +91,55 @@
  stroke: #472400; 
 }
 
+
+
+/*Agrupamento*/
+.foreground path.grupo1 {
+ stroke: #e41a1c ; 
+}
+.foreground path.grupo2 {
+ stroke: #377eb8; 
+}
+.foreground path.grupo3 {
+ stroke: #4daf4a; 
+}
+.foreground path.grupo4 {
+ stroke: #984ea3; 
+}
+.foreground path.grupo5 {
+ stroke: #ff7f00; 
+}
+.foreground path.grupo6 {
+ stroke: #ffff33; 
+}
+.foreground path.grupo7 {
+ stroke: #a65628; 
+}
+.foreground path.grupo8 {
+ stroke: #f781bf; 
+}
+.foreground path.grupo9  {
+ stroke: #999999; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Disciplinas - (ainda não está sendo usada)*/
 .foreground path.adm {
  stroke:#080;
