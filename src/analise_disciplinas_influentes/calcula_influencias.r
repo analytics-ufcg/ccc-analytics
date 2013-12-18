@@ -1,13 +1,6 @@
-dados <- read.csv("~/AF/tabelao_2011_r.csv")
+dados <- read.csv("dados_44.csv")
 
-update_dados_aluno <- function(disciplinas, indicesAremover){
-  
-  
-  disciplinas <- disciplinas[indicesAremover]
-  return (disciplinas);
-  
-}
-
+#função para calcular o CRE de um aluno excluindo-se os NAs
 calcula_media <- function(linha){
   total = 0;
   notas = 0;
@@ -25,38 +18,62 @@ calcula_media <- function(linha){
   
 }
 
+#calculando, disciplina a disciplina, a quantidade de alunos que possuem notas
+number_of_data = rep(0,ncol(dados)-1)
+for(i in 2:ncol(dados)){
+  number_of_data[i] = length(na.exclude(dados[,i]))
+}
+#obtendo a ordem final, da disciplina que mais contém para a que menos contém notas
+final_order = order(number_of_data, decreasing = T)
+#excluindo a última coluna (X)
+final_order = final_order[-length(final_order)]
+#excluindo a penúltima coluna (matrícula)
+final_order = final_order[-length(final_order)]
+
+#inicializando algumas variávies de resposta
+resultado = c()
+k = c()
+
+#inicializando a variável do CRE
 cres = rep(NA, nrow(dados))
 
-#removendo os indices das disciplinas idesejadas
-dados_disciplinas_selecionadas = dados[c(-4,-10,-13,-15,-16,-17,-20)]
-cres = apply(dados_disciplinas_selecionadas,1,calcula_media)
-dados_disciplinas_selecionadas = cbind(dados_disciplinas_selecionadas,cres)
+#inicializando o vetor que indica quais as disciplinas estarão no cálculo final
+#a primeira, que deve constar, é a matrícula (de modo a manter a referência do aluno)
+disciplinas_para_adicionar = c(1)
 
+#Esta variável é para ilustrar a queda do número de alunos na medida em que novas disciplinas são adicionadas
+totais_alunos = rep(0,length(final_order))
 
-dados_disciplinas_selecionadas_filtradas = na.exclude(dados_disciplinas_selecionadas)
-r <- glm(dados_disciplinas_selecionadas_filtradas$cres~calculo_I+
-           calculo_II+
-           #es+
-           eda+
-           classica+
-           gi+
-           ic+
-           leda+
-           #loac+
-           lp1+
-           lp2+
-           #logica+
-           discreta+
-           #oac+
-           #plp+
-           #probabilidade+
-           p1+
-           p2+
-           #si1+
-           teoria+
-           grafos+
-           linear+
-           vetorial,data=dados_disciplinas_selecionadas_filtradas);
+#Esta é a variável com todas as notas de todos os alunos que pagaram todas as disciplinas selecionadas
+finalData = c()
 
+#inserindo as disciplinas uma a uma e verificando o comportamento do número de alunos
+for(i in 1:length(final_order)){
+  disciplinas_para_adicionar[i+1] = final_order[i]  
+  #removendo os indices das disciplinas idesejadas
+  dados_disciplinas_selecionadas = dados[disciplinas_para_adicionar]
+  cres = apply(dados_disciplinas_selecionadas,1,calcula_media)
+  dados_disciplinas_selecionadas = cbind(dados_disciplinas_selecionadas,cres)
+  dados_disciplinas_selecionadas_filtradas = na.exclude(dados_disciplinas_selecionadas)
+  totais_alunos[i] = nrow(dados_disciplinas_selecionadas_filtradas)
+  
+  #caso existam alunos suficientes para o cálculo, prosseguir
+  if(totais_alunos[i]>=i){
+    finalData = dados_disciplinas_selecionadas_filtradas
+  }else{
+    #caso contrário, parar!
+    break
+  }
+}
 
-summary(r);
+#A partir da última matriz que conteve alunos em número suficiente para o cálculo da regressão,
+#criar a fórmula
+fla <- paste("cres ~", paste(colnames(finalData[2:(ncol(finalData)-1)]), collapse="+"))
+#calcular a regressão
+r <- lm(as.formula(fla),data=finalData);
+#Obter os desvios padrão dos coeficientes por variável
+k=summary(r)$coefficients[,2]
+#normalizar pelos desvios padrão dos CREs (variável meta)
+#Este é o resultado desejado!
+resultado = sort((k/sd(finalData$cres))*r$coefficients,decreasing=T)
+print(resultado)
