@@ -479,6 +479,7 @@ function verificaReprovacaoDistribuicao(box){
         show_distribuicao = true;
         show_repetencia = false;
         $('#ckb_reprovacao').prop('checked', false);
+        $('#ckb_distribuicao').prop('checked', true);
         showDistribuicaoReprovacao();
         showLegendasRepetencia(false);
         showLegendasDesempenho(false);
