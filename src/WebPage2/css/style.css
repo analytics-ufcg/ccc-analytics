@@ -4,15 +4,14 @@ body {
 	background-image: url(image/background.png);
 	background-repeat: repeat;
 	background-attachment:fixed;
-	
 	margin-left: -150px;
-	margin-right: 40px;
+	margin-right: 20px;
 	margin-bottom: 20px;
 }
 body,td,th {
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 	font-style: normal;
-	font-size:12px;
+	font-size: 12px;
 	color: #666;
 	font-weight: bold;
 	text-decoration:none;
@@ -76,8 +75,7 @@ a:hover {
 
 .close{display:block; text-align:right;}
 
-.circle1
-{
+.circle1{
 width:10px;
 height:10px;
 border-radius:15px;
@@ -86,13 +84,11 @@ color:black;
 line-height:10px;
 text-align:center;
 background:green;
-margin-left: 20px;
-margin-right: 10px;
-margin-bottom: 5px;
+margin-bottom: 7px;
+margin-top: 4px;
 }
 
-.circle2
-{
+.circle2{
 width:10px;
 height:10px;
 border-radius:15px;
@@ -101,13 +97,11 @@ color:black;
 line-height:10px;
 text-align:center;
 background:orange;
-margin-left: 20px;
-margin-right: 10px;
-margin-bottom: 5px;
+margin-bottom: 7px;
+margin-top: 4px;
 }
 
-.circle3
-{
+.circle3{
 width:10px;
 height:10px;
 border-radius:15px;
@@ -116,13 +110,11 @@ color:black;
 line-height:10px;
 text-align:center;
 background:red;
-margin-left: 20px;
-margin-right: 10px;
-margin-bottom: 5px;
+margin-bottom: 7px;
+margin-top: 4px;
 }
 
-.circle4
-{
+.circle4{
 width:10px;
 height:10px;
 border-radius:15px;
@@ -131,10 +123,65 @@ color:black;
 line-height:10px;
 text-align:center;
 background:sienna;
-margin-left: 20px;
-margin-right: 10px;
-margin-bottom: 5px;
+margin-bottom: 7px;
+margin-top: 4px;
 }
+
+.circle5{  /*DSC*/
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:#377EB8;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle6{   /*Esportes*/
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:#4DAF4A;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle7{   /*Exatas*/
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:#E41A1C;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle8{   /*Humanas*/
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#FFCC00;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+
+
+
 	
 #infos { 
 	float: left;
@@ -146,8 +193,7 @@ margin-bottom: 5px;
 
 
 text {
- font-family: sans-serif;
- font-size: 11pt;
+ 
 }
 
 .y.axis text {

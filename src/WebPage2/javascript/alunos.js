@@ -61,6 +61,7 @@ function iniciarAluno(selection){
 function iniciarDisciplina(selection){
     show_disciplina = true;
     porDisciplina = true;
+    show_distribuicao = false;
     rep_tipo = "matricula";
     id_disciplina = selection.options[selection.selectedIndex].value;
     mostrarBarrasParalelas();
@@ -72,12 +73,14 @@ function mostrarBarrasParalelas(){
     d3.select("#infos").select("svg").remove();
     $("#infos").empty();
     $("#infos2").empty();
+
+
     if (show_disciplina) {
         if (show_repetencia) {
             porDisciplina = true;
             dados_atuais = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
             atualizarCheckBox();
-            getRepetencia();
+            getRepetencia();  
         } else { 
             porDisciplina = true;
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disciplina;});
@@ -103,12 +106,16 @@ function mostrarBarrasParalelas(){
 function getDesempenho(){
     init(1200, 500,"#infos2");
     executa(dados_atuais, 0,10,4);
+    showLegendasRepetencia(false);
+    showLegendasDesempenho(true);
 }
 
 function getRepetencia(){
     rep_filtro = true;
     init(1200, 500,"#infos2");
     executa(dados_atuais, 0,10,4);
+    showLegendasRepetencia(true);
+    showLegendasDesempenho(false);  
 }
 
 
@@ -203,9 +210,24 @@ function atualizarCheckBox(){
             box_departamento = box_departamento.concat(["esportes"]);
         };
         if (!show_repetencia) {
-            console.log("repetencia aluno:");
             var teste = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});    
             if((dados_repetencia.filter(function(d){return d.matricula == id_aluno;})).length == 0){
+                $('#ckb_reprovacao').prop('disabled', true);
+                $('#ckb_reprovacao').prop('checked', false);
+             
+            }else {
+                $('#ckb_reprovacao').prop('disabled', false);
+                $('#ckb_reprovacao').prop('checked', false);
+            };
+
+            
+        };
+    
+    }else{
+        if (!show_repetencia) {
+            var teste2 = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
+
+            if((dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;})).length == 0){
                 $('#ckb_reprovacao').prop('disabled', true);
                 $('#ckb_reprovacao').prop('checked', false);
                 $('#ckb_distribuicao').prop('disabled', true);
@@ -215,22 +237,6 @@ function atualizarCheckBox(){
                 $('#ckb_reprovacao').prop('checked', false);
                 $('#ckb_distribuicao').prop('disabled', false);
                 $('#ckb_distribuicao').prop('checked', false);
-            };
-
-            
-        };
-    
-    }else{
-        if (!show_repetencia) {
-            console.log("repetencia disciplina:");
-            var teste2 = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
-
-            if((dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;})).length == 0){
-                $('#ckb_reprovacao').prop('disabled', true);
-                $('#ckb_reprovacao').prop('checked', false);
-            }else {
-                $('#ckb_reprovacao').prop('disabled', false);
-                $('#ckb_reprovacao').prop('checked', false);
             };
         }
     };
@@ -252,9 +258,9 @@ function getDepartamentos(){
 function verificaPeriodo(box){
     if(box.checked){
         box_periodo = box_periodo.concat(box.value);
-    }else{
+     }else{
         box_periodo.splice(box_periodo.indexOf(box.value), 1);
-    }
+   }
     filtrar();
 }
 
@@ -268,13 +274,19 @@ function verificaDepartamento(box){
     filtrar();
 }
 
-/*Verifica checkbox de departamento*/
+/*Verifica checkbox de reprovacao*/
 function verificaReprovacao(box){
     if(box.checked){
         show_repetencia = true;
         show_distribuicao = false;
+        showLegendasRepetencia(true);
+        showLegendasDesempenho(false);  
         $('#ckb_distribuicao').prop('checked', false);
     }else{
+        if(show_distribuicao==false){
+            showLegendasRepetencia(false);
+            showLegendasDesempenho(true);  
+        }
         show_repetencia = false;
     }
     mostrarBarrasParalelas();
@@ -286,11 +298,16 @@ function verificaReprovacaoDistribuicao(box){
         show_distribuicao = true;
         show_repetencia = false;
         $('#ckb_reprovacao').prop('checked', false);
+        showDistribuicaoReprovacao();
+        showLegendasRepetencia(false);
+        showLegendasDesempenho(false);
     }else{
         show_distribuicao = false;
+        show_repetencia();
+
     }
     atualizarCheckBox();
-    showDistribuicaoReprovacao();
+    
 }
 
 
@@ -314,4 +331,49 @@ function filtrar(){
     
     init(1200, 500,"#infos2");
     executa(dados_processados, 0,10,4);
+}
+
+function showLegendasRepetencia(mostrar){
+    if(mostrar == false){
+        $("#legendaRep1").hide();
+        $("#legendaRep2").hide();
+        $("#legendaRep3").hide();
+        $("#legendaRep4").hide();
+        $("#bolinhaRep1").hide();
+        $("#bolinhaRep2").hide();
+        $("#bolinhaRep3").hide();
+        $("#bolinhaRep4").hide();
+    } else{
+        $("#legendaRep1").show();
+        $("#legendaRep2").show();
+        $("#legendaRep3").show();
+        $("#legendaRep4").show();
+        $("#bolinhaRep1").show();
+        $("#bolinhaRep2").show();
+        $("#bolinhaRep3").show();
+        $("#bolinhaRep4").show();
+    }
+}
+
+
+function showLegendasDesempenho(mostrar){
+    if(mostrar == false){
+        $("#legendaDes1").hide();
+        $("#legendaDes2").hide();
+        $("#legendaDes3").hide();
+        $("#legendaDes4").hide();
+        $("#bolinhaDes1").hide();
+        $("#bolinhaDes2").hide();
+        $("#bolinhaDes3").hide();
+        $("#bolinhaDes4").hide();
+    } else{
+        $("#legendaDes1").show();
+        $("#legendaDes2").show();
+        $("#legendaDes3").show();
+        $("#legendaDes4").show();
+        $("#bolinhaDes1").show();
+        $("#bolinhaDes2").show();
+        $("#bolinhaDes3").show();
+        $("#bolinhaDes4").show();
+    }
 }

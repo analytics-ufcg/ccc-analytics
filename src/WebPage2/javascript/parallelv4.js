@@ -32,17 +32,54 @@ function buildSvg(width, height,body){
 	
 
 	svg = d3.select(body);
+	
+	var svg2 = d3.select(body).append("svg")
+		.attr("width", width)
+		.attr("height", 15);
+
 	svg = d3.select(body).append("svg")
 		.attr("width", width)
-		.attr("height", height)
-                .attr("transform", "translate(" + margin.bottom + "," + margin.top + ")");
+		.attr("height", height);
 	
+	svg2.append("text")
+            .attr("y", 10)
+            .attr("x", 95)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Nota 1");
+
+    svg2.append("text")
+            .attr("y", 10)
+            .attr("x", 322)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Nota 2");
+
+	svg2.append("text")
+            .attr("y", 10)
+            .attr("x", 551)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Nota 3");
+
+    svg2.append("text")
+            .attr("y", 10)
+            .attr("x", 778)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Final");
+
 	tooltip = d3.select(body)
 		.append("div")	//TODO ver isso depois
 		.style("position", "absolute","red")
 		.style("z-index", "10")
 		.style("visibility", "hidden")
 		.style("stroke","red");	
+
 }
 
 //@inicia as variaveis iniciais das cordenadas paralelas e instancia o svg

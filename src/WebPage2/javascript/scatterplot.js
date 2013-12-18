@@ -12,8 +12,6 @@ function showDistribuicaoReprovacao(){
 	$("#infos").empty();
 	$("#infos2").empty();
 	
-
-
 	tooltip2 = d3.select("#infos")
 		.append("div")	//TODO ver isso depois
 		.style("position", "absolute","red")
@@ -91,6 +89,26 @@ var chart = d3.select('#infos')
 .attr('height', height + margin.top + margin.bottom)
 .attr('class', 'chart')
 
+
+	chart.append("text")
+            .attr("y", 233)
+            .attr("x", 130)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Média");
+
+	chart.append("text")
+            .attr("y", 480)
+            .attr("x", 328)
+            .attr("text-anchor", "center")
+            .attr("font-size", "12px")
+            .attr("font-weight", "bold")
+            .text("Número da repetência");
+
+
+
+
 // the main object where the chart and axis will be drawn
 var main = chart.append('g')
 .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
@@ -130,7 +148,7 @@ g.selectAll("scatter-dots")
       .attr("cy", function (d) { return y(d); } ) // translate y value to a pixel
       .attr("cx", function (d,i) { return x(xdata[i]); } ) // translate x value
       .attr("r", 5) // radius of circle
-      .style("opacity", 0.15)
+      .style("opacity", 0.18)
       .style("fill","blue")
       .on("mouseout", mouseoutMedia)
 	      .on("mousemove",function(d){
