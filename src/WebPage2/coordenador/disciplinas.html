@@ -42,7 +42,7 @@
 
 
 	</head>
-	<body onload="loadmatriculas();">
+	<body onload="loadataDisciplinas();">
 		<div class="container">
 			<!-- inicio da div masthead -->
 			
@@ -63,10 +63,8 @@
 						</div>
 
 						<div id="collapse_scenario_atts" class="panel-collapse collapse in" style="height:435px;">
-							<div style="margin-left:15px;margin-top:20px;">
-								<span style="font-size:14px;">Disciplina:</span>
-							</div>
-							<div style="margin-left:15px;margin-botton:20px;">
+							<div class="panel-body">
+								<span>Disciplina:</span>
 								<select id="mydisciplinas" class="selectpicker show-tick" data-live-search="true" data-size="auto" data-width="225px" onchange="iniciarDisciplina(this);";>
 								</select>
 							</div>

@@ -21,31 +21,75 @@ id_disciplina = "";
 box_periodo = [];
 box_departamento = [];
 box_grupo = [];
+/*@
 
-function loadmatriculas(){
-    d3.csv("dados/ranking.csv",function(data){
-        dados_ranking = data;
-    });
+  Carrega todos os dados do sistema
 
-    d3.csv("dados/agrupamento.csv",function(data){
-        dados_desemp_aluno = data;
-        var materias = data.map(function(d){return d.disciplina;}).unique().sort();
-        var my_disciplinadesempenho = d3.select("#mydisciplinas");
-        my_disciplinadesempenho.selectAll("option").data(materias).enter().append("option")
-        .attr("value",function(d){return d;})
-        .attr("label",function(d){return d; })   
-        .text(function(d){return d;});
-    });
 
-    d3.csv("dados/repetencia.csv",function(data){
-        dados_repetencia = data;
-    });
+	agrupamento.csv
+		------>Todos os dados classificados por grupo (comportamento semelhante entre disciplinas de um aluno específico)  
+	
+	agrupamento_disciplinas
+ 		------>Todos os dados classificados por grupo (comportamento semelhante entre disciplinas)
 
-    d3.csv("dados/lari.csv",function(data){
-        dados_agrupamento = data;
-    });
+	matriculas.csv
+		------>Todas as matriculas dos alunos
 
+	ranking.csv
+		------>Dados referente ao ranking de cada a aluno em relação a sua turma 
+
+	repetencia.csv
+		------>Todos os dados dos alunos que repetiram alguma disciplina
+
+*/
+
+function loadataDisciplinas(){
+        loadata();
+	d3.csv("dados/disciplinas.csv",function(data){
+		console.log("nao carregado");
+		dados_disciplinas = data;
+		var materias_disc = data.map(function(d){return d.disciplina;});
+		var my_disciplinas = d3.select("#mydisciplinas");
+		my_disciplinas.selectAll("option").data(materias_disc).enter().append("option")
+		.attr("value",function(d){return d;})
+		.attr("label",function(d){return d; })   
+		.text(function(d){return d;});
+		$('.selectpicker').selectpicker({'selectedText': 'cat'});
+	 	console.log("carregado");
+	    });
+
+}
+
+
+function loadata(){
+	 d3.csv("dados/ranking.csv",function(data){
+		dados_ranking = data;
+	    });
+
+	    
+
+	    d3.csv("dados/agrupamento.csv",function(data){
+		dados_desemp_aluno = data;
+		var materias = data.map(function(d){return d.disciplina;}).unique().sort();
+	    });
+
+	    d3.csv("dados/repetencia.csv",function(data){
+		dados_repetencia = data;
+	    });
+
+	    d3.csv("dados/agrupamento_disciplinas.csv",function(data){
+		dados_agrupamento = data;
+	    });
+
+    
+    
+   
+}
+
+function loadataAlunos(){
+    loadata();
     d3.csv("dados/matriculas.csv" , function (data){    
+	console.log("nao carregado matriculas");
         dados_matricula = data;        
         var mat = data.map(function(d){return d.matricula;});
         var mymatriculas = d3.selectAll("#mymatriculas");
@@ -53,7 +97,9 @@ function loadmatriculas(){
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
         .text(function(d){return d;}); // texto da matricula 
-        $('.selectpicker').selectpicker({'selectedText': 'cat'});
+	$('.selectpicker').selectpicker({'selectedText': 'cat'});
+	console.log("carregado matriculas");
+       
     });
 }
 
@@ -87,11 +133,10 @@ function mostrarBarrasParalelas(){
         porDisciplina = true;
         if (show_repetencia) {
             dados_atuais = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
+            
             getRepetencia();  
         } else {
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
             if(show_agrupamento){
                 getAgrupamento();
             }else{
@@ -101,16 +146,16 @@ function mostrarBarrasParalelas(){
     }else{
         if (show_repetencia) {
             dados_atuais = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
             getRepetencia();
             getRanking();
         } else { 
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
             getDesempenho();
             getRanking();
         };
     };
+
+    atualizarCheckBox();
 }
 
 function mostrarBarrasParalelas2(id_aluno){
@@ -125,27 +170,24 @@ function mostrarBarrasParalelas2(id_aluno){
         if (show_repetencia) {
             porDisciplina = true;
             dados_atuais = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
             getRepetencia();  
         } else { 
             porDisciplina = true;
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
             getDesempenho();
         };
     }else{
         if (show_repetencia) {
             dados_atuais = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
             getRepetencia();
             getRanking();
         } else { 
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
             getDesempenho();
             getRanking();
         };
     };
+    atualizarCheckBox();
 }
 
 
