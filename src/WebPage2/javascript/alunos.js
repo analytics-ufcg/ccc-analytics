@@ -42,30 +42,54 @@ box_grupo = [];
 		------>Todos os dados dos alunos que repetiram alguma disciplina
 
 */
-function loadmatriculas(){
-    d3.csv("dados/ranking.csv",function(data){
-        dados_ranking = data;
-    });
 
-    d3.csv("dados/agrupamento.csv",function(data){
-        dados_desemp_aluno = data;
-        var materias = data.map(function(d){return d.disciplina;}).unique().sort();
-        var my_disciplinadesempenho = d3.select("#mydisciplinas");
-        my_disciplinadesempenho.selectAll("option").data(materias).enter().append("option")
-        .attr("value",function(d){return d;})
-        .attr("label",function(d){return d; })   
-        .text(function(d){return d;});
-    });
+function loadataDisciplinas(){
+        loadata();
+	d3.csv("dados/disciplinas.csv",function(data){
+		console.log("nao carregado");
+		dados_disciplinas = data;
+		var materias_disc = data.map(function(d){return d.disciplina;});
+		var my_disciplinas = d3.select("#mydisciplinas");
+		my_disciplinas.selectAll("option").data(materias_disc).enter().append("option")
+		.attr("value",function(d){return d;})
+		.attr("label",function(d){return d; })   
+		.text(function(d){return d;});
+		$('.selectpicker').selectpicker({'selectedText': 'cat'});
+	 	console.log("carregado");
+	    });
 
-    d3.csv("dados/repetencia.csv",function(data){
-        dados_repetencia = data;
-    });
+}
 
-    d3.csv("dados/agrupamento_disciplinas.csv",function(data){
-        dados_agrupamento = data;
-    });
 
+function loadata(){
+	 d3.csv("dados/ranking.csv",function(data){
+		dados_ranking = data;
+	    });
+
+	    
+
+	    d3.csv("dados/agrupamento.csv",function(data){
+		dados_desemp_aluno = data;
+		var materias = data.map(function(d){return d.disciplina;}).unique().sort();
+	    });
+
+	    d3.csv("dados/repetencia.csv",function(data){
+		dados_repetencia = data;
+	    });
+
+	    d3.csv("dados/agrupamento_disciplinas.csv",function(data){
+		dados_agrupamento = data;
+	    });
+
+    
+    
+   
+}
+
+function loadataAlunos(){
+    loadata();
     d3.csv("dados/matriculas.csv" , function (data){    
+	console.log("nao carregado matriculas");
         dados_matricula = data;        
         var mat = data.map(function(d){return d.matricula;});
         var mymatriculas = d3.selectAll("#mymatriculas");
@@ -73,7 +97,9 @@ function loadmatriculas(){
         .attr("value",function(d){return d;})
         .attr("label",function(d){return d;})
         .text(function(d){return d;}); // texto da matricula 
-        $('.selectpicker').selectpicker({'selectedText': 'cat'});
+	$('.selectpicker').selectpicker({'selectedText': 'cat'});
+	console.log("carregado matriculas");
+       
     });
 }
 
