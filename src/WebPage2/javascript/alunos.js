@@ -21,7 +21,27 @@ id_disciplina = "";
 box_periodo = [];
 box_departamento = [];
 box_grupo = [];
+/*@
 
+  Carrega todos os dados do sistema
+
+
+	agrupamento.csv
+		------>Todos os dados classificados por grupo (comportamento semelhante entre disciplinas de um aluno específico)  
+	
+	agrupamento_disciplinas
+ 		------>Todos os dados classificados por grupo (comportamento semelhante entre disciplinas)
+
+	matriculas.csv
+		------>Todas as matriculas dos alunos
+
+	ranking.csv
+		------>Dados referente ao ranking de cada a aluno em relação a sua turma 
+
+	repetencia.csv
+		------>Todos os dados dos alunos que repetiram alguma disciplina
+
+*/
 function loadmatriculas(){
     d3.csv("dados/ranking.csv",function(data){
         dados_ranking = data;
@@ -41,7 +61,7 @@ function loadmatriculas(){
         dados_repetencia = data;
     });
 
-    d3.csv("dados/lari.csv",function(data){
+    d3.csv("dados/agrupamento_disciplinas.csv",function(data){
         dados_agrupamento = data;
     });
 
