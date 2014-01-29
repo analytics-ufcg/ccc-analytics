@@ -107,11 +107,10 @@ function mostrarBarrasParalelas(){
         porDisciplina = true;
         if (show_repetencia) {
             dados_atuais = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
+            
             getRepetencia();  
         } else {
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
             if(show_agrupamento){
                 getAgrupamento();
             }else{
@@ -121,16 +120,16 @@ function mostrarBarrasParalelas(){
     }else{
         if (show_repetencia) {
             dados_atuais = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
             getRepetencia();
             getRanking();
         } else { 
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
             getDesempenho();
             getRanking();
         };
     };
+
+    atualizarCheckBox();
 }
 
 function mostrarBarrasParalelas2(id_aluno){
@@ -145,27 +144,24 @@ function mostrarBarrasParalelas2(id_aluno){
         if (show_repetencia) {
             porDisciplina = true;
             dados_atuais = dados_repetencia.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
             getRepetencia();  
         } else { 
             porDisciplina = true;
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.disciplina == id_disciplina;});
-            atualizarCheckBox();
             getDesempenho();
         };
     }else{
         if (show_repetencia) {
             dados_atuais = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
             getRepetencia();
             getRanking();
         } else { 
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
-            atualizarCheckBox();
             getDesempenho();
             getRanking();
         };
     };
+    atualizarCheckBox();
 }
 
 
