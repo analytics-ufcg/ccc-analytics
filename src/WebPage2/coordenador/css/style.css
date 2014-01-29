@@ -1,0 +1,348 @@
+@charset "utf-8";
+
+body {
+	background-image: url(image/background.png);
+	background-repeat: repeat;
+	background-attachment:fixed;
+	margin-left: -150px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+body,td,th {
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-style: normal;
+	font-size: 12px;
+	color: #666;
+	font-weight: bold;
+	text-decoration:none;
+	background-image: url(image/background.png);
+}
+
+#top {
+	font-size:14px;
+	}
+	
+#menu {
+	font-size:18px;
+	}
+	
+#content {
+	background-position:center;
+	}
+	
+	
+#texto {
+	text-align:center;
+	text-decoration:none;
+	color:#000;
+	}
+
+.header {
+	font-family:'cafenero', Segoe, Verdana, "Trebuchet MS";
+	text-align:center;
+	text-shadow:#CCC;
+	font-size:30px;
+	color:#006;
+	}
+
+#space {
+
+	}
+	
+#fonte {
+	text-align: center;
+}
+
+fonte {
+	font-size: 14px;
+}
+
+
+a {
+	color:#07078b; 
+	text-decoration:none;
+}
+
+a:hover {
+	color:#ccc; 
+	text-decoration:none;
+}
+
+
+#content table tr td p {
+	text-align: center;
+}
+
+.close{display:block; text-align:right;}
+
+.circle1{
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:green;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle2{
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:orange;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle3{
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:red;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle4{
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:sienna;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle5{  /*DSC*/
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:#377EB8;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle6{   /*Esportes*/
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:#4DAF4A;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle7{   /*Exatas*/
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;
+color:black;
+line-height:10px;
+text-align:center;
+background:#E41A1C;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circle8{   /*Humanas*/
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#FFCC00;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+
+
+
+
+
+.circleGrupo1{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#e41a1c;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circleGrupo2{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#377eb8;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circleGrupo3{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#4daf4a;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circleGrupo4{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#984ea3;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circleGrupo5{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#ff7f00;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circleGrupo6{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#ffff33;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circleGrupo7{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#a65628;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circleGrupo8{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#f781bf;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+.circleGrupo9{ 
+width:10px;
+height:10px;
+border-radius:15px;
+font-size:12px;	
+color:black;
+line-height:10px;
+text-align:center;
+background:#999999;
+margin-bottom: 7px;
+margin-top: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+#infos { 
+	float: left;
+}
+
+#legenda { 
+	float: right;
+}
+
+
+text {
+ 
+}
+
+.y.axis text {
+  dominant-baseline: middle;
+  text-anchor: end;
+}
+
+.y.axis text.title {
+  text-anchor: middle;
+  fill: blue;
+}
+
+.x.axis text {
+  dominant-baseline: hanging;
+  text-anchor: middle;
+}
+
+.x.axis text.title {
+  fill: blue;
+}

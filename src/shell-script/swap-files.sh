@@ -38,5 +38,4 @@ cat src/WebPage2/dados/other_matrc > src/WebPage2/dados/matriculasRepetente.csv
 cat src/WebPage2/dados/other_not > src/WebPage2/dados/notas.txt
 cat src/WebPage2/dados/other_rank > src/WebPage2/dados/ranking.csv
 
-rm src/WebPage2/dados/other_*
 git rm src/WebPage2/dados/other_*
