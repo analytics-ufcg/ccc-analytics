@@ -39,3 +39,4 @@ cat src/WebPage2/dados/other_not > src/WebPage2/dados/notas.txt
 cat src/WebPage2/dados/other_rank > src/WebPage2/dados/ranking.csv
 
 git rm src/WebPage2/dados/other_*
+rm src/WebPage2/dados/other_*
