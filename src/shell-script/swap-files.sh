@@ -1,5 +1,13 @@
 #! /bin/bash
 
+# Esse script substitui a base de dados utilizada no sistema.
+# Uma das bases de dados contém as matriculas dos alunos, a outra
+# representa cada aluno como um id único.
+#
+# Author: Tercio de Melo
+# See:  src/Python/shuffle-matriculas.py
+#       src/Python/fix-matriculas.py
+
 cat src/WebPage2/dados/alternate_agrupamento.csv > src/WebPage2/dados/other_ag
 cat src/WebPage2/dados/alternate_arquivo_notas_disciplinas.csv > src/WebPage2/dados/other_arq
 cat src/WebPage2/dados/alternate_competencia3.csv > src/WebPage2/dados/other_comp3
@@ -31,3 +39,4 @@ cat src/WebPage2/dados/other_not > src/WebPage2/dados/notas.txt
 cat src/WebPage2/dados/other_rank > src/WebPage2/dados/ranking.csv
 
 rm src/WebPage2/dados/other_*
+git rm src/WebPage2/dados/other_*
