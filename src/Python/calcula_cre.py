@@ -8,7 +8,7 @@
 
 notas = open("arquivo_notas_disciplinas.csv").readlines()
 disciplinas_file = open("disciplinas_creditos.csv").readlines()
-dados_cre = open("cres.csv",'w')
+dados_cre = open("cres_por_periodo.csv",'w')
 
 disciplinas_creditos = {}
 
@@ -69,7 +69,11 @@ for dados in alunos_cre:
 	periodo = dados[1]
 	cre = dados[2]
 
-	dados_cre.write(str(matricula)+","+str(periodo)+",%1.2f\n" % cre)
+	if anterior != matricula:
+		dados_cre.write("\n"+str(matricula))
+	anterior = matricula	
+	
+	dados_cre.write(",%1.2f" % cre)
 
 			
 
