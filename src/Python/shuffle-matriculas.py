@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from random import shuffle
 
 # Lê todas as matriculas da base de dados 
@@ -28,4 +29,4 @@ matriculas = open('src/WebPage2/dados/matriculas-union', 'r').readlines()
 shuffle(matriculas)
 
 for id, mat in zip(xrange(1, len(matriculas)+1), matriculas):
-    print mat[1:4] + str(id), int(mat)
+    print mat[:4] + str(id), int(mat)

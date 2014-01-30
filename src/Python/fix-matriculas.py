@@ -30,8 +30,8 @@
 # colunas para cada arquivo. Essas duas listas são cruciais para o
 # funcionamento correto do script, pois elas representam a estrutura
 # dos dados.
-idx = [8, 8, 3, 8, 8, 4, 1, 8, 8]
-delimiter = [',', ',', '\"', ',', ',', '\t', '\"', ',', ',']
+idx = [8, 8, 3, 8, 8, 4, 0, 8, 8]
+delimiter = [',', ',', '\"', ',', ',', '\t', ',', ',', ',']
 
 # 'files' lista os arquivos a serem alterados. Por
 # "alterar" entende-se criar uma cópia com os ids das matrículas.
@@ -40,7 +40,8 @@ files = ['agrupamento.csv', 'arquivo_notas_disciplinas.csv', 'competencia3.csv',
         'lari.csv', 'lari.txt', 'notas.txt', 'ranking.csv', 'repetencia.csv',
         'agrupamento_disciplinas.csv']
 
-prefix = 'src/WebPage2/dados/'
+src_prefix = 'src/WebPage2/coordenador/dados/'
+dest_prefix = 'src/WebPage2/dados/'
 
 # 'id_mapping' faz um mapeamento de cada matricula
 # para o id a ela atribuído.
@@ -55,7 +56,7 @@ for i in xrange(len(files)):
     new_file = []
 
     # Para cada linha do arquivo atual
-    for line in open(prefix + files[i]).readlines():
+    for line in open(src_prefix + files[i]).readlines():
         parts = line.split(delimiter[i])
         if len(parts) <= idx[i]: continue
 
@@ -70,7 +71,7 @@ for i in xrange(len(files)):
             # Caso contrario, coloca-se a linha original.
             new_file.append(delimiter[i].join(parts))
     # Salva o arquivo resultante.
-    open(prefix + 'alternate_' + files[i], 'w').write(''.join(new_file))
+    open(dest_prefix + files[i], 'w').write(''.join(new_file))
 
 
 # Há dois arquivos que não se adequam a estrutura dos outros arquivos,
@@ -78,9 +79,9 @@ for i in xrange(len(files)):
 func = lambda x : x[:-1] if x[:-1] not in id_mapping else id_mapping[x[:-1]]
 
 # Mapeia todas as linhas sobre a função 'func' que realiza a mudança necessária.
-matriculas_csv = map(func, open(prefix + 'matriculas.csv').readlines())
-matriculas_repetendes = map(func, open(prefix + 'matriculasRepetente.csv').readlines())
+matriculas_csv = map(func, open(src_prefix + 'matriculas.csv').readlines())
+matriculas_repetendes = map(func, open(src_prefix + 'matriculasRepetente.csv').readlines())
 
 # Salva os arquivos alterados.
-open(prefix + 'alternate_' + 'matriculas.csv', 'w').write('\n'.join(matriculas_csv))
-open(prefix + 'alternate_' + 'matriculasRepetente.csv', 'w').write('\n'.join(matriculas_repetendes))
+open(dest_prefix + 'matriculas.csv', 'w').write('\n'.join(matriculas_csv))
+open(dest_prefix + 'matriculasRepetente.csv', 'w').write('\n'.join(matriculas_repetendes))
