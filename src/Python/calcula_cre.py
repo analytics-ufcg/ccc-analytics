@@ -6,9 +6,11 @@
 #"disciplina","creditos"
 #"Administra",4
 
-notas = open("arquivo_notas_disciplinas.csv").readlines()
-disciplinas_file = open("disciplinas_creditos.csv").readlines()
-dados_cre = open("cres_por_periodo.csv",'w')
+path_prefix = 'src/WebPage2/dados/'
+path_coord_prefix = 'src/WebPage2/coordenador/dados/'
+notas = open(path_prefix + "arquivo_notas_disciplinas.csv").readlines()
+disciplinas_file = open(path_coord_prefix + "disciplinas_creditos.csv").readlines()
+dados_cre = open(path_prefix + "cres_por_periodo.csv",'w')
 
 disciplinas_creditos = {}
 
