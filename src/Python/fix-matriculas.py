@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Requerimentos: É necessário, antes de rodar esse script, que seja 
 #                executado o script src/Python/shuffle-matricula.py
 #                e que seu resultado seja salvo manualmente no arquivo
@@ -29,16 +30,15 @@
 # colunas para cada arquivo. Essas duas listas são cruciais para o
 # funcionamento correto do script, pois elas representam a estrutura
 # dos dados.
-idx = [8, 8, 3, 8, 8, 4, 2]
-delimiter = [',', ',', '\"', ',', ',', '\t', '\"']
+idx = [8, 8, 3, 8, 8, 4, 1, 8, 8]
+delimiter = [',', ',', '\"', ',', ',', '\t', '\"', ',', ',']
 
 # 'files' lista os arquivos a serem alterados. Por
 # "alterar" entende-se criar uma cópia com os ids das matrículas.
 # o resultado contém o prefixo "alternate_" em cada arquivo.
-files = ['agrupamento.csv',
-        'arquivo_notas_disciplinas.csv', 'competencia3.csv',
-        'lari.csv', 'lari.txt',
-        'notas.txt', 'ranking.csv']
+files = ['agrupamento.csv', 'arquivo_notas_disciplinas.csv', 'competencia3.csv',
+        'lari.csv', 'lari.txt', 'notas.txt', 'ranking.csv', 'repetencia.csv',
+        'agrupamento_disciplinas.csv']
 
 prefix = 'src/WebPage2/dados/'
 
