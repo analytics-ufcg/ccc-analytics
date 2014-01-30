@@ -20,7 +20,7 @@ function plot_bar_disciplina_ranking(nome){
         .attr("width", 800)
         .attr("height", 115);
 
-    var periodo_aluno = nome.substring(1,4);
+    var periodo_aluno = nome.substring(1,3);
     
     var val_per = dados_ranking.filter(function(d){ return d.periodo == periodo_aluno});
     var line_per =  [{'x' : d3.min(val_per,function(d){return parseFloat(d.media);}) , 'y' : h1},
@@ -239,6 +239,7 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
 
 
     // Adiciona a linha correspondente a media do aluno escolhido
+
     svg.append("line")
             .attr("x1", function(d){ return convert(inf[0].media,min.x,max.x);}) // X inicial da linha
             .attr("x2", function(d){ return convert(inf[0].media,min.x,max.x);}) // X final da linha 
@@ -248,7 +249,11 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
             .transition().duration(duration)  // Transicao
             .style("stroke","#E41A1C") // Cor da linha
             .attr("stroke-width",5)    // Largura da linha
-            .attr("text",function(d){return d.matricula;});
+            .attr("text",function(d){
+
+			return d.matricula;
+
+		});
     
     svg.selectAll("line").on("mouseover", function(d){mouseover();}) 
                        .on("mouseout", function(d){mouseout(d.media, d.matricula);}) 

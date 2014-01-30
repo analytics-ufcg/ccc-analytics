@@ -23,7 +23,7 @@ function plot_bar_disciplina_ranking(nome){
         .attr("width", 800)
         .attr("height", 115);
 
-    var periodo_aluno = nome.substring(0,3);
+    var periodo_aluno = nome.substring(0,2);
     
     var val_per = dados_ranking.filter(function(d){ return d.periodo == periodo_aluno});
     var line_per =  [{'x' : d3.min(val_per,function(d){return parseFloat(d.media);}) , 'y' : h1},
@@ -234,7 +234,10 @@ function plot_alunos_ranking(svg, dados, cor, min, max, y0){
                     .transition().duration(duration) // Transicao
                     .style("stroke","#377EB8") // Cor da linha
                     .attr("stroke-width",5)    // Largura da linha
-                    .attr("text",function(d){return d.matricula;});
+                    .attr("text",function(d){
+				return d.matricula;
+
+			});
 
     g.selectAll("line").on("mouseout", function(d){mouseout(d.media, d.matricula);}) 
                        .on("mousemove", function(d){mousemove(d.media, d.matricula);})
