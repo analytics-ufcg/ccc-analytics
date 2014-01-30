@@ -5,7 +5,10 @@ var aluno = "";
 function getRanking(){
     aluno = id_aluno;
     $("#infos").empty();
+    console.log("plot ranking ANTES");
     plot_bar_disciplina_ranking(id_aluno);
+    console.log("plot ranking DEPOIS");
+
 }
 
 function plot_bar_disciplina_ranking(nome){
@@ -20,7 +23,7 @@ function plot_bar_disciplina_ranking(nome){
         .attr("width", 800)
         .attr("height", 115);
 
-    var periodo_aluno = nome.substring(1,4);
+    var periodo_aluno = nome.substring(0,3);
     
     var val_per = dados_ranking.filter(function(d){ return d.periodo == periodo_aluno});
     var line_per =  [{'x' : d3.min(val_per,function(d){return parseFloat(d.media);}) , 'y' : h1},
