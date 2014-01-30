@@ -8,6 +8,7 @@
 
 path_prefix = 'src/WebPage2/dados/'
 path_coord_prefix = 'src/WebPage2/coordenador/dados/'
+
 notas = open(path_prefix + "arquivo_notas_disciplinas.csv").readlines()
 disciplinas_file = open(path_coord_prefix + "disciplinas_creditos.csv").readlines()
 dados_cre = open(path_prefix + "cres_por_periodo.csv",'w')
@@ -64,22 +65,22 @@ for matricula, periodos in alunos.iteritems():
 
 alunos_cre.sort()
 
-anterior = 0
+anterior = alunos_cre[0][0]
+pd = ["20111","20112","20121","20122"]
+creperiodo = ["x","x","x","x"]
 
 for dados in alunos_cre:
-	matricula = dados[0]
-	periodo = dados[1]
-	cre = dados[2]
+    matricula = dados[0]
+    periodo = dados[1]
+    cre = dados[2]
 
-	if anterior != matricula:
-		dados_cre.write("\n"+str(matricula))
-	anterior = matricula	
-	
-	dados_cre.write(",%1.2f" % cre)
+    if anterior != matricula:	
+        dados_cre.write(str(anterior))
 
-			
+        for i in creperiodo:
+            dados_cre.write((",%1.2f" % i) if i != "x" else ",x")
+        dados_cre.write("\n")	
+        creperiodo = ["x","x","x","x"]
+        anterior = matricula
 
-	
-	
-
-
+    creperiodo[pd.index(periodo)] = cre	
