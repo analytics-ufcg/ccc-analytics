@@ -67,7 +67,7 @@ alunos_cre.sort()
 
 anterior = alunos_cre[0][0]
 pd = ["20111","20112","20121","20122"]
-creperiodo = ["x","x","x","x"]
+creperiodo = ["na","na","na","na"]
 
 for dados in alunos_cre:
     matricula = dados[0]
@@ -78,9 +78,9 @@ for dados in alunos_cre:
         dados_cre.write(str(anterior))
 
         for i in creperiodo:
-            dados_cre.write((",%1.2f" % i) if i != "x" else ",x")
+            dados_cre.write((",%1.2f" % i) if i != "na" else ",")
         dados_cre.write("\n")	
-        creperiodo = ["x","x","x","x"]
+        creperiodo = ["na","na","na","na"]
         anterior = matricula
 
     creperiodo[pd.index(periodo)] = cre	
