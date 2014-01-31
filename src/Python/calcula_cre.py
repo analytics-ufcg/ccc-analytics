@@ -79,7 +79,7 @@ def calcula(): # {{{
             dados_cre.write(str(anterior))
 
             for i in creperiodo:
-                dados_cre.write((",%1.2f" % i) if i != "na" else ",")
+                dados_cre.write((",%1.2f" % i) if i != "na" else ",-1")
             dados_cre.write("\n")	
             creperiodo = ["na","na","na","na"]
             anterior = matricula
