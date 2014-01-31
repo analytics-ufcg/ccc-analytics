@@ -271,10 +271,7 @@ function plot_alunos_ranking(svg, dados, cor, minx, maxx, y0){
 
 		});
     
-    svg.selectAll("line").on("mouseover", function(d){mouseover();}) 
-                       .on("mouseout", function(d){mouseout(d.media, d.matricula);}) 
-                    .on("mousemove", function(d){mousemove(d.media, d.matricula);})
-                    .on("click", function(d) {console.log(d.matricula + "  " + d.media);});
+   
 
 
 }
