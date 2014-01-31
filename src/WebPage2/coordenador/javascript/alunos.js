@@ -89,7 +89,7 @@ function loadata(){
 function loadataAlunos(){
     loadata();
     d3.csv("dados/matriculas.csv" , function (data){    
-	console.log("nao carregado matriculas");
+	
         dados_matricula = data;        
         var mat = data.map(function(d){return d.matricula;});
         var mymatriculas = d3.selectAll("#mymatriculas");
@@ -98,7 +98,7 @@ function loadataAlunos(){
         .attr("label",function(d){return d;})
         .text(function(d){return d;}); // texto da matricula 
 	$('.selectpicker').selectpicker({'selectedText': 'cat'});
-	console.log("carregado matriculas");
+	
        
     });
 }
@@ -108,6 +108,7 @@ function iniciarAluno(selection){
     porDisciplina = false;
     rep_tipo = "disciplina";
     id_aluno = selection.options[selection.selectedIndex].value;
+    console.log("BUG - RANKING - TRACK 01 - iniciarAluno[id_aluno = " + id_aluno +"]");
     mostrarBarrasParalelas();
 }
 
@@ -144,9 +145,11 @@ function mostrarBarrasParalelas(){
             }
         } 
     }else{
+	console.log("BUG - RANKING - TRACK 02 - mostrarBarrasParalelas[id_aluno = " + id_aluno +"]");
         if (show_repetencia) {
             dados_atuais = dados_repetencia.filter(function(d){return d.matricula == id_aluno;});
             getRepetencia();
+		
             getRanking();
         } else { 
             dados_atuais = dados_desemp_aluno.filter(function(d){return d.matricula == id_aluno;});
@@ -154,7 +157,7 @@ function mostrarBarrasParalelas(){
             getRanking();
         };
     };
-
+    
     atualizarCheckBox();
 }
 
