@@ -13,74 +13,84 @@ notas = open(path_prefix + "arquivo_notas_disciplinas.csv").readlines()
 disciplinas_file = open(path_coord_prefix + "disciplinas_creditos.csv").readlines()
 dados_cre = open(path_prefix + "cres_por_periodo.csv",'w')
 
-disciplinas_creditos = {}
+def calcula(): # {{{
+    disciplinas_creditos = {}
 
 
-for disc in disciplinas_file:
-	disc = disc.replace("\n","").replace("\r","").replace('"','').split(",")
-	
-	if disc[0] not in disciplinas_creditos:
-		disciplinas_creditos[disc[0]] = disc[1]
+    for disc in disciplinas_file:
+        disc = disc.replace("\n","").replace("\r","").replace('"','').split(",")
+        
+        if disc[0] not in disciplinas_creditos:
+            disciplinas_creditos[disc[0]] = disc[1]
 
 
-alunos = {}
+    alunos = {}
 
 
-for aluno in range(1,len(notas)):
-	aluno = notas[aluno]
-	aluno = aluno.replace("\n","").replace("\r","").split(",")
-	matricula = aluno[-3]
-	disciplina = aluno[-4]
-	media = float(aluno[4])
-	periodo = aluno[5]
+    for aluno in range(1,len(notas)):
+        aluno = notas[aluno]
+        aluno = aluno.replace("\n","").replace("\r","").split(",")
+        matricula = aluno[-3]
+        disciplina = aluno[-4]
+        media = float(aluno[4])
+        periodo = aluno[5]
 
-	if matricula not in alunos:
-		alunos[matricula] = {}
+        if matricula not in alunos:
+            alunos[matricula] = {}
 
-	if periodo not in alunos[matricula]:
-		alunos[matricula][periodo] = []
+        if periodo not in alunos[matricula]:
+            alunos[matricula][periodo] = []
 
-	alunos[matricula][periodo].append((media,float(disciplinas_creditos[disciplina])))
-
-
-for matricula, periodos in alunos.iteritems():	
-	creditos_cursados = 0
-	medias_obtidas_ponderada = 0
-
-	for periodo, disciplinas in periodos.iteritems():
-		for disciplina in disciplinas:
-			media = disciplina[0]
-			creditos = disciplina[1]
-
-			medias_obtidas_ponderada += media*creditos
-			creditos_cursados += creditos
-		alunos[matricula][periodo] = medias_obtidas_ponderada/creditos_cursados
+        alunos[matricula][periodo].append((media,float(disciplinas_creditos[disciplina])))
 
 
-alunos_cre = []
+    for matricula, periodos in alunos.iteritems():	
+        creditos_cursados = 0
+        medias_obtidas_ponderada = 0
 
-for matricula, periodos in alunos.iteritems():
-	for periodo, cre in periodos.iteritems():
-		alunos_cre.append( (int(matricula),periodo,cre)  )
+        for periodo, disciplinas in periodos.iteritems():
+            for disciplina in disciplinas:
+                media = disciplina[0]
+                creditos = disciplina[1]
 
-alunos_cre.sort()
+                medias_obtidas_ponderada += media*creditos
+                creditos_cursados += creditos
+            alunos[matricula][periodo] = medias_obtidas_ponderada/creditos_cursados
 
-anterior = alunos_cre[0][0]
-pd = ["20111","20112","20121","20122"]
-creperiodo = ["na","na","na","na"]
 
-for dados in alunos_cre:
-    matricula = dados[0]
-    periodo = dados[1]
-    cre = dados[2]
+    alunos_cre = []
 
-    if anterior != matricula:	
-        dados_cre.write(str(anterior))
+    for matricula, periodos in alunos.iteritems():
+        for periodo, cre in periodos.iteritems():
+            alunos_cre.append( (int(matricula),periodo,cre)  )
 
-        for i in creperiodo:
-            dados_cre.write((",%1.2f" % i) if i != "na" else ",")
-        dados_cre.write("\n")	
-        creperiodo = ["na","na","na","na"]
-        anterior = matricula
+    alunos_cre.sort()
 
-    creperiodo[pd.index(periodo)] = cre	
+    anterior = alunos_cre[0][0]
+    pd = ["20111","20112","20121","20122"]
+    creperiodo = ["na","na","na","na"]
+
+    for dados in alunos_cre:
+        matricula = dados[0]
+        periodo = dados[1]
+        cre = dados[2]
+
+        if anterior != matricula:	
+            dados_cre.write(str(anterior))
+
+            for i in creperiodo:
+                dados_cre.write((",%1.2f" % i) if i != "na" else ",")
+            dados_cre.write("\n")	
+            creperiodo = ["na","na","na","na"]
+            anterior = matricula
+
+        creperiodo[pd.index(periodo)] = cre
+# }}}
+
+calcula()
+
+notas = open(path_coord_prefix + "arquivo_notas_disciplinas.csv").readlines()
+disciplinas_file = open(path_coord_prefix + "disciplinas_creditos.csv").readlines()
+dados_cre = open(path_coord_prefix + "cres_por_periodo.csv",'w')
+
+calcula()
