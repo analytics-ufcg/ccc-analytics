@@ -1,3 +1,4 @@
+# Antes de executar este script, deve-se setar o Working Directory para "ccc-analytics-2.0 / src / R" conforme seu repositório local 
 setwd("../../data/")
 notaDisciplDF = read.csv('arquivo_notas_disciplinas_periodo.csv')
 
@@ -5,7 +6,7 @@ install.packages("reshape")
 require(plyr)
 
 # Cria uma tabela com o codigo das disciplinas, o nome das disciplinas, o seu periodo relativo e a frenquencia absoluta de cada disciplina, todos em colunas
-tabelaFrequencia <- ddply(notaDisciplDF, .(coddisciplina, disciplina,PeriodoRelativo), nrow)
+tabelaFrequencia <- ddply(notaDisciplDF, .(coddisciplina, disciplina, PeriodoRelativo), nrow)
 
 #Ordena a tabela criada pelo periodo relativo, ainda em coluna
 tabelaFrequencia <- tabelaFrequencia[with(tabelaFrequencia, order(PeriodoRelativo)), ]
