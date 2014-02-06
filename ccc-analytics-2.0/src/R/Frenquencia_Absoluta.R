@@ -1,7 +1,6 @@
-#no proximo commit este script irá trabalhar com relative path
-pathWD = "/home/tales/development/CCC2/ccc-analytics-2.0/data"
-setwd(pathWD)
+setwd("../../data/")
 notaDisciplDF = read.csv('arquivo_notas_disciplinas_periodo.csv')
+
 install.packages("reshape")
 require(plyr)
 
@@ -13,7 +12,4 @@ tabelaFrequencia <- tabelaFrequencia[with(tabelaFrequencia, order(PeriodoRelativ
 
 # Alterna os periodos relativos para linha, criando assim os 16 periodos do curso e ja colocando a sua frequencia absoluta no local que lhe cabe
 tabelaFrequencia <- reshape(tabelaFrequencia, idvar = c("coddisciplina", "disciplina"), timevar = "PeriodoRelativo", direction = "wide")
-colnames(tabelaFrequencia)[] <- "Regiao"
-
-# Retira da tabela o row.names que aparece. 
 write.csv(tabelaFrequencia, file = "arquivo_frequencia_absoluta.csv", row.names = FALSE, quote = FALSE)
