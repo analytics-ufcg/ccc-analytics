@@ -10,4 +10,4 @@ infoDisciplinas[is.element(infoDisciplinas$coddisciplina,disciplinasObrigatorias
 
 infoDisciplinas <- rename(infoDisciplinas, replace = c("V1" = "TipoDeDisciplina"))
 
-write.csv(infoDisciplinas, file = "data/arquivo_informacao_das_disciplinas.csv")
+write.csv(infoDisciplinas, file = "data/arquivo_informacao_das_disciplinas.csv", row.names = FALSE)
