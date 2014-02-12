@@ -9,8 +9,8 @@ calcularPeriodoRelativo <- function(pAtual, pEntrada){
   return(result)
 }
 
+#Deve-se setar o Working Directory, setwd(), para o diretório "ccc-analytics-2.0" antes de esecutar este script
 notaDisciplDF = read.csv('data/arquivo_notas_disciplinas.csv')
-#Deve-se setar o Working Directory, setwd(), para o diretório "ccc-analytics-2.0\data" antes de esecutar este script
 
 notaDisciplDF[12] = notaDisciplDF$periodo
 colnames(notaDisciplDF)[12] <- "PeriodoRelativo"
@@ -18,3 +18,4 @@ colnames(notaDisciplDF)[12] <- "PeriodoRelativo"
 notaDisciplDF$PeriodoRelativo = calcularPeriodoRelativo(substring(as.character(notaDisciplDF$periodo), 3,5), substring(as.character(notaDisciplDF$matricula), 2,4))
 
 write.csv(notaDisciplDF, file = "data/arquivo_notas_disciplinas_periodo.csv", row.names = FALSE, quote = FALSE)
+
