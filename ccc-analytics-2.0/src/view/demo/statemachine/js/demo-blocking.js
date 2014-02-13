@@ -309,16 +309,16 @@ pos[67] = "c43";
 	}
 	
 	//posicao_x = (periodo -1) * slot_caixa;
+	
+	/*
 	$(document).ready(function() {
-
-
 	    $('.w').mouseover(function(e) {
 
 	        // get the coordinates
-	        var x = e.pageX - 40;
-	        var y = e.pageY - 10;
+	        var x = 40;
+	        var y = 10;
 
-	        $("#blocking").css({
+	        $("#c99").css({
 
 	            position: "absolute",
 	            top: y + "px",
@@ -326,7 +326,7 @@ pos[67] = "c43";
 	        });
 
 	        //$("#actionMenu").attr("rowId", $(td).parent().attr("id"));
-	        $("#blocking").show();
+	        $("#c99").show();
 	    });
 
 	    $(".w").mouseenter(function() {
@@ -334,9 +334,10 @@ pos[67] = "c43";
 	    }).mouseleave(function() {
 	        $(this).hide();
 	    });
-
-
 	});
+	*/
+
+
 	
 	periodo = 1;
 	contador = 0;
@@ -431,4 +432,7 @@ pos[67] = "c43";
 		});
 	
 	});
+
+
+
 })();

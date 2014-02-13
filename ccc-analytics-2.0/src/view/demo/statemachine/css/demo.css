@@ -74,6 +74,14 @@
 	z-index:30;
 }
 
+#blocking{
+	margin-top: 100px;
+}
+
+#c99{
+	display: none;
+}
+
 
 .dragHover { border:2px solid orange; }
 

@@ -255,6 +255,25 @@ pos[67] = "c43";
 	
 	periodo = 1;
 	contador = 0;
+
+	$(document).ready(function() {
+		$('.w').mouseover(function(e) {
+
+	        // get the coordinates
+	        $("#c99").css({
+	        	display: "block",
+	            position: "absolute",
+	            left: 50 + "px" 
+	        });
+	        //$("#actionMenu").attr("rowId", $(td).parent().attr("id"));
+	        $("#c99").show();
+	    });
+	    $(".w").mouseleave(function() {
+	        $("#c99").hide();
+	    });
+	});
+
+
 	jsPlumb.ready(function() {
 		
          for (var i = 1; i <= array_fluxograma.length; i++) {
@@ -265,7 +284,7 @@ pos[67] = "c43";
              	periodo += 1;
              	contador = 0;
              }
-             $('#c'+i).css({"left":(array_fluxograma[i - 1]["periodo"] - 1) * slot_caixa,"top":(contador*100)+"px","width":largura_caixa});
+             $('#c'+i).css({"left":(array_fluxograma[i - 1]["periodo"] - 1) * slot_caixa,"top":(contador*100)+50+"px","width":largura_caixa});
             contador+=1;
          
      	};
