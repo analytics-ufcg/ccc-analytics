@@ -13,7 +13,7 @@ calcularPeriodoRelativo <- function(pAtual, pEntrada){
 maxn <- function(n) function(x) order(x, decreasing = TRUE)[n]
 valorMaxn <- function(n) function(x) x[order(x, decreasing = TRUE)][n]
 
-
+disciplinasPeriodoObrigatorias = read.csv('data/grade-disciplinas-por-periodo.csv')
 install.packages("reshape")
 require(plyr)
 
@@ -27,6 +27,8 @@ colnames(notaDisciplDF)[12] <- "PeriodoRelativo"
 # Adiciona ao data.frame uma coluna com o periodo relativo.
 notaDisciplDF$PeriodoRelativo = calcularPeriodoRelativo(substring(as.character(notaDisciplDF$periodo), 3,5), substring(as.character(notaDisciplDF$matricula), 2,4))
 
+# Cria uma lista com o codigo das disciplinas obrigatorias
+disciplinasObrigatorias <- disciplinasPeriodoObrigatorias$coddisciplina
 
 # Cria uma tabela com o codigo das disciplinas, o nome das disciplinas, o seu periodo relativo e a frenquencia absoluta de cada disciplina, todos em colunas
 tabelaFrequencia <- ddply(notaDisciplDF, .(coddisciplina, disciplina, matricula, PeriodoRelativo, situacao), nrow)
@@ -62,6 +64,13 @@ discMaisComumPeriodo[, "FreqRelativa2nd"] = (apply(tabelaFrequencia[colunasUteis
 discMaisComumPeriodo[, "PerMaisFreq3rd"] = apply(tabelaFrequencia[colunasUteis], 1, maxn(3))
 discMaisComumPeriodo[, "FreqRelativa3rd"] = (apply(tabelaFrequencia[colunasUteis], 1, valorMaxn(3))) / totalFreq
 discMaisComumPeriodo[, "TotalDeAlunosPorDisciplina"] = totalFreq
+
+# Colocar a informacao da disciplina se eh obrigatoria ou optativa
+discMaisComumPeriodo[10] <- "OPT"
+discMaisComumPeriodo[is.element(discMaisComumPeriodo$coddisciplina,disciplinasObrigatorias),]$V10 = "OBG"
+discMaisComumPeriodo <- rename(discMaisComumPeriodo, replace = c("V10" = "TipoDeDisciplina"))
+
+
 
 write.csv(discMaisComumPeriodo, file = "data/maiores_frequencias_por_disciplina_sem_repeticao.csv", row.names = FALSE, quote = FALSE)
 
