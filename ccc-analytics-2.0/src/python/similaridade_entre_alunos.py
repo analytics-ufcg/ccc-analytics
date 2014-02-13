@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from collections import Counter
-
-#_cadeiras_aluno = [] # :mapa: [{disciplina : periodo}, ...]
-#_aluno_periodo_cadeiras = [] # [Counter({periodo : set([disciplinas])})]
+#_cadeiras_aluno = {aluno : {disciplina : periodo}, ...}
+#_aluno_periodo_cadeiras = {aluno : {periodo : set([disciplinas]})}
 
 mod = lambda x: x if x >= 0 else -x
 union = lambda a, b, mapa: dict(mapa[a], **mapa[b]).keys()
@@ -49,14 +47,16 @@ def sim_p(aluno_a, aluno_b, p, mapa):
     :aluno_a: id inteiro representando um aluno a
     :aluno_b: id inteiro representando um aluno b
     :p: periodo a ser analisado
-    :mapa: [Counter({periodo : set([disciplinas])})]
+    :mapa: {aluno : {periodo : set([disciplinas])}}
     :returns: um real entre 0 e 1 que representa a 
     similaridade de Jaccard entre os alunos a e b
 
     """
+    disc = lambda aluno, periodo: mapa[aluno][periodo] \
+                                  if periodo in mapa[aluno] else set()
 
-    return float(len(mapa[aluno_a][p] & mapa[aluno_b][p]))/ \
-                    len(mapa[aluno_a][p] | mapa[aluno_b][p])
+    return float(len(disc(aluno_a,p) & disc(aluno_b, p)))/ \
+                    len(disc(aluno_a, p) | disc(aluno_b, p))
 
 def sim(aluno_a, aluno_b, n_p, metrica, mapa):
     """Calcula a similaridade entre dois alunos baseado
@@ -76,11 +76,17 @@ def sim(aluno_a, aluno_b, n_p, metrica, mapa):
 
     if metrica == 'distancia':
         disc = union(aluno_a, aluno_b, mapa)
-        return sum(sim_d(aluno_a, aluno_b, d, n_p, mapa) for d in disc)/float(len(disc))
+        simi = sum(sim_d(aluno_a, aluno_b, d, n_p, mapa) for d in disc)/float(len(disc))
     elif metrica == 'jaccard':
-        return sum(sim_p(aluno_a, aluno_b, p, mapa) for p in xrange(1,n_p+1))/float(n_p)
+        P = float(len(set(mapa[aluno_a].keys() + mapa[aluno_b].keys())))
+        simi =  sum(sim_p(aluno_a, aluno_b, p, mapa) for p in xrange(1,n_p+1)
+                    if p in mapa[aluno_a] or p in mapa[aluno_b]
+                )/P
+    else:
+        raise NameError('Metrica errada')
     
-    raise NameError('Metrica errada')
+    return (simi, aluno_a, aluno_b)
+
 
 def sim_matrix(mapa, numero_de_periodos, metrica):
     """Constroi uma matrix de similaridade triangular entre
@@ -92,10 +98,13 @@ def sim_matrix(mapa, numero_de_periodos, metrica):
     :numero_de_periodos: inteiro -- quantidade de periodos disponiveis
     :returns: uma lista de lista representando uma matriz triangular
     superior a diagonal de uma matriz AxA de similaridade, onde A
-    é a quantidade de alunos
+    é a quantidade de alunos. Cada posição da matriz contém uma tupla
+    (similaridade, aluno_a, aluno_b)
 
     """
 
+    aluno = mapa.keys()
     p = numero_de_periodos
     n = len(mapa)
-    return [[sim(a, b, p, metrica, mapa) for b in xrange(a+1, n)] for a in xrange(0, n)]
+    return [[sim(aluno[a], aluno[b], p, metrica, mapa) for b in xrange(a+1, n)]
+                                                        for a in xrange(0, n)]

@@ -9,48 +9,48 @@ class TestSimilaridadeJaccard(unittest.TestCase):
     similaridade_entre_alunos"""
 
     def setUp(self):
-        self.mapa_p = [
-                Counter({
+        self.mapa_p = {
+                0 : {
                     1 : set([1, 2, 3]),
                     2 : set([4, 5, 6])
-                    }),
-                Counter({
+                    },
+                1 : {
                     1 : set([1, 2, 3]),
                     2 : set([4, 5, 6])
-                    }),
-                Counter({
+                    },
+                2 : {
                     1 : set([4, 5, 6]),
                     2 : set([1, 2, 3])
-                    }),
-                Counter({
+                    },
+                3 : {
                     1 : set([3, 4, 5]),
                     2 : set([1, 2, 3])
-                    })
-                ]
-        self.mapa_d = [
-                {
+                    }
+                }
+        self.mapa_d = {
+                0 : {
                     1 : 4,
                     2 : 4,
                     3 : 4, 
                     4 : 4,
                     },
-                {
+                1 : {
                     1 : 4,
                     2 : 4,
                     3 : 4, 
                     4 : 4,
                     },
-                {
+                2 : {
                     1 : 4,
                     2 : 4
                     },
-                {
+                3 : {
                     1 : 2,
                     2 : 6,
                     3 : 2,
                     4 : 6
                     }
-                ]
+                }
 
     def tearDown(self):
         pass
@@ -78,19 +78,19 @@ class TestSimilaridadeJaccard(unittest.TestCase):
         a = range(4)    # diferentes alunos
         np = 2          # quantidade de periodos
 
-        self.assertAlmostEqual(sim(a[0], a[1], np, 'jaccard', self.mapa_p), 1)
-        self.assertAlmostEqual(sim(a[0], a[2], np, 'jaccard', self.mapa_p), 0)
-        self.assertAlmostEqual(sim(a[0], a[3], np, 'jaccard', self.mapa_p), 0.1)
-        self.assertAlmostEqual(sim(a[2], a[3], np, 'jaccard', self.mapa_p), 0.75)
+        self.assertAlmostEqual(sim(a[0], a[1], np, 'jaccard', self.mapa_p)[0], 1)
+        self.assertAlmostEqual(sim(a[0], a[2], np, 'jaccard', self.mapa_p)[0], 0)
+        self.assertAlmostEqual(sim(a[0], a[3], np, 'jaccard', self.mapa_p)[0], 0.1)
+        self.assertAlmostEqual(sim(a[2], a[3], np, 'jaccard', self.mapa_p)[0], 0.75)
 
     def test_sim_distancia(self):
         a = range(4)    # diferentes alunos
         np = 6          # quantidade de periodos
 
-        self.assertAlmostEqual(sim(a[0], a[1], np, 'distancia', self.mapa_d), 1)
-        self.assertAlmostEqual(sim(a[0], a[2], np, 'distancia', self.mapa_d), 0.5)
-        self.assertAlmostEqual(sim(a[0], a[3], np, 'distancia', self.mapa_d), 2.0/3)
-        self.assertAlmostEqual(sim(a[2], a[3], np, 'distancia', self.mapa_d), 1.0/3)
+        self.assertAlmostEqual(sim(a[0], a[1], np, 'distancia', self.mapa_d)[0], 1)
+        self.assertAlmostEqual(sim(a[0], a[2], np, 'distancia', self.mapa_d)[0], 0.5)
+        self.assertAlmostEqual(sim(a[0], a[3], np, 'distancia', self.mapa_d)[0], 2.0/3)
+        self.assertAlmostEqual(sim(a[2], a[3], np, 'distancia', self.mapa_d)[0], 1.0/3)
         
 
 if __name__ == '__main__':
