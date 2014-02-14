@@ -87,7 +87,6 @@ def sim(aluno_a, aluno_b, n_p, metrica, mapa):
     
     return (simi, aluno_a, aluno_b)
 
-
 def sim_matrix(mapa, numero_de_periodos, metrica):
     """Constroi uma matrix de similaridade triangular entre
     todos os alunos, a partir dos dados dados.
@@ -108,3 +107,42 @@ def sim_matrix(mapa, numero_de_periodos, metrica):
     n = len(mapa)
     return [[sim(aluno[a], aluno[b], p, metrica, mapa) for b in xrange(a+1, n)]
                                                         for a in xrange(0, n)]
+
+def mk_mapa_jaccard():
+    """Cria e retorna um mapa no formato utilizado no calculo de similaridade
+    usando Jaccard.
+    :returns: {aluno : {periodo : set([disciplinas])}}
+
+    """
+    data = open('data/aluno-disciplina-periodo.csv').readlines()[1:]
+    mapa = {}
+
+    for line in data:
+        line = map(int, line.split(',')[1:])
+        aluno, cadeira, periodo = line[1], line[0], line[2]
+        if aluno not in mapa:
+            mapa[aluno] = {}
+        if periodo not in mapa[aluno]:
+            mapa[aluno][periodo] = set()
+        mapa[aluno][periodo].add(cadeira)
+
+    return mapa
+
+def mk_mapa_distancia():
+    """Cria e retorna um mapa no formato utilizado no calculo de similaridade
+    usand distancia
+    :returns: {aluno : {disciplina : periodo}}
+
+    """
+    data = open('data/aluno-disciplina-periodo.csv').readlines()[1:]
+    mapa = {}
+
+    for line in data:
+        line = map(int, line.split(',')[1:])
+        aluno, cadeira, periodo = line[1], line[0], line[2]
+        if aluno not in mapa:
+            mapa[aluno] = {}
+        mapa[aluno][cadeira] = periodo
+
+    return mapa
+
