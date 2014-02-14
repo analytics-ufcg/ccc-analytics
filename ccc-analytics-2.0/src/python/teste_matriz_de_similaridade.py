@@ -42,14 +42,18 @@ def mk_mapa_distancia():
 
     return mapa
 
+resultado = {} # {(matricula_a, matricula_b) : (distancia, jaccard)}
+mk_key = lambda t3: t3[1:] if t3[1] < t3[2] else tuple(reversed(t3[1:]))
 
 distancia = reduce(lambda x,y: x+y, sim_matrix(mk_mapa_distancia(), 16, 'distancia'))
+
+for t in distancia:
+    resultado[mk_key(t)] = (t[0],)
+
+del distancia
 jaccard = reduce(lambda x,y: x+y, sim_matrix(mk_mapa_jaccard(), 16, 'jaccard'))
 
-distancia.sort()
-jaccard.sort()
 
-print len(distancia), len(jaccard)
 
-for d,j in zip(distancia, jaccard):
-    print d,j
+for t in jaccard:
+    resultado(mk_key(t)) += (t[0],)
