@@ -17,6 +17,14 @@ Este script gera os arquivos de dados:
 '''
 
 matrix = dissim_matrix(mk_mapa('distancia'), 16, 'distancia')
+
+with open('data/dissimilaridade.csv', 'w') as file:
+    for row in matrix:
+        for tup in row:
+            if tup[0] > 0.0:
+                file.write('%d,%d,%f\n' %(tup[1], tup[2], tup[0]))
+
+'''
 alunos = sorted(set(matrix[0][a][2] for a in xrange(len(matrix))))
 open('data/dissimilaridade_ordem.csv', 'w').writelines(
         map(lambda x: '%d\n' %x, alunos))
@@ -32,4 +40,4 @@ matrix = [map(lambda x: x[0], row) for row in matrix]
 open('data/dissimilaridade_jaccard.csv', 'w').writelines(
         ','.join(map(str, row))+'\n' for row in matrix
         )
-
+'''

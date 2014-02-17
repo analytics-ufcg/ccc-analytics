@@ -117,7 +117,7 @@ def sim_matrix(mapa, numero_de_periodos, metrica):
     aluno = sorted(mapa.keys())
     p = numero_de_periodos
     n = len(mapa)
-    return [[sim(aluno[a], aluno[b], p, metrica, mapa) for b in xrange(0, n)]
+    return [[sim(aluno[a], aluno[b], p, metrica, mapa) for b in xrange(a+1, n)]
                                                         for a in xrange(0, n)]
 
 def dissim_matrix(mapa, numero_de_periodos, metrica):
