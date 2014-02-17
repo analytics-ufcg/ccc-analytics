@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-#_cadeiras_aluno = {aluno : {disciplina : periodo}, ...}
-#_aluno_periodo_cadeiras = {aluno : {periodo : set([disciplinas]})}
+'''
+Esse script implementa funções para o cálculo de similaridade e
+dissimilaridade entre cada aluno, bem como entre todos os alunos.
+As métricas aqui utilizadas são Jaccard ou Distância, de acordo
+com a escolha do usuário.
+'''
 
 mod = lambda x: x if x >= 0 else -x
 union = lambda a, b, mapa: dict(mapa[a], **mapa[b]).keys()
@@ -91,12 +95,14 @@ def sim_matrix(mapa, numero_de_periodos, metrica):
     """Constroi uma matrix de similaridade triangular entre
     todos os alunos, a partir dos dados dados.
 
-    :mapa: uma lista de mapa, em que cada contem
-    todas as cadeiras pagas por aquele aluno e o periodo em que 
-    tal cadeira foi paga
+    :mapa: um mama de mapas, em que seu formato depende da metrica
+    utilizada. Veja mk_mapa_jaccard() e mk_mapa_distancia() para
+    mais detalhes
     :numero_de_periodos: inteiro -- quantidade de periodos disponiveis
-    :returns: uma lista de lista representando uma matriz triangular
-    superior a diagonal de uma matriz AxA de similaridade, onde A
+    :metrica: especificação ha métrica a ser utilizada, distancia ou
+    jaccard
+    :returns: uma lista de listas represetando uma matriz triangular
+    superior a diagonal de uma tariz AxA de similaridade, onde A
     é a quantidade de alunos. Cada posição da matriz contém uma tupla
     (similaridade, aluno_a, aluno_b)
 
@@ -107,6 +113,25 @@ def sim_matrix(mapa, numero_de_periodos, metrica):
     n = len(mapa)
     return [[sim(aluno[a], aluno[b], p, metrica, mapa) for b in xrange(a+1, n)]
                                                         for a in xrange(0, n)]
+
+def dissim_matrix(mapa, numero_de_periodos, metrica):
+    """Constroi uma matrix de dissimilaridade triangular entre
+    todos os alunos, a partir dos dados dados.
+
+    :mapa: um mama de mapas, em que seu formato depende da metrica
+    utilizada. Veja mk_mapa_jaccard() e mk_mapa_distancia() para
+    mais detalhes
+    :numero_de_periodos: inteiro -- quantidade de periodos disponiveis
+    :metrica: especificação ha métrica a ser utilizada, distancia ou
+    jaccard
+    :returns: uma lista de listas represetando uma matriz triangular
+    superior a diagonal de uma tariz AxA de dissimilaridade, onde A
+    é a quantidade de alunos. Cada posição da matriz contém uma tupla
+    (dissimilaridade, aluno_a, aluno_b)
+
+    """
+    matrix = sim_matrix(mapa, numero_de_periodos, metrica)
+    return [map(lambda x: (1-x[0],) + x[1:], row) for row in matrix]
 
 def mk_mapa_jaccard():
     """Cria e retorna um mapa no formato utilizado no calculo de similaridade
