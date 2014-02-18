@@ -16,12 +16,12 @@ Este script gera os arquivos de dados:
       guardado nas matrizes acima
 '''
 
-matrix = dissim_matrix(mk_mapa('distancia'), 16, 'distancia')
+for met in ['distancia', 'jaccard']:
+    matrix = dissim_matrix(mk_mapa(met), 16, met)
 
-with open('data/dissimilaridade.csv', 'w') as file:
-    for row in matrix:
-        for tup in row:
-            if tup[0] > 0.0:
+    with open('data/dissimilaridade_%s.csv' %met, 'w') as file:
+        for row in matrix:
+            for tup in row:
                 file.write('%d,%d,%f\n' %(tup[1], tup[2], tup[0]))
 
 '''

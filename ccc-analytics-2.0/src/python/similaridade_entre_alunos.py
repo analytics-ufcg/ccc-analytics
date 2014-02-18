@@ -12,6 +12,8 @@ com a escolha do usuário.
 
 mod = lambda x: x if x >= 0 else -x
 union = lambda a, b, mapa: dict(mapa[a], **mapa[b]).keys()
+cadeiras_obrigatorias = set(map(lambda x: int(x.split(',')[2][:-1]), 
+            open('data/grade-disciplinas-por-periodo.csv').readlines()[1:]))
 
 def diff_periodo(aluno_a, aluno_b, d, mapa):
     """Calcula a diferença de períodos em que dois alunos
@@ -150,11 +152,12 @@ def mk_mapa_jaccard():
     for line in data:
         line = map(int, line.split(',')[1:])
         aluno, cadeira, periodo = line[1], line[0], line[2]
-        if aluno not in mapa:
-            mapa[aluno] = {}
-        if periodo not in mapa[aluno]:
-            mapa[aluno][periodo] = set()
-        mapa[aluno][periodo].add(cadeira)
+        if cadeira in cadeiras_obrigatorias:
+            if aluno not in mapa:
+                mapa[aluno] = {}
+            if periodo not in mapa[aluno]:
+                mapa[aluno][periodo] = set()
+            mapa[aluno][periodo].add(cadeira)
 
     return mapa
 
@@ -170,9 +173,10 @@ def mk_mapa_distancia():
     for line in data:
         line = map(int, line.split(',')[1:])
         aluno, cadeira, periodo = line[1], line[0], line[2]
-        if aluno not in mapa:
-            mapa[aluno] = {}
-        mapa[aluno][cadeira] = periodo
+        if cadeira in cadeiras_obrigatorias:
+            if aluno not in mapa:
+                mapa[aluno] = {}
+            mapa[aluno][cadeira] = periodo
 
     return mapa
 
