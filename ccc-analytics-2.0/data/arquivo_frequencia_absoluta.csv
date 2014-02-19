@@ -1,84 +1,84 @@
 coddisciplina,disciplina,V1.1,V1.2,V1.3,V1.4,V1.5,V1.6,V1.7,V1.8,V1.9,V1.10,V1.11,V1.12,V1.13,V1.14,V1.15,V1.16
-1108089,Fundamentos de Física Clássica,14,107,82,50,18,2,1,1,NA,NA,NA,NA,NA,NA,NA,NA
-1108090,Fundamentos de Física Moderna,15,5,63,27,18,6,3,3,NA,NA,NA,NA,NA,NA,NA,NA
-1109035,Álgebra Vetorial e Geometria Analítica,272,79,30,13,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1109049,Álgebra Linear,12,42,75,45,30,8,2,1,NA,NA,NA,NA,NA,NA,NA,NA
-1109053,Cálculo Diferencial e Integral II,16,105,85,61,31,7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1109103,Cálculo Diferencial e Integral I,263,131,34,19,2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1109113,Matemática Discreta,17,174,74,32,11,NA,1,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1114107,Probabilidade e Estatística,26,16,71,51,38,14,2,3,5,3,NA,NA,NA,NA,NA,NA
-1114114,Métodos Estatísticos,15,13,6,15,51,23,11,3,2,3,5,NA,NA,1,1,NA
-1301014,Administração,3,9,15,10,8,3,1,3,NA,4,2,NA,NA,1,NA,NA
-1303021,Economia,6,18,10,19,6,7,1,9,6,1,1,NA,NA,1,NA,NA
-1304013,BASQUETEBOL - MASC,3,2,5,6,2,1,2,4,3,1,NA,NA,NA,NA,NA,NA
-1304055,Futsal,2,5,2,8,3,NA,NA,2,6,1,1,NA,NA,NA,NA,NA
-1305020,Relações Humanas,7,6,10,5,1,3,5,3,1,4,NA,1,NA,NA,NA,NA
-1305033,Sociologia Industrial I,8,12,11,7,9,9,1,2,9,2,2,NA,NA,2,NA,NA
-1305218,Metodologia Científica,2,4,3,3,NA,18,17,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1305219,Direito e Cidadania,17,28,29,36,20,27,21,7,3,2,NA,NA,NA,NA,NA,NA
-1305220,Informática e Sociedade,11,84,30,25,30,16,7,7,2,1,NA,NA,NA,NA,NA,NA
-1307150,Inglês,9,16,9,17,9,2,5,7,8,1,3,NA,NA,NA,NA,NA
-1307151,Leitura e Produção de Textos,218,7,3,4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411167,Programação I,278,73,21,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411168,Programação II,11,191,55,31,6,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411169,Paradigmas de Linguagem de Programação,6,6,7,44,39,12,3,2,3,NA,NA,1,NA,NA,NA,NA
-1411170,Teoria dos Grafos,6,193,62,26,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411171,Teoria da Computação,21,8,79,60,14,6,NA,1,NA,NA,NA,NA,NA,NA,NA,NA
-1411172,Estruturas de Dados e Algoritmos,17,6,129,49,20,6,1,2,NA,NA,NA,NA,NA,NA,NA,NA
-1411173,Lógica Matemática,5,11,7,58,45,14,4,2,3,NA,NA,NA,NA,NA,NA,NA
-1411174,Introdução à Computação,283,26,3,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411175,Organização e Arquitetura de Computadores,13,11,5,50,34,15,4,1,3,1,1,NA,NA,NA,NA,NA
-1411176,Gerência da Informação,12,27,139,36,11,2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411177,Engenharia de Software I,12,6,7,21,44,23,4,NA,NA,1,1,NA,NA,NA,NA,NA
-1411178,Sistemas de Informação I,12,6,6,86,25,4,1,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411179,Lab. de Estruturas de Dados e Algoritmos,12,6,126,46,18,5,1,1,NA,NA,NA,NA,NA,NA,NA,NA
-1411180,Lab. de Programação I,280,73,20,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411181,Lab. de Programação II,11,186,61,43,9,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411182,Lab. de Organização e Arquitetura de Computadores,13,12,8,50,36,18,4,3,3,1,1,NA,NA,NA,NA,NA
-1411183,Lab. de Engenharia de Software,4,9,5,6,13,40,24,9,2,2,1,1,NA,1,NA,NA
-1411184,Lab. de Interconexão de Redes de Computadores,8,6,4,5,1,9,44,20,8,6,7,1,NA,2,1,1
-1411185,Projeto em Computação I,7,1,4,5,5,4,17,47,14,8,2,3,1,NA,1,NA
-1411186,Projeto em Computação II,3,7,2,2,4,5,2,14,33,15,12,2,2,1,NA,1
-1411187,Análise e Técnicas de Algoritmos,11,8,12,5,31,28,13,5,1,5,1,NA,NA,NA,NA,NA
-1411188,Métodos e Software Numéricos,8,7,4,7,3,4,5,38,37,10,4,1,NA,NA,1,NA
+1108089,Fundamentos de Física Clássica,14,107,82,50,18,2,1,1,0,0,0,0,0,0,0,0
+1108090,Fundamentos de Física Moderna,15,5,63,27,18,6,3,3,0,0,0,0,0,0,0,0
+1109035,Álgebra Vetorial e Geometria Analítica,272,79,30,13,1,0,0,0,0,0,0,0,0,0,0,0
+1109049,Álgebra Linear,12,42,75,45,30,8,2,1,0,0,0,0,0,0,0,0
+1109053,Cálculo Diferencial e Integral II,16,105,85,61,31,7,0,0,0,0,0,0,0,0,0,0
+1109103,Cálculo Diferencial e Integral I,263,131,34,19,2,1,0,0,0,0,0,0,0,0,0,0
+1109113,Matemática Discreta,17,174,74,32,11,0,1,0,0,0,0,0,0,0,0,0
+1114107,Probabilidade e Estatística,26,16,71,51,38,14,2,3,5,3,0,0,0,0,0,0
+1114114,Métodos Estatísticos,15,13,6,15,51,23,11,3,2,3,5,0,0,1,1,0
+1301014,Administração,3,9,15,10,8,3,1,3,0,4,2,0,0,1,0,0
+1303021,Economia,6,18,10,19,6,7,1,9,6,1,1,0,0,1,0,0
+1304013,BASQUETEBOL - MASC,3,2,5,6,2,1,2,4,3,1,0,0,0,0,0,0
+1304055,Futsal,2,5,2,8,3,0,0,2,6,1,1,0,0,0,0,0
+1305020,Relações Humanas,7,6,10,5,1,3,5,3,1,4,0,1,0,0,0,0
+1305033,Sociologia Industrial I,8,12,11,7,9,9,1,2,9,2,2,0,0,2,0,0
+1305218,Metodologia Científica,2,4,3,3,0,18,17,0,0,0,0,0,0,0,0,0
+1305219,Direito e Cidadania,17,28,29,36,20,27,21,7,3,2,0,0,0,0,0,0
+1305220,Informática e Sociedade,11,84,30,25,30,16,7,7,2,1,0,0,0,0,0,0
+1307150,Inglês,9,16,9,17,9,2,5,7,8,1,3,0,0,0,0,0
+1307151,Leitura e Produção de Textos,218,7,3,4,0,0,0,0,0,0,0,0,0,0,0,0
+1411167,Programação I,278,73,21,1,0,0,0,0,0,0,0,0,0,0,0,0
+1411168,Programação II,11,191,55,31,6,0,0,0,0,0,0,0,0,0,0,0
+1411169,Paradigmas de Linguagem de Programação,6,6,7,44,39,12,3,2,3,0,0,1,0,0,0,0
+1411170,Teoria dos Grafos,6,193,62,26,1,0,0,0,0,0,0,0,0,0,0,0
+1411171,Teoria da Computação,21,8,79,60,14,6,0,1,0,0,0,0,0,0,0,0
+1411172,Estruturas de Dados e Algoritmos,17,6,129,49,20,6,1,2,0,0,0,0,0,0,0,0
+1411173,Lógica Matemática,5,11,7,58,45,14,4,2,3,0,0,0,0,0,0,0
+1411174,Introdução à Computação,283,26,3,1,0,0,0,0,0,0,0,0,0,0,0,0
+1411175,Organização e Arquitetura de Computadores,13,11,5,50,34,15,4,1,3,1,1,0,0,0,0,0
+1411176,Gerência da Informação,12,27,139,36,11,2,1,0,0,0,0,0,0,0,0,0
+1411177,Engenharia de Software I,12,6,7,21,44,23,4,0,0,1,1,0,0,0,0,0
+1411178,Sistemas de Informação I,12,6,6,86,25,4,1,0,0,0,0,0,0,0,0,0
+1411179,Lab. de Estruturas de Dados e Algoritmos,12,6,126,46,18,5,1,1,0,0,0,0,0,0,0,0
+1411180,Lab. de Programação I,280,73,20,1,0,0,0,0,0,0,0,0,0,0,0,0
+1411181,Lab. de Programação II,11,186,61,43,9,1,0,0,0,0,0,0,0,0,0,0
+1411182,Lab. de Organização e Arquitetura de Computadores,13,12,8,50,36,18,4,3,3,1,1,0,0,0,0,0
+1411183,Lab. de Engenharia de Software,4,9,5,6,13,40,24,9,2,2,1,1,0,1,0,0
+1411184,Lab. de Interconexão de Redes de Computadores,8,6,4,5,1,9,44,20,8,6,7,1,0,2,1,1
+1411185,Projeto em Computação I,7,1,4,5,5,4,17,47,14,8,2,3,1,0,1,0
+1411186,Projeto em Computação II,3,7,2,2,4,5,2,14,33,15,12,2,2,1,0,1
+1411187,Análise e Técnicas de Algoritmos,11,8,12,5,31,28,13,5,1,5,1,0,0,0,0,0
+1411188,Métodos e Software Numéricos,8,7,4,7,3,4,5,38,37,10,4,1,0,0,1,0
 1411189,Compiladores,6,9,2,4,5,10,27,32,14,4,2,1,3,2,1,1
-1411190,Redes de Computadores,6,5,10,3,18,43,15,9,5,7,1,2,1,NA,1,NA
-1411191,Interconexão de Redes de Computadores,8,6,4,5,1,9,44,20,8,6,7,1,NA,2,1,1
-1411192,Sistemas Operacionais,1,8,3,4,5,21,29,14,4,5,1,NA,NA,1,NA,NA
-1411193,Banco de Dados I,15,14,10,4,63,35,8,4,2,2,NA,NA,NA,NA,NA,NA
-1411194,Banco de Dados II,6,10,8,4,4,21,35,14,5,3,2,3,1,NA,NA,NA
-1411195,Sistemas de Informação II,17,10,9,3,40,47,10,6,3,4,NA,NA,NA,NA,NA,NA
+1411190,Redes de Computadores,6,5,10,3,18,43,15,9,5,7,1,2,1,0,1,0
+1411191,Interconexão de Redes de Computadores,8,6,4,5,1,9,44,20,8,6,7,1,0,2,1,1
+1411192,Sistemas Operacionais,1,8,3,4,5,21,29,14,4,5,1,0,0,1,0,0
+1411193,Banco de Dados I,15,14,10,4,63,35,8,4,2,2,0,0,0,0,0,0
+1411194,Banco de Dados II,6,10,8,4,4,21,35,14,5,3,2,3,1,0,0,0
+1411195,Sistemas de Informação II,17,10,9,3,40,47,10,6,3,4,0,0,0,0,0,0
 1411196,Inteligência Artificial I,3,3,3,4,1,7,12,18,14,13,4,8,1,1,1,1
-1411197,Avaliação de Desempenho de Sistemas Discretos,2,1,1,4,6,3,6,44,14,18,3,5,1,NA,1,NA
-1411201,Empreendedorismo,1,1,NA,1,1,3,1,3,2,3,NA,NA,1,1,NA,NA
-1411203,Estágio Integrado,1,NA,2,1,NA,NA,5,8,11,3,1,NA,NA,NA,NA,NA
-1411204,GERENCIA DE Redes de Computadores,1,NA,NA,NA,1,NA,1,4,4,3,1,1,NA,NA,NA,NA
-1411221,Sistemas de Informações Geográficas,4,1,2,NA,NA,9,17,5,3,4,1,2,NA,NA,NA,NA
-1411226,Redes Neurais,1,NA,NA,1,NA,NA,1,3,4,5,4,1,NA,NA,1,NA
-1411238,Seminários (Educação Ambiental),8,6,2,11,16,11,8,6,8,3,NA,2,NA,NA,NA,NA
-1411244,TECC (Economia de Tecnologia da Informação),2,4,3,3,2,5,6,12,22,6,4,4,1,2,NA,NA
-1411247,TECC (Algoritmos Avançados II),1,6,NA,5,NA,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411249,TECC (Métodos Formais),2,2,NA,3,NA,1,NA,1,2,NA,NA,NA,NA,NA,NA,NA
-1411250,TECC (Algoritmos Avançados III),3,NA,1,1,8,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411256,TEC (Princípios de Administração Financeira),4,2,2,2,4,1,3,3,8,6,2,1,NA,1,NA,NA
-1411266,TECC (Fundamentos e Aplicações de Realidade Virtual),1,1,1,1,3,1,2,7,6,3,NA,2,1,1,NA,NA
-1411268,TECC (Modelagem de Ambientes Virtuais),3,1,2,NA,NA,2,8,5,3,4,2,NA,1,NA,1,NA
-1411281,TECC(Empreendedorismo em Software)   ,2,9,2,7,8,15,35,7,3,5,2,NA,NA,NA,NA,NA
-1411283,TECC(Fundamentos de Prog. Concorrente),3,2,1,NA,3,6,3,13,4,3,3,NA,NA,NA,NA,NA
-1411285,TECC(DIDATICA EM CIENCIA DA COMPUTACAO),1,7,NA,10,8,5,4,6,4,3,NA,NA,NA,NA,NA,NA
-1411288,TECC(DIDATICA EM CIENCIA DA COMPUTACAO II),1,NA,2,NA,2,2,2,3,1,NA,NA,NA,NA,NA,NA,NA
-1411242,TECC (Segurança em Redes de Computadores),NA,1,NA,1,NA,NA,1,6,3,6,2,NA,NA,NA,NA,NA
-1411243,TECC (Algoritmos Avançados I),NA,3,1,4,NA,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411279,TECC (Estágio Integrado II),NA,1,NA,1,1,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,NA
-1411282,TECC (Administração de Sistemas),NA,1,3,2,2,2,5,1,1,1,NA,NA,NA,1,NA,NA
-1411287,TECC(METODOS E P T G M DADOS HISTORICOS),NA,2,4,1,2,3,9,7,2,1,1,NA,NA,NA,NA,NA
-1107232,Química Geral,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1113019,EXPRESSAO GRAFICA,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1304025,BASQUETEBOL - FEM,NA,NA,2,2,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1304122,BASQUETE   MASC/FEM,NA,NA,2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411267,TECC (Sistemas de Recuperação da Informação),NA,NA,NA,1,NA,NA,13,3,3,3,2,NA,NA,NA,NA,NA
-1109105,Cálculo Diferencial e Integral III,NA,NA,NA,NA,1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1109106,EQUACOES DIFERENCIAIS,NA,NA,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-1411276,TECC (Visão Computacional),NA,NA,NA,NA,1,2,1,12,3,2,1,NA,1,1,NA,NA
-1411265,TECC (Redes Ad Hoc Sem Fio),NA,NA,NA,NA,NA,1,1,NA,1,NA,NA,NA,NA,NA,NA,NA
-1411217,Projeto de Redes de Computadores,NA,NA,NA,NA,NA,NA,NA,NA,2,2,1,NA,NA,NA,NA,NA
+1411197,Avaliação de Desempenho de Sistemas Discretos,2,1,1,4,6,3,6,44,14,18,3,5,1,0,1,0
+1411201,Empreendedorismo,1,1,0,1,1,3,1,3,2,3,0,0,1,1,0,0
+1411203,Estágio Integrado,1,0,2,1,0,0,5,8,11,3,1,0,0,0,0,0
+1411204,GERENCIA DE Redes de Computadores,1,0,0,0,1,0,1,4,4,3,1,1,0,0,0,0
+1411221,Sistemas de Informações Geográficas,4,1,2,0,0,9,17,5,3,4,1,2,0,0,0,0
+1411226,Redes Neurais,1,0,0,1,0,0,1,3,4,5,4,1,0,0,1,0
+1411238,Seminários (Educação Ambiental),8,6,2,11,16,11,8,6,8,3,0,2,0,0,0,0
+1411244,TECC (Economia de Tecnologia da Informação),2,4,3,3,2,5,6,12,22,6,4,4,1,2,0,0
+1411247,TECC (Algoritmos Avançados II),1,6,0,5,0,1,0,0,0,0,0,0,0,0,0,0
+1411249,TECC (Métodos Formais),2,2,0,3,0,1,0,1,2,0,0,0,0,0,0,0
+1411250,TECC (Algoritmos Avançados III),3,0,1,1,8,1,0,0,0,0,0,0,0,0,0,0
+1411256,TEC (Princípios de Administração Financeira),4,2,2,2,4,1,3,3,8,6,2,1,0,1,0,0
+1411266,TECC (Fundamentos e Aplicações de Realidade Virtual),1,1,1,1,3,1,2,7,6,3,0,2,1,1,0,0
+1411268,TECC (Modelagem de Ambientes Virtuais),3,1,2,0,0,2,8,5,3,4,2,0,1,0,1,0
+1411281,TECC(Empreendedorismo em Software)   ,2,9,2,7,8,15,35,7,3,5,2,0,0,0,0,0
+1411283,TECC(Fundamentos de Prog. Concorrente),3,2,1,0,3,6,3,13,4,3,3,0,0,0,0,0
+1411285,TECC(DIDATICA EM CIENCIA DA COMPUTACAO),1,7,0,10,8,5,4,6,4,3,0,0,0,0,0,0
+1411288,TECC(DIDATICA EM CIENCIA DA COMPUTACAO II),1,0,2,0,2,2,2,3,1,0,0,0,0,0,0,0
+1411242,TECC (Segurança em Redes de Computadores),0,1,0,1,0,0,1,6,3,6,2,0,0,0,0,0
+1411243,TECC (Algoritmos Avançados I),0,3,1,4,0,1,0,0,0,0,0,0,0,0,0,0
+1411279,TECC (Estágio Integrado II),0,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0
+1411282,TECC (Administração de Sistemas),0,1,3,2,2,2,5,1,1,1,0,0,0,1,0,0
+1411287,TECC(METODOS E P T G M DADOS HISTORICOS),0,2,4,1,2,3,9,7,2,1,1,0,0,0,0,0
+1107232,Química Geral,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+1113019,EXPRESSAO GRAFICA,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+1304025,BASQUETEBOL - FEM,0,0,2,2,1,0,0,0,0,0,0,0,0,0,0,0
+1304122,BASQUETE   MASC/FEM,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0
+1411267,TECC (Sistemas de Recuperação da Informação),0,0,0,1,0,0,13,3,3,3,2,0,0,0,0,0
+1109105,Cálculo Diferencial e Integral III,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0
+1109106,EQUACOES DIFERENCIAIS,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+1411276,TECC (Visão Computacional),0,0,0,0,1,2,1,12,3,2,1,0,1,1,0,0
+1411265,TECC (Redes Ad Hoc Sem Fio),0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0
+1411217,Projeto de Redes de Computadores,0,0,0,0,0,0,0,0,2,2,1,0,0,0,0,0

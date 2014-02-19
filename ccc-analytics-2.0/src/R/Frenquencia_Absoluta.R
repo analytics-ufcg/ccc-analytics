@@ -12,4 +12,5 @@ tabelaFrequencia <- tabelaFrequencia[with(tabelaFrequencia, order(PeriodoRelativ
 
 # Alterna os periodos relativos para linha, criando assim os 16 periodos do curso e ja colocando a sua frequencia absoluta no local que lhe cabe
 tabelaFrequencia <- reshape(tabelaFrequencia, idvar = c("coddisciplina", "disciplina"), timevar = "PeriodoRelativo", direction = "wide")
+tabelaFrequencia[,3:18][is.na(tabelaFrequencia[,3:18])] = 0
 write.csv(tabelaFrequencia, file = "data/arquivo_frequencia_absoluta.csv", row.names = FALSE, quote = FALSE)
