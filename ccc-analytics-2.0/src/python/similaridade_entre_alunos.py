@@ -140,9 +140,11 @@ def dissim_matrix(mapa, numero_de_periodos, metrica):
     matrix = sim_matrix(mapa, numero_de_periodos, metrica)
     return [map(lambda x: (1-x[0],) + x[1:], row) for row in matrix]
 
-def mk_mapa_jaccard():
+def mk_mapa_jaccard(per_range):
     """Cria e retorna um mapa no formato utilizado no calculo de similaridade
     usando Jaccard.
+
+    :per_range: (periodo_minimo, periodo_maximo)
     :returns: {aluno : {periodo : set([disciplinas])}}
 
     """
@@ -152,7 +154,9 @@ def mk_mapa_jaccard():
     for line in data:
         line = map(int, line.split(',')[1:])
         aluno, cadeira, periodo = line[1], line[0], line[2]
-        if cadeira in cadeiras_obrigatorias:
+        per_valido = periodo >= per_range[0] and periodo <= per_range[1]
+
+        if cadeira in cadeiras_obrigatorias and per_valido:
             if aluno not in mapa:
                 mapa[aluno] = {}
             if periodo not in mapa[aluno]:
@@ -161,9 +165,11 @@ def mk_mapa_jaccard():
 
     return mapa
 
-def mk_mapa_distancia():
+def mk_mapa_distancia(per_range):
     """Cria e retorna um mapa no formato utilizado no calculo de similaridade
     usand distancia
+
+    :per_range: (periodo_minimo, periodo_maximo)
     :returns: {aluno : {disciplina : periodo}}
 
     """
@@ -173,35 +179,39 @@ def mk_mapa_distancia():
     for line in data:
         line = map(int, line.split(',')[1:])
         aluno, cadeira, periodo = line[1], line[0], line[2]
-        if cadeira in cadeiras_obrigatorias:
+        per_valido = periodo >= per_range[0] and periodo <= per_range[1]
+
+        if cadeira in cadeiras_obrigatorias and per_valido:
             if aluno not in mapa:
                 mapa[aluno] = {}
             mapa[aluno][cadeira] = periodo
 
     return mapa
 
-def mk_mapa(metrica):
+def mk_mapa(metrica, per_range):
     """ Retorna um mapa no formato utilizado no calculo de similaridade
     usando a metrica dada
 
+    :per_range: (periodo_minimo, periodo_maximo)
     :metrica: metrica a ser utilizada: distancia ou jaccard
 
     """
     if metrica == 'distancia':
-        return mk_mapa_distancia()
+        return mk_mapa_distancia(per_range)
     elif metrica == 'jaccard':
-        return mk_mapa_jaccard()
+        return mk_mapa_jaccard(per_range)
     raise NameError('Metrica errada')
 
 if __name__ == '__main__':
     '''
     O uso deve ser:
-    python $PATH/similaridade_entre_alunos.py <#periodos> <metrica>
+    python $PATH/similaridade_entre_alunos.py <#periodos> <metrica> <per_minimo> <per_maximo>
     '''
 
     if len(sys.argv) == 3:
         np = int(sys.argv[1])
         metric = sys.argv[2]
+        per_range = tuple(int(sys.argv[3]), int(sys.argv[4]))
         print dissim_matrix(mk_mapa(metric), np, metric)
     else:
         print 'Número de argumentos errado'

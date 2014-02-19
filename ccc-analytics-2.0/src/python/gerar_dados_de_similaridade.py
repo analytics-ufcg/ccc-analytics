@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 from similaridade_entre_alunos import *
+import sys
 
 '''
 Este script gera os arquivos de dados:
@@ -16,8 +17,10 @@ Este script gera os arquivos de dados:
       guardado nas matrizes acima
 '''
 
+# uso: python src/python/gerar_dados_de_similaridade.py <periodo_minimo> <periodo_maximo>
 for met in ['distancia', 'jaccard']:
-    matrix = dissim_matrix(mk_mapa(met), 16, met)
+    per_range = (int(sys.argv[1]), int(sys.argv[2]))
+    matrix = dissim_matrix(mk_mapa(met, per_range), 16, met)
 
     with open('data/dissimilaridade_%s.csv' %met, 'w') as file:
         for row in matrix:
