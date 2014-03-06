@@ -224,6 +224,42 @@
 		apagarMouseOver();
 	}
 
+	function opacidade(caixa, porcentagem){
+		$(caixa).css({"opacity":1.2*porcentagem});
+    }
+
+    //FALTA CORRIGIR
+	function taxaReprovacao(){
+		//Seta cores das caixas
+		$("#blocagem1").css("background-color", "red");
+		$("#blocagem2").css("background-color", "red");
+		$(".w").css("background-color", "red");
+
+
+		//Seta opacidade das caixas de acordo com a reprovação
+		//opacidade(".w", 0.5);
+		//opacidade("#blocagem1", 0.8);
+		//opacidade("#blocagem2", 0.3);
+
+		nomedaCadeira = $("#" + this.id).text();
+		opacidadeCadeira = 0;
+
+		d3.csv("data/media_disciplinas.csv", function(grade_completa){
+			for(var i = 1; i <= grade_completa.length; i++){
+				if(nomedaCadeira == grade_completa[i-1]["disciplina"]){
+
+					opacidadeCadeira = grade_completa[i-1]["media_de_reprovacoes"];
+
+					var caixa = "#c" + i;
+					opacidade(caixa, opacidadeCadeira);
+
+				}
+			}
+		});
+
+	}
+
+
 
 	  function gerarBlocagemComum(total_periodos, tam_caixa)
 	    {
@@ -289,11 +325,11 @@
 
 		                    $(".w").mouseout(function() {
 		                        $("#blocagem1").hide();
-					$("#blocagem2").hide();
+								$("#blocagem2").hide();
 		                    });
 
 
-				    $(".w").mouseover(function() {
+				    		$(".w").mouseover(function() {
 				
 		                         $("#blocagem1").show();
 		                         $("#blocagem2").show();
@@ -302,7 +338,7 @@
 
 
 		                    $("#blocagem1").text(nomedaCadeira);
-				    $("#blocagem2").text(nomedaCadeira);
+				    		$("#blocagem2").text(nomedaCadeira);
 
 
 		                    opacidade("#blocagem1", opacidadeMaisFrequente1);
@@ -313,9 +349,3 @@
 		});
 	    });
 	    }
-
-	    function opacidade(caixa, porcentagem)
-	    {
-		$(caixa).css({"opacity":porcentagem});
-	    }
-
