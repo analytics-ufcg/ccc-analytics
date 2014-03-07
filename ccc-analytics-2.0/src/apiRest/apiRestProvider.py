@@ -1,46 +1,28 @@
-from flask import Flask, request, make_response
-import csv
-import json
+from flask import Flask, make_response
+import dadosApiRest
 
 app = Flask(__name__)
 
 @app.route('/getDisciplinasPorPeriodo')
-def periodo():
-	with open('../../ccc2/data/grade-disciplinas-por-periodo.csv', 'rb') as csvfile:
-		return montaHTML(csvfile)
-
-@app.route('/getPreRequisito')
-def periodo1():
-	with open('../../ccc2/data/prereq.csv', 'rb') as csvfile:
-		return montaHTML(csvfile)
-
-@app.route('/getMaioresFrequencias')
-def periodo2():
-	with open('../../ccc2/data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.csv', 'rb') as csvfile:
-		return montaHTML(csvfile)
+def disciplinas_por_periodo():
+	response = dadosApiRest.disciplinas_por_periodo()
+	response = make_response(response)
+	response.headers['Access-Control-Allow-Origin'] = "*"
+	return response
 		
 
-def montaJson(csvfile):
-	spamreader = csv.reader(csvfile, delimiter=',',quotechar='\n')
-	response = []
-	colunas = []
-	i = 0
-	for row in spamreader:
-		if (i == 0):
-			for column in row:
-				colunas.append(column)		
-		else:
-			celulas = {}
-			for indexColumns in range(0,len(colunas)):
-				celulas[colunas[indexColumns]] = row[indexColumns]
-			response.append(celulas)
-		i = i + 1;
+
+@app.route('/getPreRequisito')
+def pre_requisitos():
+	response = dadosApiRest.pre_requisitos()
+	response = make_response(response)
+	response.headers['Access-Control-Allow-Origin'] = "*"
 	return response
 
-
-def montaHTML(csvfile):
-	response = montaJson(csvfile)
-	response = make_response(json.dumps(response))
+@app.route('/getMaioresFrequencias')
+def maiores_frequencias():
+	response = dadosApiRest.maiores_frequencias()
+	response = make_response(response)
 	response.headers['Access-Control-Allow-Origin'] = "*"
 	return response
 		

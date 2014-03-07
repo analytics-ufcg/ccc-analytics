@@ -1,0 +1,39 @@
+import csv
+import json
+
+def disciplinas_por_periodo():
+	with open('../../ccc2/data/grade-disciplinas-por-periodo.csv', 'rb') as csvfile:
+		spamreader = csv.reader(csvfile, delimiter=',',quotechar='\n')
+		response = montaJson(spamreader)
+		return json.dumps(response)
+
+def pre_requisitos():
+	with open('../../ccc2/data/prereq.csv', 'rb') as csvfile:
+		spamreader = csv.reader(csvfile, delimiter=',',quotechar='\n')
+		response = montaJson(spamreader)
+		return json.dumps(response)
+
+
+def maiores_frequencias():
+	with open('../../ccc2/data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.csv', 'rb') as csvfile:
+		spamreader = csv.reader(csvfile, delimiter=',',quotechar='\n')
+		response = montaJson(spamreader)
+		return json.dumps(response)
+		
+
+def montaJson(spamreader):
+	response = []
+	colunas = []
+	i = 0
+	for row in spamreader:
+		if (i == 0):
+			for column in row:
+				colunas.append(column)		
+		else:
+			celulas = {}
+			for indexColumns in range(0,len(colunas)):
+				celulas[colunas[indexColumns]] = row[indexColumns]
+			response.append(celulas)
+		i = i + 1;
+	return response
+
