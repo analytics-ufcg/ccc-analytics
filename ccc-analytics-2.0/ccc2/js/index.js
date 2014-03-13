@@ -4,6 +4,7 @@
 	var periodo = 1;
 	var contador = 0;
 	var QUANTIDADE_CAIXAS = 44;
+	var hash = {};
 
 	$(document).ready(function() {
 
@@ -121,7 +122,7 @@
 	function setarPosicoes(arquivo, slot_caixa, largura, ehBlocagemComum,arquivo1, vai_gerar)
 	{
 
-					console.log("entrou no setaPosicao");
+		console.log("entrou no setaPosicao");
 		d3.csv(arquivo, function(data_grade) {
 			for (var i = 1; i <= data_grade.length; i++) {
 				if(ehBlocagemComum)
@@ -228,38 +229,39 @@
 		$(caixa).css({"opacity":1.2*porcentagem});
     }
 
-    //FALTA CORRIGIR
+   	$('.w').mouseover(function(e) {
+		opacidade(this, 1);
+	});
+
 	function taxaReprovacao(){
-		//Seta cores das caixas
+		
 		$("#blocagem1").css("background-color", "red");
 		$("#blocagem2").css("background-color", "red");
 		$(".w").css("background-color", "red");
 
-
-		//Seta opacidade das caixas de acordo com a reprovação
-		//opacidade(".w", 0.5);
-		//opacidade("#blocagem1", 0.8);
-		//opacidade("#blocagem2", 0.3);
-
-		nomedaCadeira = $("#" + this.id).text();
-		opacidadeCadeira = 0;
-
 		d3.csv("data/media_disciplinas.csv", function(grade_completa){
 			for(var i = 1; i <= grade_completa.length; i++){
-				if(nomedaCadeira == grade_completa[i-1]["disciplina"]){
 
-					opacidadeCadeira = grade_completa[i-1]["media_de_reprovacoes"];
+				var divSelected = $( "div:contains('"+grade_completa[i-1]["disciplina"]+"').w" );
+				if (divSelected.length ==0){
+					continue;					
+				}else{
+					var nomeId = divSelected[0].id;
+					var b = 3;
+					var media_de_reprovacoes = grade_completa[i-1]["media_de_reprovacoes"];
 
-					var caixa = "#c" + i;
-					opacidade(caixa, opacidadeCadeira);
-
+					if(media_de_reprovacoes < 0.1){
+						$("#" + nomeId).css("background-color", "green");
+						opacidade(("#" + nomeId),  1 - media_de_reprovacoes*10);
+					}else{
+						opacidade(("#" + nomeId), media_de_reprovacoes*1.6);
+					}
 				}
+				
 			}
-		});
-
+					
+		})
 	}
-
-
 
 	  function gerarBlocagemComum(total_periodos, tam_caixa)
 	    {
