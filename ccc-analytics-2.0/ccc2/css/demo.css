@@ -2,6 +2,11 @@
 	margin-top:5em;
 }
 
+#draggable { 
+	width: 150px; 
+	height: 150px; 
+	padding: 0.5em; 
+}
 
 /*	 classe que define o estilo da caixa	*/
 .w { 	
@@ -84,7 +89,7 @@
 }
 
 #blocking{
-    margin-top: 100px;
+    margin-top: 35px;
 }
 
 #blocagem1{
@@ -126,3 +131,22 @@
 
 path { cursor:pointer; }
 
+.tab-bar {
+	-webkit-backface-visibility: hidden;
+    background: #333333;
+ 
+    line-height: 2.8125rem;
+    position: relative; 
+    height: 65px;
+}
+ 
+.tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4, .tab-bar h5, .tab-bar h6 {
+ 	color: white;
+    font-weight: bold;
+    line-height: 2.8125rem;
+    margin: 0; 
+}
+ 
+.tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4 {
+    font-size: 1.125rem; 
+}

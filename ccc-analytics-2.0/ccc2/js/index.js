@@ -193,6 +193,7 @@
 	// Implementar funcionalidade do botao 1 do menu
 	var ativo = true;
 	function grade1() {
+		refreshBlocagem();
 		if(!ativo)
 		{
 			ativo = true;
@@ -205,12 +206,14 @@
 	
 	// Implementar funcionalidade do botao 2 do menu
 	function grade2() {
+		refreshBlocagem();
 		ativo = false;
 		gerarBlocagemComum(9, 100)
 	}
 
 	// Implementar funcionalidade do botao 3 do menu
 	function grade3(arquivo) {
+		refreshBlocagem();
 		ativo = false;
 		gerarBlocagensComum(8, 100, arquivo);
 	}
@@ -223,6 +226,17 @@
 	        setarPosicoes("data/" + arquivo + " _cluster.csv", slot_caixa, largura_caixa, false,"data/prereq.csv", false);
 	       // gerarConexoes();
 		apagarMouseOver();
+
+	}
+
+	//Seta as cores das caixas para o valor default
+	function refreshBlocagem(){
+		$("#blocagem1").css("background-color", "#34495e");
+		$("#blocagem2").css("background-color", "#34495e");
+		$(".w").css("background-color", "#34495e");
+		$(".w").css("opacity", "1");
+
+
 	}
 
 	function opacidade(caixa, porcentagem){
@@ -234,27 +248,37 @@
 	});
 
 	function taxaReprovacao(){
-		
+
 		$("#blocagem1").css("background-color", "red");
 		$("#blocagem2").css("background-color", "red");
 		$(".w").css("background-color", "red");
+
+		$(".w").css("opacity", 1);
 
 		d3.csv("data/media_disciplinas.csv", function(grade_completa){
 			for(var i = 1; i <= grade_completa.length; i++){
 
 				var divSelected = $( "div:contains('"+grade_completa[i-1]["disciplina"]+"').w" );
 				if (divSelected.length ==0){
+
+					console.log("aqui existe um erro: " + grade_completa[i-1]["disciplina"]);
+
 					continue;					
 				}else{
 					var nomeId = divSelected[0].id;
 					var b = 3;
 					var media_de_reprovacoes = grade_completa[i-1]["media_de_reprovacoes"];
 
-					if(media_de_reprovacoes < 0.1){
-						$("#" + nomeId).css("background-color", "green");
-						opacidade(("#" + nomeId),  1 - media_de_reprovacoes*10);
-					}else{
-						opacidade(("#" + nomeId), media_de_reprovacoes*1.6);
+					if(media_de_reprovacoes <= 0.2){
+						$("#" + nomeId).css("background-color", "#fdbb84");
+					}if(media_de_reprovacoes > 0.2 && media_de_reprovacoes < 0.4){
+						$("#" + nomeId).css("background-color", "#fc8d59");
+					}if(media_de_reprovacoes > 0.4 && media_de_reprovacoes < 0.6){
+						$("#" + nomeId).css("background-color", "#ef6548");
+					}if(media_de_reprovacoes > 0.6 && media_de_reprovacoes < 0.8){
+						$("#" + nomeId).css("background-color", "#d7301f");
+					}if(media_de_reprovacoes > 0.8){
+						$("#" + nomeId).css("background-color", "#990000");
 					}
 				}
 				
