@@ -345,16 +345,22 @@ function gerarConexoes(arquivo, vai_gerar)
 					var b = 3;
 					var media_de_reprovacoes = grade_completa[i-1]["media_de_reprovacoes"];
 
-					if(media_de_reprovacoes <= 0.2){
-						$("#" + nomeId).css("background-color", "#fdbb84");
-					}if(media_de_reprovacoes > 0.2 && media_de_reprovacoes < 0.4){
-						$("#" + nomeId).css("background-color", "#fc8d59");
-					}if(media_de_reprovacoes > 0.4 && media_de_reprovacoes < 0.6){
-						$("#" + nomeId).css("background-color", "#ef6548");
-					}if(media_de_reprovacoes > 0.6 && media_de_reprovacoes < 0.8){
-						$("#" + nomeId).css("background-color", "#d7301f");
+					if(media_de_reprovacoes <= 0.05){
+						$("#" + nomeId).css("background-color", "#fee6ce");
+					}if(media_de_reprovacoes > 0.05 && media_de_reprovacoes <= 0.1){
+						$("#" + nomeId).css("background-color", "#fdd0a2");
+					}if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.15){
+						$("#" + nomeId).css("background-color", "#fdae6b");
+					}if(media_de_reprovacoes > 0.15 && media_de_reprovacoes <= 0.2){
+						$("#" + nomeId).css("background-color", "#fd8d3c");
+					}if(media_de_reprovacoes > 0.2 && media_de_reprovacoes <= 0.4){
+						$("#" + nomeId).css("background-color", "#f16913");
+					}if(media_de_reprovacoes > 0.4 && media_de_reprovacoes <= 0.6){
+						$("#" + nomeId).css("background-color", "#d94801");
+					}if(media_de_reprovacoes > 0.6 && media_de_reprovacoes <= 0.8){
+						$("#" + nomeId).css("background-color", "#a63603");
 					}if(media_de_reprovacoes > 0.8){
-						$("#" + nomeId).css("background-color", "#990000");
+						$("#" + nomeId).css("background-color", "#7f2704");
 					}
 				}
 				
