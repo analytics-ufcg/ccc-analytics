@@ -41,9 +41,9 @@
 
 				<!-- estilo da navegacao -->
 				<nav class="tab-bar">
-					<section class="left-small">
+					<!--section class="left-small">
 						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-					</section>
+					</section-->
 
 					<section class="middle tab-bar-section">
 						<a class="navbar-brand" href="index.html"> <img src="image/ccc-header2.png" /> </a>
@@ -56,6 +56,26 @@
 
 				
 				<!-- menu do lado esquerdo da tela -->
+				<aside class="right-off-canvas-menu">
+			
+					<ul class="off-canvas-list">
+						
+        					<li><label>Dificuldades no curso</label></li>
+
+						<li class="divider"></li>
+
+						<li>
+						<a href="#" onclick="taxaReprovacao()">Disciplinas que mais reprovam</a>
+						</li>
+
+						<li class="divider"></li>
+						
+					</ul>
+				</aside>
+
+
+
+				<!-- menu do lado direito da tela
 				<aside class="left-off-canvas-menu">
 					<ul class="off-canvas-list">
 						<li>
@@ -72,41 +92,13 @@
 						</li>
 
 						<li class="divider"></li>
-						
 					</ul>
 				</aside>
+ -->
 
 
-
-				<!-- menu do lado direito da tela -->
-				<aside class="right-off-canvas-menu">
-					<ul class="off-canvas-list">
-						<li>
-							<a href="" onclick="grade1()">Grade CCC</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#grade2" onclick="grade2()">Blocagem mais comum</a>
-						</li>
-
-						<li class="divider"></li>
-						<li>
-						<a href="#" onclick="taxaReprovacao()">Disciplinas que mais reprovam</a>
-						</li>
-
-						<li class="divider"></li>
-					</ul>
-				</aside>
-
-
-
-
+				<!-- menu dropdown -->
 				<div class="collapse navbar-collapse">
-					<!--<ul class="nav navbar-nav">
-					<li class="active">
-					<a href="#">Home</a>
-					</li>
-					</ul>-->
 
 					<ul class="nav navbar-nav navbar-left">
 						<li>
@@ -114,7 +106,7 @@
 							<ul class="nav nav-pills">
 								<li class="dropdown" id="menu1">
 									<!-- imagem do menu 1 -->
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1"><img src="image/menu.png" width="15px" height="15px"/></a>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1"><img src="image/menu_2.jpg" width="15px" height="15px"/></a>
 									<!-- lista de links do menu 1 -->
 									<ul class="dropdown-menu">
 										<li>
@@ -125,11 +117,8 @@
 											<a href="#grade2" onclick="grade2()">Blocagem mais comum</a>
 										</li>
 
-										<li class="divider"></li>
-										<li>
-										<a href="#" onclick="taxaReprovacao()">Disciplinas que mais reprovam</a>
-										</li>
-
+										
+									
 										<li class="divider"></li>
 										<li class="dropdown-submenu">
 									    		<a href="#" tabindex="-1"  >Blocagens mais comuns</a>
@@ -149,6 +138,12 @@
 												
 									    		</ul>
 									  	</li>
+										
+										<li class="divider"></li>
+										<li>
+											<a href="#" onclick="correlacao()">Correlação entre disciplinas</a>
+										</li>
+
 									</ul>
 								</li>
 							</ul>

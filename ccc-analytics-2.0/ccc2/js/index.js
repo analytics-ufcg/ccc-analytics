@@ -13,7 +13,12 @@
 
 
 	    jsPlumb.ready(function() {
-		
+
+		jsPlumb.registerConnectionType("boz",{ 
+		  paintStyle: { 
+		    strokeStyle:"green"
+		  } 
+		});
 			//console.log(getPosicaoXByPeriodo(2));
 		     
 			//$( "#progI" ).text("Programação I")	
@@ -152,32 +157,17 @@
 		    }
 			
 					console.log("saiu no setaPosicao");
-				 gerarConexoes(arquivo1, vai_gerar);
+			if (vai_gerar){
+				gerarConexoes(arquivo1, vai_gerar);
+			}
+				 
 
 			});
 	}
 
 
 	
-	function gerarConexoes(arquivo, vai_gerar)
-	{
-
-		d3.csv(arquivo, function(data1) {
-			instance.setSuspendDrawing(true);
-			console.log("entrou no gerarConexoes");
-		 	for (var i = 1; i <= data1.length; i++) {
-			 	 instance.connect({ source:data1[i-1]["V6"]+"", target:data1[i-1]["V1"]+"", newConnection:false});
-				console.log(data1[i-1]["V6"]+" "+data1[i-1]["V1"]);
-			 }
-			 
-			if(!vai_gerar){
-				instance.deleteEveryEndpoint();
-			}
-			instance.setSuspendDrawing(false,true);
-					console.log("saiu no geraConexao");
-			
-		});
-	}
+	
 /*	
 	function gerarBlocagemComum(total_periodos, tam_caixa)
 	{
@@ -199,7 +189,7 @@
 			ativo = true;
 			gerarFluxograma(8, 100);
 		}else{
-			alert("Você já está visualizando a grade atual");
+			//alert("Você já está visualizando a grade atual");
 		}
 		
 	}
@@ -235,6 +225,7 @@
 		$("#blocagem2").css("background-color", "#34495e");
 		$(".w").css("background-color", "#34495e");
 		$(".w").css("opacity", "1");
+		instance.deleteEveryEndpoint();
 
 
 	}
@@ -246,6 +237,91 @@
    	$('.w').mouseover(function(e) {
 		opacidade(this, 1);
 	});
+
+function gerarConexoes(arquivo, vai_gerar)
+	{
+
+		d3.csv(arquivo, function(data1) {
+			instance.setSuspendDrawing(true);
+			console.log("entrou no gerarConexoes");
+		 	for (var i = 1; i <= data1.length; i++) {
+			 	 instance.connect({ source:data1[i-1]["V6"]+"", target:data1[i-1]["V1"]+"", newConnection:false});
+				console.log(data1[i-1]["V6"]+" "+data1[i-1]["V1"]);
+			 }
+			 
+			if(!vai_gerar){
+				instance.deleteEveryEndpoint();
+			}
+			instance.setSuspendDrawing(false,true);
+					console.log("saiu no geraConexao");
+			
+		});
+	}
+
+	function correlacao(){
+		refreshBlocagem();
+		total_periodos = 8;
+		tam_caixa = 100;
+		slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
+		largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa);
+		//setarPosicoes("data/matrizCorrelacaoFiltrada1.csv", slot_caixa, largura_caixa, false,"data/matrizCorrelacaoFiltrada1.csv", true);
+		setarPosicoes("data/grade-disciplinas-por-periodo.csv", slot_caixa, largura_caixa, false,"data/prereq.csv", false);
+
+			
+    
+ 
+
+		d3.csv("data/matrizCorrelacaoFiltrada1.csv", function(grade_completa){
+			instance.setSuspendDrawing(true);
+			instance.deleteEveryEndpoint();
+			console.log("entrou no gerarConexoes");
+			for(var i = 1; i <= grade_completa.length; i++){
+
+				var divSelected1 = $( "div:contains('"+grade_completa[i-1]["disc1"]+"').w" );
+				var divSelected2 = $( "div:contains('"+grade_completa[i-1]["disc2"]+"').w" );
+					if (divSelected1.length ==0 || divSelected2.length ==0){
+
+					console.log("aqui existe um erro: " + grade_completa[i-1]["disc1"] + " " + grade_completa[i-1]["disc2"]);
+
+					continue;					
+				} else {
+					var nomeId1 = divSelected1[0].id;
+					var nomeId2 = divSelected2[0].id;
+					var correlacao = grade_completa[i-1]["cor"];
+					var cor = "black";
+					if (correlacao > 0){
+						cor = "red";
+					}else {
+						cor = "blue";
+					}
+					
+					
+					var c = instance.connect({ source:nomeId1+"", target:nomeId2+"" ,newConnection:false});
+					//c.addType("boz",{ color:"red", width:23 });
+						
+//instance.deleteEveryEndpoint();
+					
+				}
+				
+			}
+			console.log("saiu no gerarConexoes");
+				//instance.deleteEveryEndpoint();
+			instance.setSuspendDrawing(false,true);
+					
+		})
+
+
+
+		 	
+
+
+
+		
+
+
+		//apagarMouseOver();
+    	}
+
 
 	function taxaReprovacao(){
 
@@ -264,7 +340,7 @@
 					console.log("aqui existe um erro: " + grade_completa[i-1]["disciplina"]);
 
 					continue;					
-				}else{
+				} else {
 					var nomeId = divSelected[0].id;
 					var b = 3;
 					var media_de_reprovacoes = grade_completa[i-1]["media_de_reprovacoes"];
@@ -286,6 +362,7 @@
 					
 		})
 	}
+
 
 	  function gerarBlocagemComum(total_periodos, tam_caixa)
 	    {
