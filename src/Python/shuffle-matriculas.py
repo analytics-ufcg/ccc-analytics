@@ -25,8 +25,14 @@ from random import shuffle
 #       src/WebPage2/dados/id-per-matricula
 #       src/WebPage2/dados/matriculas-union
 
-matriculas = open('src/WebPage2/dados/matriculas-union', 'r').readlines()
+matriculas = open('ccc-analytics-2.0/ccc2/data/matriculas', 'r').readlines()
 shuffle(matriculas)
+# seleciona as matriculas entre o ano 2000 e 2014
+matriculas = [m for m in matriculas if int(m[1:3]) <= 14]
 
 for id, mat in zip(xrange(1, len(matriculas)+1), matriculas):
-    print mat[:4] + str(id), int(mat)
+    matriculas[id-1] = '%s%04d %s' %(mat[:4], id, matriculas[id-1])
+
+open('ccc-analytics-2.0/ccc2/data/matriculas', 'w').writelines(matriculas)
+
+import fix_matriculas
