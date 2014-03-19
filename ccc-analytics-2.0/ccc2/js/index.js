@@ -4,7 +4,6 @@
 	var periodo = 1;
 	var contador = 0;
 	var QUANTIDADE_CAIXAS = 44;
-	var hash = {};
 
 	$(document).ready(function() {
 
@@ -13,12 +12,7 @@
 
 
 	    jsPlumb.ready(function() {
-
-		jsPlumb.registerConnectionType("boz",{ 
-		  paintStyle: { 
-		    strokeStyle:"green"
-		  } 
-		});
+		
 			//console.log(getPosicaoXByPeriodo(2));
 		     
 			//$( "#progI" ).text("Programação I")	
@@ -87,11 +81,18 @@
 	function getSlotCaixa(total_periodos, tam_caixa)
 	{
 		tamanho_pagina = window.screen.availWidth;
+		console.log("tamanho_pagina"+tamanho_pagina);
+		console.log("periodos"+total_periodos);
+		console.log("tamcaixa"+tam_caixa);
+
 		//total_periodos = 11;
 		//tam_caixa = 100;
 		slot_caixa = tamanho_pagina / total_periodos;
+
+		console.log("slotcaixa"+slot_caixa);
 		//largura_caixa = tam_caixa + "px";
 		espaco_x = slot_caixa - getLarguraCaixa(total_periodos, tam_caixa);
+		console.log("espacox"+espaco_x);
 		if(espaco_x < 30)
 		{
 			slot_caixa = 150;
@@ -103,6 +104,7 @@
 	function getPosicaoXByPeriodo(periodo)
 	{
 		posicao = (periodo - 1) * getSlotCaixa(total_periodos, tam_caixa);
+		
 		return posicao;
 	}
 	
@@ -127,7 +129,7 @@
 	function setarPosicoes(arquivo, slot_caixa, largura, ehBlocagemComum,arquivo1, vai_gerar)
 	{
 
-		console.log("entrou no setaPosicao");
+					console.log("entrou no setaPosicao");
 		d3.csv(arquivo, function(data_grade) {
 			for (var i = 1; i <= data_grade.length; i++) {
 				if(ehBlocagemComum)
@@ -157,88 +159,14 @@
 		    }
 			
 					console.log("saiu no setaPosicao");
-			if (vai_gerar){
-				gerarConexoes(arquivo1, vai_gerar);
-			}
-				 
+				 gerarConexoes(arquivo1, vai_gerar);
 
 			});
 	}
 
 
 	
-	
-/*	
-	function gerarBlocagemComum(total_periodos, tam_caixa)
-	{
-		slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
-		largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa)
-		setarPosicoes("data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.csv", slot_caixa, largura_caixa);
-		gerarMouseOver(largura_caixa);
-		//gerarConexoes("data/prereq.csv", false);
-		//gerarMouseOver();
-	}
-	*/
-	
-	// Implementar funcionalidade do botao 1 do menu
-	var ativo = true;
-	function grade1() {
-		refreshBlocagem();
-		if(!ativo)
-		{
-			ativo = true;
-			gerarFluxograma(8, 100);
-		}else{
-			//alert("Você já está visualizando a grade atual");
-		}
-		
-	}
-	
-	// Implementar funcionalidade do botao 2 do menu
-	function grade2() {
-		refreshBlocagem();
-		ativo = false;
-		gerarBlocagemComum(9, 100)
-	}
-
-	// Implementar funcionalidade do botao 3 do menu
-	function grade3(arquivo) {
-		refreshBlocagem();
-		ativo = false;
-		gerarBlocagensComum(8, 100, arquivo);
-	}
-
-
-	function gerarBlocagensComum(total_periodos, tam_caixa, arquivo)
-	{
-		slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
-        	largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa);
-	        setarPosicoes("data/" + arquivo + " _cluster.csv", slot_caixa, largura_caixa, false,"data/prereq.csv", false);
-	       // gerarConexoes();
-		apagarMouseOver();
-
-	}
-
-	//Seta as cores das caixas para o valor default
-	function refreshBlocagem(){
-		$("#blocagem1").css("background-color", "#34495e");
-		$("#blocagem2").css("background-color", "#34495e");
-		$(".w").css("background-color", "#34495e");
-		$(".w").css("opacity", "1");
-		instance.deleteEveryEndpoint();
-
-
-	}
-
-	function opacidade(caixa, porcentagem){
-		$(caixa).css({"opacity":1.2*porcentagem});
-    }
-
-   	$('.w').mouseover(function(e) {
-		opacidade(this, 1);
-	});
-
-function gerarConexoes(arquivo, vai_gerar)
+	function gerarConexoes(arquivo, vai_gerar)
 	{
 
 		d3.csv(arquivo, function(data1) {
@@ -257,116 +185,51 @@ function gerarConexoes(arquivo, vai_gerar)
 			
 		});
 	}
-
-	function correlacao(){
-		refreshBlocagem();
-		total_periodos = 8;
-		tam_caixa = 100;
+/*	
+	function gerarBlocagemComum(total_periodos, tam_caixa)
+	{
 		slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
-		largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa);
-		//setarPosicoes("data/matrizCorrelacaoFiltrada1.csv", slot_caixa, largura_caixa, false,"data/matrizCorrelacaoFiltrada1.csv", true);
-		setarPosicoes("data/grade-disciplinas-por-periodo.csv", slot_caixa, largura_caixa, false,"data/prereq.csv", false);
-
-			
-    
- 
-
-		d3.csv("data/matrizCorrelacaoFiltrada1.csv", function(grade_completa){
-			instance.setSuspendDrawing(true);
-			instance.deleteEveryEndpoint();
-			console.log("entrou no gerarConexoes");
-			for(var i = 1; i <= grade_completa.length; i++){
-
-				var divSelected1 = $( "div:contains('"+grade_completa[i-1]["disc1"]+"').w" );
-				var divSelected2 = $( "div:contains('"+grade_completa[i-1]["disc2"]+"').w" );
-					if (divSelected1.length ==0 || divSelected2.length ==0){
-
-					console.log("aqui existe um erro: " + grade_completa[i-1]["disc1"] + " " + grade_completa[i-1]["disc2"]);
-
-					continue;					
-				} else {
-					var nomeId1 = divSelected1[0].id;
-					var nomeId2 = divSelected2[0].id;
-					var correlacao = grade_completa[i-1]["cor"];
-					var cor = "black";
-					if (correlacao > 0){
-						cor = "red";
-					}else {
-						cor = "blue";
-					}
-					
-					
-					var c = instance.connect({ source:nomeId1+"", target:nomeId2+"" ,newConnection:false});
-					//c.addType("boz",{ color:"red", width:23 });
-						
-//instance.deleteEveryEndpoint();
-					
-				}
-				
-			}
-			console.log("saiu no gerarConexoes");
-				//instance.deleteEveryEndpoint();
-			instance.setSuspendDrawing(false,true);
-					
-		})
-
-
-
-		 	
-
-
-
+		largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa)
+		setarPosicoes("data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.csv", slot_caixa, largura_caixa);
+		gerarMouseOver(largura_caixa);
+		//gerarConexoes("data/prereq.csv", false);
+		//gerarMouseOver();
+	}
+	*/
+	
+	// Implementar funcionalidade do botao 1 do menu
+	var ativo = true;
+	function grade1() {
+		if(!ativo)
+		{
+			ativo = true;
+			gerarFluxograma(8, 100);
+		}else{
+			alert("Você já está visualizando a grade atual");
+		}
 		
+	}
+	
+	// Implementar funcionalidade do botao 2 do menu
+	function grade2() {
+		ativo = false;
+		gerarBlocagemComum(9, 100)
+	}
+
+	// Implementar funcionalidade do botao 3 do menu
+	function grade3(arquivo) {
+		ativo = false;
+		gerarBlocagensComum(8, 100, arquivo);
+	}
 
 
-		//apagarMouseOver();
-    	}
-
-
-	function taxaReprovacao(){
-
-		$("#blocagem1").css("background-color", "red");
-		$("#blocagem2").css("background-color", "red");
-		$(".w").css("background-color", "red");
-
-		$(".w").css("opacity", 1);
-
-		d3.csv("data/media_disciplinas.csv", function(grade_completa){
-			for(var i = 1; i <= grade_completa.length; i++){
-
-				var divSelected = $( "div:contains('"+grade_completa[i-1]["disciplina"]+"').w" );
-				if (divSelected.length ==0){
-
-					console.log("aqui existe um erro: " + grade_completa[i-1]["disciplina"]);
-
-					continue;					
-				} else {
-					var nomeId = divSelected[0].id;
-					var b = 3;
-					var media_de_reprovacoes = grade_completa[i-1]["media_de_reprovacoes"];
-
-					if(media_de_reprovacoes <= 0.05){
-						$("#" + nomeId).css("background-color", "#fee6ce");
-					}if(media_de_reprovacoes > 0.05 && media_de_reprovacoes <= 0.1){
-						$("#" + nomeId).css("background-color", "#fdd0a2");
-					}if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.15){
-						$("#" + nomeId).css("background-color", "#fdae6b");
-					}if(media_de_reprovacoes > 0.15 && media_de_reprovacoes <= 0.2){
-						$("#" + nomeId).css("background-color", "#fd8d3c");
-					}if(media_de_reprovacoes > 0.2 && media_de_reprovacoes <= 0.4){
-						$("#" + nomeId).css("background-color", "#f16913");
-					}if(media_de_reprovacoes > 0.4 && media_de_reprovacoes <= 0.6){
-						$("#" + nomeId).css("background-color", "#d94801");
-					}if(media_de_reprovacoes > 0.6 && media_de_reprovacoes <= 0.8){
-						$("#" + nomeId).css("background-color", "#a63603");
-					}if(media_de_reprovacoes > 0.8){
-						$("#" + nomeId).css("background-color", "#7f2704");
-					}
-				}
-				
-			}
-					
-		})
+	function gerarBlocagensComum(total_periodos, tam_caixa, arquivo)
+	{
+		slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
+        	largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa);
+	        setarPosicoes("data/" + arquivo + " _cluster.csv", slot_caixa, largura_caixa, false,"data/prereq.csv", false);
+	       // gerarConexoes();
+		apagarMouseOver();
 	}
 
 
@@ -434,11 +297,11 @@ function gerarConexoes(arquivo, vai_gerar)
 
 		                    $(".w").mouseout(function() {
 		                        $("#blocagem1").hide();
-								$("#blocagem2").hide();
+					$("#blocagem2").hide();
 		                    });
 
 
-				    		$(".w").mouseover(function() {
+				    $(".w").mouseover(function() {
 				
 		                         $("#blocagem1").show();
 		                         $("#blocagem2").show();
@@ -447,7 +310,7 @@ function gerarConexoes(arquivo, vai_gerar)
 
 
 		                    $("#blocagem1").text(nomedaCadeira);
-				    		$("#blocagem2").text(nomedaCadeira);
+				    $("#blocagem2").text(nomedaCadeira);
 
 
 		                    opacidade("#blocagem1", opacidadeMaisFrequente1);
@@ -458,3 +321,9 @@ function gerarConexoes(arquivo, vai_gerar)
 		});
 	    });
 	    }
+
+	    function opacidade(caixa, porcentagem)
+	    {
+		$(caixa).css({"opacity":porcentagem});
+	    }
+

@@ -2,11 +2,6 @@
 	margin-top:5em;
 }
 
-#draggable { 
-	width: 150px; 
-	height: 150px; 
-	padding: 0.5em; 
-}
 
 /*	 classe que define o estilo da caixa	*/
 .w { 	
@@ -24,11 +19,35 @@
 	z-index:20; 
 	position:absolute;
 	background-color:#34495e;
-	color:#bdbdbd;
+	color:#fff;
 	font-family:helvetica;
 	padding:12px;
 	font-size:11px;
-		
+	width:100px;
+
+	cursor: pointer;
+}
+
+.b { 	
+	border:0px solid #34495e;
+	box-shadow: 2px 2px 19px #95a5a6;
+   -o-box-shadow: 2px 2px 19px #95a5a6;
+   -webkit-box-shadow: 2px 2px 19px #95a5a6;
+   -moz-box-shadow: 2px 2px 19px #95a5a6;
+	-moz-border-radius:0.3em;
+	border-radius:0.3em;
+	opacity:0.9;
+	filter:alpha(opacity=90);
+
+	text-align:center;
+	z-index:20; 
+	position:absolute;
+	background-color:#34495e;
+	color:#fff;
+	font-family:helvetica;
+	padding:12px;
+	font-size:11px;
+	width:100px;
 
 	cursor: pointer;
 }
@@ -38,9 +57,6 @@
 .w:hover {
 	background-color: #7f8c8d;
 	color:#000;
-	font-weight:bold;
-
-	
 	box-shadow: 2px 2px 19px #ecf0f1;
    -o-box-shadow: 2px 2px 19px #ecf0f1;
    -webkit-box-shadow: 2px 2px 19px #ecf0f1;
@@ -89,7 +105,7 @@
 }
 
 #blocking{
-    margin-top: 35px;
+    margin-top: 100px;
 }
 
 #blocagem1{
@@ -100,53 +116,9 @@
     display: none;
 }
 
-.b { 	
-	border:0px solid #34495e;
-	box-shadow: 2px 2px 19px #95a5a6;
-	   -o-box-shadow: 2px 2px 19px #95a5a6;
-	   -webkit-box-shadow: 2px 2px 19px #95a5a6;
-	   -moz-box-shadow: 2px 2px 19px #95a5a6;
-	-moz-border-radius:0.3em;
-	border-radius:0.3em;
-	opacity:0.9;
-	filter:alpha(opacity=90);
-
-	text-align:center;
-	z-index:20; 
-	position:absolute;
-	background-color:#7f8c8d;
-	color:#000;
-	font-weight:bold;
-	font-family:helvetica;
-	padding:12px;
-	font-size:11px;
-		
-
-	cursor: pointer;
-}
-
 
 
 .dragHover { border:2px solid orange; }
 
 path { cursor:pointer; }
 
-.tab-bar {
-	-webkit-backface-visibility: hidden;
-    background: #333333;
- 
-    line-height: 2.8125rem;
-    position: relative; 
-    height: 65px;
-}
- 
-.tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4, .tab-bar h5, .tab-bar h6 {
- 	color: white;
-    font-weight: bold;
-    line-height: 2.8125rem;
-    margin: 0; 
-}
- 
-.tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4 {
-    font-size: 1.125rem; 
-}
