@@ -10,10 +10,27 @@ As métricas aqui utilizadas são Jaccard ou Distância, de acordo
 com a escolha do usuário.
 '''
 
+entrada = 'ccc2/data/historico-ccc.csv'
 mod = lambda x: x if x >= 0 else -x
 union = lambda a, b, mapa: dict(mapa[a], **mapa[b]).keys()
 cadeiras_obrigatorias = set(map(lambda x: int(x.split(',')[2][:-1]), 
             open('data/grade-disciplinas-por-periodo.csv').readlines()[1:]))
+
+# recebe duas strings contendo o periodo em que o aluno pagou a
+# dada disciplina e a matricula do aluno e calcula o periodo 
+# relativa em que esse aluno pagou a dada disciplina
+#
+# Ex:
+# aluno periodo resultado
+# 03.1 05.0 5
+# 03.1 05.1 5
+# 03.1 05.2 6
+# 03.2 05.0 4
+# 03.2 05.1 4
+# 03.2 05.2 5
+periodo_r = lambda per, mat: '%d' %(
+        2*(int(per[2:4]) - int(mat[1:3])) - (per[-1] != '2') - (mat[3] == '2')
+)
 
 def diff_periodo(aluno_a, aluno_b, d, mapa):
     """Calcula a diferença de períodos em que dois alunos
@@ -148,12 +165,13 @@ def mk_mapa_jaccard(per_range):
     :returns: {aluno : {periodo : set([disciplinas])}}
 
     """
-    data = open('data/aluno-disciplina-periodo.csv').readlines()[1:]
+    data = open(entrada).readlines()[1:]
     mapa = {}
 
     for line in data:
-        line = map(int, line.split(',')[1:])
-        aluno, cadeira, periodo = line[1], line[0], line[2]
+        line = line.split(',')
+        aluno, cadeira = int(line[4]), int(line[1])
+        periodo = periodo_r(line[0], line([1]))
         per_valido = periodo >= per_range[0] and periodo <= per_range[1]
 
         if cadeira in cadeiras_obrigatorias and per_valido:
@@ -173,12 +191,13 @@ def mk_mapa_distancia(per_range):
     :returns: {aluno : {disciplina : periodo}}
 
     """
-    data = open('data/aluno-disciplina-periodo.csv').readlines()[1:]
+    data = open(entrada).readlines()[1:]
     mapa = {}
 
     for line in data:
-        line = map(int, line.split(',')[1:])
-        aluno, cadeira, periodo = line[1], line[0], line[2]
+        line = line.split(',')
+        aluno, cadeira = int(line[4]), int(line[1])
+        periodo = periodo_r(line[0], line([1]))
         per_valido = periodo >= per_range[0] and periodo <= per_range[1]
 
         if cadeira in cadeiras_obrigatorias and per_valido:

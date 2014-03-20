@@ -19,7 +19,8 @@ Este script gera os arquivos de dados:
 
 # uso: python src/python/gerar_dados_de_similaridade.py <periodo_minimo> <periodo_maximo>
 for met in ['distancia', 'jaccard']:
-    per_range = (int(sys.argv[1]), int(sys.argv[2]))
+    #per_range = (int(sys.argv[1]), int(sys.argv[2]))
+    per_range(1, 16)
     matrix = dissim_matrix(mk_mapa(met, per_range), 16, met)
 
     with open('data/dissimilaridade_%s.csv' %met, 'w') as file:
