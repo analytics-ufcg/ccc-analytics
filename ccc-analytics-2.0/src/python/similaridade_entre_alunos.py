@@ -28,8 +28,8 @@ cadeiras_obrigatorias = set(map(lambda x: int(x.split(',')[2][:-1]),
 # 03.2 05.0 4
 # 03.2 05.1 4
 # 03.2 05.2 5
-periodo_r = lambda per, mat: '%d' %(
-        2*(int(per[2:4]) - int(mat[1:3])) - (per[-1] != '2') - (mat[3] == '2')
+periodo_r = lambda per, mat: (
+        2*(int(per[2:4]) - int(mat[1:3])+1) - (per[-1] != '2') - (mat[3] == '2')
 )
 
 def diff_periodo(aluno_a, aluno_b, d, mapa):
@@ -61,7 +61,9 @@ def sim_d(aluno_a, aluno_b, d, mapa):
 
     values_a = (min(mapa[aluno_a].values()), max(mapa[aluno_a].values()))
     values_b = (min(mapa[aluno_b].values()), max(mapa[aluno_b].values()))
+
     diff = max(mod(values_a[1]-values_b[0]), mod(values_a[0]-values_b[1])) + 1
+
     
     if d in mapa[aluno_a] and d in mapa[aluno_b]:
         return 1 - diff_periodo(aluno_a, aluno_b, d, mapa)/diff
@@ -171,10 +173,10 @@ def mk_mapa_jaccard(per_range):
     for line in data:
         line = line.split(',')
         aluno, cadeira = int(line[4]), int(line[1])
-        periodo = periodo_r(line[0], line([1]))
+        periodo = periodo_r(line[0], line[4])
         per_valido = periodo >= per_range[0] and periodo <= per_range[1]
 
-        if cadeira in cadeiras_obrigatorias and per_valido:
+        if cadeira in cadeiras_obrigatorias:# and per_valido:
             if aluno not in mapa:
                 mapa[aluno] = {}
             if periodo not in mapa[aluno]:
@@ -197,10 +199,10 @@ def mk_mapa_distancia(per_range):
     for line in data:
         line = line.split(',')
         aluno, cadeira = int(line[4]), int(line[1])
-        periodo = periodo_r(line[0], line([1]))
+        periodo = periodo_r(line[0], line[4])
         per_valido = periodo >= per_range[0] and periodo <= per_range[1]
 
-        if cadeira in cadeiras_obrigatorias and per_valido:
+        if cadeira in cadeiras_obrigatorias: #and per_valido:
             if aluno not in mapa:
                 mapa[aluno] = {}
             mapa[aluno][cadeira] = periodo
