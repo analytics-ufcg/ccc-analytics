@@ -1,4 +1,3 @@
-#Falta baixar a biblioteca!
 install.packages("RUnit")
 library('RUnit')
 

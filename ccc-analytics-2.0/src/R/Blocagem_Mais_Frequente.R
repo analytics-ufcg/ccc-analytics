@@ -16,7 +16,7 @@ freqAbsluta[,colunasUteis][is.na(freqAbsluta[,colunasUteis])] = 0
 require(plyr)
 
 # Cria uma lista com o codigo das disciplinas obrigatorias
-disciplinasObrigatorias <- disciplinasPeriodoObrigatorias$coddisciplina
+disciplinasObrigatorias <- disciplinasPeriodoObrigatorias$CODIGO
 
 #Vetor com a maior frequencia da disciplina observada em um período letivo
 maiorFreq = apply(freqAbsluta[colunasUteis], 1, max)
@@ -24,7 +24,7 @@ maiorFreq = apply(freqAbsluta[colunasUteis], 1, max)
 #Vetor com a soma de todas as frequencias de periodos letivos da disciplina
 totalFreq = rowSums(freqAbsluta[colunasUteis])
 
-discMaisComumPeriodo = freqAbsluta[, c("coddisciplina", "disciplina")]
+discMaisComumPeriodo = freqAbsluta[, c("CODIGO", "DISCIPLINA")]
 discMaisComumPeriodo[, "PerMaisFreq1st"] = apply(freqAbsluta[colunasUteis], 1, which.max)
 discMaisComumPeriodo[, "FreqRelativa1st"] = maiorFreq / totalFreq
 discMaisComumPeriodo[, "PerMaisFreq2nd"] = apply(freqAbsluta[colunasUteis], 1, maxn(2))
@@ -35,7 +35,7 @@ discMaisComumPeriodo[, "TotalDeAlunosPorDisciplina"] = totalFreq
 
 # Colocar a informacao da disciplina se eh obrigatoria ou optativa
 discMaisComumPeriodo[10] <- "OPT"
-discMaisComumPeriodo[is.element(discMaisComumPeriodo$coddisciplina,disciplinasObrigatorias),]$V10 = "OBG"
+discMaisComumPeriodo[is.element(discMaisComumPeriodo$CODIGO,disciplinasObrigatorias),]$V10 = "OBG"
 discMaisComumPeriodo <- rename(discMaisComumPeriodo, replace = c("V10" = "TipoDeDisciplina"))
 
 write.csv(discMaisComumPeriodo, file = "data/maiores_frequencias_por_disciplina.csv", row.names = FALSE, quote = FALSE)
