@@ -1,4 +1,6 @@
-# Antes de executar este script, deve-se setar o Working Directory para "ccc-analytics-2.0 /" conforme seu repositório local 
+# Antes de executar este script, deve-se setar o Working Directory para "ccc-analytics-2.0 /" conforme seu repositório local
+#setwd("ccc/ccc-analytics-2.0/")
+
 notaDisciplDF = read.csv('data/arquivo_notas_disciplinas_periodo.csv')
 
 install.packages("reshape")
