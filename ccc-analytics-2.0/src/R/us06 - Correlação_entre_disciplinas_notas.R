@@ -6,7 +6,7 @@
 
 
 #setwd("C:/Users/bac/Desktop/CCC Correlacao")
-setwd("~/CCC Versão 2.5/Correlacao - Sprint 03")
+setwd("~/ccc/ccc-analytics-2.0/data")
 
 notas <- read.csv("arquivo_notas_disciplinas.csv", header = TRUE, sep=",", encoding="latin1")
 infoAssi <- read.csv("arquivo_informacao_das_disciplinas.csv", header = TRUE, sep=",", encoding="latin1")
