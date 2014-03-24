@@ -8,23 +8,23 @@
 #setwd("C:/Users/bac/Desktop/CCC Correlacao")
 setwd("~/ccc/ccc-analytics-2.0/data")
 
-notas <- read.csv("arquivo_notas_disciplinas.csv", header = TRUE, sep=",", encoding="latin1")
-infoAssi <- read.csv("arquivo_informacao_das_disciplinas.csv", header = TRUE, sep=",", encoding="latin1")
+notas <- read.csv("historico-ccc.csv", header = TRUE, sep=",")
+infoAssi <- read.csv("arquivo_informacao_das_disciplinas.csv", header = TRUE, sep=",")
 
 # seleciona somente as colunas ditas
-infoAssi <- infoAssi[c("coddisciplina","TipoDeDisciplina")]
+infoAssi <- infoAssi[c("CODIGO","DISCIPLINA","TIPODEDISCIPLINA")]
 
 # adiciona a coluna do tipo da disciplina
-completeData <- merge(data,infoAssi,by="coddisciplina")
+completeData <- merge(notas,infoAssi[c("CODIGO","TIPODEDISCIPLINA")],by="CODIGO")
 
 # filtra o data frame com as disciplinas obrigatorias
-filterFrame <- subset(completeData,TipoDeDisciplina == "OBG")
+filterFrame <- subset(completeData,TIPODEDISCIPLINA == "OBG")
 
 # seleciona apenas as colunas que interessam (media, codigo e nome da disciplina e a matricula do aluno)
-filterFrame <- filterFrame[c("coddisciplina","matricula", "media")]
+filterFrame <- filterFrame[c("CODIGO","MEDIA","MATRICULA")]
 
 # corrige a disposi??o do dataframe
-finalFrame = reshape(filterFrame, timevar = "coddisciplina", idvar = "matricula", direction = "wide")
+finalFrame = reshape(filterFrame, timevar = "CODIGO", idvar = "MATRICULA", direction = "wide")
 
 # calcula a correla??o
 corMatrix = cor(finalFrame[2:45],use="pairwise.complete.obs")
@@ -48,17 +48,17 @@ for (i in 2:length(data)) {
 }
 data = data2
 grade <- read.csv("grade-disciplinas-por-periodo.csv", header = TRUE, sep=",")
-grade = grade[c("disciplina","codigo")]
+grade = grade[c("DISCIPLINA","CODIGO")]
 
 library(reshape)
 mdata <- melt(data, id=c("X"))
 mdata$X <- substring(mdata$X, 7)
 mdata$variable <- substring(mdata$variable, 7)
-mdata <- merge(mdata,grade,by.x="X",by.y="codigo")
-mdata <- merge(mdata,grade,by.x="variable",by.y="codigo")
+mdata <- merge(mdata,grade,by.x="X",by.y="CODIGO")
+mdata <- merge(mdata,grade,by.x="variable",by.y="CODIGO")
 
 mdata1 <- subset(mdata,X != variable)
-mdata2<- subset(mdata1,value > 0.7 | value < -0.7)
+mdata2<- subset(mdata1,value > 0.55 | value < -0.55)
 mdata2 <- mdata2[with(mdata2, order(-value)), ]
 colnames(mdata2) <- c("cod1","cod2","cor","disc1","disc2")
 mdata3<- subset(mdata2,cor != 1.0 & cor != -1.0)
