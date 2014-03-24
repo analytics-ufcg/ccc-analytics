@@ -1,14 +1,14 @@
-notaDisciplDF = read.csv('data/arquivo_notas_disciplinas.csv')
+notaDisciplDF = read.csv('ccc2/data/historico-ccc.csv')
 disciplinasPeriodoObrigatorias = read.csv('data/grade-disciplinas-por-periodo.csv')
 
 require(plyr)
 
-disciplinasObrigatorias <- disciplinasPeriodoObrigatorias$coddisciplina
+disciplinasObrigatorias <- disciplinasPeriodoObrigatorias$CODIGO
   
-infoDisciplinas <- ddply(notaDisciplDF, .(coddisciplina, disciplina, departamento), nrow)
+infoDisciplinas <- ddply(notaDisciplDF, .(CODIGO, DISCIPLINA, DEPARTAMENTO), nrow)
 infoDisciplinas[4] <- "OPT"
-infoDisciplinas[is.element(infoDisciplinas$coddisciplina,disciplinasObrigatorias),]$V1 = "OBG"
+infoDisciplinas[is.element(infoDisciplinas$CODIGO,disciplinasObrigatorias),]$V1 = "OBG"
 
-infoDisciplinas <- rename(infoDisciplinas, replace = c("V1" = "TipoDeDisciplina"))
+infoDisciplinas <- rename(infoDisciplinas, replace = c("V1" = "TIPODEDISCIPLINA"))
 
 write.csv(infoDisciplinas, file = "data/arquivo_informacao_das_disciplinas.csv", row.names = FALSE)

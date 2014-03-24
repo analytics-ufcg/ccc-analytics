@@ -26,21 +26,21 @@ maiorFreq = apply(freqAbsluta[colunasUteis], 1, max)
 totalFreq = rowSums(freqAbsluta[colunasUteis])
 
 discMaisComumPeriodo = freqAbsluta[, c("CODIGO", "DISCIPLINA")]
-discMaisComumPeriodo[, "PerMaisFreq1st"] = apply(freqAbsluta[colunasUteis], 1, which.max)
-discMaisComumPeriodo[, "FreqRelativa1st"] = maiorFreq / totalFreq
-discMaisComumPeriodo[, "PerMaisFreq2nd"] = apply(freqAbsluta[colunasUteis], 1, maxn(2))
-discMaisComumPeriodo[, "FreqRelativa2nd"] = (apply(freqAbsluta[colunasUteis], 1, valorMaxn(2))) / totalFreq
-discMaisComumPeriodo[, "PerMaisFreq3rd"] = apply(freqAbsluta[colunasUteis], 1, maxn(3))
-discMaisComumPeriodo[, "FreqRelativa3rd"] = (apply(freqAbsluta[colunasUteis], 1, valorMaxn(3))) / totalFreq
-discMaisComumPeriodo[, "TotalDeAlunosPorDisciplina"] = totalFreq
+discMaisComumPeriodo[, "PERMAISFREQ1ST"] = apply(freqAbsluta[colunasUteis], 1, which.max)
+discMaisComumPeriodo[, "FREQRELATIVA1ST"] = maiorFreq / totalFreq
+discMaisComumPeriodo[, "PERMAISFREQ2ND"] = apply(freqAbsluta[colunasUteis], 1, maxn(2))
+discMaisComumPeriodo[, "FREQRELATIVA2ND"] = (apply(freqAbsluta[colunasUteis], 1, valorMaxn(2))) / totalFreq
+discMaisComumPeriodo[, "PERMAISFREQ3RD"] = apply(freqAbsluta[colunasUteis], 1, maxn(3))
+discMaisComumPeriodo[, "FREQRELATIVA3RD"] = (apply(freqAbsluta[colunasUteis], 1, valorMaxn(3))) / totalFreq
+discMaisComumPeriodo[, "TOTALDEALUNOSPORDISCIPLINA"] = totalFreq
 
 # Colocar a informacao da disciplina se eh obrigatoria ou optativa
 discMaisComumPeriodo[10] <- "OPT"
 discMaisComumPeriodo[is.element(discMaisComumPeriodo$CODIGO,disciplinasObrigatorias),]$V10 = "OBG"
-discMaisComumPeriodo <- rename(discMaisComumPeriodo, replace = c("V10" = "TipoDeDisciplina"))
+discMaisComumPeriodo <- rename(discMaisComumPeriodo, replace = c("V10" = "TIPODEDISCIPLINA"))
 
 write.csv(discMaisComumPeriodo, file = "data/maiores_frequencias_por_disciplina.csv", row.names = FALSE, quote = FALSE)
 
-blocMaisComum1 = discMaisComumPeriodo[with(discMaisComumPeriodo, order(PerMaisFreq1st)),]
-blocMaisComum2 = discMaisComumPeriodo[with(discMaisComumPeriodo, order(PerMaisFreq2nd)),]
-blocMaisComum3 = discMaisComumPeriodo[with(discMaisComumPeriodo, order(PerMaisFreq3rd)),]
+blocMaisComum1 = discMaisComumPeriodo[with(discMaisComumPeriodo, order(PERMAISFREQ1ST)),]
+blocMaisComum2 = discMaisComumPeriodo[with(discMaisComumPeriodo, order(PERMAISFREQ2ND)),]
+blocMaisComum3 = discMaisComumPeriodo[with(discMaisComumPeriodo, order(PERMAISFREQ3RD)),]
