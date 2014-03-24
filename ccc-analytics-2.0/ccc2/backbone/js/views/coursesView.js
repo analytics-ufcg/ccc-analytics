@@ -32,12 +32,12 @@ directory.CoursesView = Backbone.View.extend({
 		
 		var dataframe = readJSON("data/prereq.json");
 
-		//instance.setSuspendDrawing(true);
+		instance.setSuspendDrawing(true);
         _.each(dataframe, function(data) {
         	jsplumb_connection(data["cod2"], data["cod1"]);
 
         });
-        //instance.setSuspendDrawing(false,true);
+        instance.setSuspendDrawing(false,true);
 
 	},
 
@@ -71,6 +71,8 @@ directory.CoursesView = Backbone.View.extend({
 				slot.css({"opacity":data["FreqRelativa1st"]});
 				slot.mouseover(function(){
 					setDivMouseOn(slot, data["PerMaisFreq2nd"], data["PerMaisFreq3rd"], data["FreqRelativa2nd"],data["FreqRelativa3rd"], slot.text());
+					$("#blocagem1").show();
+					$("#blocagem2").show();
 				});
 				//console.log(data["PerMaisFreq2nd"]+" "+ data["PerMaisFreq3rd"]);
 				//console.log(data["FreqRelativa2nd"],data["FreqRelativa3rd"]);
@@ -85,16 +87,15 @@ directory.CoursesView = Backbone.View.extend({
         });
 
 	}
-	
-
 });
+
 
 var top_div = new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
 // The View for a CourseView
 directory.CourseView = Backbone.View.extend({
 
-	template: _.template("<div class='w' id='<%= codigo %>'><div class='ep'><%= disciplina %></div></div>"),
+	template: _.template("<div class='w' id='<%= codigo %>'><%= disciplina %><div class='ep'></div></div>"),
 	
 	render: function() {
 		var dataframe = this.model.toJSON();
@@ -112,9 +113,15 @@ directory.CourseView = Backbone.View.extend({
 });
 
 function getSlotCaixa(){
-
+	var slot_caixa = (window.screen.availWidth / 10);
+	espaco_x = slot_caixa - 100;
 	
-	return (window.screen.availWidth / 10);
+	if(espaco_x < 30)
+	{
+		return 150;
+	}
+
+	return slot_caixa;
 
 }
 
