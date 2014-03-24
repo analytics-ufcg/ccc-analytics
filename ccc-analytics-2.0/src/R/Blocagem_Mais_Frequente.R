@@ -1,5 +1,5 @@
 #Deve-se setar o Working Directory, setwd(), para o diretório "ccc-analytics-2.0" antes de esecutar este script
-setwd("ccc/ccc-analytics-2.0/")
+#setwd("ccc/ccc-analytics-2.0/")
 
 #Definições de funções úteis neste 
 maxn <- function(n) function(x) order(x, decreasing = TRUE)[n]

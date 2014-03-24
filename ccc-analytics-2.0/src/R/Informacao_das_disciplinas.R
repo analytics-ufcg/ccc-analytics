@@ -1,4 +1,4 @@
-notaDisciplDF = read.csv('ccc2/data/historico-ccc.csv')
+notaDisciplDF = read.csv('data/historico-ccc.csv')
 disciplinasPeriodoObrigatorias = read.csv('data/grade-disciplinas-por-periodo.csv')
 
 require(plyr)

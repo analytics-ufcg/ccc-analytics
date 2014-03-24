@@ -1,4 +1,4 @@
-notas.disciplinas = read.csv("ccc2/data/historico-ccc.csv",stringsAsFactors=F)
+notas.disciplinas = read.csv("data/historico-ccc.csv",stringsAsFactors=F)
 info.disciplinas = read.csv("data/arquivo_informacao_das_disciplinas.csv",stringsAsFactors=F)
 notas.disciplinas$SITUACAO[notas.disciplinas$SITUACAO == "Aprovado"] <- 0
 notas.disciplinas$SITUACAO[notas.disciplinas$SITUACAO == "Reprovado" | notas.disciplinas$SITUACAO == "Reprovado por Falta"] <- 1
