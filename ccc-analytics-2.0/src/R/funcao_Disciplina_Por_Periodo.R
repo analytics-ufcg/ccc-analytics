@@ -4,7 +4,6 @@
 
 calcularPeriodoRelativo <- function(pAtual, pEntrada){
   result = 2 * (as.integer(substring(as.character(pAtual), 1, 2)) - as.integer(substring(as.character(pEntrada), 1, 2))) # Pega o ano do periodo atual, subtrai do ano de entrada do aluno e depois multiplica por 2
-  result[substring(as.character(pAtual), 3, 3) == ""] <- result[substring(as.character(pAtual), 3, 3) == ""] + (1 - as.integer(substring(as.character(pEntrada), 3, 3)))[substring(as.character(pAtual), 3, 3) == ""] # Testa se o aluno pagou a disciplina nas ferias
   result[substring(as.character(pAtual), 3, 3) != ""] <- result[substring(as.character(pAtual), 3, 3) != ""] + (as.integer(substring(as.character(pAtual), 3, 3)) - as.integer(substring(as.character(pEntrada), 3, 3)))[substring(as.character(pAtual), 3, 3) != ""] # Testa se o aluno nao pagou a disciplina nas ferias
   result = result + 1 # Acrescenta-se um ao resultado.
   return(result)

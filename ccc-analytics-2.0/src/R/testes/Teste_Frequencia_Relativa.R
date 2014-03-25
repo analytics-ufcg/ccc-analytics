@@ -29,9 +29,9 @@ test.testando <- function(){
   checkEquals(round(120/765, digits = 7), round(maioresFrequencias[maioresFrequencias$CODIGO == "1305220", 8], digits = 7))
   
   #Calc1
-  checkEquals(round(1013/1651, digits = 7), round(maioresFrequencias[maioresFrequencias$CODIGO == "1109103", 4], digits = 7))
-  checkEquals(round(411/1651, digits = 7), round(maioresFrequencias[maioresFrequencias$CODIGO == "1109103", 6], digits = 7))
-  checkEquals(round(132/1651, digits = 7), round(maioresFrequencias[maioresFrequencias$CODIGO == "1109103", 8], digits = 7))
+  checkEquals(round(1013/1623, digits = 7), round(maioresFrequencias[maioresFrequencias$CODIGO == "1109103", 4], digits = 7))
+  checkEquals(round(393/1623, digits = 7), round(maioresFrequencias[maioresFrequencias$CODIGO == "1109103", 6], digits = 7))
+  checkEquals(round(126/1623, digits = 7), round(maioresFrequencias[maioresFrequencias$CODIGO == "1109103", 8], digits = 7))
   
   #Projeto 2
   checkEquals(round(177/431, digits = 7), round(maioresFrequencias[maioresFrequencias$CODIGO == "1411186", 4], digits = 7))
