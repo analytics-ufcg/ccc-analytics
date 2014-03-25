@@ -36,7 +36,7 @@ def pre_requisitos():
 def maiores_frequencias():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select * from MaioresFrequenciasPorDisciplinaObrigatorias")
+    cursor.execute("select * from MaioresFrequenciasPorDisciplina")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
