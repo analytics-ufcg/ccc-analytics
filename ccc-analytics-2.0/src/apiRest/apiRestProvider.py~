@@ -1,6 +1,4 @@
 from flask import Flask, make_response
-import csv
-import json
 import dadosApiRest
 
 app = Flask(__name__)

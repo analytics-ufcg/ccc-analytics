@@ -46,6 +46,19 @@ def maiores_frequencias():
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
+def reprovacoes():
+    cnxn = create_connection()
+    cursor = cnxn.cursor()
+    cursor.execute("select disciplina.NomeDisciplina, reprovacoes.CodigoDisciplina, reprovacoes.ReprovacaoAbsoluta, reprovacoes.ReprovacaoRelativa from Disciplina disciplina, Reprovacoes reprovacoes where disciplina.CodigoDisciplina = reprovacoes.CodigoDisciplina")
+    rows = cursor.fetchall()
+    cnxn.close()
+    lista_tuplas = []
+    for tupla in rows:
+       lista_tuplas.append(tupla)
+    col = ["Nome", "codigo", "ReprovacaoAbsoluta", "ReprovacaoRelativa"]
+    response = montaJson(lista_tuplas, col)
+    return json.dumps(response)
+
 def montaJson(spamreader, col):
 	response = []
 	colunas = col
