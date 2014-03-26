@@ -8,8 +8,8 @@ directory.CoursesView = Backbone.View.extend({
 
 	initialize: function() {
 
-		//var dataframe = readJSON("data/grade-disciplinas-por-periodo.json");
-		var dataframe = readJSON("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo");
+		var dataframe = readJSON("data/grade-disciplinas-por-periodo.json");
+		//var dataframe = readJSON("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo");
 		//console.log(dataframe);
 		
 		this.collection = new directory.CourseCollection(dataframe);
@@ -28,12 +28,13 @@ directory.CoursesView = Backbone.View.extend({
 		return this;
 	},
 
-	connect: function() {
+	connect: function(url) {
 		
-		var dataframe = readJSON("data/prereq.json");
+		var dataframe = readJSON(url);
 
 		instance.setSuspendDrawing(true);
         _.each(dataframe, function(data) {
+        	console.log(data);
         	jsplumb_connection(data["cod2"], data["cod1"]);
 
         });
@@ -105,7 +106,7 @@ directory.CourseView = Backbone.View.extend({
 		this.el.css('top',100*top_div[periodo]+100+'px');
 		top_div[periodo]++;
 		this.el.css('left',getSlotCaixa()*(periodo-1)+'px');
-		console.log(getSlotCaixa());
+		//console.log(getSlotCaixa());
 		//this.$el.html( this.template(this.model.toJSON()) );
 		return this;
 	}
@@ -126,7 +127,7 @@ function getSlotCaixa(){
 }
 
 function setDivMouseOn(slot, PMFreq1, PMFreq2, freqR1, freqR2, nomeCadeira){
-	console.log(freqR1+" "+freqR2)
+	//console.log(freqR1+" "+freqR2)
 
 
 	slot.mouseout(function() {

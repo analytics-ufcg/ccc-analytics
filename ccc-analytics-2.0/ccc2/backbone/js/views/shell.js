@@ -17,13 +17,16 @@ directory.ShellView = Backbone.View.extend({
         "click #bloc1":"blocagem1",
         "click #bloc2":"blocagem2",
         "click #bloc3":"blocagem3",
-        "click #bloc4":"blocagem4"
+        "click #bloc4":"blocagem4",
+        "click #correlacao":"correlacao"
+        
     },
 
     fluxograma:function () {
         if(position==1) console.log("Já está no Fluxograma");
         else{
-            directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
+            //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
+            directory.coursesView.setPositions("data/grade-disciplinas-por-periodo.json", 0);
             directory.coursesView.connect();
             position = 1;
             console.log("Fluxograma Comum");
@@ -78,12 +81,25 @@ directory.ShellView = Backbone.View.extend({
         
     },
 
-     blocagem4:function () {
+    blocagem4:function () {
         if(position==6) console.log("Já está no Blocagem 4");
         else{
             directory.coursesView.setPositions("data/4_cluster.json", 0);
             position = 6;
             console.log("Blocagem 4");
+
+        }    
+
+    },
+    correlacao:function () {
+        if(position==7) console.log("Já está na Correlação");
+        else{
+            //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
+            directory.coursesView.setPositions("data/grade-disciplinas-por-periodo.json", 0);
+            
+            directory.coursesView.connect("data/matrizCorrelacaoFiltrada1.json", 0);
+            position = 7;
+            console.log("correlacao");
 
         }    
 

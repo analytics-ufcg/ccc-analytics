@@ -46,7 +46,7 @@ directory.Router = Backbone.Router.extend({
         init_jsplumb();
         
         //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo");
-        directory.coursesView.connect();
+        directory.coursesView.connect("data/prereq.json");
 
     }
 
