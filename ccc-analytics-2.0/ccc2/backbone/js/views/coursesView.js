@@ -88,11 +88,15 @@ directory.CoursesView = Backbone.View.extend({
 		
 		var dataframe = readJSON(url);
 
-		
+    	var img = document.createElement("IMG");  
+	    img.src = "image/legenda.jpeg";  
+	    document.getElementById('legenda').appendChild(img);
+
 		$("#blocagem1").css("background-color", "red");
 		$("#blocagem2").css("background-color", "red");
 		$(".w").css("background-color", "red");
 		$(".w").css("opacity", 1);
+
 
 
         _.each(dataframe, function(data) {
@@ -100,6 +104,7 @@ directory.CoursesView = Backbone.View.extend({
 
         	var media_de_reprovacoes = data["media_de_reprovacoes"];
         	var slot = $("#" + data["codigo"]);
+
 
 			if(media_de_reprovacoes <= 0.05){
 				slot.css("background-color", "#fee6ce");
