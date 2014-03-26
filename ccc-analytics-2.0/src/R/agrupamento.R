@@ -30,18 +30,24 @@ Mode <- function(x) {
     ux[which.max(tabulate(match(x, ux)))]
 }
 
+ano_de_entrada <- function (mat) {
+    strtoi(substr(as.character(mat), 2, 3))
+}
+
 ##################################leitura de arquivos
 #Dataframe que tu gerou ontem de tarde nos 10 min que tu foi no lab
 
 dataframe = read.csv("data/dissimilaridade_distancia.csv", header = FALSE, sep=",")
 #Dataframe com períodos relativos que os alunos pagaram as disciplinas
-aluno_disciplina_periodo = read.csv("data/aluno-disciplina-periodo.csv", header = T, sep=",")
+aluno_disciplina_periodo = read.csv("data/arquivo_notas_disciplinas_periodo.csv", header = T, sep=",")
+
+aluno_disciplina_periodo = aluno_disciplina_periodo[ano_de_entrada(MATRICULA) >= 3 & ano_de_entrada(MATRICULA <= 08)]
 
 #informações das disciplinas - necessário para pegarmos o nome da disciplina
 disciplinas= read.csv("data/grade-disciplinas-por-periodo.csv", header = T, sep=",")
 
 #novo DF com nome da disciplina
-aluno_disciplina_periodo = merge(aluno_disciplina_periodo, disciplinas[c("disciplina","coddisciplina")], by = "coddisciplina")
+aluno_disciplina_periodo = merge(aluno_disciplina_periodo, disciplinas[c("DISCIPLINA","CODIGO")], by = "CODIGO")
 #########################################################
 
 
@@ -68,44 +74,48 @@ plot(plotHeightList(createHeightList(hc$height),20))
 #plota dendograma
 plot(hc)
 #número de cluster que vc escolheu
-k_ = 6
+k_ = 5
 #determina quais amostras vao para cada cluster
 clusters <- cutree(hc, k = k_)
 #######################################################################################
 
 
 ##################CRIA DF COM MATRICULA DO ALUNO / CLUSTER QUE ELE FICOU
-dataAlunos <- data.frame(matricula = matriculas)
+dataAlunos <- data.frame(MATRICULA = matriculas)
 dataAlunos$cluster = 0
 for (i in 1:k_) {
     dataAlunos[(clusters == i),]$cluster = i
 
 }
 
-#################DF COM INFORMAÇOES que o aluno pagou a disciplina em tal período, agora com o cluster do aluno(necessário para calcular a moda)
-aluno_disciplina_periodo_merge = merge(aluno_disciplina_periodo, dataAlunos, by = "matricula")
 
+#################DF COM INFORMAÇOES que o aluno pagou a disciplina em tal período, agora com o cluster do aluno(necessário para calcular a moda)
+aluno_disciplina_periodo_merge = merge(aluno_disciplina_periodo, dataAlunos, by = "MATRICULA")
 
 teste = subset(aluno_disciplina_periodo_merge,cluster ==1)
-ddply(teste, c("coddisciplina","disciplina"), summarize, size    = length(PeriodoRelativo),
-      Mode = Mode(PeriodoRelativo),media = mean(PeriodoRelativo))
+ddply(teste, c("CODIGO","DISCIPLINA.y"), summarize, size    = length(PERIODORELATIVO),
+      Mode = Mode(PERIODORELATIVO),media = mean(PERIODORELATIVO))
 
 ########################SALVA K ARQUIVOS, COM A BLOCAGEM COMUM PARA CADA CLUSTER, BASEADO NA MODA. 
 get_cluster_size <- function (cluster_number) {
     length(unique(subset(aluno_disciplina_periodo_merge, cluster == cluster_number)[,1]))
 }
 
-for (i in 1:k_) {
-
+salvar_cluster <- function(i) {
     # representação mínima que uma disciplina deve ter na cluster, ou seja
     # o menor numero de alunos a ter pago essa cadeira
     min_rep = get_cluster_size(i)/10
     teste = subset(aluno_disciplina_periodo_merge,cluster == i)
 
-    cdata <- ddply(teste, c("coddisciplina","disciplina"), summarize, size    = length(PeriodoRelativo),
-                   Mode = Mode(PeriodoRelativo),media = mean(PeriodoRelativo))
+    cdata <- ddply(teste, c("CODIGO","DISCIPLINA.y"), summarize, size    = length(PERIODORELATIVO),
+                   Mode = Mode(PERIODORELATIVO),media = mean(PERIODORELATIVO))
     cdata = cdata[cdata[,3] > min_rep,]
-    write.csv(cdata,paste("data/",i,"_cluster.csv", sep=""),row.names=FALSE)
+    cdata = cdata[with(cdata, order(Mode,CODIGO)), ]
 
+    write.csv(cdata,paste("data/",i,"_cluster.csv", sep=""),row.names=FALSE)
+}
+
+for (i in 1:k_) {
+    salvar_cluster(i)
 }
 
