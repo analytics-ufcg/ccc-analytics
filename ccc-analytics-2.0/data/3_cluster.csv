@@ -1,0 +1,45 @@
+"CODIGO","DISCIPLINA.y","size","Mode","media"
+1109035,"Álgebra Vetorial e Geometria Analítica",322,1,1.17080745341615
+1109103,"Cálculo Diferencial e Integral 1",372,1,1.39516129032258
+1307151,"Leitura e Produção de Textos",298,1,1.13422818791946
+1411167,"Programação 1",356,1,1.19101123595506
+1411174,"Introdução a Computação",317,1,1.05993690851735
+1411180,"Laboratório de Programação 1",359,1,1.20055710306407
+1108089,"Física Clássica",456,2,2.96710526315789
+1109053,"Cálculo Diferencial e Integral 2",476,2,3.02731092436975
+1109113,"Matemática Discreta",387,2,2.46511627906977
+1305218,"Metodologia Científica",317,2,3.198738170347
+1411168,"Programação 2",366,2,2.29234972677596
+1411170,"Teoria dos Grafos",346,2,2.27167630057803
+1411181,"Laboratório de Programação 2",354,2,2.23728813559322
+1108090,"Física Moderna",357,3,4.11204481792717
+1109049,"Álgebra Linear",394,3,4.10913705583756
+1114107,"Probabilidade e Estatística",481,3,4.47401247401247
+1411171,"Teoria da Computação",414,3,3.84299516908213
+1411172,"Estrutura de Dados",383,3,3.44125326370757
+1411176,"Gerência da Informação",353,3,3.1728045325779
+1411179,"Laboratório de Estrutura de Dados",364,3,3.34065934065934
+1411169,"Paradigmas de Linguagens de Programação",374,4,5.24598930481283
+1411173,"Lógica Matemática",371,4,4.96495956873315
+1411175,"Organização e Arquitetura de Computadores",364,4,5.27197802197802
+1411178,"Sistemas de Informação 1",361,4,4.43767313019391
+1411182,"Laboratório de Organização e Arquitetura de Computadores",382,4,5.3717277486911
+1114114,"Métodos Estatísticos",396,5,6.07828282828283
+1411177,"Engenharia de Software 1",340,5,5.47352941176471
+1411193,"Banco de Dados 1",378,5,5.96825396825397
+1411195,"Sistemas de Informação 2",371,5,6.10512129380054
+1305220,"Informática e Sociedade",337,6,5.55192878338279
+1411183,"Laboratório de Engenharia de Software",314,6,6.79936305732484
+1411187,"Análise e Técnica de Algorítimos",395,6,6.88101265822785
+1411190,"Redes de Computadores",330,6,6.73030303030303
+1305219,"Direito e Cidadania",334,7,6.10479041916168
+1411184,"Laboratório de Interconexão de Redes de Computadores",270,7,8.09259259259259
+1411189,"Compiladores",304,7,7.90131578947368
+1411191,"Interconexão de Redes de Computadores",270,7,8.09259259259259
+1411192,"Sistemas Operacionais",295,7,7.33898305084746
+1411194,"Banco de Dados 2",305,7,7.55409836065574
+1411185,"Projeto em Computação 1",255,8,8.34117647058824
+1411197,"Avaliação de Desempenho de Sistemas Discretos",274,8,8.58394160583942
+1411186,"Projeto em Computação 2",235,9,9.36170212765957
+1411188,"Métodos e Software Numéricos",265,9,8.93584905660377
+1411196,"Inteligência Artificial",242,9,8.88429752066116
