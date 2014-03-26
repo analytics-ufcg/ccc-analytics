@@ -25,6 +25,13 @@ def maiores_frequencias():
 	response = make_response(response)
 	response.headers['Access-Control-Allow-Origin'] = "*"
 	return response
+
+@app.route('/getReprovacoes')
+def reprovacoes():
+	response = dadosApiRest.reprovacoes()
+	response = make_response(response)
+	response.headers['Access-Control-Allow-Origin'] = "*"
+	return response
 		
 if __name__ == '__main__':
     app.debug = True

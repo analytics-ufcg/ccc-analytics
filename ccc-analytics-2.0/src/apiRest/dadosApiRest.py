@@ -36,13 +36,26 @@ def pre_requisitos():
 def maiores_frequencias():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select * from MaioresFrequenciasPorDisciplinaOrdenadoObrigatorias")
+    cursor.execute("select * from MaioresFrequenciasPorDisciplina")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
     for tupla in rows:
        lista_tuplas.append(tupla)
     col = ["codigo", "disciplina", "periodoMaisFreq1st", "freqRelativa1st", "periodoMaisFreq2nd", "freqRelativa2nd", "periodoMaisFreq3rd", "freqRelativa3rd", "totalDeAlunos"]
+    response = montaJson(lista_tuplas, col)
+    return json.dumps(response)
+
+def reprovacoes():
+    cnxn = create_connection()
+    cursor = cnxn.cursor()
+    cursor.execute("select disciplina.NomeDisciplina, reprovacoes.CodigoDisciplina, reprovacoes.ReprovacaoAbsoluta, reprovacoes.ReprovacaoRelativa from Disciplina disciplina, Reprovacoes reprovacoes where disciplina.CodigoDisciplina = reprovacoes.CodigoDisciplina")
+    rows = cursor.fetchall()
+    cnxn.close()
+    lista_tuplas = []
+    for tupla in rows:
+       lista_tuplas.append(tupla)
+    col = ["Nome", "codigo", "ReprovacaoAbsoluta", "ReprovacaoRelativa"]
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
