@@ -18,8 +18,8 @@ directory.ShellView = Backbone.View.extend({
         "click #bloc2":"blocagem2",
         "click #bloc3":"blocagem3",
         "click #bloc4":"blocagem4",
-        "click #correlacao":"correlacao"
-        
+        "click #correlacao":"correlacao",
+        "click #taxareprovacao":"taxareprovacao"
     },
 
     fluxograma:function () {
@@ -27,7 +27,7 @@ directory.ShellView = Backbone.View.extend({
         else{
             //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
             directory.coursesView.setPositions("data/grade-disciplinas-por-periodo.json", 0);
-            directory.coursesView.connect();
+            directory.coursesView.connect("data/prereq.json");
             position = 1;
             console.log("Fluxograma Comum");
         } 
@@ -103,6 +103,19 @@ directory.ShellView = Backbone.View.extend({
 
         }    
 
+    },
+    taxareprovacao:function () {
+        if(position==8) console.log("Já está na taxareprovacao");
+        else{
+            //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
+            directory.coursesView.taxaReprovacao("data/media_disciplinas.json", 0);
+
+            position = 8;
+            console.log("taxareprovacao");
+
+        }    
+
     }
+
 
 });

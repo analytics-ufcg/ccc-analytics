@@ -1,580 +1,580 @@
 [
   {
-    "coddisciplina":1107232,
+    "codigo":1107232,
     "disciplina":"Química Geral",
     "departamento":"humanas",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1108089,
+    "codigo":1108089,
     "disciplina":"Física Clássica",
     "departamento":"dme",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.465454545454545
   },
   {
-    "coddisciplina":1108090,
+    "codigo":1108090,
     "disciplina":"Física Moderna",
     "departamento":"dme",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0142857142857143
   },
   {
-    "coddisciplina":1109035,
+    "codigo":1109035,
     "disciplina":"Álgebra Vetorial e Geometria Analítica",
     "departamento":"dme",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.470886075949367
   },
   {
-    "coddisciplina":1109049,
+    "codigo":1109049,
     "disciplina":"Álgebra Linear",
     "departamento":"dme",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.493023255813954
   },
   {
-    "coddisciplina":1109053,
+    "codigo":1109053,
     "disciplina":"Cálculo Diferencial e Integral 2",
     "departamento":"dme",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.613114754098361
   },
   {
-    "coddisciplina":1109103,
+    "codigo":1109103,
     "disciplina":"Cálculo Diferencial e Integral 1",
     "departamento":"dme",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.611111111111111
   },
   {
-    "coddisciplina":1109105,
+    "codigo":1109105,
     "disciplina":"Cálculo Diferencial e Integral 3",
     "departamento":"dme",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1109106,
+    "codigo":1109106,
     "disciplina":"EQUACOES DIFERENCIAIS",
     "departamento":"dme",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1109113,
+    "codigo":1109113,
     "disciplina":"Matemática Discreta",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.365695792880259
   },
   {
-    "coddisciplina":1113019,
+    "codigo":1113019,
     "disciplina":"EXPRESSAO GRAFICA",
     "departamento":"dme",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1114107,
+    "codigo":1114107,
     "disciplina":"Probabilidade e Estatística",
     "departamento":"dme",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.524017467248908
   },
   {
-    "coddisciplina":1114114,
+    "codigo":1114114,
     "disciplina":"Métodos Estatísticos",
     "departamento":"dme",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.187919463087248
   },
   {
-    "coddisciplina":1301014,
+    "codigo":1301014,
     "disciplina":"Administração",
     "departamento":"humanas",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.0847457627118644
   },
   {
-    "coddisciplina":1303021,
+    "codigo":1303021,
     "disciplina":"Economia",
     "departamento":"humanas",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.258823529411765
   },
   {
-    "coddisciplina":1304013,
+    "codigo":1304013,
     "disciplina":"BASQUETEBOL - MASC",
     "departamento":"esportes",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1304025,
+    "codigo":1304025,
     "disciplina":"BASQUETEBOL - FEM",
     "departamento":"esportes",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1304055,
+    "codigo":1304055,
     "disciplina":"Futsal",
     "departamento":"esportes",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1304122,
+    "codigo":1304122,
     "disciplina":"BASQUETE   MASC/FEM",
     "departamento":"esportes",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1305020,
+    "codigo":1305020,
     "disciplina":"Relações Humanas",
     "departamento":"humanas",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.0869565217391304
   },
   {
-    "coddisciplina":1305033,
+    "codigo":1305033,
     "disciplina":"Sociologia Industrial I",
     "departamento":"humanas",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1305218,
+    "codigo":1305218,
     "disciplina":"Metodologia Científica",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1305219,
+    "codigo":1305219,
     "disciplina":"Direito e Cidadania",
     "departamento":"humanas",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0368421052631579
   },
   {
-    "coddisciplina":1305220,
+    "codigo":1305220,
     "disciplina":"Informática e Sociedade",
     "departamento":"humanas",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.00469483568075117
   },
   {
-    "coddisciplina":1307150,
+    "codigo":1307150,
     "disciplina":"Inglês",
     "departamento":"humanas",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1307151,
+    "codigo":1307151,
     "disciplina":"Leitura e Produção de Textos",
     "departamento":"humanas",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0258620689655172
   },
   {
-    "coddisciplina":1411167,
+    "codigo":1411167,
     "disciplina":"Programação 1",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.257372654155496
   },
   {
-    "coddisciplina":1411168,
+    "codigo":1411168,
     "disciplina":"Programação 2",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.251700680272109
   },
   {
-    "coddisciplina":1411169,
+    "codigo":1411169,
     "disciplina":"Paradigmas de Linguagens de Programação",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.024390243902439
   },
   {
-    "coddisciplina":1411170,
+    "codigo":1411170,
     "disciplina":"Teoria dos Grafos",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.135416666666667
   },
   {
-    "coddisciplina":1411171,
+    "codigo":1411171,
     "disciplina":"Teoria da Computação",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.174603174603175
   },
   {
-    "coddisciplina":1411172,
+    "codigo":1411172,
     "disciplina":"Estrutura de Dados",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.234782608695652
   },
   {
-    "coddisciplina":1411173,
+    "codigo":1411173,
     "disciplina":"Lógica Matemática",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.114093959731544
   },
   {
-    "coddisciplina":1411174,
+    "codigo":1411174,
     "disciplina":"Introdução a Computação",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.10223642172524
   },
   {
-    "coddisciplina":1411175,
+    "codigo":1411175,
     "disciplina":"Organização e Arquitetura de Computadores",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0579710144927536
   },
   {
-    "coddisciplina":1411176,
+    "codigo":1411176,
     "disciplina":"Gerência da Informação",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.245614035087719
   },
   {
-    "coddisciplina":1411177,
+    "codigo":1411177,
     "disciplina":"Engenharia de Software 1",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0504201680672269
   },
   {
-    "coddisciplina":1411178,
+    "codigo":1411178,
     "disciplina":"Sistemas de Informação 1",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.05
   },
   {
-    "coddisciplina":1411179,
+    "codigo":1411179,
     "disciplina":"Laboratório de Estrutura de Dados",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.190697674418605
   },
   {
-    "coddisciplina":1411180,
+    "codigo":1411180,
     "disciplina":"Laboratório de Programação 1",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.259358288770053
   },
   {
-    "coddisciplina":1411181,
+    "codigo":1411181,
     "disciplina":"Laboratório de Programação 2",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.318327974276527
   },
   {
-    "coddisciplina":1411182,
+    "codigo":1411182,
     "disciplina":"Laboratório de Organização e Arquitetura de Computadores",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.114093959731544
   },
   {
-    "coddisciplina":1411183,
+    "codigo":1411183,
     "disciplina":"Laboratório de Engenharia de Software",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0170940170940171
   },
   {
-    "coddisciplina":1411184,
+    "codigo":1411184,
     "disciplina":"Laboratório de Interconexão de Redes de Computadores",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.040650406504065
   },
   {
-    "coddisciplina":1411185,
+    "codigo":1411185,
     "disciplina":"Projeto em Computação 1",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.00840336134453781
   },
   {
-    "coddisciplina":1411186,
+    "codigo":1411186,
     "disciplina":"Projeto em Computação 2",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0380952380952381
   },
   {
-    "coddisciplina":1411187,
+    "codigo":1411187,
     "disciplina":"Análise e Técnica de Algorítimos",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.075
   },
   {
-    "coddisciplina":1411188,
+    "codigo":1411188,
     "disciplina":"Métodos e Software Numéricos",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.00775193798449612
   },
   {
-    "coddisciplina":1411189,
+    "codigo":1411189,
     "disciplina":"Compiladores",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.121951219512195
   },
   {
-    "coddisciplina":1411190,
+    "codigo":1411190,
     "disciplina":"Redes de Computadores",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0793650793650794
   },
   {
-    "coddisciplina":1411191,
+    "codigo":1411191,
     "disciplina":"Interconexão de Redes de Computadores",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.040650406504065
   },
   {
-    "coddisciplina":1411192,
+    "codigo":1411192,
     "disciplina":"Sistemas Operacionais",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.0104166666666667
   },
   {
-    "coddisciplina":1411193,
+    "codigo":1411193,
     "disciplina":"Banco de Dados 1",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.140127388535032
   },
   {
-    "coddisciplina":1411194,
+    "codigo":1411194,
     "disciplina":"Banco de Dados 2",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.103448275862069
   },
   {
-    "coddisciplina":1411195,
+    "codigo":1411195,
     "disciplina":"Sistemas de Informação 2",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.10738255033557
   },
   {
-    "coddisciplina":1411196,
+    "codigo":1411196,
     "disciplina":"Inteligência Artificial",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411197,
+    "codigo":1411197,
     "disciplina":"Avaliação de Desempenho de Sistemas Discretos",
     "departamento":"dsc",
     "TipoDeDisciplina":"OBG",
     "media_de_reprovacoes":0.00917431192660551
   },
   {
-    "coddisciplina":1411201,
+    "codigo":1411201,
     "disciplina":"Empreendedorismo",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411203,
+    "codigo":1411203,
     "disciplina":"Estágio Integrado",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411204,
+    "codigo":1411204,
     "disciplina":"GERENCIA DE Redes de Computadores",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411217,
+    "codigo":1411217,
     "disciplina":"Projeto de Redes de Computadores",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411221,
+    "codigo":1411221,
     "disciplina":"Sistemas de Informações Geográficas",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.0625
   },
   {
-    "coddisciplina":1411226,
+    "codigo":1411226,
     "disciplina":"Redes Neurais",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411238,
+    "codigo":1411238,
     "disciplina":"Seminários (Educação Ambiental)",
     "departamento":"humanas",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411242,
+    "codigo":1411242,
     "disciplina":"TECC (Segurança em Redes de Computadores)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411243,
+    "codigo":1411243,
     "disciplina":"TECC (Algoritmos Avançados I)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.111111111111111
   },
   {
-    "coddisciplina":1411244,
+    "codigo":1411244,
     "disciplina":"TECC (Economia de Tecnologia da Informação)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.0131578947368421
   },
   {
-    "coddisciplina":1411247,
+    "codigo":1411247,
     "disciplina":"TECC (Algoritmos Avançados II)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.153846153846154
   },
   {
-    "coddisciplina":1411249,
+    "codigo":1411249,
     "disciplina":"TECC (Métodos Formais)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.181818181818182
   },
   {
-    "coddisciplina":1411250,
+    "codigo":1411250,
     "disciplina":"TECC (Algoritmos Avançados III)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.0714285714285714
   },
   {
-    "coddisciplina":1411256,
+    "codigo":1411256,
     "disciplina":"TEC (Princípios de Administração Financeira)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.0512820512820513
   },
   {
-    "coddisciplina":1411265,
+    "codigo":1411265,
     "disciplina":"TECC (Redes Ad Hoc Sem Fio)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411266,
+    "codigo":1411266,
     "disciplina":"TECC (Fundamentos e Aplicações de Realidade Virtual)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411267,
+    "codigo":1411267,
     "disciplina":"TECC (Sistemas de Recuperação da Informação)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411268,
+    "codigo":1411268,
     "disciplina":"TECC (Modelagem de Ambientes Virtuais)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411276,
+    "codigo":1411276,
     "disciplina":"TECC (Visão Computacional)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411279,
+    "codigo":1411279,
     "disciplina":"TECC (Estágio Integrado II)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411281,
+    "codigo":1411281,
     "disciplina":"TECC(Empreendedorismo em Software)   ",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411282,
+    "codigo":1411282,
     "disciplina":"TECC (Administração de Sistemas)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411283,
+    "codigo":1411283,
     "disciplina":"TECC(Fundamentos de Prog. Concorrente)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0.0487804878048781
   },
   {
-    "coddisciplina":1411285,
+    "codigo":1411285,
     "disciplina":"TECC(DIDATICA EM CIENCIA DA COMPUTACAO)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411287,
+    "codigo":1411287,
     "disciplina":"TECC(METODOS E P T G M DADOS HISTORICOS)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",
     "media_de_reprovacoes":0
   },
   {
-    "coddisciplina":1411288,
+    "codigo":1411288,
     "disciplina":"TECC(DIDATICA EM CIENCIA DA COMPUTACAO II)",
     "departamento":"dsc",
     "TipoDeDisciplina":"OPT",

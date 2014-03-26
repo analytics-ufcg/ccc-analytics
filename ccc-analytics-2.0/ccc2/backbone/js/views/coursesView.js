@@ -34,7 +34,7 @@ directory.CoursesView = Backbone.View.extend({
 
 		instance.setSuspendDrawing(true);
         _.each(dataframe, function(data) {
-        	console.log(data);
+        	//console.log(data);
         	jsplumb_connection(data["cod2"], data["cod1"]);
 
         });
@@ -48,12 +48,7 @@ directory.CoursesView = Backbone.View.extend({
 
 		var top_div = new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
-		jsplumbdeleteEveryEndpoint();
-
-		$('.w').each(function() {
-		    $(this).hide();
-		    
-		});
+		refreshSlots();
 
 		_.each(dataframe, function(data) {
 
@@ -87,7 +82,47 @@ directory.CoursesView = Backbone.View.extend({
 
         });
 
+	},
+
+	taxaReprovacao: function(url) {
+		
+		var dataframe = readJSON(url);
+
+		
+		$("#blocagem1").css("background-color", "red");
+		$("#blocagem2").css("background-color", "red");
+		$(".w").css("background-color", "red");
+		$(".w").css("opacity", 1);
+
+
+        _.each(dataframe, function(data) {
+        	//console.log(data);
+
+        	var media_de_reprovacoes = data["media_de_reprovacoes"];
+        	var slot = $("#" + data["codigo"]);
+
+			if(media_de_reprovacoes <= 0.05){
+				slot.css("background-color", "#fee6ce");
+			}if(media_de_reprovacoes > 0.05 && media_de_reprovacoes <= 0.1){
+				slot.css("background-color", "#fdd0a2");
+			}if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.15){
+				slot.css("background-color", "#fdae6b");
+			}if(media_de_reprovacoes > 0.15 && media_de_reprovacoes <= 0.2){
+				slot.css("background-color", "#fd8d3c");
+			}if(media_de_reprovacoes > 0.2 && media_de_reprovacoes <= 0.4){
+				slot.css("background-color", "#f16913");
+			}if(media_de_reprovacoes > 0.4 && media_de_reprovacoes <= 0.6){
+				slot.css("background-color", "#d94801");
+			}if(media_de_reprovacoes > 0.6 && media_de_reprovacoes <= 0.8){
+				slot.css("background-color", "#a63603");
+			}if(media_de_reprovacoes > 0.8){
+				slot.css("background-color", "#7f2704");
+			}
+        });
+        
+
 	}
+
 });
 
 
@@ -154,5 +189,18 @@ function setDivMouseOn(slot, PMFreq1, PMFreq2, freqR1, freqR2, nomeCadeira){
 
 }
 
+function refreshSlots(){
+	
+	jsplumbdeleteEveryEndpoint();
 
+	$('.w').each(function() {
+		$(this).hide();
+		    
+	});
+	$("#blocagem1").css("background-color", "#34495e");
+	$("#blocagem2").css("background-color", "#34495e");
+	$(".w").css("background-color", "#34495e");
+	$(".w").css("opacity", "1");
+
+}
 
