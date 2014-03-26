@@ -4,6 +4,7 @@
 	var periodo = 1;
 	var contador = 0;
 	var QUANTIDADE_CAIXAS = 44;
+	var hash = {};
 
 	$(document).ready(function() {
 
@@ -12,7 +13,12 @@
 
 
 	    jsPlumb.ready(function() {
-		
+
+		jsPlumb.registerConnectionType("boz",{ 
+		  paintStyle: { 
+		    strokeStyle:"green"
+		  } 
+		});
 			//console.log(getPosicaoXByPeriodo(2));
 		     
 			//$( "#progI" ).text("Programação I")	
@@ -34,7 +40,7 @@
 			var windows = jsPlumb.getSelector(".statemachine-demo .w");
 			
 			//gerarFluxograma(total_periodos, tam_caixa, instance);
-			gerarFluxograma(8, 100);
+			correlacao();
 			//gerarFluxograma(total_periodos, tam_caixa, instance);
 
 		    // initialise draggable elements.  
@@ -48,7 +54,7 @@
 					filter:".ep",				// only supported by jquery
 					anchor:"Continuous",
 					connector:[ "StateMachine", { curviness:1 } ],
-					connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
+					//connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
 					maxConnections:5,
 					onMaxConnections:function(info, e) {
 						alert("Maximum connections (" + info.maxConnections + ") reached");
@@ -61,7 +67,7 @@
 					anchor:"Continuous"				
 				});
 				
-			});
+			},true);
 
 		});
 
@@ -81,18 +87,11 @@
 	function getSlotCaixa(total_periodos, tam_caixa)
 	{
 		tamanho_pagina = window.screen.availWidth;
-		console.log("tamanho_pagina"+tamanho_pagina);
-		console.log("periodos"+total_periodos);
-		console.log("tamcaixa"+tam_caixa);
-
 		//total_periodos = 11;
 		//tam_caixa = 100;
 		slot_caixa = tamanho_pagina / total_periodos;
-
-		console.log("slotcaixa"+slot_caixa);
 		//largura_caixa = tam_caixa + "px";
 		espaco_x = slot_caixa - getLarguraCaixa(total_periodos, tam_caixa);
-		console.log("espacox"+espaco_x);
 		if(espaco_x < 30)
 		{
 			slot_caixa = 150;
@@ -104,7 +103,6 @@
 	function getPosicaoXByPeriodo(periodo)
 	{
 		posicao = (periodo - 1) * getSlotCaixa(total_periodos, tam_caixa);
-		
 		return posicao;
 	}
 	
@@ -129,7 +127,7 @@
 	function setarPosicoes(arquivo, slot_caixa, largura, ehBlocagemComum,arquivo1, vai_gerar)
 	{
 
-					console.log("entrou no setaPosicao");
+		console.log("entrou no setaPosicao");
 		d3.csv(arquivo, function(data_grade) {
 			for (var i = 1; i <= data_grade.length; i++) {
 				if(ehBlocagemComum)
@@ -159,14 +157,74 @@
 		    }
 			
 					console.log("saiu no setaPosicao");
-				 gerarConexoes(arquivo1, vai_gerar);
+			if (vai_gerar){
+				gerarConexoes(arquivo1, vai_gerar);
+			}
+				 
 
 			});
 	}
 
 
 	
-	function gerarConexoes(arquivo, vai_gerar)
+	
+/*	
+	function gerarBlocagemComum(total_periodos, tam_caixa)
+	{
+		slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
+		largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa)
+		setarPosicoes("data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.csv", slot_caixa, largura_caixa);
+		gerarMouseOver(largura_caixa);
+		//gerarConexoes("data/prereq.csv", false);
+		//gerarMouseOver();
+	}
+	*/
+	
+	// Implementar funcionalidade do botao 1 do menu
+	var ativo = true;
+	function grade1() {
+		refreshBlocagem();
+		if(!ativo)
+		{
+			ativo = true;
+			gerarFluxograma(8, 100);
+		}else{
+			//alert("Você já está visualizando a grade atual");
+		}
+		
+	}
+	
+	// Implementar funcionalidade do botao 2 do menu
+	function grade2() {
+		refreshBlocagem();
+		ativo = false;
+		gerarBlocagemComum(9, 100)
+	}
+
+
+
+
+	
+	//Seta as cores das caixas para o valor default
+	function refreshBlocagem(){
+		$("#blocagem1").css("background-color", "#34495e");
+		$("#blocagem2").css("background-color", "#34495e");
+		$(".w").css("background-color", "#34495e");
+		$(".w").css("opacity", "1");
+		instance.deleteEveryEndpoint();
+
+
+	}
+
+	function opacidade(caixa, porcentagem){
+		$(caixa).css({"opacity":1.2*porcentagem});
+    }
+
+   	$('.w').mouseover(function(e) {
+		opacidade(this, 1);
+	});
+
+function gerarConexoes(arquivo, vai_gerar)
 	{
 
 		d3.csv(arquivo, function(data1) {
@@ -185,53 +243,93 @@
 			
 		});
 	}
-/*	
-	function gerarBlocagemComum(total_periodos, tam_caixa)
-	{
+
+	function correlacao(){
+		refreshBlocagem();
+		total_periodos = 8;
+		tam_caixa = 100;
 		slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
-		largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa)
-		setarPosicoes("data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.csv", slot_caixa, largura_caixa);
-		gerarMouseOver(largura_caixa);
-		//gerarConexoes("data/prereq.csv", false);
-		//gerarMouseOver();
-	}
-	*/
-	
-	// Implementar funcionalidade do botao 1 do menu
-	var ativo = true;
-	function grade1() {
-		if(!ativo)
-		{
-			ativo = true;
-			gerarFluxograma(8, 100);
-		}else{
-			alert("Você já está visualizando a grade atual");
-		}
+		largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa);
+		//setarPosicoes("data/matrizCorrelacaoFiltrada1.csv", slot_caixa, largura_caixa, false,"data/matrizCorrelacaoFiltrada1.csv", true);
+		setarPosicoes("data/grade-disciplinas-por-periodo.csv", slot_caixa, largura_caixa, false,"data/prereq.csv", false);
+
+					
+    
+ 
+
+		d3.csv("data/matrizCorrelacaoFiltrada1.csv", function(grade_completa){
+			instance.setSuspendDrawing(true);
+			instance.deleteEveryEndpoint();
+			console.log("entrou no gerarConexoes");
+			var correlacaoMin = 1;
+			for(var i = 1; i <= grade_completa.length; i++){
+				if (grade_completa[i-1]["cor"] != null){
+					correlacaoMin = Math.min(Math.abs(grade_completa[i-1]["cor"]),correlacaoMin);
+				}
+
+			}
+			console.log(correlacaoMin);
+
+			for(var i = 1; i <= grade_completa.length; i++){
+
+				var divSelected1 = $( "div:contains('"+grade_completa[i-1]["disc1"]+"').w" );
+				var divSelected2 = $( "div:contains('"+grade_completa[i-1]["disc2"]+"').w" );
+					if (divSelected1.length ==0 || divSelected2.length ==0){
+
+					console.log("aqui existe um erro: " + grade_completa[i-1]["disc1"] + " " + grade_completa[i-1]["disc2"]);
+
+					continue;					
+				} else {
+					var nomeId1 = divSelected1[0].id;
+					var nomeId2 = divSelected2[0].id;
+					var correlacao = grade_completa[i-1]["cor"];
+					var cor = "black";
+
+					if (correlacao > 0){
+						cor = "green";
+					}else{
+						cor = "red";
+
+					}
+
+					var valorMin = 1;
+					var valorMax = 10;
+					//Proporção para pegar tamanho da linha. Se correlacao for abs(1) o tamanho da linha vai ser 10. 
+					//Se a correlacao for abs(0.7) o tamanho da linha vai ser 1.
+					
+					var lineWidth =  ( valorMax*(1 - correlacaoMin) - ( (valorMax - valorMin)*(1-Math.abs(correlacao)) ) )/ (1 - correlacaoMin)
+
+					console.log(lineWidth + " " + correlacao);
+					//		connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
+
+					var c = instance.connect({ source:nomeId1+"", target:nomeId2+"" ,    paintStyle:{ strokeStyle:cor, lineWidth:lineWidth ,outlineColor:"transparent", outlineWidth:4 }});
+					//c.addType("boz",{ color:"red", width:23 });
+						
+//instance.deleteEveryEndpoint();
+					
+				}
+				
+			}
+			console.log("saiu no gerarConexoes");
+				//instance.deleteEveryEndpoint();
+			instance.setSuspendDrawing(false,true);
+					
+		})
+
+
+
+		 	
+
+
+
 		
-	}
+
+
+		//apagarMouseOver();
+    	}
+
+
 	
-	// Implementar funcionalidade do botao 2 do menu
-	function grade2() {
-		ativo = false;
-		gerarBlocagemComum(9, 100)
-	}
-
-	// Implementar funcionalidade do botao 3 do menu
-	function grade3(arquivo) {
-		ativo = false;
-		gerarBlocagensComum(8, 100, arquivo);
-	}
-
-
-	function gerarBlocagensComum(total_periodos, tam_caixa, arquivo)
-	{
-		slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
-        	largura_caixa =  getLarguraCaixa(total_periodos, tam_caixa);
-	        setarPosicoes("data/" + arquivo + " _cluster.csv", slot_caixa, largura_caixa, false,"data/prereq.csv", false);
-	       // gerarConexoes();
-		apagarMouseOver();
-	}
-
 
 	  function gerarBlocagemComum(total_periodos, tam_caixa)
 	    {
@@ -297,11 +395,11 @@
 
 		                    $(".w").mouseout(function() {
 		                        $("#blocagem1").hide();
-					$("#blocagem2").hide();
+								$("#blocagem2").hide();
 		                    });
 
 
-				    $(".w").mouseover(function() {
+				    		$(".w").mouseover(function() {
 				
 		                         $("#blocagem1").show();
 		                         $("#blocagem2").show();
@@ -310,7 +408,7 @@
 
 
 		                    $("#blocagem1").text(nomedaCadeira);
-				    $("#blocagem2").text(nomedaCadeira);
+				    		$("#blocagem2").text(nomedaCadeira);
 
 
 		                    opacidade("#blocagem1", opacidadeMaisFrequente1);
@@ -321,9 +419,3 @@
 		});
 	    });
 	    }
-
-	    function opacidade(caixa, porcentagem)
-	    {
-		$(caixa).css({"opacity":porcentagem});
-	    }
-
