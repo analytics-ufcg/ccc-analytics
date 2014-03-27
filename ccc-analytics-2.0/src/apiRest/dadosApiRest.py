@@ -8,7 +8,7 @@ def create_connection():
 def disciplinas_por_periodo():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select * from GradeDisciplinasPorPeriodo")
+    cursor.execute("select g.CodigoDisciplina, g.Periodo, d.NomeDisciplina from GradeDisciplinasPorPeriodo g, Disciplina d where d.CodigoDisciplina = g.CodigoDisciplina")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
@@ -36,7 +36,7 @@ def pre_requisitos():
 def maiores_frequencias():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select * from MaioresFrequenciasPorDisciplina")
+    cursor.execute("select m.CodigoDisciplina, d.NomeDisciplina, m.PeriodoMaisFreq1st, m.FreqRelativa1st, m.PeriodoMaisFreq2nd, m.FreqRelativa2nd, m.PeriodoMaisFreq3rd ,m.FreqRelativa3rd, m.TotalDeAlunosPorDisciplina from MaioresFrequenciasPorDisciplina m, Disciplina d where d.CodigoDisciplina = m.CodigoDisciplina")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
@@ -49,7 +49,7 @@ def maiores_frequencias():
 def reprovacoes():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select disciplina.NomeDisciplina, reprovacoes.CodigoDisciplina, reprovacoes.ReprovacaoAbsoluta, reprovacoes.ReprovacaoRelativa from Disciplina disciplina, Reprovacoes reprovacoes where disciplina.CodigoDisciplina = reprovacoes.CodigoDisciplina")
+    cursor.execute("select d.NomeDisciplina, r.CodigoDisciplina, r.ReprovacaoAbsoluta, r.ReprovacaoRelativa from Disciplina d, Reprovacoes r where d.CodigoDisciplina = r.CodigoDisciplina")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
