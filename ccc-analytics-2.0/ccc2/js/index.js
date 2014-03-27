@@ -19,7 +19,6 @@ $(document).ready(function() {
 		});
 		//console.log(getPosicaoXByPeriodo(2));
 
-		//$( "#progI" ).text("Programação I")
 		// setup some defaults for jsPlumb.
 		instance = jsPlumb.getInstance({
 			Endpoint : ["Dot", {
@@ -29,15 +28,7 @@ $(document).ready(function() {
 				strokeStyle : "#1e8151",
 				lineWidth : 2
 			},
-			ConnectionOverlays : [["Arrow", {
-				location : 1,
-				id : "arrow",
-				length : 8,
-				foldback : 0.7
-			}], ["Label", {
-				id : "label",
-				cssClass : "aLabel"
-			}]],
+
 			Container : "statemachine-demo"
 		});
 		var windows = jsPlumb.getSelector(".statemachine-demo .w");
@@ -77,7 +68,6 @@ $(document).ready(function() {
 	});
 
 });
-
 
 function getLarguraCaixa(total_periodos, tam_caixa) {
 	if (total_periodos > 10) {
@@ -158,7 +148,6 @@ function setarPosicoes(arquivo, slot_caixa, largura, ehBlocagemComum, arquivo1, 
 	});
 }
 
-
 // Implementar funcionalidade do botao 1 do menu
 var ativo = true;
 function grade1() {
@@ -205,15 +194,52 @@ function gerarConexoes(arquivo, vai_gerar) {
 
 	d3.csv(arquivo, function(data1) {
 		instance.setSuspendDrawing(true);
+		// limpa conexoes da tela
 		console.log("entrou no gerarConexoes");
 		for (var i = 1; i <= data1.length; i++) {
+			
 			instance.connect({
 				source : data1[i-1]["V6"] + "",
 				target : data1[i-1]["V1"] + "",
-				newConnection : false
+				newConnection : false,
+				overlays: [
+					["Arrow", 
+						{
+						location:1,
+						id: "arrow",
+						length:8,
+						foldback:0.7					
+						}
+					],
+					["Label",
+						{
+						id:"label",
+						cssClass:"aLabel"	
+						}
+					]
+				]
+
+				
 			});
+
 			console.log(data1[i-1]["V6"] + " " + data1[i-1]["V1"]);
 		}
+
+
+// 		definição default do instance no getInstance
+//		ConnectionOverlays : [
+//				[ "Arrow", {
+//					location:1,
+//					id:"arrow",
+//					length:8,
+//					foldback:0.7
+//				} ],
+//			[ "Label", 
+//				{id:"label", cssClass:"aLabel" }]
+//			]
+			
+
+
 
 		if (!vai_gerar) {
 			instance.deleteEveryEndpoint();
@@ -226,19 +252,21 @@ function gerarConexoes(arquivo, vai_gerar) {
 
 
 function correlacao() {
+
 	refreshBlocagem();
 	total_periodos = 8;
 	tam_caixa = 100;
-	
-	
+
 	slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
 	largura_caixa = getLarguraCaixa(total_periodos, tam_caixa);
 	//setarPosicoes("data/matrizCorrelacaoFiltrada1.csv", slot_caixa, largura_caixa, false,"data/matrizCorrelacaoFiltrada1.csv", true);
 	setarPosicoes("data/grade-disciplinas-por-periodo.csv", slot_caixa, largura_caixa, false, "data/prereq.csv", false);
 
-	d3.csv("data/matrizCorrelacaoFiltrada1.csv", function(grade_completa) { // leitura do arquivo
-		instance.setSuspendDrawing(true); // suspende as operacoes de desenho
-		instance.deleteEveryEndpoint();  // limpa as conexoes da tela
+	d3.csv("data/matrizCorrelacaoFiltrada1.csv", function(grade_completa) {// leitura do arquivo
+		instance.setSuspendDrawing(true);
+		// suspende as operacoes de desenho
+		instance.deleteEveryEndpoint();
+		// limpa as conexoes da tela
 		console.log("entrou no gerarConexoes");
 		var correlacaoMin = 1;
 
@@ -269,47 +297,44 @@ function correlacao() {
 					color = "green";
 				} else {
 					color = "red";
-
 				}
-				
-				
+
 				var valorMin = 1;
 				var valorMax = 10;
-
 
 				//Proporção para pegar tamanho da linha. Se correlacao for abs(1) o tamanho da linha vai ser 10.
 				//Se a correlacao for abs(0.7) o tamanho da linha vai ser 1.
 
-				var lineWidth = (valorMax * (1 - correlacaoMin) - ((valorMax - valorMin) * (1 - Math.abs(correlacao)) ) ) / (1 - correlacaoMin)
+				var lineWidth = (valorMax * (1 - correlacaoMin) - ((valorMax - valorMin) * (1 - Math.abs(correlacao)) ) ) / (1 - correlacaoMin);
 
-				console.log(lineWidth + " " + correlacao);
+				//console.log(lineWidth + " " + correlacao);
 				//		connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
+
 
 				var c = instance.connect({
 					source : nomeId1 + "",
 					target : nomeId2 + "",
 					paintStyle : {
-									strokeStyle : color,
-									lineWidth : lineWidth,
-									outlineColor : "transparent",
-									outlineWidth : 4
-								}
+						strokeStyle : color,
+						lineWidth : lineWidth,
+						outlineColor : "transparent",
+						outlineWidth : 4
+					}
 				});
-				//c.addType("boz",{ color:"red", width:23 });
+				
+				//connection.removeOverlays("someLabel", "arrow one");
 
-				//instance.deleteEveryEndpoint();
+				c.removeOverlays();
 			}
-						//instancia.detachEveryConnection();
+			//instancia.detachEveryConnection();
 		}
-		
+
 		console.log("saiu no gerarConexoes");
 		//instance.deleteEveryEndpoint();
 		instance.setSuspendDrawing(false, true);
 
-	})
-	//apagarMouseOver();
+	});
 }
-
 
 function gerarBlocagemComum(total_periodos, tam_caixa) {
 
@@ -318,9 +343,7 @@ function gerarBlocagemComum(total_periodos, tam_caixa) {
 	setarPosicoes("data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.csv", slot_caixa, largura_caixa, true, "data/prereq.csv", false);
 	gerarMouseOver(largura_caixa);
 
-
 }
-
 
 function gerarMouseOver(largura) {
 	$(document).ready(function() {
