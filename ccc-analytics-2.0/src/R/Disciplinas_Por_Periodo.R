@@ -2,7 +2,6 @@
 #Chama a funcao de calcular o periodo da disciplina
 source('src/R/funcao_Disciplina_Por_Periodo.R')
 
-
 #Deve-se setar o Working Directory, setwd(), para o diretório "ccc-analytics-2.0" antes de esecutar este script
 notaDisciplDF = read.csv('data/historico-ccc.csv')
 
