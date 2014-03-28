@@ -17,7 +17,7 @@ $(document).ready(function() {
 				strokeStyle : "green"
 			}
 		});
-		//console.log(getPosicaoXByPeriodo(2));
+
 
 		// setup some defaults for jsPlumb.
 		instance = jsPlumb.getInstance({
@@ -34,7 +34,7 @@ $(document).ready(function() {
 		var windows = jsPlumb.getSelector(".statemachine-demo .w");
 
 		//gerarFluxograma(total_periodos, tam_caixa, instance);
-		correlacao();
+		
 		//gerarFluxograma(total_periodos, tam_caixa, instance);
 
 		// initialise draggable elements.
@@ -69,12 +69,14 @@ $(document).ready(function() {
 
 });
 
+
 function getLarguraCaixa(total_periodos, tam_caixa) {
 	if (total_periodos > 10) {
 		tam_caixa = 75;
 	}
 	return tam_caixa;
 }
+
 
 function getSlotCaixa(total_periodos, tam_caixa) {
 	tamanho_pagina = window.screen.availWidth;
@@ -90,10 +92,12 @@ function getSlotCaixa(total_periodos, tam_caixa) {
 	return slot_caixa;
 }
 
+
 function getPosicaoXByPeriodo(periodo) {
 	posicao = (periodo - 1) * getSlotCaixa(total_periodos, tam_caixa);
 	return posicao;
 }
+
 
 function gerarFluxograma(total_periodos, tam_caixa) {
 	slot_caixa = getSlotCaixa(total_periodos, tam_caixa);
@@ -103,10 +107,12 @@ function gerarFluxograma(total_periodos, tam_caixa) {
 	apagarMouseOver();
 }
 
+
 function apagarMouseOver() {
 	$(".w").unbind('mouseover mouseout');
 
 }
+
 
 function setarPosicoes(arquivo, slot_caixa, largura, ehBlocagemComum, arquivo1, vai_gerar) {
 
@@ -148,6 +154,7 @@ function setarPosicoes(arquivo, slot_caixa, largura, ehBlocagemComum, arquivo1, 
 	});
 }
 
+
 // Implementar funcionalidade do botao 1 do menu
 var ativo = true;
 function grade1() {
@@ -161,12 +168,14 @@ function grade1() {
 
 }
 
+
 // Implementar funcionalidade do botao 2 do menu
 function grade2() {
 	refreshBlocagem();
 	ativo = false;
 	gerarBlocagemComum(9, 100)
 }
+
 
 //Seta as cores das caixas para o valor default
 function refreshBlocagem() {
@@ -178,6 +187,7 @@ function refreshBlocagem() {
 
 }
 
+
 function opacidade(caixa, porcentagem) {
 	$(caixa).css({
 		"opacity" : 1.2 * porcentagem
@@ -188,6 +198,7 @@ function opacidade(caixa, porcentagem) {
 $('.w').mouseover(function(e) {
 	opacidade(this, 1);
 });
+
 
 
 function gerarConexoes(arquivo, vai_gerar) {
@@ -262,7 +273,7 @@ function correlacao() {
 	//setarPosicoes("data/matrizCorrelacaoFiltrada1.csv", slot_caixa, largura_caixa, false,"data/matrizCorrelacaoFiltrada1.csv", true);
 	setarPosicoes("data/grade-disciplinas-por-periodo.csv", slot_caixa, largura_caixa, false, "data/prereq.csv", false);
 
-	d3.csv("data/matrizCorrelacaoFiltrada1.csv", function(grade_completa) {// leitura do arquivo
+	d3.csv("data/US06_matrizCorrelacaoFiltrada_spearman.csv", function(grade_completa) {// leitura do arquivo
 		instance.setSuspendDrawing(true);
 		// suspende as operacoes de desenho
 		instance.deleteEveryEndpoint();
