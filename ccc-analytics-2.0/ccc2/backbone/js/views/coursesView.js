@@ -28,6 +28,7 @@ directory.CoursesView = Backbone.View.extend({
 		return this;
 	},
 
+
 	connect: function(url) {
 		
 		var dataframe = readJSON(url);
@@ -39,8 +40,8 @@ directory.CoursesView = Backbone.View.extend({
 
         });
         instance.setSuspendDrawing(false,true);
-
 	},
+
 
 	setPositions: function(url, change_opacity){
 
@@ -106,26 +107,34 @@ directory.CoursesView = Backbone.View.extend({
         	var slot = $("#" + data["codigo"]);
 
 
-			if(media_de_reprovacoes <= 0.05){
+			if(media_de_reprovacoes <= 0.05) {
 				slot.css("background-color", "#fee6ce");
-			}if(media_de_reprovacoes > 0.05 && media_de_reprovacoes <= 0.1){
+			}if(media_de_reprovacoes > 0.05 && media_de_reprovacoes <= 0.1) {
 				slot.css("background-color", "#fdd0a2");
-			}if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.15){
+			}if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.15) {
 				slot.css("background-color", "#fdae6b");
-			}if(media_de_reprovacoes > 0.15 && media_de_reprovacoes <= 0.2){
+			}if(media_de_reprovacoes > 0.15 && media_de_reprovacoes <= 0.2) {
 				slot.css("background-color", "#fd8d3c");
-			}if(media_de_reprovacoes > 0.2 && media_de_reprovacoes <= 0.4){
+			}if(media_de_reprovacoes > 0.2 && media_de_reprovacoes <= 0.4) {
 				slot.css("background-color", "#f16913");
-			}if(media_de_reprovacoes > 0.4 && media_de_reprovacoes <= 0.6){
+			}if(media_de_reprovacoes > 0.4 && media_de_reprovacoes <= 0.6) {
 				slot.css("background-color", "#d94801");
-			}if(media_de_reprovacoes > 0.6 && media_de_reprovacoes <= 0.8){
+			}if(media_de_reprovacoes > 0.6 && media_de_reprovacoes <= 0.8) { 
 				slot.css("background-color", "#a63603");
-			}if(media_de_reprovacoes > 0.8){
+			}if(media_de_reprovacoes > 0.8) {
 				slot.css("background-color", "#7f2704");
 			}
         });
         
 
+	},
+	
+	
+	correlacao: function(url) {
+		
+		
+		
+		
 	}
 
 });
@@ -153,6 +162,7 @@ directory.CourseView = Backbone.View.extend({
 
 });
 
+
 function getSlotCaixa(){
 	var slot_caixa = (window.screen.availWidth / 10);
 	espaco_x = slot_caixa - 100;
@@ -165,6 +175,7 @@ function getSlotCaixa(){
 	return slot_caixa;
 
 }
+
 
 function setDivMouseOn(slot, PMFreq1, PMFreq2, freqR1, freqR2, nomeCadeira){
 	//console.log(freqR1+" "+freqR2)
@@ -193,6 +204,7 @@ function setDivMouseOn(slot, PMFreq1, PMFreq2, freqR1, freqR2, nomeCadeira){
 	$("#blocagem2").css("left", getSlotCaixa()*(PMFreq2-1));
 
 }
+
 
 function refreshSlots(){
 	

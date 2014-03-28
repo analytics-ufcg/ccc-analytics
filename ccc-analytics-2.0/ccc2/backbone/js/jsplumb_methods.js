@@ -8,15 +8,18 @@ function init_jsplumb(){
 			instance = jsPlumb.getInstance({
 				Endpoint : ["Dot", {radius:0.1}],//sem bolinha
 				HoverPaintStyle : {strokeStyle:"#1e8151", lineWidth:2 },
-				ConnectionOverlays : [
-					[ "Arrow", { 
-						location:1,
-						id:"arrow",
-		                length:8,
-		                foldback:0.7
-					} ],
-		            [ "Label", {id:"label", cssClass:"aLabel" }]
-				],
+				
+				
+//				ConnectionOverlays : [
+//					[ "Arrow", { 
+//						location:1,
+//						id:"arrow",
+//		                length:8,
+//		                foldback:0.7
+//					} ],
+//		            [ "Label", {id:"label", cssClass:"aLabel" }]
+//				],
+				
 				Container:"statemachine-demo"
 			});
 
@@ -47,15 +50,20 @@ function init_jsplumb(){
 			});
 			
 		});
-
 }
+
 
 function jsplumb_connection(source, target){
 	
-	instance.connect({ source:source+"", target:target+"", newConnection:false});
-	
-
+	instance.connect(
+		{ 
+		source:source+"", 
+		target:target+"", 
+		newConnection:false
+		
+		});
 }
+
 
 function jsplumbdeleteEveryEndpoint(){
 	instance.deleteEveryEndpoint();

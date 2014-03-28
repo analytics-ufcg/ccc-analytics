@@ -201,6 +201,18 @@ $('.w').mouseover(function(e) {
 
 
 
+// 		definição default do instance no getInstance
+//		ConnectionOverlays : [
+//				[ "Arrow", {
+//					location:1,
+//					id:"arrow",
+//					length:8,
+//					foldback:0.7
+//				} ],
+//			[ "Label", 
+//				{id:"label", cssClass:"aLabel" }]
+//			]
+			
 function gerarConexoes(arquivo, vai_gerar) {
 
 	d3.csv(arquivo, function(data1) {
@@ -229,27 +241,10 @@ function gerarConexoes(arquivo, vai_gerar) {
 						}
 					]
 				]
-
-				
 			});
 
 			console.log(data1[i-1]["V6"] + " " + data1[i-1]["V1"]);
 		}
-
-
-// 		definição default do instance no getInstance
-//		ConnectionOverlays : [
-//				[ "Arrow", {
-//					location:1,
-//					id:"arrow",
-//					length:8,
-//					foldback:0.7
-//				} ],
-//			[ "Label", 
-//				{id:"label", cssClass:"aLabel" }]
-//			]
-			
-
 
 
 		if (!vai_gerar) {

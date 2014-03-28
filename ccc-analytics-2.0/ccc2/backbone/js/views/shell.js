@@ -31,9 +31,6 @@ directory.ShellView = Backbone.View.extend({
             position = 1;
             console.log("Fluxograma Comum");
         } 
-       
-       
-        
     },
 
     blocagemComum:function () {
@@ -89,21 +86,20 @@ directory.ShellView = Backbone.View.extend({
             console.log("Blocagem 4");
 
         }    
-
     },
+    
     correlacao:function () {
         if(position==7) console.log("Já está na Correlação");
         else{
             //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
             directory.coursesView.setPositions("data/grade-disciplinas-por-periodo.json", 0);
             
-            directory.coursesView.connect("data/matrizCorrelacaoFiltrada1.json", 0);
+            directory.coursesView.connect("data/US06_matrizCorrelacaoFiltrada_spearman.json", 0);
             position = 7;
-            console.log("correlacao");
-
+            console.log("Correlacao");
         }    
-
     },
+    
     taxareprovacao:function () {
         if(position==8) console.log("Já está na taxareprovacao");
         else{
@@ -114,8 +110,5 @@ directory.ShellView = Backbone.View.extend({
             console.log("taxareprovacao");
 
         }    
-
     }
-
-
 });
