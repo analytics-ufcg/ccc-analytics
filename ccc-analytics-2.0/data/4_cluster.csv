@@ -1,30 +1,32 @@
 "CODIGO","DISCIPLINA.y","size","Mode","media"
-1109035,"Álgebra Vetorial e Geometria Analítica",356,1,1.4185393258427
-1109103,"Cálculo Diferencial e Integral 1",455,1,1.67252747252747
-1307151,"Leitura e Produção de Textos",237,1,1.0379746835443
-1411167,"Programação 1",309,1,1.15210355987055
-1411174,"Introdução a Computação",267,1,1.03370786516854
-1411180,"Laboratório de Programação 1",315,1,1.18412698412698
-1109113,"Matemática Discreta",341,2,2.71847507331378
-1305218,"Metodologia Científica",60,2,2.36666666666667
-1305220,"Informática e Sociedade",169,2,3.6508875739645
-1411168,"Programação 2",312,2,2.38141025641026
-1411170,"Teoria dos Grafos",283,2,2.3321554770318
-1411181,"Laboratório de Programação 2",315,2,2.40634920634921
-1108089,"Física Clássica",329,3,3.21276595744681
-1109049,"Álgebra Linear",262,3,3.73664122137405
-1109053,"Cálculo Diferencial e Integral 2",430,3,3.4
-1411171,"Teoria da Computação",242,3,4.00826446280992
-1411172,"Estrutura de Dados",334,3,3.90718562874252
-1411176,"Gerência da Informação",277,3,3.36823104693141
-1411179,"Laboratório de Estrutura de Dados",308,3,3.79545454545455
-1108090,"Física Moderna",124,4,4.59677419354839
-1114107,"Probabilidade e Estatística",192,4,4.78125
-1305219,"Direito e Cidadania",136,4,3.68382352941176
-1411173,"Lógica Matemática",81,4,5.06172839506173
-1411178,"Sistemas de Informação 1",107,4,4.64485981308411
-1411169,"Paradigmas de Linguagens de Programação",63,5,5.09523809523809
-1411175,"Organização e Arquitetura de Computadores",37,5,5.94594594594595
-1411193,"Banco de Dados 1",44,5,5.93181818181818
-1411195,"Sistemas de Informação 2",32,5,5.90625
-1411182,"Laboratório de Organização e Arquitetura de Computadores",38,6,5.94736842105263
+1109035,"Álgebra Vetorial e Geometria Analítica",62,1,1.35483870967742
+1109103,"Cálculo Diferencial e Integral 1",95,1,1.78947368421053
+1307151,"Leitura e Produção de Textos",50,1,1.04
+1411167,"Programação 1",72,1,1.31944444444444
+1411174,"Introdução a Computação",54,1,1.07407407407407
+1411180,"Laboratório de Programação 1",74,1,1.36486486486486
+1109113,"Matemática Discreta",86,2,3.03488372093023
+1305218,"Metodologia Científica",56,2,2.39285714285714
+1411168,"Programação 2",59,2,2.57627118644068
+1411170,"Teoria dos Grafos",61,2,2.62295081967213
+1411181,"Laboratório de Programação 2",55,2,2.50909090909091
+1109053,"Cálculo Diferencial e Integral 2",99,3,3.66666666666667
+1411176,"Gerência da Informação",54,3,3.59259259259259
+1411179,"Laboratório de Estrutura de Dados",70,3,4.18571428571429
+1108089,"Física Clássica",63,4,3.26984126984127
+1109049,"Álgebra Linear",78,4,4.05128205128205
+1305219,"Direito e Cidadania",38,4,4.39473684210526
+1411171,"Teoria da Computação",74,4,4.63513513513514
+1411172,"Estrutura de Dados",88,4,4.5
+1411177,"Engenharia de Software 1",7,4,5.14285714285714
+1108090,"Física Moderna",48,5,5.08333333333333
+1114107,"Probabilidade e Estatística",63,5,5.41269841269841
+1305220,"Informática e Sociedade",32,5,4.96875
+1411169,"Paradigmas de Linguagens de Programação",12,5,6
+1411173,"Lógica Matemática",25,5,5.76
+1411178,"Sistemas de Informação 1",36,5,5.05555555555556
+1114114,"Métodos Estatísticos",11,6,5.36363636363636
+1411193,"Banco de Dados 1",17,6,6.52941176470588
+1411175,"Organização e Arquitetura de Computadores",12,7,7.08333333333333
+1411182,"Laboratório de Organização e Arquitetura de Computadores",12,7,7.08333333333333
+1411195,"Sistemas de Informação 2",12,7,6.91666666666667

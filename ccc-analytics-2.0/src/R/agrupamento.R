@@ -31,7 +31,7 @@ Mode <- function(x) {
 }
 
 ano_de_entrada <- function (mat) {
-    strtoi(substr(as.character(mat), 2, 3))
+    strtoi(substr(as.character(mat), 3, 3))
 }
 
 ##################################leitura de arquivos
@@ -41,7 +41,10 @@ dataframe = read.csv("data/dissimilaridade_distancia.csv", header = FALSE, sep="
 #Dataframe com períodos relativos que os alunos pagaram as disciplinas
 aluno_disciplina_periodo = read.csv("data/arquivo_notas_disciplinas_periodo.csv", header = T, sep=",")
 
-aluno_disciplina_periodo = aluno_disciplina_periodo[ano_de_entrada(MATRICULA) >= 3 & ano_de_entrada(MATRICULA <= 08)]
+x = ano_de_entrada(aluno_disciplina_periodo[,5])
+x = x >= 3 & x <= 8
+
+aluno_disciplina_periodo = aluno_disciplina_periodo[x,]
 
 #informações das disciplinas - necessário para pegarmos o nome da disciplina
 disciplinas= read.csv("data/grade-disciplinas-por-periodo.csv", header = T, sep=",")
@@ -118,4 +121,3 @@ salvar_cluster <- function(i) {
 for (i in 1:k_) {
     salvar_cluster(i)
 }
-
