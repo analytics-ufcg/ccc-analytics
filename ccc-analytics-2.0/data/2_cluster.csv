@@ -1,19 +1,23 @@
 "CODIGO","DISCIPLINA.y","size","Mode","media"
-1109035,"Álgebra Vetorial e Geometria Analítica",527,1,1.74003795066414
-1109103,"Cálculo Diferencial e Integral 1",572,1,1.79895104895105
-1307151,"Leitura e Produção de Textos",294,1,1.12925170068027
-1411167,"Programação 1",537,1,1.56983240223464
-1411174,"Introdução a Computação",383,1,1.27676240208877
-1411180,"Laboratório de Programação 1",542,1,1.59225092250923
-1108089,"Física Clássica",123,2,3.15447154471545
-1109049,"Álgebra Linear",95,2,3.29473684210526
-1109053,"Cálculo Diferencial e Integral 2",145,2,3.37241379310345
-1109113,"Matemática Discreta",273,2,3.03663003663004
-1305218,"Metodologia Científica",67,2,3.58208955223881
-1305220,"Informática e Sociedade",128,2,2.75
-1411168,"Programação 2",284,2,3.07394366197183
-1411170,"Teoria dos Grafos",250,2,2.932
-1411176,"Gerência da Informação",135,2,3.02962962962963
-1411181,"Laboratório de Programação 2",291,2,3.03092783505155
-1305219,"Direito e Cidadania",93,3,3.41935483870968
-1411171,"Teoria da Computação",32,4,6.09375
+1109035,"Álgebra Vetorial e Geometria Analítica",94,1,2.51063829787234
+1109103,"Cálculo Diferencial e Integral 1",111,1,2.58558558558559
+1307151,"Leitura e Produção de Textos",45,1,1.24444444444444
+1411167,"Programação 1",90,1,1.97777777777778
+1411174,"Introdução a Computação",57,1,1.50877192982456
+1411180,"Laboratório de Programação 1",94,1,2.04255319148936
+1108089,"Física Clássica",38,2,4.47368421052632
+1109053,"Cálculo Diferencial e Integral 2",35,2,5.14285714285714
+1305218,"Metodologia Científica",60,2,3.61666666666667
+1411176,"Gerência da Informação",27,2,3.7037037037037
+1411181,"Laboratório de Programação 2",41,2,3.80487804878049
+1109049,"Álgebra Linear",25,3,3.88
+1109113,"Matemática Discreta",64,3,4.265625
+1114107,"Probabilidade e Estatística",6,3,3
+1305219,"Direito e Cidadania",19,3,5.42105263157895
+1411168,"Programação 2",48,3,4.125
+1411170,"Teoria dos Grafos",45,3,3.66666666666667
+1305220,"Informática e Sociedade",11,4,4.27272727272727
+1411178,"Sistemas de Informação 1",5,5,5.8
+1411171,"Teoria da Computação",12,7,7.08333333333333
+1411172,"Estrutura de Dados",13,8,7.92307692307692
+1411179,"Laboratório de Estrutura de Dados",12,8,7.66666666666667
