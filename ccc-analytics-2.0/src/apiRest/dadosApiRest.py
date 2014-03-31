@@ -59,6 +59,19 @@ def reprovacoes():
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
+def correlacoes():
+    cnxn = create_connection()
+    cursor = cnxn.cursor()
+    cursor.execute("select d1.NomeDisciplina, c.CodDisciplina1, d2.NomeDisciplina, c.CodDisciplina2, c.Correlacao from  CorrelacaoDisciplinasPorNotas c, Disciplina d1, Disciplina d2 where d1.CodigoDisciplina = c.CodDisciplina1 and d2.CodigoDisciplina = c.CodDisciplina2")
+    rows = cursor.fetchall()
+    cnxn.close()
+    lista_tuplas = []
+    for tupla in rows:
+       lista_tuplas.append(tupla)
+    col = ["NomeDisciplina1", "codigoDisciplina1", "NomeDisciplina2", "codigoDisciplina2", "correlacao"]
+    response = montaJson(lista_tuplas, col)
+    return json.dumps(response)
+
 def montaJson(spamreader, col):
 	response = []
 	colunas = col

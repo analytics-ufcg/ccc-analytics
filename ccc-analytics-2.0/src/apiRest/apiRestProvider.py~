@@ -31,7 +31,6 @@ def reprovacoes():
 	response = dadosApiRest.reprovacoes()
 	response = make_response(response)
 	response.headers['Access-Control-Allow-Origin'] = "*"
-	print "as"
 	return response
 		
 if __name__ == '__main__':

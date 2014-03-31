@@ -32,6 +32,13 @@ def reprovacoes():
 	response = make_response(response)
 	response.headers['Access-Control-Allow-Origin'] = "*"
 	return response
+
+@app.route('/getCorrelacoes')
+def correlacoes():
+	response = dadosApiRest.correlacoes()
+	response = make_response(response)
+	response.headers['Access-Control-Allow-Origin'] = "*"
+	return response
 		
 if __name__ == '__main__':
     app.debug = True

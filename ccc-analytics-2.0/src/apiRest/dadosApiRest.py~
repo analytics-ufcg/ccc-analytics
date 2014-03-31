@@ -8,7 +8,7 @@ def create_connection():
 def disciplinas_por_periodo():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select * from GradeDisciplinasPorPeriodo g, Disciplina d where d.CodigoDisciplina = g.CodigoDisciplina")
+    cursor.execute("select g.CodigoDisciplina, g.Periodo, d.NomeDisciplina from GradeDisciplinasPorPeriodo g, Disciplina d where d.CodigoDisciplina = g.CodigoDisciplina")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
