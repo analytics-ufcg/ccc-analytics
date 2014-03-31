@@ -36,11 +36,8 @@ function init_jsplumb(){
 				filter:".ep",				// only supported by jquery
 				anchor:"Continuous",
 				connector:[ "StateMachine", { curviness:1 } ],
-				connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
-				maxConnections:5,
-				onMaxConnections:function(info, e) {
-					alert("Maximum connections (" + info.maxConnections + ") reached");
-				}
+				//connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
+				
 			});						
 
 			// initialise all '.w' elements as connection targets.
@@ -57,9 +54,31 @@ function jsplumb_connection(source, target){
 	
 	instance.connect(
 		{ 
-		source:source+"", 
-		target:target+"", 
-		newConnection:false
+			source:source+"", 
+			target:target+"", 
+			newConnection:false,
+			paintStyle : {
+					strokeStyle : "#5c96bc",
+					lineWidth : 1,
+					outlineColor : "transparent",
+					outlineWidth : 4
+			},
+			overlays: [
+						["Arrow", 
+							{
+							location:1,
+							id: "arrow",
+							length:8,
+							foldback:0.7					
+							}
+						],
+						["Label",
+							{
+							id:"label",
+							cssClass:"aLabel"	
+							}
+						]
+			]
 		
 		});
 }
@@ -67,5 +86,45 @@ function jsplumb_connection(source, target){
 
 function jsplumbdeleteEveryEndpoint(){
 	instance.deleteEveryEndpoint();
+}
+
+function jsplumb_CorrelationConnection(source, target, correlacao, correlacaoMin){
+
+	
+	var color = "black";
+
+	if (correlacao > 0) {
+		color = "green";
+	} else {
+		color = "red";
+	}
+
+	var valorMin = 1;
+	var valorMax = 10;
+
+	//Proporção para pegar tamanho da linha. Se correlacao for abs(1) o tamanho da linha vai ser 10.
+	//Se a correlacao for abs(0.7) o tamanho da linha vai ser 1.
+
+	var lineWidth = (valorMax * (1 - correlacaoMin) - ((valorMax - valorMin) * (1 - Math.abs(correlacao)) ) ) / (1 - correlacaoMin);
+
+	console.log(lineWidth + " " + correlacao+" "+color);
+	//		connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
+
+
+	var c = instance.connect({
+		source : source+"",
+		target : target+"",
+		paintStyle : {
+			strokeStyle : color,
+			lineWidth : lineWidth,
+			outlineColor : "transparent",
+			outlineWidth : 4
+		}
+	});
+	
+	//connection.removeOverlays("someLabel", "arrow one");
+
+	c.removeOverlays();
+
 }
 
