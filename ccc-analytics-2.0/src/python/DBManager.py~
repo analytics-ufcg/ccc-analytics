@@ -59,7 +59,8 @@ def execute_sql_file(sql_file_object):
         if(len(cmd.split()) != 0 and cmd != "\n"):
 
             if (case.upper() == "COPY"):
-                cmd_good_path = cmd.replace("#path#", csv_dir_path)
+                replaced = find_and_replace(cmd.split(" "), path_marker, csv_dir_path)
+                cmd_good_path = "".join(replaced)
                 print "RAAAAAA" + cmd_good_path
                 print "oOoOoOoOoOoOoOoOoOoOoOoO"
                 print "cmd_good_path", cmd_good_path

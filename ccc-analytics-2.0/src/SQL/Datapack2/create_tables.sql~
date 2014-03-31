@@ -18,4 +18,4 @@ CREATE TABLE Reprovacoes (CodigoDisciplina VARCHAR(8), ReprovacaoAbsoluta INT, R
 
 CREATE TABLE PerfisFluxograma (CodigoDisciplina VARCHAR(8), Periodo INT, Cluster VARCHAR(3));
 
-CREATE TABLE MatrizCorrelacaoFiltradaSpearman (CodDisciplina1 VARCHAR(8), CodDisciplina2 VARCHAR(8), Correlacao FLOAT, PRIMARY KEY (CodDisciplina1, CodDisciplina2), FOREIGN KEY (CodDisciplina1) REFERENCES Disciplina (CodigoDisciplina), FOREIGN KEY (CodDisciplina2) REFERENCES Disciplina (CodigoDisciplina)
+CREATE TABLE MatrizCorrelacaoFiltradaSpearman(CodDisciplina1, VARCHAR(8), CodDisciplina2, VARCHAR(8),)
