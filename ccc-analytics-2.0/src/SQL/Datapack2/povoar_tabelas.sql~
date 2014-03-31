@@ -1,7 +1,7 @@
 --rodar isql -v [DSN] desde ccc-analytics-2.0
 --caso nao funcione usar o caminho global (completo) para o CSV
 
-COPY Disciplina (CodigoDisciplina, NomeDisciplina, CodigoDepto, Obrigatoria) FROM LOCAL '/home/tales/R Dev/Scripts/Dados v2/data/TabelaDisciplina.csv' WITH DELIMITER ',';
+COPY Disciplina (CodigoDisciplina, NomeDisciplina, CodigoDepto, Obrigatoria, Nome) FROM LOCAL '/home/tales/R Dev/Scripts/Dados v2/data/TabelaDisciplina.csv' WITH DELIMITER ',';
 
 COPY Aluno (MatriculaAluno) FROM LOCAL '/home/tales/R Dev/Scripts/Dados v2/data/TabelaAlunos.csv' WITH DELIMITER ',';
 
