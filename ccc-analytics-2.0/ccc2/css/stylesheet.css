@@ -1,0 +1,35 @@
+
+.conteudo {
+	margin-top: 0px;
+}
+
+.marg-top {
+	margin-top: 200px; 
+}
+
+.align-center {
+	text-align: center;
+}
+
+.footer {
+	background-color: #2c3e50;
+	width: 100%;
+	color: #ecf0f1;
+}
+
+.footer dd a:link {
+	color: #ecf0f1;
+	text-decoration: none;
+}
+
+.footer dd a:hover {
+	color: #fff;
+}
+
+.footer dd a:active {
+	color: #ecf0f1;
+}
+
+.footer dd a:visited {
+	color: #ecf0f1;
+}
