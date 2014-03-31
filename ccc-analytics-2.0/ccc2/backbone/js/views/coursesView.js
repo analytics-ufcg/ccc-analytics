@@ -132,7 +132,24 @@ directory.CoursesView = Backbone.View.extend({
 	
 	correlacao: function(url) {
 		
-		
+		var dataframe = readJSON(url);
+		var min = 1;
+
+		min = _.min(dataframe,function(data) {
+		    return data["cor"];
+		});
+
+		console.log(min);
+
+		jsplumbdeleteEveryEndpoint();
+
+		instance.setSuspendDrawing(true);
+        _.each(dataframe, function(data) {
+        	//console.log(data);
+        	jsplumb_CorrelationConnection(data["cod2"], data["cod1"], data["cor"], min["cor"]);
+
+        });
+        instance.setSuspendDrawing(false,true);
 		
 		
 	}
