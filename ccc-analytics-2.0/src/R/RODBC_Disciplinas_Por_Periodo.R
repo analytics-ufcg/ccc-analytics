@@ -15,5 +15,5 @@ notasDisciplDF = cbind(notasDisciplDF[2], notasDisciplDF[5], notasDisciplDF[1], 
 
 sqlDrop(channel, "DisciplinaAluno", errors=TRUE)
 sqlSave(channel, notasDisciplDF, "DisciplinaAluno")
-#write.csv(notasDisciplDF, file = "/home/laercio/arquivo_notas_disciplinas_periodo1.csv", row.names = FALSE, quote = FALSE)
+#write.csv(notasDisciplDF, file = "/home/laercio/arquivo_notas_disciplinas_periodo.csv", row.names = FALSE, quote = FALSE)
 close(channel)

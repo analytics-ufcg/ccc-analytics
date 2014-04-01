@@ -10,6 +10,8 @@ info.disciplinas$Situacao = as.numeric(info.disciplinas$Situacao)
 resultado.absoluto = aggregate(Situacao ~ CodigoDisciplina, data = info.disciplinas, sum)
 resultado.relativo = aggregate(Situacao ~ CodigoDisciplina, data = info.disciplinas, mean)
 
+require(plyr)
+
 info.disciplinas$CodigoSituacao = NULL
 info.disciplinas$Situacao = NULL
 info.disciplinas <- ddply(info.disciplinas, .(CodigoDisciplina), nrow)
