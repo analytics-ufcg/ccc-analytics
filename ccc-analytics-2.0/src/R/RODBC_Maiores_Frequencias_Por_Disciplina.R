@@ -41,5 +41,5 @@ discMaisComumPeriodo[, "TotalDeAlunosPorDisciplina"] = totalFreq
 
 
 sqlDrop(channel, "MaioresFrequenciasPorDisciplina", errors=TRUE)
-sqlSave(channel, notasDisciplDF, "MaioresFrequenciasPorDisciplina", rownames = FALSE)
+sqlSave(channel, discMaisComumPeriodo, "MaioresFrequenciasPorDisciplina", rownames = FALSE)
 close(channel)
