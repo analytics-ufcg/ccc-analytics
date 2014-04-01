@@ -14,6 +14,6 @@ notasDisciplDF$PeriodoRelativo = calcularPeriodoRelativo(substring(as.character(
 notasDisciplDF = cbind(notasDisciplDF[2], notasDisciplDF[5], notasDisciplDF[1], notasDisciplDF[6], notasDisciplDF[8], notasDisciplDF[7])
 
 sqlDrop(channel, "DisciplinaAluno", errors=TRUE)
-sqlSave(channel, notasDisciplDF, "DisciplinaAluno")
+sqlSave(channel, notasDisciplDF, "DisciplinaAluno", rownames = FALSE)
 #write.csv(notasDisciplDF, file = "/home/laercio/arquivo_notas_disciplinas_periodo.csv", row.names = FALSE, quote = FALSE)
 close(channel)

@@ -25,5 +25,5 @@ resultado.absoluto <- rename(resultado.absoluto, replace = c("Situacao" = "Resul
 resultado = cbind(resultado.absoluto, "ResultadoRelativo" = resultado.relativo$Situacao)
 
 sqlDrop(cn, "Reprovacoes", errors=TRUE)
-sqlSave(cn, notasDisciplDF, "Reprovacoes")
+sqlSave(cn, resultado, "Reprovacoes", rownames = FALSE)
 close(cn)
