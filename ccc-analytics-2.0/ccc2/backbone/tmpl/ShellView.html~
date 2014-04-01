@@ -1,3 +1,9 @@
+<!--
+
+HTML DA VISUALIZAÇÃO PRINCIPAL
+
+-->
+
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
@@ -19,25 +25,21 @@
 							<!-- lista de links do menu 1 -->
 							<ul class="dropdown-menu">
 								<li>
-									<a id="grade1" href="#" >Grade CCC</a>
+									<a id="grade1" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Plano de curso</a>
 								</li>
 								<li class="divider"></li>
 								<li>
-									<a id="grade2" href="#" >Blocagem mais comum</a>
+									<a id="grade2" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Blocagem mais comum</a>
 								</li>
 								<li class="divider"></li>
 								<li>
-									<a id="correlacao" href="#" >Correlação</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a id="taxareprovacao" href="#" >Taxa Reprovação</a>
+									<a id="correlacao" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Correlação entre disciplinas</a>
 								</li>
 								<li class="divider"></li>
 								<li class="dropdown-submenu">
-						    		<a href="#" tabindex="-1"  >Blocagens mais comuns</a>
-						   			<ul class="dropdown-menu">
-						     			<li>
+									<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Blocagens mais comuns</a>
+									<ul class="dropdown-menu">
+										<li>
 											<a id="bloc1" href="#bloc1" >Blocagem 1</a>
 										</li>
 										<li>
@@ -49,48 +51,109 @@
 										<li>
 											<a id="bloc4" href="#bloc4" >Blocagem 4</a>
 										</li>
-									
-						    		</ul>
-							  	</li>
+									</ul>
+								</li>
+								<li class="divider"></li>
+								<li class="dropdown-submenu">
+									<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Outras opções</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a id="taxareprovacao" href="#" >Taxa de reprovação</a>
+										</li>
+
+									</ul>
+								</li>
 							</ul>
 						</li>
-					</ul>
-				</li>
-			</ul><!-- / navbar-right : drop menu-->
-
+					</ul><!-- / navbar-right : drop menu-->
 		</div><!--/.nav-collapse -->
 	</div>
 </div>
 
-<!--  CONTAINER  -->
-<div class="conteudo" style="background-color: #fff;">
-	<div class="container"  id="div_flowchart" style="width:100%;">
+<br />
+<br />
+<br />
+<br />
 
-
+<div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="align-right">
+			<a href="#info" name="modal">
+			info
+			<img src="image/search.png" />
+			</a>
+			</div>
+		</div>
 	</div>
 </div>
+
+<!--  CONTAINER  -->
+
+	<div class="conteudo" style="background-color: #fff;">
+		<div class="container"  id="div_flowchart" style="width:87%;">
+	
+		</div>
+	</div>
+
 
 <!--  NEWS  -->
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
+
 <div class="container">
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="align-center">
-				.
+				<img src="image/book.png" width="85px"/>
+				<br />
+				<br />
+
+				<dl>
+					<dt>
+						CCC Analytics
+					</dt>
+				</dl>
+				<dd>
+					É um sistema de apoio à matrícula dos alunos de Computação da Universidade
+					Federal de Campina Grande. Uma ferramente principalmente direcionada ao coordenador
+					do curso.
+				</dd>
+
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="align-center">
-				.
+				<img src="image/bus.png" width="80px"/>
+				<br />
+				<br />
+
+				<dl>
+					<dt>
+						Como organizar minha grade?
+					</dt>
+				</dl>
+				<dd>
+					Quais disciplinas têm mais relação entre si? O que os alunos de Computação geralmente cursam em conjunto?
+					CCC Analytics responde essas perguntas!
+
+				</dd>
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="align-center">
-				.
+				<img src="image/email.png" width="80px"/>
+				<br />
+				<br />
+				<dl>
+					<dt>
+						Dúvidas? Sugestões?
+					</dt>
+				</dl>
+				<dd>
+					<a href="contato.php">Envie um email para nós!</a>
+				</dd>
 			</div>
 		</div>
 	</div>
@@ -106,41 +169,30 @@
 		<div class="footer">
 			<br/>
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-sm-6">
 					<dl>
 						<dt>
-							<b>LabAnalytics</b>
+							<b>Analytics Lab</b>
 						</dt>
 					</dl>
 					<dd>
-						<a href="https://sites.google.com/a/computacao.ufcg.edu.br/analytics/">Program</a>
+						<a href="https://sites.google.com/a/computacao.ufcg.edu.br/analytics/" >Programa</a>
 					</dd>
 					<dd>
-						<a href="#">Projects</a>
+						<a href="http://analytics.lsd.ufcg.edu.br/">Projetos</a>
 					</dd>
 					<dd>
-						<a href="#">Team</a>
+						<a href="team.html">Time</a>
 					</dd>
 				</div>
-				<div class="col-sm-4">
-					<dl>
-						<dt>
-							
-						</dt>
-					</dl>
-					<dd>
-						
-					</dd>
-				</div>
-				<div class="col-sm-4">
+
+				<div class="col-sm-6">
 					<dl>
 						<dt></dt>
 					</dl>
 					<dd>
 						<br/>
-						<a href="index.html">
-						<img src="image/ccc-header2.png" width="180px"/>
-						</a>
+						<a href="index.html"> <img src="image/ccc-header2.png" width="200px"/> </a>
 					</dd>
 				</div>
 			</div>
@@ -149,4 +201,35 @@
 	</div>
 </div>
 
+
+<div class="detail"></div>
+
+        <div id="boxes">
+            <div id="info" class="window">
+	          <a href="#" class="close">Fechar</a>
+			<h3>Plano de curso</h3>
+			É o plano padrão de curso sugerido pela coordenação do curso 
+			(não inclui as disciplinas optativas).<br/> 
+			A oferta de disciplinas e a organização do horário semestral 
+			das disciplinas obrigatórias são baseadas neste plano de curso.
 	
+			
+			<h3>Blocagem mais comum</h3>
+			É a blocagem mais comumente (mais frequente) cursada pelos alunos de graduação. 		
+			
+
+			<h2>Correlação entre disciplinas</h2>
+			Representa a correlação entre disciplinas com base na média de cada aluno que 
+			cursou ambas. Quanto mais espessa a linha que interliga as disciplinas, 
+			maior a correlação entre elas. 
+			
+			<h2>Blocagens mais comuns</h2>
+			
+			<h2>Outras opções</h2>
+			 
+
+			
+            </div>
+          <div id="mask"></div>
+        </div>
+

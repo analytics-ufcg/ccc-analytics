@@ -22,7 +22,7 @@
 
 #boxes #info 
 {
-  width:auto; 
+  width:500px; 
   height:auto;
   padding:10px;
   background-color:#ffffff;
