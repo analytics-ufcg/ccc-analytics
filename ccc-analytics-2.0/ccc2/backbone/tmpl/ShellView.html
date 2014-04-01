@@ -25,7 +25,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 							<!-- lista de links do menu 1 -->
 							<ul class="dropdown-menu">
 								<li>
-									<a id="grade1" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Grade CCC</a>
+									<a id="grade1" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Plano de curso</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -34,10 +34,6 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 								<li class="divider"></li>
 								<li>
 									<a id="correlacao" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Correlação entre disciplinas</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a id="taxareprovacao" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Taxa de reprovação</a>
 								</li>
 								<li class="divider"></li>
 								<li class="dropdown-submenu">
@@ -55,29 +51,51 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 										<li>
 											<a id="bloc4" href="#bloc4" >Blocagem 4</a>
 										</li>
+									</ul>
+								</li>
+								<li class="divider"></li>
+								<li class="dropdown-submenu">
+									<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Outras opções</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a id="taxareprovacao" href="#" >Taxa de reprovação</a>
+										</li>
 
 									</ul>
 								</li>
 							</ul>
 						</li>
-					</ul>
-				</li>
-			</ul><!-- / navbar-right : drop menu-->
-
+					</ul><!-- / navbar-right : drop menu-->
 		</div><!--/.nav-collapse -->
 	</div>
 </div>
 
-<div>
+<br />
+<br />
+<br />
+<br />
 
+<div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="align-right">
+			<a href="#info" name="modal">
+			info
+			<img src="image/search.png" />
+			</a>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!--  CONTAINER  -->
-<div class="conteudo" style="background-color: #fff;">
-	<div class="container"  id="div_flowchart" style="width:85%;">
 
+	<div class="conteudo" style="background-color: #fff;">
+		<div class="container"  id="div_flowchart" style="width:87%;">
+	
+		</div>
 	</div>
-</div>
+
 
 <!--  NEWS  -->
 <br/>
@@ -88,7 +106,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 	<div class="row">
 		<div class="col-sm-4">
 			<div class="align-center">
-				<img src="image/book.png" width="80px"/>
+				<img src="image/book.png" width="85px"/>
 				<br />
 				<br />
 
@@ -117,8 +135,9 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 					</dt>
 				</dl>
 				<dd>
-					Quais disciplinas seriam mais interessantes quando cursadas juntas?
-					O CCC Analytics responde essas perguntas. (revisar texto)
+					Quais disciplinas têm mais relação entre si? O que os alunos de Computação geralmente cursam em conjunto?
+					CCC Analytics responde essas perguntas!
+
 				</dd>
 			</div>
 		</div>
@@ -129,7 +148,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 				<br />
 				<dl>
 					<dt>
-						Dúvidas?
+						Dúvidas? Sugestões?
 					</dt>
 				</dl>
 				<dd>
@@ -157,7 +176,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 						</dt>
 					</dl>
 					<dd>
-						<a href="https://sites.google.com/a/computacao.ufcg.edu.br/analytics/">Programa</a>
+						<a href="https://sites.google.com/a/computacao.ufcg.edu.br/analytics/" >Programa</a>
 					</dd>
 					<dd>
 						<a href="http://analytics.lsd.ufcg.edu.br/">Projetos</a>
@@ -181,4 +200,42 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 		</div>
 	</div>
 </div>
+
+
+<div class="detail"></div>
+
+        <div id="boxes">
+            <div id="info" class="window">
+            <a href="#" class="close">Fechar</a><br />
+			<br />
+			<h2>Plano de curso</h2>
+			É o plano padrão de curso sugerido pela coordenação do curso 
+			(não inclui as disciplinas optativas). 
+			A oferta de disciplinas e a organização do horário semestral 
+			das disciplinas obrigatórias são baseadas neste plano de curso.
+	
+			____(divisor)
+			
+			<h2>Blocagem mais comum</h2>
+			É a blocagem mais comumente (mais frequente) cursada pelos alunos de graduação. 
+			
+			____(divisor)
+			
+			<h2>Correlação entre disciplinas</h2>
+			Representa a correlação entre disciplinas com base na média de cada aluno que 
+			cursou ambas. Quanto mais espessa a linha que interliga as disciplinas, 
+			maior a correlação entre elas. 
+			
+			____(divisor)
+			
+			<h2>Blocagens mais comuns</h2>
+			 
+			____(divisor)
+			
+			<h2>Outras opções</h2>
+			 
+			____(divisor)
+            </div>
+          <div id="mask"></div>
+        </div>
 

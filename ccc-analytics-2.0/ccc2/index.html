@@ -12,7 +12,7 @@
 
 		<!--	 estilo proprio 	-->
 		<link rel="stylesheet" href="css/stylesheet.css" />
-		
+
 		<!--	 bootstrap 	-->
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
@@ -20,13 +20,17 @@
 		<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css" />
 
 		<!--	 jsplumb 	-->
-		<link rel="stylesheet" href="css/demo-all.css"> <!-- posicionamento do grafico -->
-		<link rel="stylesheet" href="css/demo.css"> <!-- posicionamento do das caixas -->
+		<link rel="stylesheet" href="css/demo-all.css">
+		<!-- posicionamento do grafico -->
+		<link rel="stylesheet" href="css/demo.css">
+		<!-- posicionamento do das caixas -->
+
+		
 
 	</head>
 
 	<body></body>
-	
+
 	<!-- JS -->
 
 	<!-- jQuery core-->
@@ -34,14 +38,14 @@
 	<script src="js/jquery-1.9.0.js"></script>
 	<script src="js/jquery-ui-1.9.2-min.js"></script>
 	<script src="js/jquery.ui.touch-punch.min.js"></script>
-	
-	<!-- bootstrap core -->		
+
+	<!-- bootstrap core -->
 
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
 	<!-- jsPlumb core -->
-	
+
 	<!-- support lib for bezier stuff -->
 	<script src="js/jsBezier-0.6.js"></script>
 	<!-- jsplumb geom functions -->
@@ -74,9 +78,10 @@
 	<!-- D3.js -->
 
 	<script src="js/d3.v3.min.js" charset="utf-8"></script>
-	
-	<!-- BACKBONEJS-->
 
+	<!-- BACKBONEJS-->
+	
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 	<script src="backbone/lib/jquery-1.9.1.min.js"></script>
 	<script src="backbone/lib/underscore-min.js"></script>
 	<script src="backbone/lib/backbone-min.js"></script>
@@ -92,11 +97,54 @@
 	<script src="js/conexao_bd.js"></script>
 	<script src="backbone/js/jsplumb_methods.js"></script>
 	
+	<script type="text/javascript">
+			$(document).ready(function() {
+
+				$('a[name=modal]').click(function(e) {
+					e.preventDefault();
+
+					var id = $(this).attr('href');
+
+					var maskHeight = $(document).height();
+					var maskWidth = $(window).width();
+
+					$('#mask').css({
+						'width' : maskWidth,
+						'height' : maskHeight
+					});
+
+					$('#mask').fadeIn(1000);
+					$('#mask').fadeTo("slow", 0.8);
+
+					//Get the window height and width
+					var winH = $(window).height();
+					var winW = $(window).width();
+
+					$(id).css('top', winH / 2 - $(id).height() / 2);
+					$(id).css('left', winW / 2 - $(id).width() / 2);
+
+					$(id).fadeIn(2000);
+				});
+
+				$('.window .close').click(function(e) {
+					e.preventDefault();
+
+					$('#mask').hide();
+					$('.window').hide();
+				});
+
+				$('#mask').click(function() {
+					$(this).hide();
+					$('.window').hide();
+				});
+			});
+		</script>
+
 	<!--  script menu dropdown -->
-	
+
 	<!-- CODIGO MORTO JDPLUMB - NAO APAGAR -->
 	<!--<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
-	
+
 	<!-- for demo dropdown. not a jsplumb dependency -->
 	<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>-->
 	<!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">-->
