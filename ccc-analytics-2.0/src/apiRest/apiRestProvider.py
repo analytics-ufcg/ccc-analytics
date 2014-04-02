@@ -44,6 +44,20 @@ def correlacoes(valor_correlacao):
 	response.headers['Access-Control-Allow-Origin'] = "*"
 	return response
 
+@app.route('/infoClusters')
+def info_clusters():
+	response = dadosApiRest.info_clusters()
+	response = make_response(response)
+	response.headers['Access-Control-Allow-Origin'] = "*"
+	return response
+
+@app.route('/clusters')
+def clusters():
+	response = dadosApiRest.clusters()
+	response = make_response(response)
+	response.headers['Access-Control-Allow-Origin'] = "*"
+	return response
+
 		
 if __name__ == '__main__':
     app.debug = True

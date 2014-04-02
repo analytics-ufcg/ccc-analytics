@@ -55,7 +55,7 @@ def reprovacoes():
     lista_tuplas = []
     for tupla in rows:
        lista_tuplas.append(tupla)
-    col = ["Nome", "codigo", "ReprovacaoAbsoluta", "ReprovacaoRelativa"]
+    col = ["Nome", "Codigo", "ReprovacaoAbsoluta", "ReprovacaoRelativa"]
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
@@ -71,6 +71,34 @@ def correlacoes(valor):
     col = ["NomeDisciplina1", "codigoDisciplina1", "NomeDisciplina2", "codigoDisciplina2", "correlacao"]
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
+
+def info_clusters():
+    cnxn = create_connection()
+    cursor = cnxn.cursor()
+    cursor.execute("select * from InfoClusters")
+    rows = cursor.fetchall()
+    cnxn.close()
+    lista_tuplas = []
+    for tupla in rows:
+       lista_tuplas.append(tupla)
+    col = ["Cluster", "Rotulo", "Descricao"]
+    response = montaJson(lista_tuplas, col)
+    return json.dumps(response)
+
+def clusters():
+    cnxn = create_connection()
+    cursor = cnxn.cursor()
+    cursor.execute("select d.NomeDisciplina, c.CodigoDisciplina, c.Periodo, c.Cluster from Clusters c, Disciplina d where c.CodigoDisciplina = d.CodigoDisciplina")
+    rows = cursor.fetchall()
+    cnxn.close()
+    lista_tuplas = []
+    for tupla in rows:
+       lista_tuplas.append(tupla)
+    col = ["NomeDisciplina","CodigoDisciplina", "Periodo", "Cluster"]
+    response = montaJson(lista_tuplas, col)
+    return json.dumps(response)
+
+
 
 def montaJson(spamreader, col):
 	response = []
