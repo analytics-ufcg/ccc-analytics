@@ -1,0 +1,212 @@
+[
+  {
+    "disciplina":"Física Moderna",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1108090
+  },
+  {
+    "disciplina":"Cálculo Diferencial e Integral 2",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1109053
+  },
+  {
+    "disciplina":"Matemática Discreta",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1109113
+  },
+  {
+    "disciplina":"Probabilidade e Estatística",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1114107
+  },
+  {
+    "disciplina":"Direito e Cidadania",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1305219
+  },
+  {
+    "disciplina":"Paradigmas de Linguagens de Programação",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1411169
+  },
+  {
+    "disciplina":"Teoria da Computação",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1411171
+  },
+  {
+    "disciplina":"Estrutura de Dados",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1411172
+  },
+  {
+    "disciplina":"Gerência da Informação",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1411176
+  },
+  {
+    "disciplina":"Projeto em Computação 1",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1411185
+  },
+  {
+    "disciplina":"Avaliação de Desempenho de Sistemas Discretos",
+    "periodo":1,
+    "cluster":3,
+    "codigo":1411197
+  },
+  {
+    "disciplina":"Física Clássica",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1108089
+  },
+  {
+    "disciplina":"Álgebra Linear",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1109049
+  },
+  {
+    "disciplina":"Métodos Estatísticos",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1114114
+  },
+  {
+    "disciplina":"Lógica Matemática",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1411173
+  },
+  {
+    "disciplina":"Organização e Arquitetura de Computadores",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1411175
+  },
+  {
+    "disciplina":"Laboratório de Estrutura de Dados",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1411179
+  },
+  {
+    "disciplina":"Laboratório de Organização e Arquitetura de Computadores",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1411182
+  },
+  {
+    "disciplina":"Projeto em Computação 2",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1411186
+  },
+  {
+    "disciplina":"Compiladores",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1411189
+  },
+  {
+    "disciplina":"Banco de Dados 1",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1411193
+  },
+  {
+    "disciplina":"Inteligência Artificial",
+    "periodo":2,
+    "cluster":3,
+    "codigo":1411196
+  },
+  {
+    "disciplina":"Engenharia de Software 1",
+    "periodo":3,
+    "cluster":3,
+    "codigo":1411177
+  },
+  {
+    "disciplina":"Sistemas de Informação 1",
+    "periodo":3,
+    "cluster":3,
+    "codigo":1411178
+  },
+  {
+    "disciplina":"Análise e Técnica de Algorítimos",
+    "periodo":3,
+    "cluster":3,
+    "codigo":1411187
+  },
+  {
+    "disciplina":"Redes de Computadores",
+    "periodo":3,
+    "cluster":3,
+    "codigo":1411190
+  },
+  {
+    "disciplina":"Sistemas de Informação 2",
+    "periodo":3,
+    "cluster":3,
+    "codigo":1411195
+  },
+  {
+    "disciplina":"Metodologia Científica",
+    "periodo":4,
+    "cluster":3,
+    "codigo":1305218
+  },
+  {
+    "disciplina":"Informática e Sociedade",
+    "periodo":4,
+    "cluster":3,
+    "codigo":1305220
+  },
+  {
+    "disciplina":"Laboratório de Engenharia de Software",
+    "periodo":4,
+    "cluster":3,
+    "codigo":1411183
+  },
+  {
+    "disciplina":"Laboratório de Interconexão de Redes de Computadores",
+    "periodo":4,
+    "cluster":3,
+    "codigo":1411184
+  },
+  {
+    "disciplina":"Métodos e Software Numéricos",
+    "periodo":4,
+    "cluster":3,
+    "codigo":1411188
+  },
+  {
+    "disciplina":"Interconexão de Redes de Computadores",
+    "periodo":4,
+    "cluster":3,
+    "codigo":1411191
+  },
+  {
+    "disciplina":"Sistemas Operacionais",
+    "periodo":4,
+    "cluster":3,
+    "codigo":1411192
+  },
+  {
+    "disciplina":"Banco de Dados 2",
+    "periodo":4,
+    "cluster":3,
+    "codigo":1411194
+  }
+]

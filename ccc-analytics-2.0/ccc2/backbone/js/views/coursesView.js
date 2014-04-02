@@ -107,22 +107,20 @@ directory.CoursesView = Backbone.View.extend({
         	var slot = $("#" + data["codigo"]);
 
 
-			if(media_de_reprovacoes <= 0.05) {
-				slot.css("background-color", "#fee6ce");
-			}if(media_de_reprovacoes > 0.05 && media_de_reprovacoes <= 0.1) {
-				slot.css("background-color", "#fdd0a2");
-			}if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.15) {
-				slot.css("background-color", "#fdae6b");
-			}if(media_de_reprovacoes > 0.15 && media_de_reprovacoes <= 0.2) {
-				slot.css("background-color", "#fd8d3c");
-			}if(media_de_reprovacoes > 0.2 && media_de_reprovacoes <= 0.4) {
-				slot.css("background-color", "#f16913");
-			}if(media_de_reprovacoes > 0.4 && media_de_reprovacoes <= 0.6) {
-				slot.css("background-color", "#d94801");
-			}if(media_de_reprovacoes > 0.6 && media_de_reprovacoes <= 0.8) { 
-				slot.css("background-color", "#a63603");
-			}if(media_de_reprovacoes > 0.8) {
-				slot.css("background-color", "#7f2704");
+			if(media_de_reprovacoes => 0 && media_de_reprovacoes <= 0.1) {
+				slot.css("background-color", "#FF4D94");
+			}
+			if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.3) {
+				slot.css("background-color", "#B23668");
+			}
+			if(media_de_reprovacoes > 0.3 && media_de_reprovacoes <= 0.5) {
+				slot.css("background-color", "#8E2B53");
+			}
+			if(media_de_reprovacoes > 0.5 && media_de_reprovacoes <= 0.7) {
+				slot.css("background-color", "#722242");
+			}
+			if(media_de_reprovacoes > 0.7) {
+				slot.css("background-color", "#441428");
 			}
         });
         

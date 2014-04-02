@@ -168,5 +168,10 @@ function initModal() {
 			$(this).hide();
 			$('.window').hide();
 		});
-	}
+}
+
+function dialog() {
+	$("#dialog").dialog();
+}
+
 
