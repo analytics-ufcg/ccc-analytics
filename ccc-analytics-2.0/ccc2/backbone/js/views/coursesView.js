@@ -89,9 +89,9 @@ directory.CoursesView = Backbone.View.extend({
 		
 		var dataframe = readJSON(url);
 
-    	var img = document.createElement("IMG");  
-	    img.src = "image/legenda.jpeg";  
-	    document.getElementById('legenda').appendChild(img);
+    	//var img = document.createElement("IMG");  
+	    //img.src = "image/legenda.jpeg";  
+	    //document.getElementById('legenda').appendChild(img);
 
 		$("#blocagem1").css("background-color", "red");
 		$("#blocagem2").css("background-color", "red");

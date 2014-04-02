@@ -170,6 +170,7 @@ function initModal() {
 		});
 }
 
+
 function dialog() {
 	$("#dialog").dialog();
 }

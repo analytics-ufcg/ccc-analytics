@@ -36,9 +36,9 @@ directory.Router = Backbone.Router.extend({
 		directory.flowchartView = new directory.FlowChartView();
 		$("#div_flowchart").html(directory.flowchartView.render().el);
 
-		//initModal();
+		initModal();
 		
-		//dialog();
+		dialog(); // - legenda do gráfico da taxa de reprovação - aparecer apenas no gráfico da reprovaçao
 
 		directory.coursesView = new directory.CoursesView();
 		$("#main").append(directory.coursesView.render().el);
