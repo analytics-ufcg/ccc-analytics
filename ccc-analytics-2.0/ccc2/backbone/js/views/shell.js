@@ -48,7 +48,7 @@ directory.ShellView = Backbone.View.extend({
         
         if(position==3) console.log("Já está no Blocagem 1");
         else{
-            directory.coursesView.setPositions("data/1_cluster.json", 0);
+            directory.coursesView.setPositions("data/cls_fa/1_cluster.json", 0);
             position = 3;
             console.log("Blocagem 1");
 
@@ -59,7 +59,7 @@ directory.ShellView = Backbone.View.extend({
     blocagem2:function () {
          if(position==4) console.log("Já está no Blocagem 2");
         else{
-            directory.coursesView.setPositions("data/2_cluster.json", 0);
+            directory.coursesView.setPositions("data/cls_fa/2_cluster.json", 0);
             position = 4;
             console.log("Blocagem 2");
 
@@ -70,7 +70,7 @@ directory.ShellView = Backbone.View.extend({
     blocagem3:function () {
          if(position==5) console.log("Já está no Blocagem 3");
         else{
-            directory.coursesView.setPositions("data/3_cluster.json", 0);
+            directory.coursesView.setPositions("data/cls_fa/3_cluster.json", 0);
             position = 5;
             console.log("Blocagem 3");
 
@@ -81,7 +81,7 @@ directory.ShellView = Backbone.View.extend({
     blocagem4:function () {
         if(position==6) console.log("Já está no Blocagem 4");
         else{
-            directory.coursesView.setPositions("data/4_cluster.json", 0);
+            directory.coursesView.setPositions("data/cls_fa/4_cluster.json", 0);
             position = 6;
             console.log("Blocagem 4");
 
@@ -101,7 +101,7 @@ directory.ShellView = Backbone.View.extend({
     },
     
     taxareprovacao:function () {
-        if(position==8) console.log("Já está na taxareprovacao");
+        if(position==8) console.log("Já está na Taxa Reprovacao");
         else{
             //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
             directory.coursesView.taxaReprovacao("data/media_disciplinas.json", 0);
