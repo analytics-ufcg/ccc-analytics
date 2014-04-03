@@ -8,8 +8,8 @@ directory.CoursesView = Backbone.View.extend({
 
 	initialize: function() {
 
-		var dataframe = readJSON("data/grade-disciplinas-por-periodo.json");
-		//var dataframe = readJSON("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo");
+		//var dataframe = readJSON("data/grade-disciplinas-por-periodo.json");
+		var dataframe = readJSON("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo");
 		//console.log(dataframe);
 		
 		this.collection = new directory.CourseCollection(dataframe);
@@ -36,7 +36,7 @@ directory.CoursesView = Backbone.View.extend({
 		instance.setSuspendDrawing(true);
         _.each(dataframe, function(data) {
         	//console.log(data);
-        	jsplumb_connection(data["cod2"], data["cod1"]);
+        	jsplumb_connection(data["codigoPreRequisito"], data["codigo"]);
 
         });
         instance.setSuspendDrawing(false,true);
@@ -52,8 +52,13 @@ directory.CoursesView = Backbone.View.extend({
 		refreshSlots();
 
 		_.each(dataframe, function(data) {
+			var periodo;
 
-		 	var periodo = data["periodo"];
+			if(change_opacity == 1){
+				periodo = data["periodoMaisFreq1st"];
+			}
+			else periodo = data["periodo"];
+
 		 	var slot = $("#"+data["codigo"]);
 
 		 	slot.css('top',100*top_div[periodo]+100+'px');
@@ -65,9 +70,9 @@ directory.CoursesView = Backbone.View.extend({
 			slot.css('left',getSlotCaixa()*(periodo-1)+'px');
 
 			if(change_opacity == 1){
-				slot.css({"opacity":data["FreqRelativa1st"]});
+				slot.css({"opacity":data["freqRelativa1st"]});
 				slot.mouseover(function(){
-					setDivMouseOn(slot, data["PerMaisFreq2nd"], data["PerMaisFreq3rd"], data["FreqRelativa2nd"],data["FreqRelativa3rd"], slot.text());
+					setDivMouseOn(slot, data["periodoMaisFreq2nd"], data["periodoMaisFreq3rd"], data["freqRelativa2nd"],data["freqRelativa3rd"], slot.text());
 					$("#blocagem1").show();
 					$("#blocagem2").show();
 				});
@@ -132,17 +137,18 @@ directory.CoursesView = Backbone.View.extend({
 		var min = 1;
 
 		min = _.min(dataframe,function(data) {
-		    return data["cor"];
+		    return data["correlacao"];
 		});
 
-		console.log(min);
+		//console.log(min);
 
 		jsplumbdeleteEveryEndpoint();
 
 		instance.setSuspendDrawing(true);
         _.each(dataframe, function(data) {
         	//console.log(data);
-        	jsplumb_CorrelationConnection(data["cod2"], data["cod1"], data["cor"], min["cor"]);
+        	
+        	jsplumb_CorrelationConnection(data["codigoDisciplina2"], data["codigoDisciplina1"], data["correlacao"], min["correlacao"]);
 
         });
         instance.setSuspendDrawing(false,true);
