@@ -33,11 +33,17 @@ def reprovacoes():
 	response.headers['Access-Control-Allow-Origin'] = "*"
 	return response
 
+@app.route('/correlacoes')
+def correlacoesValorDefault():
+	return correlacoes(0.5)
+
 @app.route('/correlacoes/<valor_correlacao>')
 def correlacoes(valor_correlacao):
 	try:
 	   if(float(valor_correlacao)>=0.0 and float(valor_correlacao)<=1.0):
 	      response = dadosApiRest.correlacoes(float(valor_correlacao))
+	   else:
+	      response = dadosApiRest.correlacoes(0.5)
 	except ValueError:
 	   response = dadosApiRest.correlacoes(0.5)
 	response = make_response(response)
@@ -51,7 +57,7 @@ def info_clusters():
 	response.headers['Access-Control-Allow-Origin'] = "*"
 	return response
 
-@app.route('/Clusters')
+@app.route('/clusters')
 def clusters():
 	response = dadosApiRest.clusters()
 	response = make_response(response)

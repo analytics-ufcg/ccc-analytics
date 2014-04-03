@@ -8,7 +8,7 @@ def create_connection():
 def disciplinas_por_periodo():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select g.CodigoDisciplina, g.Periodo, d.NomeDisciplina from GradeDisciplinasPorPeriodo g, Disciplina d where d.CodigoDisciplina = g.CodigoDisciplina")
+    cursor.execute("select g.CodigoDisciplina, g.Periodo, d.Nome from GradeDisciplinasPorPeriodo g, Disciplina d where d.CodigoDisciplina = g.CodigoDisciplina and d.Obrigatoria = 1 order by g.Periodo")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
@@ -36,7 +36,7 @@ def pre_requisitos():
 def maiores_frequencias():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select m.CodigoDisciplina, d.NomeDisciplina, m.PeriodoMaisFreq1st, m.FreqRelativa1st, m.PeriodoMaisFreq2nd, m.FreqRelativa2nd, m.PeriodoMaisFreq3rd ,m.FreqRelativa3rd, m.TotalDeAlunosPorDisciplina from MaioresFrequenciasPorDisciplina m, Disciplina d where d.CodigoDisciplina = m.CodigoDisciplina")
+    cursor.execute("select m.CodigoDisciplina, d.Nome, m.PeriodoMaisFreq1st, m.FreqRelativa1st, m.PeriodoMaisFreq2nd, m.FreqRelativa2nd, m.PeriodoMaisFreq3rd ,m.FreqRelativa3rd, m.TotalDeAlunosPorDisciplina from MaioresFrequenciasPorDisciplina m, Disciplina d where d.CodigoDisciplina = m.CodigoDisciplina and d.Obrigatoria = 1 order by m.PeriodoMaisFreq1st")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
@@ -49,7 +49,7 @@ def maiores_frequencias():
 def reprovacoes():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select d.NomeDisciplina, r.CodigoDisciplina, r.ReprovacaoAbsoluta, r.ReprovacaoRelativa from Disciplina d, Reprovacoes r where d.CodigoDisciplina = r.CodigoDisciplina")
+    cursor.execute("select d.Nome, r.CodigoDisciplina, r.ReprovacaoAbsoluta, r.ReprovacaoRelativa from Disciplina d, Reprovacoes r where r.CodigoDisciplina = d.CodigoDisciplina and d.Obrigatoria = 1")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
@@ -62,7 +62,7 @@ def reprovacoes():
 def correlacoes(valor):
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select d1.NomeDisciplina, c.CodDisciplina1, d2.NomeDisciplina, c.CodDisciplina2, c.Correlacao from  CorrelacaoDisciplinasPorNotas c, Disciplina d1, Disciplina d2 where d1.CodigoDisciplina = c.CodDisciplina1 and d2.CodigoDisciplina = c.CodDisciplina2 and (c.Correlacao >= %f or c.Correlacao <= %f)" % (valor, -valor))
+    cursor.execute("select d1.Nome, c.CodDisciplina1, d2.Nome, c.CodDisciplina2, c.Correlacao from  CorrelacaoDisciplinasPorNotas c, Disciplina d1, Disciplina d2 where d1.CodigoDisciplina = c.CodDisciplina1 and d2.CodigoDisciplina = c.CodDisciplina2 and d1.Obrigatoria = 1 and d2.Obrigatoria = 1 and (c.Correlacao >= %f or c.Correlacao <= %f)" % (valor, -valor))
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
@@ -75,7 +75,7 @@ def correlacoes(valor):
 def info_clusters():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select * from InfoClusters")
+    cursor.execute("select * from InfoClusters order by Cluster")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
@@ -85,10 +85,10 @@ def info_clusters():
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
-def clusters():
+def clusters(numero_cluster):
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select d.NomeDisciplina, c.CodigoDisciplina, c.Periodo, c.Cluster from Clusters c, Disciplina d ")
+    cursor.execute("select d.Nome, c.CodigoDisciplina, c.Periodo, c.Cluster from Clusters c, Disciplina d where c.CodigoDisciplina = d.CodigoDisciplina and d.Obrigatoria = 1 and c.Cluster = %d) order by c.Cluster, c.Periodo" % (numero_cluster))
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
