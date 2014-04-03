@@ -148,7 +148,7 @@ directory.CoursesView = Backbone.View.extend({
         _.each(dataframe, function(data) {
         	//console.log(data);
         	
-        	jsplumb_CorrelationConnection(data["codigoDisciplina2"], data["codigoDisciplina1"], data["correlacao"], min["correlacao"]);
+        	jsplumb_CorrelationConnection(data["codigo2"], data["codigo1"], data["correlacao"], min["correlacao"]);
 
         });
         instance.setSuspendDrawing(false,true);

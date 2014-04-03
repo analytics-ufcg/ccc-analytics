@@ -107,7 +107,7 @@ function jsplumb_CorrelationConnection(source, target, correlacao, correlacaoMin
 
 	var lineWidth = (valorMax * (1 - correlacaoMin) - ((valorMax - valorMin) * (1 - Math.abs(correlacao)) ) ) / (1 - correlacaoMin);
 
-	console.log(lineWidth + " " + correlacao+" "+color);
+	//console.log(lineWidth + " " + correlacao+" "+color);
 	//		connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
 
 
