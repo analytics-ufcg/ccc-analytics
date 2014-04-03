@@ -55,7 +55,7 @@ def reprovacoes():
     lista_tuplas = []
     for tupla in rows:
        lista_tuplas.append(tupla)
-    col = ["Nome", "Codigo", "ReprovacaoAbsoluta", "ReprovacaoRelativa"]
+    col = ["disciplina", "codigo", "reprovacaoAbsoluta", "reprovacaoRelativa"]
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
@@ -68,7 +68,7 @@ def correlacoes(valor):
     lista_tuplas = []
     for tupla in rows:
        lista_tuplas.append(tupla)
-    col = ["NomeDisciplina1", "codigoDisciplina1", "NomeDisciplina2", "codigoDisciplina2", "correlacao"]
+    col = ["disciplina1", "codigo1", "disciplina2", "codigo2", "correlacao"]
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
@@ -81,7 +81,7 @@ def info_clusters():
     lista_tuplas = []
     for tupla in rows:
        lista_tuplas.append(tupla)
-    col = ["Cluster", "Rotulo", "Descricao"]
+    col = ["cluster", "rotulo", "descricao"]
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
@@ -94,7 +94,7 @@ def clusters(numero_cluster):
     lista_tuplas = []
     for tupla in rows:
        lista_tuplas.append(tupla)
-    col = ["NomeDisciplina","CodigoDisciplina", "Periodo", "Cluster"]
+    col = ["disciplina","codigo", "periodo", "cluster"]
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 
