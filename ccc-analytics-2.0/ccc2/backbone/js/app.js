@@ -37,8 +37,6 @@ directory.Router = Backbone.Router.extend({
 		$("#div_flowchart").html(directory.flowchartView.render().el);
 
 		initModal();
-		
-		dialog(); // - legenda do gráfico da taxa de reprovação - aparecer apenas no gráfico da reprovaçao
 
 		directory.coursesView = new directory.CoursesView();
 		$("#main").append(directory.coursesView.render().el);
@@ -47,6 +45,8 @@ directory.Router = Backbone.Router.extend({
 
 		//directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo");
 		directory.coursesView.connect("data/prereq.json");
+		
+		//dialog(); // - legenda do gráfico da taxa de reprovação - aparecer apenas no gráfico da reprovaçao
 
 	}
 });

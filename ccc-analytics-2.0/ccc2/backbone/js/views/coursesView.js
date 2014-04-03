@@ -123,8 +123,6 @@ directory.CoursesView = Backbone.View.extend({
 				slot.css("background-color", "#441428");
 			}
         });
-        
-
 	},
 	
 	
@@ -148,8 +146,6 @@ directory.CoursesView = Backbone.View.extend({
 
         });
         instance.setSuspendDrawing(false,true);
-		
-		
 	}
 
 });
