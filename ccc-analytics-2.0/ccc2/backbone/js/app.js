@@ -44,8 +44,8 @@ directory.Router = Backbone.Router.extend({
 		init_jsplumb();
 
 		//directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo");
-		directory.coursesView.connect("data/prereq.json");
-		
+		//directory.coursesView.connect("data/prereq.json");
+		directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
 		//dialog(); // - legenda do gráfico da taxa de reprovação - aparecer apenas no gráfico da reprovaçao
 
 	}
