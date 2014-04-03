@@ -25,9 +25,11 @@ directory.ShellView = Backbone.View.extend({
     fluxograma:function () {
         if(position==1) console.log("Já está no Fluxograma");
         else{
-            //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
-            directory.coursesView.setPositions("data/grade-disciplinas-por-periodo.json", 0);
-            directory.coursesView.connect("data/prereq.json");
+            directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
+            //directory.coursesView.setPositions("data/grade-disciplinas-por-periodo.json", 0);
+            //directory.coursesView.connect("data/prereq.json");
+            directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
+           
             position = 1;
             console.log("Fluxograma Comum");
         } 
@@ -36,7 +38,9 @@ directory.ShellView = Backbone.View.extend({
     blocagemComum:function () {
         if(position==2) console.log("Já está no Blocagem Comum");
         else{
-            directory.coursesView.setPositions("data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.json", 1);
+            // directory.coursesView.setPositions("data/maiores_frequencias_por_disciplina_ordenado_obrigatorias.json", 1);
+            directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/maioresFrequencias", 1);
+           
             position = 2;
             console.log("Blocagem Comum");
 
@@ -92,9 +96,10 @@ directory.ShellView = Backbone.View.extend({
         if(position==7) console.log("Já está na Correlação");
         else{
             //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
-            if(position!=1) directory.coursesView.setPositions("data/grade-disciplinas-por-periodo.json", 0);
+            if(position!=1) directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
+            directory.coursesView.correlacao("http://analytics.lsd.ufcg.edu.br/ccc//correlacoes/0.5");
             
-            directory.coursesView.correlacao("data/US06_matrizCorrelacaoFiltrada_spearman.json");
+            //directory.coursesView.correlacao("data/US06_matrizCorrelacaoFiltrada_spearman.json");
             position = 7;
             console.log("Correlacao");
         }    
