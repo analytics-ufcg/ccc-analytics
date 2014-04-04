@@ -32,6 +32,7 @@ directory.ShellView = Backbone.View.extend({
            	
             position = 1;
             console.log("Fluxograma Comum");
+            $("#idtitulo").text("Fluxograma Comum");
             
         } 
     },
@@ -47,10 +48,8 @@ directory.ShellView = Backbone.View.extend({
             
             
             
-            $("tituloId").text("Blocagem mais comum");
-            //$("titulo").text("Blocagem mais comum");
+            $("#idtitulo").text("Blocagem mais comum");
             
-             $("titulo#idtitulo").text("idtitulo");
         } 
     },
 
@@ -63,9 +62,8 @@ directory.ShellView = Backbone.View.extend({
            
             position = 3;
             console.log("Blocagem 1");
-			
-			$("tituloId").text("Blocagem mais comum");
-            $("titulo").text("Blocagem mais comum");
+            $("#idtitulo").text("Blocagem 1");
+		
         } 
         
     },
@@ -77,6 +75,7 @@ directory.ShellView = Backbone.View.extend({
             directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/clusters/2", 0);
             position = 4;
             console.log("Blocagem 2");
+            $("#idtitulo").text("Blocagem 2");
 				
         } 
         
@@ -89,6 +88,7 @@ directory.ShellView = Backbone.View.extend({
             directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/clusters/3", 0);
             position = 5;
             console.log("Blocagem 3");
+            $("#idtitulo").text("Blocagem 3");
 
         }     
         
@@ -101,6 +101,7 @@ directory.ShellView = Backbone.View.extend({
             directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/clusters/4", 0);
             position = 6;
             console.log("Blocagem 4");
+            $("#idtitulo").text("Blocagem 4");
 
         }    
     },
@@ -115,6 +116,7 @@ directory.ShellView = Backbone.View.extend({
             //directory.coursesView.correlacao("data/US06_matrizCorrelacaoFiltrada_spearman.json");
             position = 7;
             console.log("Correlacao");
+            $("#idtitulo").text("Correlacao");
         }    
     },
     
@@ -127,6 +129,7 @@ directory.ShellView = Backbone.View.extend({
             position = 8;
             console.log("taxareprovacao");
 			dialog();
+            $("#idtitulo").text("Taxa de Reprovação");
         }    
     }
 });
