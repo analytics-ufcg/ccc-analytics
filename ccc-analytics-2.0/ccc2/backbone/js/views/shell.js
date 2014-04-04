@@ -50,10 +50,8 @@ directory.ShellView = Backbone.View.extend({
             $("tituloId").text("Blocagem mais comum");
             //$("titulo").text("Blocagem mais comum");
             
-            idtitulo.innerHTML = "OLA";
-
+             $("titulo#idtitulo").text("idtitulo");
         } 
-        
     },
 
     blocagem1:function () {
