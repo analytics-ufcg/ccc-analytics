@@ -29,9 +29,10 @@ directory.ShellView = Backbone.View.extend({
             //directory.coursesView.setPositions("data/grade-disciplinas-por-periodo.json", 0);
             //directory.coursesView.connect("data/prereq.json");
             directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
-           
+           	
             position = 1;
             console.log("Fluxograma Comum");
+            
         } 
     },
 
@@ -43,6 +44,13 @@ directory.ShellView = Backbone.View.extend({
            
             position = 2;
             console.log("Blocagem Comum");
+            
+            
+            
+            $("tituloId").text("Blocagem mais comum");
+            //$("titulo").text("Blocagem mais comum");
+            
+            idtitulo.innerHTML = "OLA";
 
         } 
         
@@ -55,7 +63,9 @@ directory.ShellView = Backbone.View.extend({
             directory.coursesView.setPositions("data/cls_fa/1_cluster.json", 0);
             position = 3;
             console.log("Blocagem 1");
-
+			
+			$("tituloId").text("Blocagem mais comum");
+            $("titulo").text("Blocagem mais comum");
         } 
         
     },
@@ -66,7 +76,7 @@ directory.ShellView = Backbone.View.extend({
             directory.coursesView.setPositions("data/cls_fa/2_cluster.json", 0);
             position = 4;
             console.log("Blocagem 2");
-
+				
         } 
         
     },
@@ -113,7 +123,7 @@ directory.ShellView = Backbone.View.extend({
 
             position = 8;
             console.log("taxareprovacao");
-
+			dialog();
         }    
     }
 });
