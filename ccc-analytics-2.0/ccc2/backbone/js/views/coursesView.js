@@ -112,7 +112,7 @@ directory.CoursesView = Backbone.View.extend({
         	var slot = $("#" + data["codigo"]);
 
 
-			if(media_de_reprovacoes => 0 && media_de_reprovacoes <= 0.1) {
+			if(media_de_reprovacoes >= 0 && media_de_reprovacoes <= 0.1) {
 				slot.css("background-color", "#FF4D94");
 			}
 			if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.3) {
