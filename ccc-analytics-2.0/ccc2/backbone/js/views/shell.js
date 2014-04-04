@@ -32,7 +32,8 @@ directory.ShellView = Backbone.View.extend({
            	
             position = 1;
             console.log("Fluxograma Comum");
-            $("#idtitulo").text("Fluxograma Comum");
+            $("#idtitulo").text("Plano de Curso");
+             $("#iddescricao").text("É o plano padrão de curso sugerido pela coordenação do curso - não inclui as disciplinas optativas. A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.");	
             
         } 
     },
@@ -45,11 +46,8 @@ directory.ShellView = Backbone.View.extend({
            
             position = 2;
             console.log("Blocagem Comum");
-            
-            
-            
             $("#idtitulo").text("Blocagem mais comum");
-            
+            $("#iddescricao").text("É a blocagem mais comumente (mais frequente) cursada pelos alunos de graduação.");
         } 
     },
 
@@ -63,7 +61,7 @@ directory.ShellView = Backbone.View.extend({
             position = 3;
             console.log("Blocagem 1");
             $("#idtitulo").text("Blocagem 1");
-		
+            $("#iddescricao").text("Alunos que dividiram bem o número de optativas por período.");        
         } 
         
     },
@@ -76,7 +74,7 @@ directory.ShellView = Backbone.View.extend({
             position = 4;
             console.log("Blocagem 2");
             $("#idtitulo").text("Blocagem 2");
-				
+			$("#iddescricao").text("Alunos que optaram por pagar mais optativas no final do curso.");   
         } 
         
     },
@@ -89,21 +87,10 @@ directory.ShellView = Backbone.View.extend({
             position = 5;
             console.log("Blocagem 3");
             $("#idtitulo").text("Blocagem 3");
+            $("#iddescricao").text("Alunos que perderam disciplinas da área de exatas no início do curso.");
 
         }     
         
-    },
-
-    blocagem4:function () {
-        if(position==6) console.log("Já está no Blocagem 4");
-        else{
-            //directory.coursesView.setPositions("data/cls_fa/4_cluster.json", 0);
-            directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/clusters/4", 0);
-            position = 6;
-            console.log("Blocagem 4");
-            $("#idtitulo").text("Blocagem 4");
-
-        }    
     },
     
     correlacao:function () {
@@ -116,7 +103,8 @@ directory.ShellView = Backbone.View.extend({
             //directory.coursesView.correlacao("data/US06_matrizCorrelacaoFiltrada_spearman.json");
             position = 7;
             console.log("Correlacao");
-            $("#idtitulo").text("Correlacao");
+            $("#idtitulo").text("Correlação entre Disciplinas");
+            $("#iddescricao").text("Representa a correlação entre disciplinas com base na média de cada aluno que cursou ambas. Quanto mais espessa a linha que interliga as disciplinas, maior a correlação entre elas.");   
         }    
     },
     
@@ -128,8 +116,9 @@ directory.ShellView = Backbone.View.extend({
 
             position = 8;
             console.log("taxareprovacao");
+			$("#idtitulo").text("Taxa de Reprovação de cada Disciplinas");
+            $("#iddescricao").text("Representa o índice de reprovação dos alunos em cada disciplina. Quanto mais escura a disciplina, maior seu índice de reprovação.");
 			dialog();
-            $("#idtitulo").text("Taxa de Reprovação");
         }    
     }
 });
