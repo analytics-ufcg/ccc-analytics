@@ -1,0 +1,68 @@
+[
+  {
+    "disciplina":"Álgebra Vetorial e Geometria Analítica",
+    "periodo":1,
+    "cluster":1,
+    "codigo":1109035
+  },
+  {
+    "disciplina":"Cálculo Diferencial e Integral 1",
+    "periodo":1,
+    "cluster":1,
+    "codigo":1109103
+  },
+  {
+    "disciplina":"Programação 1",
+    "periodo":1,
+    "cluster":1,
+    "codigo":1411167
+  },
+  {
+    "disciplina":"Introdução a Computação",
+    "periodo":1,
+    "cluster":1,
+    "codigo":1411174
+  },
+  {
+    "disciplina":"Laboratório de Programação 1",
+    "periodo":1,
+    "cluster":1,
+    "codigo":1411180
+  },
+  {
+    "disciplina":"Álgebra Linear",
+    "periodo":2,
+    "cluster":1,
+    "codigo":1109049
+  },
+  {
+    "disciplina":"Matemática Discreta",
+    "periodo":2,
+    "cluster":1,
+    "codigo":1109113
+  },
+  {
+    "disciplina":"Informática e Sociedade",
+    "periodo":2,
+    "cluster":1,
+    "codigo":1305220
+  },
+  {
+    "disciplina":"Leitura e Produção de Textos",
+    "periodo":2,
+    "cluster":1,
+    "codigo":1307151
+  },
+  {
+    "disciplina":"Direito e Cidadania",
+    "periodo":3,
+    "cluster":1,
+    "codigo":1305219
+  },
+  {
+    "disciplina":"Teoria dos Grafos",
+    "periodo":3,
+    "cluster":1,
+    "codigo":1411170
+  }
+]

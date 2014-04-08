@@ -1,0 +1,10 @@
+DROP TABLE DisciplinaAluno
+DROP TABLE Disciplina
+DROP TABLE Situacao
+DROP TABLE Departamento
+DROP TABLE Aluno
+DROP TABLE PreRequisitosDisciplina
+DROP TABLE GradeDisciplinasPorPeriodo
+DROP TABLE Reprovacoes
+DROP TABLE PerfisFluxograma
+DROP TABLE MaioresFrequenciasPorDisciplina

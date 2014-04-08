@@ -1,0 +1,145 @@
+#demo {
+	margin-top:5em;
+}
+
+.w { 	
+	padding:16px;
+	position:absolute;
+	border: 1px solid black;
+	z-index:4;
+	border-radius:1em;
+	border:1px solid #2e6f9a;
+	box-shadow: 2px 2px 19px #e0e0e0;
+	-o-box-shadow: 2px 2px 19px #e0e0e0;
+	-webkit-box-shadow: 2px 2px 19px #e0e0e0;
+	-moz-box-shadow: 2px 2px 19px #e0e0e0;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	opacity:0.8;
+	filter:alpha(opacity=80);
+	cursor:move;
+	background-color:white;
+	font-size:11px;
+	-webkit-transition:background-color 0.25s ease-in;
+	-moz-transition:background-color 0.25s ease-in;
+	transition:background-color 0.25s ease-in;	
+}
+
+.w:hover {
+	background-color: #5c96bc;
+	color:white;
+
+}
+
+.aLabel {
+	-webkit-transition:background-color 0.25s ease-in;
+	-moz-transition:background-color 0.25s ease-in;
+	transition:background-color 0.25s ease-in;
+}
+
+.aLabel._jsPlumb_hover, ._jsPlumb_source_hover, ._jsPlumb_target_hover {
+	background-color:#1e8151;
+	color:white;
+}
+
+.aLabel {
+	background-color:white;
+	opacity:0.8;
+	padding:0.3em;				
+	border-radius:0.5em;
+	border:1px solid #346789;
+	cursor:pointer;
+}
+
+.ep {
+	position:absolute;
+	bottom: 37%;
+	right: 5px;
+	width:1em;
+	height:1em;
+	background-color:orange;
+	cursor:pointer;
+	box-shadow: 0px 0px 2px black;
+	-webkit-transition:-webkit-box-shadow 0.25s ease-in;
+	-moz-transition:-moz-box-shadow 0.25s ease-in;
+	transition:box-shadow 0.25s ease-in;
+}
+
+.ep:hover {
+	box-shadow: 0px 0px 6px black;
+}
+
+.statemachine-demo ._jsPlumb_endpoint {
+	z-index:3;
+}
+
+#progI {
+	left:25px;
+	top:100px;
+	width:10em;
+}
+
+#labprogI {
+	left:25px;
+	top:200px;
+	width:10em;
+}
+#ic {
+	left:25px;
+	top:300px;
+	width:10em;
+}
+#calI {
+	left:25px;
+	top:400px;
+	width:10em;
+}
+#vetorial {
+	left:25px;
+	top:500px;
+	width:10em;
+}
+#lpt {
+	left:25px;
+	top:600px;
+	width:10em;
+}
+
+#progII {
+	left:275px;
+	top:350px;
+	width:10em;
+}
+#labprogII {
+	left:275px;
+	top:23em;
+	width:10em;
+}
+#teoria_dos_grafos {
+	left:275px;
+	top:24em;
+	width:10em;
+}
+#calcII {
+	left:275px;
+	top:35em;
+	width:10em;
+}
+#matdiscreta {
+	left:275px;
+	top:23em;
+	width:10em;
+}
+#met_cientifica {
+	left:275px;
+	top:24em;
+	width:10em;
+}
+#ffc {
+	left:275px;
+	top:35em;
+	width:10em;
+}
+.dragHover { border:2px solid orange; }
+
+path { cursor:pointer; }

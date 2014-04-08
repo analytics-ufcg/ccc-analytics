@@ -1,0 +1,466 @@
+  svg {
+  font: 10px sans-serif;
+}
+
+.background path {
+  fill: none;
+  stroke: #ffffff;
+  /*stroke-opacity: .4;*/
+  stroke-width: 4px;
+}
+
+.foreground path { 
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 3px;
+  /*stroke-opacity: .5;*/
+}
+
+.foreground path.inactive {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .3;
+  stroke-width: 1px;
+}
+
+.brush .extent {
+  fill-opacity: .3;
+  stroke: green;
+  shape-rendering: crispEdges;
+}
+
+.axis .title {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.label {
+  -webkit-transition: fill 125ms linear;
+}
+
+.active .label:not(.inactive) {
+  font-weight: bold;
+}
+
+.label.inactive {
+  fill: #ccc;
+}
+
+
+/*Departamentos*/
+.foreground path.dsc {
+ stroke:#377EB8 ; /*azul*/
+}
+.foreground path.fisica {
+ stroke:#A6761D; /*rosa*/
+}
+.foreground path.dme {
+ stroke:#E41A1C; /*vermelho*/
+ /*stroke-dasharray: 5,5;*/
+}
+.foreground path.humanas {
+ stroke:#FFCC00; /*laranja*/
+}
+.foreground path.esportes {
+ stroke:#4DAF4A; /*verde*/
+}
+
+.foreground path.perdeu {
+ stroke-dasharray: 5,5;
+}
+
+/*Vezes Cursadas - repeticoes*/
+.foreground path.primeira {
+ stroke: green ; 
+}
+.foreground path.segunda {
+ stroke: orange; 
+}
+.foreground path.terceira {
+ stroke: red; 
+}
+.foreground path.quarta {
+ stroke: #472400; 
+}
+
+
+
+/*Agrupamento*/
+.foreground path.grupo1 {
+ stroke: #e41a1c ; 
+}
+.foreground path.grupo2 {
+ stroke: #377eb8; 
+}
+.foreground path.grupo3 {
+ stroke: #4daf4a; 
+}
+.foreground path.grupo4 {
+ stroke: #984ea3; 
+}
+.foreground path.grupo5 {
+ stroke: #ff7f00; 
+}
+.foreground path.grupo6 {
+ stroke: #ffff33; 
+}
+.foreground path.grupo7 {
+ stroke: #a65628; 
+}
+.foreground path.grupo8 {
+ stroke: #f781bf; 
+}
+.foreground path.grupo9  {
+ stroke: #999999; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Disciplinas - (ainda não está sendo usada)*/
+.foreground path.adm {
+ stroke:#080;
+}
+
+.foreground path.linear {
+ stroke:##CCFF00;
+}
+
+.foreground path.vetorial {
+ stroke:#080;
+}
+
+.foreground path.atal {
+ stroke:#FF99CC;
+}
+
+.foreground path.adsd {
+ stroke:#CCFFFF;
+}
+
+.foreground path.bd1 {
+ stroke:#080;
+}
+
+.foreground path.bd2 {
+ stroke:#080;
+}
+
+.foreground path.basquete {
+ stroke:#ff7f0e;
+}
+
+.foreground path.calculo1 {
+ stroke:#080;
+}
+
+.foreground path.calculo2 {
+ stroke:#080;
+}
+
+.foreground path.calculo3 {
+ stroke:#080;
+}
+
+.foreground path.compiladores {
+  stroke: red;
+}
+
+.foreground path.direito {
+ stroke:#080;
+}
+
+.foreground path.economia {
+ stroke:#080;
+}
+
+.foreground path.empreendedorismo {
+ stroke:#080;
+}
+
+.foreground path.es {
+ stroke:#080;
+}
+
+.foreground path.eqdiferenciais {
+ stroke:#080;
+}
+
+.foreground path.estagio {
+ stroke:#080;
+}
+
+.foreground path.eda{
+ stroke:#080;
+}
+
+.foreground path.expgrafica {
+ stroke:#080;
+}
+
+.foreground path.classica {
+ stroke:#080;
+}
+
+.foreground path.moderna {
+ stroke:#080;
+}
+
+.foreground path.futsal {
+ stroke:#080;
+}
+
+.foreground path.gi {
+ stroke:#080;
+}
+
+.foreground path.gredes {
+ stroke:#080;
+}
+
+.foreground path.infosoc {
+ stroke:#080;
+}
+
+.foreground path.ingles {
+ stroke:#080;
+}
+
+.foreground path.ia1 {
+ stroke:#080;
+}
+
+.foreground path.ic{
+ stroke:#080;
+}
+
+.foreground path.irc {
+ stroke:#080;
+}
+
+.foreground path.les{
+ stroke:#080;
+}
+
+.foreground path.leda{
+ stroke:#080;
+}
+
+.foreground path.lirc{
+ stroke:#080;
+}
+
+.foreground path.loac{
+ stroke:#080;
+}
+
+.foreground path.lp1{
+ stroke:#080;
+}
+
+.foreground path.lp2{
+ stroke:#080;
+}
+
+.foreground path.lpt{
+ stroke:#080;
+}
+
+.foreground path.loac{
+ stroke:#080;
+}
+
+.foreground path.logica{
+ stroke:#080;
+}
+
+.foreground path.discreta{
+ stroke:#080;
+}
+
+.foreground path.metodologia{
+ stroke:#080;
+}
+
+.foreground path.msn{
+ stroke:#080;
+}
+
+.foreground path.metodos{
+ stroke:#080;
+}
+
+.foreground path.oac{
+ stroke:#080;
+}
+
+.foreground path.plp{
+ stroke:#080;
+}
+
+.foreground path.probabilidade{
+ stroke:#080;
+}
+
+.foreground path.p1{
+ stroke:#080;
+}
+
+.foreground path.p2{
+ stroke:#080;
+}
+
+.foreground path.projredes{
+ stroke:#080;
+}
+
+.foreground path.proj1{
+ stroke:#080;
+}
+
+.foreground path.proj2{
+ stroke:#080;
+}
+
+.foreground path.quimica{
+ stroke:#080;
+}
+
+.foreground path.redes{
+ stroke:#080;
+}
+
+.foreground path.neurais{
+ stroke:#080;
+}
+
+.foreground path.rh{
+ stroke:#080;
+}
+
+.foreground path.seminarios{
+ stroke:#080;
+}
+
+.foreground path.si1{
+ stroke:#080;
+}
+
+.foreground path.si2{
+ stroke:#080;
+}
+
+.foreground path.so{
+ stroke:#080;
+}
+
+.foreground path.sociologia{
+ stroke:#080;
+}
+
+.foreground path.financeira{
+ stroke:#080;
+}
+
+.foreground path.admsistemas{
+ stroke:#080;
+}
+
+.foreground path.aa1{
+ stroke:#080;
+}
+
+.foreground path.aa2{
+ stroke:#080;
+}
+
+.foreground path.aa3{
+ stroke:#080;
+}
+
+.foreground path.eti{
+ stroke:#080;
+}
+
+.foreground path.estagio2{
+ stroke:#080;
+}
+
+.foreground path.rv{
+ stroke:#080;
+}
+
+.foreground path.metodosformais{
+ stroke:#080;
+}
+
+.foreground path.mav{
+ stroke:#080;
+}
+
+.foreground path.redesadhoc{
+ stroke:#080;
+}
+
+.foreground path.segredes{
+ stroke:#080;
+}
+
+.foreground path.sri{
+ stroke:#080;
+}
+
+.foreground path.visaocomputacional{
+ stroke:#080;
+}
+
+.foreground path.didatica1{
+ stroke:#080;
+}
+
+.foreground path.didatica2{
+ stroke:#080;
+}
+
+.foreground path.empsof{
+ stroke:#080;
+}
+
+.foreground path.concorrente{
+ stroke:#080;
+}
+
+.foreground path.eptgmdadoshistoricos{
+ stroke:#080;
+}
+
+.foreground path.teoria{
+ stroke:#080;
+}
+
+.foreground path.grafos{
+ stroke:#080;
+}

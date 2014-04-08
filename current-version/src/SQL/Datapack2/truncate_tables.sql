@@ -1,0 +1,10 @@
+TRUNCATE TABLE Departamento
+TRUNCATE TABLE Situacao
+TRUNCATE TABLE Aluno
+TRUNCATE TABLE Disciplina
+TRUNCATE TABLE DisciplinaAluno
+TRUNCATE TABLE PreRequisitosDisciplina
+TRUNCATE TABLE GradeDisciplinasPorPeriodo
+TRUNCATE TABLE Reprovacoes
+TRUNCATE TABLE PerfisFluxograma
+TRUNCATE TABLE MaioresFrequenciasPorDisciplina

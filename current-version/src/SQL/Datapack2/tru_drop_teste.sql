@@ -1,0 +1,2 @@
+TRUNCATE TABLE Teste;
+DROP TABLE Teste;

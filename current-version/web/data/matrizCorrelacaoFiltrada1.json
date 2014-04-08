@@ -1,0 +1,233 @@
+[
+  {
+    "cod1":1411180,
+    "cod2":1411167,
+    "cor":0.985175526721607,
+    "disc1":"Programação 1",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1307151,
+    "cod2":1108090,
+    "cor":0.950950768721762,
+    "disc1":"Física Moderna",
+    "disc2":"Leitura e Produção de Textos"
+  },
+  {
+    "cod1":1411187,
+    "cod2":1411168,
+    "cor":0.939259904564539,
+    "disc1":"Programação 2",
+    "disc2":"Análise e Técnica de Algorítimos"
+  },
+  {
+    "cod1":1411189,
+    "cod2":1109113,
+    "cor":0.925953559485714,
+    "disc1":"Matemática Discreta",
+    "disc2":"Compiladores"
+  },
+  {
+    "cod1":1411181,
+    "cod2":1411168,
+    "cor":0.900752799888976,
+    "disc1":"Programação 2",
+    "disc2":"Laboratório de Programação 2"
+  },
+  {
+    "cod1":1411188,
+    "cod2":1411173,
+    "cor":0.895221578059701,
+    "disc1":"Lógica Matemática",
+    "disc2":"Métodos e Software Numéricos"
+  },
+  {
+    "cod1":1411196,
+    "cod2":1411173,
+    "cor":0.884036835635577,
+    "disc1":"Lógica Matemática",
+    "disc2":"Inteligência Artificial"
+  },
+  {
+    "cod1":1411168,
+    "cod2":1114114,
+    "cor":0.876095217465655,
+    "disc1":"Métodos Estatísticos",
+    "disc2":"Programação 2"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1411172,
+    "cor":0.868871885077406,
+    "disc1":"Estrutura de Dados",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1114114,
+    "cod2":1109035,
+    "cor":0.848778973858485,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Métodos Estatísticos"
+  },
+  {
+    "cod1":1411197,
+    "cod2":1305220,
+    "cor":0.833056287506233,
+    "disc1":"Informática e Sociedade",
+    "disc2":"Avaliação de Desempenho de Sistemas Discretos"
+  },
+  {
+    "cod1":1411187,
+    "cod2":1109113,
+    "cor":0.82433887222111,
+    "disc1":"Matemática Discreta",
+    "disc2":"Análise e Técnica de Algorítimos"
+  },
+  {
+    "cod1":1411184,
+    "cod2":1411179,
+    "cor":0.821994936526786,
+    "disc1":"Laboratório de Estrutura de Dados",
+    "disc2":"Laboratório de Interconexão de Redes de Computadores"
+  },
+  {
+    "cod1":1411191,
+    "cod2":1411179,
+    "cor":0.821994936526786,
+    "disc1":"Laboratório de Estrutura de Dados",
+    "disc2":"Interconexão de Redes de Computadores"
+  },
+  {
+    "cod1":1411187,
+    "cod2":1411181,
+    "cor":0.809789494589225,
+    "disc1":"Laboratório de Programação 2",
+    "disc2":"Análise e Técnica de Algorítimos"
+  },
+  {
+    "cod1":1411196,
+    "cod2":1114107,
+    "cor":0.785385794620394,
+    "disc1":"Probabilidade e Estatística",
+    "disc2":"Inteligência Artificial"
+  },
+  {
+    "cod1":1411183,
+    "cod2":1411168,
+    "cor":0.784464540552736,
+    "disc1":"Programação 2",
+    "disc2":"Laboratório de Engenharia de Software"
+  },
+  {
+    "cod1":1411189,
+    "cod2":1411179,
+    "cor":0.774085280729385,
+    "disc1":"Laboratório de Estrutura de Dados",
+    "disc2":"Compiladores"
+  },
+  {
+    "cod1":1411181,
+    "cod2":1114114,
+    "cor":0.76458402734955,
+    "disc1":"Métodos Estatísticos",
+    "disc2":"Laboratório de Programação 2"
+  },
+  {
+    "cod1":1109103,
+    "cod2":1109035,
+    "cor":0.752407556112108,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Cálculo Diferencial e Integral 1"
+  },
+  {
+    "cod1":1411177,
+    "cod2":1411174,
+    "cor":0.73875337944019,
+    "disc1":"Introdução a Computação",
+    "disc2":"Engenharia de Software 1"
+  },
+  {
+    "cod1":1411186,
+    "cod2":1411177,
+    "cor":0.730136347499581,
+    "disc1":"Engenharia de Software 1",
+    "disc2":"Projeto em Computação 2"
+  },
+  {
+    "cod1":1411192,
+    "cod2":1109049,
+    "cor":0.728657081532024,
+    "disc1":"Álgebra Linear",
+    "disc2":"Sistemas Operacionais"
+  },
+  {
+    "cod1":1411192,
+    "cod2":1411176,
+    "cor":0.721172730533542,
+    "disc1":"Gerência da Informação",
+    "disc2":"Sistemas Operacionais"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1114107,
+    "cor":0.718152277247173,
+    "disc1":"Probabilidade e Estatística",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411197,
+    "cod2":1411178,
+    "cor":0.717137165600636,
+    "disc1":"Sistemas de Informação 1",
+    "disc2":"Avaliação de Desempenho de Sistemas Discretos"
+  },
+  {
+    "cod1":1411190,
+    "cod2":1411181,
+    "cor":0.714067855685398,
+    "disc1":"Laboratório de Programação 2",
+    "disc2":"Redes de Computadores"
+  },
+  {
+    "cod1":1411194,
+    "cod2":1411179,
+    "cor":0.711957358819543,
+    "disc1":"Laboratório de Estrutura de Dados",
+    "disc2":"Banco de Dados 2"
+  },
+  {
+    "cod1":1114107,
+    "cod2":1109103,
+    "cor":0.710308176657647,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Probabilidade e Estatística"
+  },
+  {
+    "cod1":1411192,
+    "cod2":1108090,
+    "cor":0.70868300812474,
+    "disc1":"Física Moderna",
+    "disc2":"Sistemas Operacionais"
+  },
+  {
+    "cod1":1411183,
+    "cod2":1411178,
+    "cor":0.705965412217643,
+    "disc1":"Sistemas de Informação 1",
+    "disc2":"Laboratório de Engenharia de Software"
+  },
+  {
+    "cod1":1411190,
+    "cod2":1109053,
+    "cor":-0.994696095196189,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Redes de Computadores"
+  },
+  {
+    "cod1":1411183,
+    "cod2":1108089,
+    "cor":-0.998442770921288,
+    "disc1":"Física Clássica",
+    "disc2":"Laboratório de Engenharia de Software"
+  }
+]

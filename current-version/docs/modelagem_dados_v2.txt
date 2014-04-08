@@ -1,0 +1,19 @@
+A seguir uma breve descrição da modelagem dos dados crus.
+
+  * Disciplinas iguais (ou muito semelhantes) com nome e código diferentes
+    ** INGLÊS (cod 1307150) e INGLES (1307011)
+      ~> Ambos considerados como INGLÊS e código 1307150
+
+    ** ÁLGEBRA LINEAR (cod 1109101) e ÁLGEBRA LINEAR I (cod 1109049)
+      ~> Ambos considerados como ÁLGEBRA LINEAR e código 1109049.
+
+    ** CALCULO DIF E INTEGRAL I (cód 1109103) e CALCULO DIFERENCIAL E INTEGRAL I (1109050)
+      ~> Ambos considerados como CALCULO DIFERENCIAL E INTEGRAL I código 1109103
+
+    ** CALCULO DIF E INTEGRAL II com dois códigos (1109104 e 1109131) e CALCULO DIFERENCIAL E INTEGRAL II (1109053)
+      ~> Os três considerados como CALCULO DIFERENCIAL E INTEGRAL II código 1109053
+
+    ** CALCULO DIF E INTEGRAL III com dois códigos (1109105 e 1109128)
+      ~> Ambos considerados como CALCULO DIFERENCIAL E INTEGRAL III código 1109105
+
+
