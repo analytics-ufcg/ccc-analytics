@@ -98,7 +98,7 @@ directory.ShellView = Backbone.View.extend({
         else{
             //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
             if(position!=1) directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-            directory.coursesView.correlacao("http://analytics.lsd.ufcg.edu.br/ccc//correlacoes/0.5");
+            directory.coursesView.correlacao("http://analytics.lsd.ufcg.edu.br/ccc//correlacoes/0.545");
             
             //directory.coursesView.correlacao("data/US06_matrizCorrelacaoFiltrada_spearman.json");
             position = 7;
