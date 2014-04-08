@@ -108,7 +108,7 @@ directory.CoursesView = Backbone.View.extend({
         _.each(dataframe, function(data) {
         	//console.log(data);
 
-        	var media_de_reprovacoes = data["media_de_reprovacoes"];
+        	var media_de_reprovacoes = data["reprovacaoRelativa"];
         	var slot = $("#" + data["codigo"]);
 
 

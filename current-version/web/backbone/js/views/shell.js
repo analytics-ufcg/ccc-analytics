@@ -112,13 +112,13 @@ directory.ShellView = Backbone.View.extend({
         if(position==8) console.log("Já está na Taxa Reprovacao");
         else{
             //directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
-            directory.coursesView.taxaReprovacao("data/media_disciplinas.json", 0);
+            directory.coursesView.taxaReprovacao("http://analytics.lsd.ufcg.edu.br/ccc/reprovacoes", 0);
 
             position = 8;
             console.log("taxareprovacao");
 			$("#idtitulo").text("Taxa de Reprovação de cada Disciplinas");
             $("#iddescricao").text("Representa o índice de reprovação dos alunos em cada disciplina. Quanto mais escura a disciplina, maior seu índice de reprovação.");
-			dialog();
+			//dialog();
         }    
     }
 });
