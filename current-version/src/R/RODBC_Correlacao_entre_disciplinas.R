@@ -33,11 +33,11 @@ formataMatrizCorrelacao <- function(matrizCorrelacao,grade,value1,value2){
 #notas <- read.csv("historico-ccc.csv", header = TRUE, sep=",")
 notas <- sqlQuery(channel, "select da.Periodo, da.CodigoDisciplina,  d.NomeDisciplina, da.MatriculaAluno, da.Media
                    from Disciplina d, DisciplinaAluno da, Situacao s 
-                   where d.CodigoDisciplina = da.CodigoDisciplina and s.CodigoSituacao = da.CodigoSituacao and s.CodigoSituacao != 3 and s.CodigoSituacao != 4 and d.Obrigatoria = TRUE")
+                   where d.CodigoDisciplina = da.CodigoDisciplina and s.CodigoSituacao = da.CodigoSituacao and s.CodigoSituacao != 3 and s.CodigoSituacao != 4 and d.Obrigatoria = TRUE", stringsAsFactors = FALSE)
 
 #infoAssi <- read.csv("arquivo_informacao_das_disciplinas.csv", header = TRUE, sep=",")
 infoAssi <- sqlQuery(channel, "select NomeDisciplina, CodigoDisciplina
-                    from Disciplina where Obrigatoria = TRUE")
+                    from Disciplina where Obrigatoria = TRUE", stringsAsFactors = FALSE)
 
 # seleciona somente as colunas ditas
 #infoAssi <- infoAssi[c("CODIGO","DISCIPLINA","TIPODEDISCIPLINA")]

@@ -1,6 +1,6 @@
 library(RODBC)
 cn <- odbcConnect("VerticaDSN")
-info.disciplinas <- sqlQuery(cn, "select da.CodigoDisciplina, da.CodigoSituacao from DisciplinaAluno da")
+info.disciplinas <- sqlQuery(cn, "select da.CodigoDisciplina, da.CodigoSituacao from DisciplinaAluno da", stringsAsFactors = FALSE)
 info.disciplinas$Situacao[info.disciplinas$CodigoSituacao == 1] <- 0
 info.disciplinas$Situacao[info.disciplinas$CodigoSituacao == 2 | info.disciplinas$CodigoSituacao == 3] <- 1
 info.disciplinas <- subset(info.disciplinas, CodigoSituacao != 4) #Removendo as disciplinas trancadas!
@@ -24,6 +24,6 @@ resultado.absoluto <- rename(resultado.absoluto, replace = c("Situacao" = "Resul
 
 resultado = cbind(resultado.absoluto, "ResultadoRelativo" = resultado.relativo$Situacao)
 
-sqlDrop(cn, "Reprovacoes", errors=TRUE)
+#sqlDrop(cn, "Reprovacoes", errors=TRUE)
 sqlSave(cn, resultado, "Reprovacoes", rownames = FALSE)
 close(cn)

@@ -4,9 +4,13 @@ library(RODBC)
 cn <- odbcConnect("VerticaDSN")
 sqlTables(cn)
 sqlTables(cn, tableType = "TABLE")
-res <- sqlFetch(cn, "Aluno")
+res <- sqlFetch(cn, "Disciplina", stringsAsFactors = FALSE)
 
-new_res = res
-new_res$MatriculaAluno = 1010
+sqlSave(cn, res, tablename = "TESTE", append = TRUE, rownames = FALSE, colnames = FALSE, verbose = TRUE, nastring = NULL, fast = FALSE)
 
-sqlSave(cn, res, tablename = "Aluno", append = FALSE, rownames = FALSE, colnames = FALSE, verbose = TRUE, nastring = NULL, fast = FALSE)
+resTeste <- sqlFetch(cn, "TESTE", stringsAsFactors = FALSE)
+
+
+#Comparando
+library(compare)
+compare(res, resTeste, allowAll = T)

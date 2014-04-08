@@ -4,7 +4,7 @@ channel <- odbcConnect("VerticaDSN")
 
 freqAbsluta <- sqlQuery(channel, "select da.CodigoDisciplina,  d.NomeDisciplina, da.PeriodoRelativo
                         from Disciplina d, DisciplinaAluno da
-                        where d.CodigoDisciplina = da.CodigoDisciplina")
+                        where d.CodigoDisciplina = da.CodigoDisciplina", stringsAsFactors = FALSE)
 
 freqAbsluta <- ddply(freqAbsluta, .(CodigoDisciplina, NomeDisciplina, PeriodoRelativo), nrow)
 
@@ -40,6 +40,6 @@ discMaisComumPeriodo[, "FreqRelativa3rd"] = (apply(freqAbsluta[colunasUteis], 1,
 discMaisComumPeriodo[, "TotalDeAlunosPorDisciplina"] = totalFreq
 
 
-sqlDrop(channel, "MaioresFrequenciasPorDisciplina", errors=TRUE)
+#sqlDrop(channel, "MaioresFrequenciasPorDisciplina", errors=TRUE)
 sqlSave(channel, discMaisComumPeriodo, "MaioresFrequenciasPorDisciplina", rownames = FALSE)
 close(channel)
