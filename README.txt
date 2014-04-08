@@ -10,6 +10,7 @@ Estrutura de Diretórios:
 	root	
 		backup
 			CCC2-Files
+			CCC3-RemovedFiles
 		current-version
 			data
 			docs
@@ -18,8 +19,12 @@ Estrutura de Diretórios:
 			web
 
 - backup
-	Contém as versões anteriores do projeto.
+	> CCC2-Files	
+		Contém as versões anteriores do projeto.
 
+	> CCC3-RemovedFiles
+		Dados removidos do projeto atual.
+		
 - current-version
 	Contém a versão atual do projeto.
 	
