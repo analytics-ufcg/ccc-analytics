@@ -1,0 +1,751 @@
+[
+  {
+    "cod1":1411191,
+    "cod2":1411184,
+    "cor":0.997074675652275,
+    "disc1":"Laboratório de Interconexão de Redes de Computadores",
+    "disc2":"Interconexão de Redes de Computadores"
+  },
+  {
+    "cod1":1411180,
+    "cod2":1411167,
+    "cor":0.947151603949244,
+    "disc1":"Programação 1",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1109103,
+    "cod2":1109035,
+    "cor":0.823407949713299,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Cálculo Diferencial e Integral 1"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1411172,
+    "cor":0.762747139087715,
+    "disc1":"Estrutura de Dados",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1411181,
+    "cod2":1411168,
+    "cor":0.735149272895501,
+    "disc1":"Programação 2",
+    "disc2":"Laboratório de Programação 2"
+  },
+  {
+    "cod1":1411180,
+    "cod2":1411174,
+    "cor":0.706423836453942,
+    "disc1":"Introdução a Computação",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1411167,
+    "cor":0.702381104708867,
+    "disc1":"Programação 1",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1109035,
+    "cor":0.695021526044425,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1109103,
+    "cor":0.694529134026491,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1109103,
+    "cod2":1109049,
+    "cor":0.628710630749167,
+    "disc1":"Álgebra Linear",
+    "disc2":"Cálculo Diferencial e Integral 1"
+  },
+  {
+    "cod1":1411173,
+    "cod2":1114107,
+    "cor":0.628369569866922,
+    "disc1":"Probabilidade e Estatística",
+    "disc2":"Lógica Matemática"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1411171,
+    "cor":0.625890801716537,
+    "disc1":"Teoria da Computação",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1109113,
+    "cor":0.622416111296854,
+    "disc1":"Matemática Discreta",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1411178,
+    "cor":0.616256916292096,
+    "disc1":"Sistemas de Informação 1",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1114107,
+    "cor":0.614136826295141,
+    "disc1":"Probabilidade e Estatística",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1411168,
+    "cor":0.602815247642127,
+    "disc1":"Programação 2",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1114107,
+    "cod2":1109049,
+    "cor":0.602679699901067,
+    "disc1":"Álgebra Linear",
+    "disc2":"Probabilidade e Estatística"
+  },
+  {
+    "cod1":1109053,
+    "cod2":1109049,
+    "cor":0.600667955363307,
+    "disc1":"Álgebra Linear",
+    "disc2":"Cálculo Diferencial e Integral 2"
+  },
+  {
+    "cod1":1109113,
+    "cod2":1109053,
+    "cor":0.599446745761183,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Matemática Discreta"
+  },
+  {
+    "cod1":1411173,
+    "cod2":1114114,
+    "cor":0.597922708481818,
+    "disc1":"Métodos Estatísticos",
+    "disc2":"Lógica Matemática"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1114107,
+    "cor":0.59652781307719,
+    "disc1":"Probabilidade e Estatística",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1109113,
+    "cod2":1109103,
+    "cor":0.594845248171206,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Matemática Discreta"
+  },
+  {
+    "cod1":1411171,
+    "cod2":1109113,
+    "cor":0.593723963725905,
+    "disc1":"Matemática Discreta",
+    "disc2":"Teoria da Computação"
+  },
+  {
+    "cod1":1411173,
+    "cod2":1411171,
+    "cor":0.591655754931118,
+    "disc1":"Teoria da Computação",
+    "disc2":"Lógica Matemática"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1411168,
+    "cor":0.589135533380669,
+    "disc1":"Programação 2",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1411173,
+    "cod2":1109049,
+    "cor":0.587678341982854,
+    "disc1":"Álgebra Linear",
+    "disc2":"Lógica Matemática"
+  },
+  {
+    "cod1":1109113,
+    "cod2":1109049,
+    "cor":0.585027402926198,
+    "disc1":"Álgebra Linear",
+    "disc2":"Matemática Discreta"
+  },
+  {
+    "cod1":1411180,
+    "cod2":1109103,
+    "cor":0.584727190402815,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1109113,
+    "cor":0.580386173829201,
+    "disc1":"Matemática Discreta",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411170,
+    "cod2":1411168,
+    "cor":0.579627214436673,
+    "disc1":"Programação 2",
+    "disc2":"Teoria dos Grafos"
+  },
+  {
+    "cod1":1411171,
+    "cod2":1114107,
+    "cor":0.5795717411598,
+    "disc1":"Probabilidade e Estatística",
+    "disc2":"Teoria da Computação"
+  },
+  {
+    "cod1":1411167,
+    "cod2":1109103,
+    "cor":0.579549066429734,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Programação 1"
+  },
+  {
+    "cod1":1411181,
+    "cod2":1411176,
+    "cor":0.575624163436496,
+    "disc1":"Gerência da Informação",
+    "disc2":"Laboratório de Programação 2"
+  },
+  {
+    "cod1":1109113,
+    "cod2":1109035,
+    "cor":0.573304803043239,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Matemática Discreta"
+  },
+  {
+    "cod1":1411180,
+    "cod2":1109035,
+    "cor":0.571999768124118,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1411181,
+    "cod2":1411179,
+    "cor":0.571165032658945,
+    "disc1":"Laboratório de Estrutura de Dados",
+    "disc2":"Laboratório de Programação 2"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1109049,
+    "cor":0.569882393505659,
+    "disc1":"Álgebra Linear",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1411173,
+    "cod2":1109053,
+    "cor":0.568984593474402,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Lógica Matemática"
+  },
+  {
+    "cod1":1109049,
+    "cod2":1109035,
+    "cor":0.567440650909483,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Álgebra Linear"
+  },
+  {
+    "cod1":1411180,
+    "cod2":1411172,
+    "cor":0.565641969179624,
+    "disc1":"Estrutura de Dados",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1411167,
+    "cod2":1109035,
+    "cor":0.565101899844545,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Programação 1"
+  },
+  {
+    "cod1":1411181,
+    "cod2":1109103,
+    "cor":0.563886712040434,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Laboratório de Programação 2"
+  },
+  {
+    "cod1":1109103,
+    "cod2":1109053,
+    "cor":0.558220252197885,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Cálculo Diferencial e Integral 1"
+  },
+  {
+    "cod1":1411175,
+    "cod2":1411173,
+    "cor":0.557079337261194,
+    "disc1":"Lógica Matemática",
+    "disc2":"Organização e Arquitetura de Computadores"
+  },
+  {
+    "cod1":1411168,
+    "cod2":1109113,
+    "cor":0.555515405441953,
+    "disc1":"Matemática Discreta",
+    "disc2":"Programação 2"
+  },
+  {
+    "cod1":1411168,
+    "cod2":1109103,
+    "cor":0.552817297677863,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Programação 2"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1109049,
+    "cor":0.552333980225468,
+    "disc1":"Álgebra Linear",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411194,
+    "cod2":1411173,
+    "cor":0.551379554909683,
+    "disc1":"Lógica Matemática",
+    "disc2":"Banco de Dados 2"
+  },
+  {
+    "cod1":1114114,
+    "cod2":1109049,
+    "cor":0.550700276506942,
+    "disc1":"Álgebra Linear",
+    "disc2":"Métodos Estatísticos"
+  },
+  {
+    "cod1":1411173,
+    "cod2":1109113,
+    "cor":0.548358409589871,
+    "disc1":"Matemática Discreta",
+    "disc2":"Lógica Matemática"
+  },
+  {
+    "cod1":1411193,
+    "cod2":1411175,
+    "cor":0.547325766771936,
+    "disc1":"Organização e Arquitetura de Computadores",
+    "disc2":"Banco de Dados 1"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1411171,
+    "cor":0.546962830170302,
+    "disc1":"Teoria da Computação",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1411193,
+    "cod2":1411173,
+    "cor":0.546087913040636,
+    "disc1":"Lógica Matemática",
+    "disc2":"Banco de Dados 1"
+  },
+  {
+    "cod1":1411171,
+    "cod2":1109053,
+    "cor":0.545407163954153,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Teoria da Computação"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1109113,
+    "cor":0.545375709035579,
+    "disc1":"Matemática Discreta",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1411173,
+    "cod2":1411172,
+    "cor":0.543927104451123,
+    "disc1":"Estrutura de Dados",
+    "disc2":"Lógica Matemática"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1411167,
+    "cor":0.543640899515786,
+    "disc1":"Programação 1",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411195,
+    "cod2":1411173,
+    "cor":0.542854980452075,
+    "disc1":"Lógica Matemática",
+    "disc2":"Sistemas de Informação 2"
+  },
+  {
+    "cod1":1411190,
+    "cod2":1411175,
+    "cor":0.542466647070665,
+    "disc1":"Organização e Arquitetura de Computadores",
+    "disc2":"Redes de Computadores"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1109053,
+    "cor":0.5414324285944,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411195,
+    "cod2":1411171,
+    "cor":0.541414644476944,
+    "disc1":"Teoria da Computação",
+    "disc2":"Sistemas de Informação 2"
+  },
+  {
+    "cod1":1411180,
+    "cod2":1411168,
+    "cor":0.540484032894402,
+    "disc1":"Programação 2",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1411168,
+    "cod2":1411167,
+    "cor":0.538828093898604,
+    "disc1":"Programação 1",
+    "disc2":"Programação 2"
+  },
+  {
+    "cod1":1411167,
+    "cod2":1109113,
+    "cor":0.538631382789553,
+    "disc1":"Matemática Discreta",
+    "disc2":"Programação 1"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1109053,
+    "cor":0.53743562218608,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1411178,
+    "cod2":1114107,
+    "cor":0.536859178913139,
+    "disc1":"Probabilidade e Estatística",
+    "disc2":"Sistemas de Informação 1"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1411173,
+    "cor":0.534890265864664,
+    "disc1":"Lógica Matemática",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1411180,
+    "cod2":1109113,
+    "cor":0.534812544352685,
+    "disc1":"Matemática Discreta",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1411192,
+    "cod2":1411190,
+    "cor":0.534465051533934,
+    "disc1":"Redes de Computadores",
+    "disc2":"Sistemas Operacionais"
+  },
+  {
+    "cod1":1411194,
+    "cod2":1411192,
+    "cor":0.534456540229953,
+    "disc1":"Sistemas Operacionais",
+    "disc2":"Banco de Dados 2"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1307151,
+    "cor":0.533774910536272,
+    "disc1":"Leitura e Produção de Textos",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1411187,
+    "cod2":1411179,
+    "cor":0.533413388208875,
+    "disc1":"Laboratório de Estrutura de Dados",
+    "disc2":"Análise e Técnica de Algorítimos"
+  },
+  {
+    "cod1":1411192,
+    "cod2":1411173,
+    "cor":0.530685022560156,
+    "disc1":"Lógica Matemática",
+    "disc2":"Sistemas Operacionais"
+  },
+  {
+    "cod1":1411171,
+    "cod2":1109049,
+    "cor":0.530338156961704,
+    "disc1":"Álgebra Linear",
+    "disc2":"Teoria da Computação"
+  },
+  {
+    "cod1":1411182,
+    "cod2":1411175,
+    "cor":0.5294436129922,
+    "disc1":"Organização e Arquitetura de Computadores",
+    "disc2":"Laboratório de Organização e Arquitetura de Computadores"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1109103,
+    "cor":0.527781788531901,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1109053,
+    "cod2":1109035,
+    "cor":0.525672075158555,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Cálculo Diferencial e Integral 2"
+  },
+  {
+    "cod1":1411189,
+    "cod2":1114114,
+    "cor":0.525040090492681,
+    "disc1":"Métodos Estatísticos",
+    "disc2":"Compiladores"
+  },
+  {
+    "cod1":1411180,
+    "cod2":1411179,
+    "cor":0.523128215205066,
+    "disc1":"Laboratório de Estrutura de Dados",
+    "disc2":"Laboratório de Programação 1"
+  },
+  {
+    "cod1":1411187,
+    "cod2":1411168,
+    "cor":0.522130228417289,
+    "disc1":"Programação 2",
+    "disc2":"Análise e Técnica de Algorítimos"
+  },
+  {
+    "cod1":1411178,
+    "cod2":1109049,
+    "cor":0.520478706337246,
+    "disc1":"Álgebra Linear",
+    "disc2":"Sistemas de Informação 1"
+  },
+  {
+    "cod1":1411192,
+    "cod2":1114114,
+    "cor":0.519707458709454,
+    "disc1":"Métodos Estatísticos",
+    "disc2":"Sistemas Operacionais"
+  },
+  {
+    "cod1":1411170,
+    "cod2":1109113,
+    "cor":0.51948195747912,
+    "disc1":"Matemática Discreta",
+    "disc2":"Teoria dos Grafos"
+  },
+  {
+    "cod1":1411193,
+    "cod2":1411190,
+    "cor":0.519132240214998,
+    "disc1":"Redes de Computadores",
+    "disc2":"Banco de Dados 1"
+  },
+  {
+    "cod1":1411193,
+    "cod2":1114114,
+    "cor":0.517599877455501,
+    "disc1":"Métodos Estatísticos",
+    "disc2":"Banco de Dados 1"
+  },
+  {
+    "cod1":1411175,
+    "cod2":1114114,
+    "cor":0.517350707949385,
+    "disc1":"Métodos Estatísticos",
+    "disc2":"Organização e Arquitetura de Computadores"
+  },
+  {
+    "cod1":1114107,
+    "cod2":1109053,
+    "cor":0.5157554687695,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Probabilidade e Estatística"
+  },
+  {
+    "cod1":1109103,
+    "cod2":1108089,
+    "cor":0.515230161474149,
+    "disc1":"Física Clássica",
+    "disc2":"Cálculo Diferencial e Integral 1"
+  },
+  {
+    "cod1":1114107,
+    "cod2":1109113,
+    "cor":0.515005562553947,
+    "disc1":"Matemática Discreta",
+    "disc2":"Probabilidade e Estatística"
+  },
+  {
+    "cod1":1411194,
+    "cod2":1114107,
+    "cor":0.513355703366898,
+    "disc1":"Probabilidade e Estatística",
+    "disc2":"Banco de Dados 2"
+  },
+  {
+    "cod1":1411178,
+    "cod2":1411172,
+    "cor":0.512146098974896,
+    "disc1":"Estrutura de Dados",
+    "disc2":"Sistemas de Informação 1"
+  },
+  {
+    "cod1":1411178,
+    "cod2":1411173,
+    "cor":0.511771854309494,
+    "disc1":"Lógica Matemática",
+    "disc2":"Sistemas de Informação 1"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1411172,
+    "cor":0.510492972736361,
+    "disc1":"Estrutura de Dados",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1411168,
+    "cor":0.509769561264331,
+    "disc1":"Programação 2",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411181,
+    "cod2":1109035,
+    "cor":0.507198517775093,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Laboratório de Programação 2"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1109049,
+    "cor":0.507052272709026,
+    "disc1":"Álgebra Linear",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1411194,
+    "cod2":1411193,
+    "cor":0.505880426572479,
+    "disc1":"Banco de Dados 1",
+    "disc2":"Banco de Dados 2"
+  },
+  {
+    "cod1":1411172,
+    "cod2":1109103,
+    "cor":0.504421933004525,
+    "disc1":"Cálculo Diferencial e Integral 1",
+    "disc2":"Estrutura de Dados"
+  },
+  {
+    "cod1":1411179,
+    "cod2":1411174,
+    "cor":0.504299906423624,
+    "disc1":"Introdução a Computação",
+    "disc2":"Laboratório de Estrutura de Dados"
+  },
+  {
+    "cod1":1411181,
+    "cod2":1411174,
+    "cor":0.503610375720423,
+    "disc1":"Introdução a Computação",
+    "disc2":"Laboratório de Programação 2"
+  },
+  {
+    "cod1":1411193,
+    "cod2":1411178,
+    "cor":0.503567756059964,
+    "disc1":"Sistemas de Informação 1",
+    "disc2":"Banco de Dados 1"
+  },
+  {
+    "cod1":1411195,
+    "cod2":1411194,
+    "cor":0.502692928772635,
+    "disc1":"Banco de Dados 2",
+    "disc2":"Sistemas de Informação 2"
+  },
+  {
+    "cod1":1411174,
+    "cod2":1109053,
+    "cor":0.502018634873866,
+    "disc1":"Cálculo Diferencial e Integral 2",
+    "disc2":"Introdução a Computação"
+  },
+  {
+    "cod1":1411187,
+    "cod2":1411175,
+    "cor":0.501734863352327,
+    "disc1":"Organização e Arquitetura de Computadores",
+    "disc2":"Análise e Técnica de Algorítimos"
+  },
+  {
+    "cod1":1307151,
+    "cod2":1109035,
+    "cor":0.501007125493648,
+    "disc1":"Álgebra Vetorial e Geometria Analítica",
+    "disc2":"Leitura e Produção de Textos"
+  },
+  {
+    "cod1":1411192,
+    "cod2":1411187,
+    "cor":0.500548748936097,
+    "disc1":"Análise e Técnica de Algorítimos",
+    "disc2":"Sistemas Operacionais"
+  },
+  {
+    "cod1":1411194,
+    "cod2":1411189,
+    "cor":0.500412963237142,
+    "disc1":"Compiladores",
+    "disc2":"Banco de Dados 2"
+  }
+]
