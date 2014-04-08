@@ -1,1 +1,0 @@
-CREATE TABLE Teste(UmaColuna VARCHAR(9));
