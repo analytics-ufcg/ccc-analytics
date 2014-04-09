@@ -69,8 +69,12 @@ directory.CoursesView = Backbone.View.extend({
 
 			slot.css('left',getSlotCaixa()*(periodo-1)+'px');
 
+			var frequencia1 = data["freqRelativa1st"];
+
 			if(change_opacity == 1){
-				slot.css({"opacity":data["freqRelativa1st"]});
+
+				coloracaoDaBlocagemMaisComum(slot, frequencia1);
+				
 				slot.mouseover(function(){
 					setDivMouseOn(slot, data["periodoMaisFreq2nd"], data["periodoMaisFreq3rd"], data["freqRelativa2nd"],data["freqRelativa3rd"], slot.text());
 					$("#blocagem1").show();
@@ -220,13 +224,28 @@ function setDivMouseOn(slot, PMFreq1, PMFreq2, freqR1, freqR2, nomeCadeira){
 	$("#blocagem1").text(nomeCadeira);
 	$("#blocagem2").text(nomeCadeira);
 
-	$("#blocagem1").css("opacity", freqR1);
-	$("#blocagem2").css("opacity", freqR2);
+
+	coloracaoDaBlocagemMaisComum($("#blocagem1"), freqR1);
+	coloracaoDaBlocagemMaisComum($("#blocagem2"), freqR2);
 
 
 	$("#blocagem1").css("left", getSlotCaixa()*(PMFreq1-1));
 	$("#blocagem2").css("left", getSlotCaixa()*(PMFreq2-1));
 
+}
+
+function coloracaoDaBlocagemMaisComum(slot, frequencia){
+	if(frequencia >= 0 && frequencia <= 0.2) {
+		slot.css("background-color", "#7faaca");
+	}else if(frequencia > 0.2 && frequencia <= 0.35) {
+		slot.css("background-color", "#3277aa");
+	}else if(frequencia > 0.35 && frequencia <= 0.5) {
+		slot.css("background-color", "#004d86");
+	}else if(frequencia > 0.5 && frequencia <= 0.65) {
+		slot.css("background-color", "#003359");
+	}else if(frequencia > 0.65 && frequencia <= 1.0) {
+		slot.css("background-color", "#00192c");
+	}
 }
 
 
