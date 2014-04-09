@@ -73,12 +73,16 @@ directory.CoursesView = Backbone.View.extend({
 			var frequencia1 = data["freqRelativa1st"];
 			var total_de_alunos_da_disciplina = data["totalDeAlunos"];
 
-			slot.attr('title', slot.text() + "\nFrequencia Relativa: " + (frequencia1*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + total_de_alunos_da_disciplina);
+        	//Resetar tooltip
+        	resetTooltip(slot);
 
+
+        	//if para saber se é blocagem comum
 			if(change_opacity == 1){
 
 				coloracaoDaBlocagemMaisComum(slot, frequencia1);
-				
+				slot.attr('title', slot.text() + "\nFrequencia Relativa: " + (frequencia1*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + total_de_alunos_da_disciplina);
+
 				slot.mouseover(function(){
 					setDivMouseOn(slot, data["periodoMaisFreq2nd"], data["periodoMaisFreq3rd"], data["freqRelativa2nd"],data["freqRelativa3rd"], slot.text());
 					$("#blocagem1").show();
@@ -119,6 +123,9 @@ directory.CoursesView = Backbone.View.extend({
         	var frequencia_absoluta = data["reprovacaoAbsoluta"]
         	var media_de_reprovacoes = data["reprovacaoRelativa"];
         	var slot = $("#" + data["codigo"]);
+        	
+        	//Resetar tooltip
+        	resetTooltip(slot);
 
         	var total_de_alunos = (frequencia_absoluta/media_de_reprovacoes);
 
@@ -164,12 +171,12 @@ directory.CoursesView = Backbone.View.extend({
         _.each(dataframe, function(data) {
         	//console.log(data);
 
-        	// var slot1 = $("#" + data["codigo"]);
-        	// var slot2 = $("#" + data["codigo2"]);
-
-
-        	// resetTooltip(slot1);
-        	// resetTooltip(slot2);
+        	
+        	//Resetando tooltips
+        	var slot1 = $("#" + data["codigo"]);
+        	var slot2 = $("#" + data["codigo2"]);
+        	//resetTooltip(slot1);
+        	//resetTooltip(slot2);
 
 
         	jsplumb_CorrelationConnection(data["codigo2"], data["codigo1"], data["correlacao"], min["correlacao"]);
