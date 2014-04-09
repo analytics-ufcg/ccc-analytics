@@ -48,9 +48,6 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 										<li>
 											<a id="bloc3" href="#bloc3" >Blocagem 3</a>
 										</li>
-										<li>
-											<a id="bloc4" href="#bloc4" >Blocagem 4</a>
-										</li>
 									</ul>
 								</li>
 								<li class="divider"></li>
@@ -58,7 +55,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 									<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Outras opções</a>
 									<ul class="dropdown-menu">
 										<li>
-											<a id="taxareprovacao" href="#" >Taxa de reprovação</a>
+											<a id="taxareprovacao" href="#" >Taxa de reprovação </a>
 										</li>
 
 									</ul>
@@ -75,27 +72,38 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 <br />
 <br />
 
-<div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="align-right">
-			<a href="#info" name="modal">
-			info
-			<img src="image/search.png" />
-			</a>
+<!--
+<div class="row">
+	<div class="col-sm-12">
+		<div class="align-right">
+			<a href="#info" name="modal"> info <img src="image/search.png" /> </a>
+		</div>
+	</div>
+</div>
+-->
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="align-center">
+			<div class="titulo" id="idtitulo">
+				Plano de Curso
+			</div>
+			
+			<div class="descricao" id="iddescricao">
+			É o plano padrão de curso sugerido pela coordenação do curso <br/>- não inclui as disciplinas optativas. 
+			A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.
 			</div>
 		</div>
 	</div>
 </div>
+	
 
 <!--  CONTAINER  -->
 
-	<div class="conteudo" style="background-color: #fff;">
-		<div class="container"  id="div_flowchart" style="width:87%;">
-	
-		</div>
+<div class="conteudo" style="background-color: #fff;">
+	<div class="container"  id="div_flowchart" style="width:90%;">
 	</div>
-
+</div>
 
 <!--  NEWS  -->
 <br/>
@@ -115,6 +123,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 						CCC Analytics
 					</dt>
 				</dl>
+				
 				<dd>
 					É um sistema de apoio à matrícula dos alunos de Computação da Universidade
 					Federal de Campina Grande. Uma ferramente principalmente direcionada ao coordenador
@@ -201,35 +210,39 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 	</div>
 </div>
 
-
+<!--
 <div class="detail"></div>
 
-        <div id="boxes">
-            <div id="info" class="window">
-	          <a href="#" class="close">Fechar</a>
-			<h3>Plano de curso</h3>
-			É o plano padrão de curso sugerido pela coordenação do curso 
-			(não inclui as disciplinas optativas).<br/> 
-			A oferta de disciplinas e a organização do horário semestral 
-			das disciplinas obrigatórias são baseadas neste plano de curso.
-	
-			
-			<h3>Blocagem mais comum</h3>
-			É a blocagem mais comumente (mais frequente) cursada pelos alunos de graduação. 		
-			
+<div id="boxes">
+	<div id="info" class="window">
+		<a href="#" class="close">Fechar</a>
+		<h3>Plano de curso</h3>
+		É o plano padrão de curso sugerido pela coordenação do curso
+		(não inclui as disciplinas optativas).
+		A oferta de disciplinas e a organização do horário semestral
+		das disciplinas obrigatórias são baseadas neste plano de curso.
+		
+		<h3>Blocagem mais comum</h3>
+		É a blocagem mais comumente (mais frequente) cursada pelos alunos de graduação.
 
-			<h2>Correlação entre disciplinas</h2>
-			Representa a correlação entre disciplinas com base na média de cada aluno que 
-			cursou ambas. Quanto mais espessa a linha que interliga as disciplinas, 
-			maior a correlação entre elas. 
-			
-			<h2>Blocagens mais comuns</h2>
-			
-			<h2>Outras opções</h2>
-			 
+		<h3>Correlação entre disciplinas</h3>
+		Representa a correlação entre disciplinas com base na média de cada aluno que
+		cursou ambas. Quanto mais espessa a linha que interliga as disciplinas,
+		maior a correlação entre elas.
 
-			
-            </div>
-          <div id="mask"></div>
-        </div>
+		<h3>Blocagens mais comuns</h3>
+
+		
+
+	</div>
+	<div id="mask"></div>
+</div> -->
+
+
+<!-- CAIXA DE DIALOGO-->
+<div id="dialog" title="Taxa de Reprovação">
+	<p>
+		<img src="image/legenda_taxar.jpeg"/>
+	</p>
+</div>
 
