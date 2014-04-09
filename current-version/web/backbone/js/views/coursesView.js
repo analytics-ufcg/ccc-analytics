@@ -71,6 +71,9 @@ directory.CoursesView = Backbone.View.extend({
 			slot.css('left',getSlotCaixa()*(periodo-1)+'px');
 
 			var frequencia1 = data["freqRelativa1st"];
+			var total_de_alunos_da_disciplina = data["totalDeAlunos"];
+
+			slot.attr('title', slot.text() + "\nFrequencia Relativa: " + (frequencia1*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + total_de_alunos_da_disciplina);
 
 			if(change_opacity == 1){
 
