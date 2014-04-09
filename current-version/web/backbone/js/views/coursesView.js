@@ -106,28 +106,30 @@ directory.CoursesView = Backbone.View.extend({
         _.each(dataframe, function(data) {
         	//console.log(data);
 
+        	//TO FIX - Colocar os valores de total de alunos
+
         	var media_de_reprovacoes = data["reprovacaoRelativa"];
         	var slot = $("#" + data["codigo"]);
 
 			if(media_de_reprovacoes >= 0 && media_de_reprovacoes <= 0.1) {
 				slot.css("background-color", "#FF4D94");
-				slot.attr('title', (media_de_reprovacoes*100).toString().substr(0,4) + "%");
+				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + "ToFix");
 			}
 			if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.3) {
 				slot.css("background-color", "#B23668");
-				slot.attr('title', (media_de_reprovacoes*100).toString().substr(0,4) + "%");
+				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + "ToFix");
 			}
 			if(media_de_reprovacoes > 0.3 && media_de_reprovacoes <= 0.5) {
 				slot.css("background-color", "#8E2B53");
-				slot.attr('title', (media_de_reprovacoes*100).toString().substr(0,4) + "%");
+				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + "ToFix");
 			}
 			if(media_de_reprovacoes > 0.5 && media_de_reprovacoes <= 0.7) {
 				slot.css("background-color", "#722242");
-				slot.attr('title', (media_de_reprovacoes*100).toString().substr(0,4) + "%");
+				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + "ToFix");
 			}
 			if(media_de_reprovacoes > 0.7) {
 				slot.css("background-color", "#441428");
-				slot.attr('title', (media_de_reprovacoes*100).toString().substr(0,4) + "%");
+				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + "ToFix");
 			}
         });
 	},
@@ -149,9 +151,12 @@ directory.CoursesView = Backbone.View.extend({
 		instance.setSuspendDrawing(true);
         _.each(dataframe, function(data) {
         	//console.log(data);
-        	
-        	jsplumb_CorrelationConnection(data["codigo2"], data["codigo1"], data["correlacao"], min["correlacao"]);
 
+        	//TO FIX - descobrir os valores corretos de correlação e fazer refresh das caixas
+        	var slot = $("#" + data["codigo1"]);
+		   	slot.attr('title', slot.text() + "\nCorrelação de: " + (data["correlacao"]).toString().substr(0,4));
+
+        	jsplumb_CorrelationConnection(data["codigo2"], data["codigo1"], data["correlacao"], min["correlacao"]);
         });
         instance.setSuspendDrawing(false,true);
 	}
