@@ -49,13 +49,13 @@ def maiores_frequencias():
 def reprovacoes():
     cnxn = create_connection()
     cursor = cnxn.cursor()
-    cursor.execute("select d.Nome, r.CodigoDisciplina, r.ReprovacaoAbsoluta, r.ReprovacaoRelativa from Disciplina d, Reprovacoes r where r.CodigoDisciplina = d.CodigoDisciplina and d.Obrigatoria = 1")
+    cursor.execute("select d.Nome, r.CodigoDisciplina, r.ReprovacaoAbsoluta, r.ReprovacaoRelativa, r.TotalDeAlunos from Disciplina d, Reprovacoes r where r.CodigoDisciplina = d.CodigoDisciplina and d.Obrigatoria = 1")
     rows = cursor.fetchall()
     cnxn.close()
     lista_tuplas = []
     for tupla in rows:
        lista_tuplas.append(tupla)
-    col = ["disciplina", "codigo", "reprovacaoAbsoluta", "reprovacaoRelativa"]
+    col = ["disciplina", "codigo", "reprovacaoAbsoluta", "reprovacaoRelativa", "totalDeAlunos"]
     response = montaJson(lista_tuplas, col)
     return json.dumps(response)
 

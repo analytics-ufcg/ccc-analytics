@@ -19,7 +19,7 @@ COPY GradeDisciplinasPorPeriodo (Periodo, CodigoDisciplina) FROM LOCAL '/home/ta
 --Deve-se deletar a coluna TipoDisciplina antes de copiar, esta informação é redundante e pode ser encontrada na tabela Disciplina
 COPY MaioresFrequenciasPorDisciplina (CodigoDisciplina, PeriodoMaisFreq1st, FreqRelativa1st, PeriodoMaisFreq2nd, FreqRelativa2nd, PeriodoMaisFreq3rd, FreqRelativa3rd, TotalDeAlunosPorDisciplina) FROM LOCAL '/home/tales/R Dev/Scripts/Dados v2/data/TabelaMaioresFrequenciasPorDisciplina.csv'  WITH DELIMITER ',';
 
-COPY Reprovacoes (CodigoDisciplina, ReprovacaoAbsoluta, ReprovacaoRelativa) FROM LOCAL '/home/tales/R Dev/Scripts/Dados v2/data/TabelaReprovacoesPorDisciplina.csv' WITH DELIMITER ',';
+COPY Reprovacoes (CodigoDisciplina, ReprovacaoAbsoluta, ReprovacaoRelativa, TotalDeAlunos) FROM LOCAL '/home/tales/R Dev/Scripts/Dados v2/data/TabelaReprovacoesPorDisciplina.csv' WITH DELIMITER ',';
 
 --Para povoar tabela Clusters é necessário modificar o CSV X_cluster.csv. Para esta copia uso um csv modificado meu
 COPY PerfisFluxograma (CodigoDisciplina, Periodo, Cluster) FROM LOCAL 'ccc-analytics-2.0/ccc2/data/SwapNomePorCodigo/all_clusters.csv' WITH DELIMITER ',';

@@ -14,7 +14,7 @@ CREATE TABLE GradeDisciplinasPorPeriodo (Periodo INT, CodigoDisciplina VARCHAR(8
 
 CREATE TABLE MaioresFrequenciasPorDisciplina (CodigoDisciplina VARCHAR(8), PeriodoMaisFreq1st INT, FreqRelativa1st FLOAT, PeriodoMaisFreq2nd INT, FreqRelativa2nd FLOAT, PeriodoMaisFreq3rd INT, FreqRelativa3rd FLOAT, TotalDeAlunosPorDisciplina INT, PRIMARY KEY (CodigoDisciplina));
 
-CREATE TABLE Reprovacoes (CodigoDisciplina VARCHAR(8), ReprovacaoAbsoluta INT, ReprovacaoRelativa FLOAT, PRIMARY KEY (CodigoDisciplina));
+CREATE TABLE Reprovacoes (CodigoDisciplina VARCHAR(8), ReprovacaoAbsoluta INT, ReprovacaoRelativa FLOAT,TotalDeAlunos INT, PRIMARY KEY (CodigoDisciplina));
 
 CREATE TABLE PerfisFluxograma (CodigoDisciplina VARCHAR(8), Periodo INT, Cluster VARCHAR(3));
 

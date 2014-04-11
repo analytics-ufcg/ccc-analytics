@@ -7,6 +7,7 @@ info.disciplinas <- subset(info.disciplinas, CodigoSituacao != 4) #Removendo as 
 
 info.disciplinas$Situacao = as.numeric(info.disciplinas$Situacao)
 
+total.alunos = aggregate(Situacao ~ CodigoDisciplina, data = info.disciplinas, NROW)
 resultado.absoluto = aggregate(Situacao ~ CodigoDisciplina, data = info.disciplinas, sum)
 resultado.relativo = aggregate(Situacao ~ CodigoDisciplina, data = info.disciplinas, mean)
 
@@ -23,6 +24,7 @@ resultado.relativo = merge(info.disciplinas,resultado.relativo, by=c("CodigoDisc
 resultado.absoluto <- rename(resultado.absoluto, replace = c("Situacao" = "ResultadoAbsoluto"))
 
 resultado = cbind(resultado.absoluto, "ResultadoRelativo" = resultado.relativo$Situacao)
+resultado = cbind(resultado, "TotalAlunos" = total.alunos$Situacao)
 
 #sqlDrop(cn, "Reprovacoes", errors=TRUE)
 sqlSave(cn, resultado, "Reprovacoes", rownames = FALSE)

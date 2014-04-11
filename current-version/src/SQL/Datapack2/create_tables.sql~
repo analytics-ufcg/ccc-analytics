@@ -2,7 +2,7 @@ CREATE TABLE Departamento(CodigoDepto INT, NomeDepto VARCHAR, CentroUA VARCHAR, 
 
 CREATE TABLE Situacao (CodigoSituacao int, NomeSituacao VARCHAR, PRIMARY KEY(CodigoSituacao));
 
-CREATE TABLE Disciplina(CodigoDisciplina VARCHAR(8), NomeDisciplina VARCHAR, CodigoDepto INT, Obrigatoria BOOLEAN, PRIMARY KEY(CodigoDisciplina), FOREIGN KEY(CodigoDepto) REFERENCES Departamento(CodigoDepto));
+CREATE TABLE Disciplina(CodigoDisciplina VARCHAR(8), NomeDisciplina VARCHAR, CodigoDepto INT, Obrigatoria BOOLEAN, Nome VARCHAR, PRIMARY KEY(CodigoDisciplina), FOREIGN KEY(CodigoDepto) REFERENCES Departamento(CodigoDepto));
 
 CREATE TABLE Aluno(MatriculaAluno VARCHAR(9), PRIMARY KEY(MatriculaAluno));
 
