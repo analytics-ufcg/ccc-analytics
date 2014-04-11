@@ -127,29 +127,25 @@ directory.CoursesView = Backbone.View.extend({
         	//Resetar tooltip
         	resetTooltip(slot);
 
-        	var total_de_alunos = (frequencia_absoluta/media_de_reprovacoes);
+        	var total_de_alunos = data["totalDeAlunos"];
 
 			if(media_de_reprovacoes >= 0 && media_de_reprovacoes <= 0.1) {
-
 				slot.css("background-color", "#FF4D94");
-				slot.attr('title', slot.text() +"\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
 			}
 			if(media_de_reprovacoes > 0.1 && media_de_reprovacoes <= 0.3) {
 				slot.css("background-color", "#B23668");
-				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
 			}
 			if(media_de_reprovacoes > 0.3 && media_de_reprovacoes <= 0.5) {
 				slot.css("background-color", "#8E2B53");
-				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
 			}
 			if(media_de_reprovacoes > 0.5 && media_de_reprovacoes <= 0.7) {
 				slot.css("background-color", "#722242");
-				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
 			}
 			if(media_de_reprovacoes > 0.7) {
 				slot.css("background-color", "#441428");
-				slot.attr('title', slot.text() + "\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
 			}
+			slot.attr('title', slot.text() +"\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
+
         });
 	},
 	
