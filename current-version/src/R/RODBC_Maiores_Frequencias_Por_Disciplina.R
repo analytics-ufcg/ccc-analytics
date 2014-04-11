@@ -39,7 +39,14 @@ discMaisComumPeriodo[, "PeriodoMaisFreq3rd"] = apply(freqAbsluta[colunasUteis], 
 discMaisComumPeriodo[, "FreqRelativa3rd"] = (apply(freqAbsluta[colunasUteis], 1, valorMaxn(3))) / totalFreq
 discMaisComumPeriodo[, "TotalDeAlunosPorDisciplina"] = totalFreq
 
-
+discMaisComumPeriodo[,"NomeDisciplina"]<- NULL
 #sqlDrop(channel, "MaioresFrequenciasPorDisciplina", errors=TRUE)
-sqlSave(channel, discMaisComumPeriodo, "MaioresFrequenciasPorDisciplina", rownames = FALSE)
+
+discMaisComumPeriodo$CodigoDisciplina <- as.character(discMaisComumPeriodo$CodigoDisciplina)
+varTypes <- c('VARCHAR(8)','Integer','Float','Integer','Float','Integer','Float','Integer')
+names(varTypes) <- colnames(discMaisComumPeriodo)
+#sqlColumns(channel,"MaioresFrequenciasPorDisciplinaT3")
+#sqlTables(channel)
+sqlDrop(channel,"MaioresFrequenciasPorDisciplina")
+sqlSave(channel, discMaisComumPeriodo, "MaioresFrequenciasPorDisciplina", rownames = FALSE,fast=TRUE, append=TRUE,varTypes=varTypes)
 close(channel)
