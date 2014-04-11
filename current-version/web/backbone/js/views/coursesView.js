@@ -81,7 +81,7 @@ directory.CoursesView = Backbone.View.extend({
 			if(change_opacity == 1){
 
 				coloracaoDaBlocagemMaisComum(slot, frequencia1);
-				slot.attr('title', slot.text() + "\nFrequencia Relativa: " + (frequencia1*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + total_de_alunos_da_disciplina);
+				slot.attr('title', slot.text() + "\nFrequência de alunos neste período: " + (frequencia1*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + total_de_alunos_da_disciplina);
 
 				slot.mouseover(function(){
 					setDivMouseOn(slot, data["periodoMaisFreq2nd"], data["periodoMaisFreq3rd"], data["freqRelativa2nd"],data["freqRelativa3rd"], slot.text());
