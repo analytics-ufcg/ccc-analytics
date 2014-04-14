@@ -1,12 +1,10 @@
 <!--
-
 HTML DA VISUALIZAÇÃO PRINCIPAL
-
 -->
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
-		
+
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span>
@@ -78,40 +76,41 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 			<div class="titulo" id="idtitulo">
 				Plano de Curso
 			</div>
-			
+
 			<div class="descricao" id="iddescricao">
-			É o plano padrão de curso sugerido pela coordenação do curso <br/>- não inclui as disciplinas optativas. 
-			A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.
+				É o plano padrão de curso sugerido pela coordenação do curso
+				<br/>
+				- não inclui as disciplinas optativas.
+				A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.
 			</div>
 
 			<div class="" id="botao_legenda" style="display: none;">
-			<a href="#" id="exemploDaLegenda" class="btn btn-success" rel="popover" data-original-title="Legenda">Legenda</a>  
-			</div>
-			 <div id="legendaParaMostrar" style="display: none;">   
-			
+				<a href="#" id="exemploDaLegenda" class="btn btn-success" rel="popover" data-original-title="Legenda">Legenda</a>
 			</div>
 
-			    <script>
-      $(function (){
-         $("#exemploDaLegenda").popover({
-         	 html: true,
-         	 trigger: 'click',
-         	 content: function() {
-      			return $('#legendaParaMostrar').html();
-    		}
-		  });
-      });
-      </script>
+			<div id="legendaParaMostrar" style="display: none;">
+
+			</div>
+
+			<script>
+				$(function() {
+					$("#exemploDaLegenda").popover({
+						html : true,
+						trigger : 'click',
+						content : function() {
+							return $('#legendaParaMostrar').html();
+						}
+					});
+				});
+			</script>
 		</div>
 	</div>
 </div>
-	
 
 <!--  CONTAINER  -->
 
 <div class="conteudo" style="background-color: #fff;">
-	<div class="container"  id="div_flowchart" style="width:90%;">
-	</div>
+	<div class="container"  id="div_flowchart" style="width:90%;"></div>
 </div>
 
 <!--  NEWS  -->
@@ -132,7 +131,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 						CCC Analytics
 					</dt>
 				</dl>
-				
+
 				<dd>
 					É um sistema de apoio à matrícula dos alunos de Computação da Universidade
 					Federal de Campina Grande. Uma ferramente principalmente direcionada ao coordenador
