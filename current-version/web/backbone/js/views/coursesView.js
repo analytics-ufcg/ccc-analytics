@@ -163,14 +163,55 @@ directory.CoursesView = Backbone.View.extend({
         	//console.log(data);
 
         	
-        	//Resetando tooltips
-        	var slot1 = $("#" + data["codigo"]);
+        	//Destacando caixas que possuem correlação
+        	var slot1 = $("#" + data["codigo1"]);
         	var slot2 = $("#" + data["codigo2"]);
-        	//resetTooltip(slot1);
-        	//resetTooltip(slot2);
-
 
         	jsplumb_CorrelationConnection(data["codigo2"], data["codigo1"], data["correlacao"], min["correlacao"]);
+
+
+        	//Marcação entre as disciplinas mais correlacionadas 1
+			slot1.mouseover(function() {
+				slot1.css("background-color", "#722242");
+				slot2.css("background-color", "#722242");
+			});
+
+			slot1.mouseout(function() {
+				slot1.css("background-color", "#34495e");
+				slot2.css("background-color", "#34495e");
+			});
+
+			slot2.mouseover(function() {
+				slot1.css("background-color", "#722242");
+				slot2.css("background-color", "#722242");
+			});
+
+			slot2.mouseout(function() {
+				slot1.css("background-color", "#34495e");
+				slot2.css("background-color", "#34495e");
+			});
+
+			//Marcação entre as disciplinas mais correlacionadas 2
+   //      	slot1.mouseover(function() {
+			// 	$(".w").css("opacity", "0.4");
+			// 	slot1.css("opacity", "1");
+			// 	slot2.css("opacity", "1");
+			// });
+
+			// slot1.mouseout(function() {
+			// 	$(".w").css("opacity", "1");
+			// });
+
+			// slot2.mouseover(function() {
+			// 	$(".w").css("opacity", "0.4");
+			// 	slot1.css("opacity", "1");
+			// 	slot2.css("opacity", "1");
+			// });
+
+			// slot2.mouseout(function() {
+			// 	$(".w").css("opacity", "1");
+			// });
+
 
 
 
