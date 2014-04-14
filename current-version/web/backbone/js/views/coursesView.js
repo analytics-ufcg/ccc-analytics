@@ -8,7 +8,6 @@ directory.CoursesView = Backbone.View.extend({
 
 	initialize: function() {
 
-		//var dataframe = readJSON("data/grade-disciplinas-por-periodo.json");
 		var dataframe = readJSON("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo");
 		//console.log(dataframe);
 		
@@ -65,8 +64,6 @@ directory.CoursesView = Backbone.View.extend({
 		 	slot.css('top',100*top_div[periodo]+100+'px');
 
 			top_div[periodo]++;
-			//console.log(data["codigo"]);
-			//console.log(slot);
 
 			slot.css('left',getSlotCaixa()*(periodo-1)+'px');
 
@@ -88,8 +85,6 @@ directory.CoursesView = Backbone.View.extend({
 					$("#blocagem1").show();
 					$("#blocagem2").show();
 				});
-				//console.log(data["PerMaisFreq2nd"]+" "+ data["PerMaisFreq3rd"]);
-				//console.log(data["FreqRelativa2nd"],data["FreqRelativa3rd"]);
 
 			}
 			else{
