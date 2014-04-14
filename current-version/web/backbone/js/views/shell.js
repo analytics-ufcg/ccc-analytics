@@ -33,8 +33,9 @@ directory.ShellView = Backbone.View.extend({
             position = 1;
             console.log("Fluxograma Comum");
             $("#idtitulo").text("Plano de Curso");
-             $("#iddescricao").text("É o plano padrão de curso sugerido pela coordenação do curso - não inclui as disciplinas optativas. A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.");	
-            
+            $("#iddescricao").text("É o plano padrão de curso sugerido pela coordenação do curso - não inclui as disciplinas optativas. A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.");	
+            $("#botao_legenda").hide()
+
         } 
     },
 
@@ -48,6 +49,10 @@ directory.ShellView = Backbone.View.extend({
             console.log("Blocagem Comum");
             $("#idtitulo").text("Blocagem mais comum");
             $("#iddescricao").text("É a blocagem mais comumente (mais frequente) cursada pelos alunos de graduação.");
+            $("#botao_legenda").show();
+            var linkText = $("#legenda_reprovacao").html();
+            $("#legendaParaMostrar").html(linkText);
+
         } 
     },
 
@@ -61,7 +66,9 @@ directory.ShellView = Backbone.View.extend({
             position = 3;
             console.log("Blocagem 1");
             $("#idtitulo").text("Blocagem 1");
-            $("#iddescricao").text("Alunos que dividiram bem o número de optativas por período.");        
+            $("#iddescricao").text("Alunos que dividiram bem o número de optativas por período.");    
+            $("#botao_legenda").hide()
+    
         } 
         
     },
@@ -75,6 +82,8 @@ directory.ShellView = Backbone.View.extend({
             console.log("Blocagem 2");
             $("#idtitulo").text("Blocagem 2");
 			$("#iddescricao").text("Alunos que optaram por pagar mais optativas no final do curso.");   
+            $("#botao_legenda").hide()
+
         } 
         
     },
@@ -88,6 +97,7 @@ directory.ShellView = Backbone.View.extend({
             console.log("Blocagem 3");
             $("#idtitulo").text("Blocagem 3");
             $("#iddescricao").text("Alunos que perderam disciplinas da área de exatas no início do curso.");
+            $("#botao_legenda").hide()
 
         }     
         
@@ -105,6 +115,8 @@ directory.ShellView = Backbone.View.extend({
             console.log("Correlacao");
             $("#idtitulo").text("Correlação entre Disciplinas");
             $("#iddescricao").text("Representa a correlação entre disciplinas com base na média de cada aluno que cursou ambas. Quanto mais espessa a linha que interliga as disciplinas, maior a correlação entre elas.");   
+            $("#botao_legenda").hide()
+
         }    
     },
     
@@ -118,7 +130,8 @@ directory.ShellView = Backbone.View.extend({
             console.log("taxareprovacao");
 			$("#idtitulo").text("Taxa de Reprovação de cada Disciplinas");
             $("#iddescricao").text("Representa o índice de reprovação dos alunos em cada disciplina. Quanto mais escura a disciplina, maior seu índice de reprovação.");
-			//dialog();
+            $("#botao_legenda").show();
+            $("#legendaParaMostrar").html('b'); 
         }    
     }
 });

@@ -93,6 +93,25 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 			É o plano padrão de curso sugerido pela coordenação do curso <br/>- não inclui as disciplinas optativas. 
 			A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.
 			</div>
+
+			<div class="" id="botao_legenda" style="display: none;">
+			<a href="#" id="exemploDaLegenda" class="btn btn-success" rel="popover" data-original-title="Legenda">Legenda</a>  
+			</div>
+			 <div id="legendaParaMostrar" style="display: none;">   
+			
+			</div>
+
+			    <script>
+      $(function (){
+         $("#exemploDaLegenda").popover({
+         	 html: true,
+         	 trigger: 'click',
+         	 content: function() {
+      			return $('#legendaParaMostrar').html();
+    		}
+		  });
+      });
+      </script>
 		</div>
 	</div>
 </div>
@@ -240,11 +259,9 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 
 
 <!-- CAIXA DE DIALOGO-->
-<!--
-<div id="dialog" title="Taxa de Reprovação">
-	<p>
-		<img src="image/legenda_taxar.jpeg"/>
-	</p>
-</div>
 -->
 
+
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on right
+</button>
