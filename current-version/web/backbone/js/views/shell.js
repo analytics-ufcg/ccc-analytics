@@ -48,7 +48,7 @@ directory.ShellView = Backbone.View.extend({
             position = 2;
             console.log("Blocagem Comum");
             $("#idtitulo").text("Blocagem mais comum");
-            $("#iddescricao").text("É a blocagem mais comumente (mais frequente) cursada pelos alunos de graduação.");
+            $("#iddescricao").text("É a execução curricular mais comumente (mais frequente) cursada pelos alunos de graduação.");
             $("#botao_legenda").show();
             var linkText = $("#legenda_reprovacao").html();
             $("#legendaParaMostrar").html(linkText);

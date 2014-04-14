@@ -9,17 +9,6 @@ function init_jsplumb(){
 				Endpoint : ["Dot", {radius:0.1}],//sem bolinha
 				HoverPaintStyle : {strokeStyle:"#1e8151", lineWidth:2 },
 				
-				
-//				ConnectionOverlays : [
-//					[ "Arrow", { 
-//						location:1,
-//						id:"arrow",
-//		                length:8,
-//		                foldback:0.7
-//					} ],
-//		            [ "Label", {id:"label", cssClass:"aLabel" }]
-//				],
-				
 				Container:"statemachine-demo"
 			});
 
@@ -36,7 +25,7 @@ function init_jsplumb(){
 				filter:".ep",				// only supported by jquery
 				anchor:"Continuous",
 				connector:[ "StateMachine", { curviness:1 } ],
-				//connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
+				
 				
 			});						
 
@@ -107,9 +96,6 @@ function jsplumb_CorrelationConnection(source, target, correlacao, correlacaoMin
 
 	var lineWidth = (valorMax * (1 - correlacaoMin) - ((valorMax - valorMin) * (1 - Math.abs(correlacao)) ) ) / (1 - correlacaoMin);
 
-	//console.log(lineWidth + " " + correlacao+" "+color);
-	//		connectorStyle:{ strokeStyle:"#5c96bc", lineWidth:1, outlineColor:"transparent", outlineWidth:4 },
-
 
 	var c = instance.connect({
 		source : source+"",
@@ -121,8 +107,6 @@ function jsplumb_CorrelationConnection(source, target, correlacao, correlacaoMin
 			outlineWidth : 4
 		}
 	});
-	
-	//connection.removeOverlays("someLabel", "arrow one");
 
 	c.removeOverlays();
 
@@ -169,7 +153,3 @@ function initModal() {
 			$('.window').hide();
 		});
 }
-
-
-
-

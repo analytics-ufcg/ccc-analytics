@@ -38,15 +38,12 @@
 	margin-top: 200px; 
 }
 
-.align-center {
-	text-align: center;
-}
-
 .titulo {
-	text-align: center;
+	text-align: left;
 	font-size: 20px;
 	font-weight: bold;
 	color: #273A87;
+	
 }
 
 .descricao {
@@ -56,6 +53,15 @@
 
 .align-right {
 		text-align: right;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.align-left {
+	text-align: left;
+	margin-left: 110px;
 }
 
 .footer {
