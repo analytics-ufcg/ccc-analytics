@@ -213,8 +213,6 @@ directory.CoursesView = Backbone.View.extend({
 			// });
 
 
-
-
         });
         instance.setSuspendDrawing(false,true);
 	}
