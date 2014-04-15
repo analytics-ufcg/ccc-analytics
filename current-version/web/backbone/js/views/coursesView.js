@@ -113,14 +113,9 @@ directory.CoursesView = Backbone.View.extend({
         _.each(dataframe, function(data) {
         	//console.log(data);
 
-        	//TO FIX - Colocar os valores de total de alunos
-
         	var frequencia_absoluta = data["reprovacaoAbsoluta"]
         	var media_de_reprovacoes = data["reprovacaoRelativa"];
         	var slot = $("#" + data["codigo"]);
-        	
-        	//Resetar tooltip
-        	resetTooltip(slot);
 
         	var total_de_alunos = data["totalDeAlunos"];
 
@@ -167,51 +162,9 @@ directory.CoursesView = Backbone.View.extend({
         	var slot1 = $("#" + data["codigo1"]);
         	var slot2 = $("#" + data["codigo2"]);
 
+        	mouseOverCorrelacao(slot1, slot2);
+
         	jsplumb_CorrelationConnection(data["codigo2"], data["codigo1"], data["correlacao"], min["correlacao"]);
-
-
-        	//Marcação entre as disciplinas mais correlacionadas 1
-			slot1.mouseover(function() {
-				slot1.css("background-color", "#722242");
-				slot2.css("background-color", "#722242");
-			});
-
-			slot1.mouseout(function() {
-				slot1.css("background-color", "#34495e");
-				slot2.css("background-color", "#34495e");
-			});
-
-			slot2.mouseover(function() {
-				slot1.css("background-color", "#722242");
-				slot2.css("background-color", "#722242");
-			});
-
-			slot2.mouseout(function() {
-				slot1.css("background-color", "#34495e");
-				slot2.css("background-color", "#34495e");
-			});
-
-			//Marcação entre as disciplinas mais correlacionadas 2
-   //      	slot1.mouseover(function() {
-			// 	$(".w").css("opacity", "0.4");
-			// 	slot1.css("opacity", "1");
-			// 	slot2.css("opacity", "1");
-			// });
-
-			// slot1.mouseout(function() {
-			// 	$(".w").css("opacity", "1");
-			// });
-
-			// slot2.mouseover(function() {
-			// 	$(".w").css("opacity", "0.4");
-			// 	slot1.css("opacity", "1");
-			// 	slot2.css("opacity", "1");
-			// });
-
-			// slot2.mouseout(function() {
-			// 	$(".w").css("opacity", "1");
-			// });
-
 
         });
         instance.setSuspendDrawing(false,true);
@@ -241,6 +194,37 @@ directory.CourseView = Backbone.View.extend({
 	}
 
 });
+
+
+function mouseOverCorrelacao(slot1, slot2){
+
+	console.log("aqui eh a minha cor " + slot1.css("background-color"));
+
+	var corAnterior1 = slot1.css("background-color");
+	var corAnterior2 = slot2.css("background-color");
+
+	slot1.mouseover(function() {
+		slot1.css("background-color", "#0570b0");
+		slot2.css("background-color", "#0570b0");
+	});
+
+	slot1.mouseout(function() {
+		slot1.css("background-color", corAnterior1);
+		slot2.css("background-color", corAnterior2);
+	});
+
+	slot2.mouseover(function() {
+		slot1.css("background-color", "#0570b0");
+		slot2.css("background-color", "#0570b0");
+	});
+
+	slot2.mouseout(function() {
+		slot1.css("background-color", corAnterior1);
+		slot2.css("background-color", corAnterior2);
+	});
+}
+
+
 
 function resetTooltip(slot){
 
