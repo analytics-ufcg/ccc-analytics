@@ -70,42 +70,50 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 <br />
 <br />
 
-<div class="row">
-	<div class="col-sm-12">
-		<div class="align-left">
-			<div class="titulo" id="idtitulo">
-				Plano de Curso
-			</div>
-
-			<div class="descricao" id="iddescricao">
-				É o plano padrão de curso sugerido pela coordenação do curso
-				<br/>
-				- não inclui as disciplinas optativas.
-				A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.
-			</div>
-
-			<div class="" id="botao_legenda" style="display: none;">
-				<a href="#" id="exemploDaLegenda" class="btn btn-success" rel="popover" data-original-title="Legenda">Legenda</a> 	
-			</div>
-
-			<div id="legendaParaMostrar" style="display: none;">
-
-			</div>
-
-			<script>
-				$(function() {
-					$("#exemploDaLegenda").popover({
-						html : true,
-						trigger : 'click',
-						content : function() {
-							return $('#legendaParaMostrar').html();
-						}
-					});
-				});
-			</script>
+<div class="row-fluid">
+	<div class="span2" style="float: left; margin-left: 110px;">
+		<br />
+		<div class="titulo" id="idtitulo">
+			Plano de Curso
 		</div>
+
+		<div class="descricao" id="iddescricao">
+			É o plano padrão de curso sugerido pela coordenação do curso
+			<br/>
+			- não inclui as disciplinas optativas.
+			A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.
+		</div>
+		<br />
+	</div>
+	
+	<div class="span10" style="float: right; margin-right: 110px;">
+		<br />
+		<div class="" id="botao_legenda" style="display: none;">
+			
+			<a href="#" id="exemploDaLegenda" rel="popover" data-original-title="Legenda"><img src="image/search.png" width="20px"></a>
+			
+		</div>
+
+		<div id="legendaParaMostrar" style="display: none;">
+
+		</div>
+
+		<script>
+			$(function() {
+				$("#exemploDaLegenda").popover({
+					html : true,
+					trigger : 'click',
+					content : function() {
+						return $('#legendaParaMostrar').html();
+					}
+				});
+			});
+		</script>
+		<br />
 	</div>
 </div>
+
+<div class="row"></div>
 
 <!--  CONTAINER  -->
 
