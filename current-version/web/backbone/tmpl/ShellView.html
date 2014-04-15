@@ -91,7 +91,10 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 		<br />
 		<div class="" id="botao_legenda" style="display: none;">
 
-			<a href="#" id="exemploDaLegenda" rel="popover" data-placement="left" data-original-title="Legenda"><img src="image/search.png" width="20px"></a>
+			<a href="#" id="exemploDaLegenda" rel="popover" data-placement="left" data-original-title="Legenda">
+				<span class="glyphicon glyphicon-info-sign" style="size: 27px;"></span> <!-- icone provisorio -->
+			</a>
+
 
 		</div>
 
@@ -103,7 +106,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 			$(function() {
 				$("#exemploDaLegenda").popover({
 					html : true,
-					trigger : 'click',
+					trigger : 'hover',
 					content : function() {
 						return $('#legendaParaMostrar').html();
 					}
