@@ -2,6 +2,16 @@
 	margin-top:5em;
 }
 
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+ 	src:local('Open Sans'), 
+ 		local('OpenSans'),
+ 		url("font/OpenSans-Regular.ttf") format('truetype'),
+ 		url("font/OpenSans.woff") format('woff');
+}
+
 
 /*	 classe que define o estilo da caixa	*/
 .w { 	
@@ -20,7 +30,7 @@
 	position:absolute;
 	background-color:#34495e;
 	color:#fff;
-	font-family:helvetica;
+	font-family:'Open Sans', Helvetica, Arial, sans-serif;
 	padding:12px;
 	font-size:11px;
 	width:100px;
@@ -44,7 +54,7 @@
 	position:absolute;
 	background-color:#34495e;
 	color:#fff;
-	font-family:helvetica;
+	font-family:'Open Sans', Helvetica, Arial, sans-serif;
 	padding:12px;
 	font-size:11px;
 	width:100px;
