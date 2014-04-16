@@ -34,7 +34,6 @@ directory.CoursesView = Backbone.View.extend({
 
 		instance.setSuspendDrawing(true);
         _.each(dataframe, function(data) {
-        	//console.log(data);
         	jsplumb_connection(data["codigoPreRequisito"], data["codigo"]);
 
         });
@@ -53,15 +52,17 @@ directory.CoursesView = Backbone.View.extend({
 		_.each(dataframe, function(data) {
 
 			var periodo;
-
+			var topMin = 1;
+		
 			if(change_opacity == 1){
+				topMin = 100;
 				periodo = data["periodoMaisFreq1st"];
 			}
 			else periodo = data["periodo"];
 
 		 	var slot = $("#"+data["codigo"]);
 
-		 	slot.css('top',100*top_div[periodo]+100+'px');
+		 	slot.css('top',100*top_div[periodo]+topMin+'px');
 
 			top_div[periodo]++;
 
@@ -78,7 +79,7 @@ directory.CoursesView = Backbone.View.extend({
 			if(change_opacity == 1){
 
 				coloracaoDaBlocagemMaisComum(slot, frequencia1);
-				slot.attr('title', slot.text() + "\nFrequência de alunos neste período: " + (frequencia1*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + total_de_alunos_da_disciplina);
+				slot.attr('title', "Frequência de alunos neste período: " + (frequencia1*100).toString().substr(0,4) + "%" + "\nTotal de alunos: " + total_de_alunos_da_disciplina);
 
 				slot.mouseover(function(){
 					setDivMouseOn(slot, data["periodoMaisFreq2nd"], data["periodoMaisFreq3rd"], data["freqRelativa2nd"],data["freqRelativa3rd"], slot.text());
@@ -134,7 +135,7 @@ directory.CoursesView = Backbone.View.extend({
 			if(media_de_reprovacoes > 0.7) {
 				slot.css("background-color", "#441428");
 			}
-			slot.attr('title', slot.text() +"\nPorcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
+			slot.attr('title', "Porcentagem de reprovação: " + (media_de_reprovacoes*100).toString().substr(0,4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
 
         });
 	},
@@ -178,18 +179,16 @@ var top_div = new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 // The View for a CourseView
 directory.CourseView = Backbone.View.extend({
 
-	template: _.template("<div class='w' title='<%= disciplina %>' id='<%= codigo %>'><%= disciplina %><div class='ep'></div></div>"),
+	template: _.template("<div class='w' id='<%= codigo %>'><%= disciplina %><div class='ep'></div></div>"),
 	
 	render: function() {
 		var dataframe = this.model.toJSON();
 		var periodo = dataframe["periodo"];
-		//console.log(dataframe);
+
 		this.el = $( this.template(dataframe) )
-		this.el.css('top',100*top_div[periodo]+100+'px');
+		this.el.css('top',100*top_div[periodo]+1+'px');
 		top_div[periodo]++;
 		this.el.css('left',getSlotCaixa()*(periodo-1)+'px');
-		//console.log(getSlotCaixa());
-		//this.$el.html( this.template(this.model.toJSON()) );
 		return this;
 	}
 
@@ -228,7 +227,7 @@ function mouseOverCorrelacao(slot1, slot2){
 
 function resetTooltip(slot){
 
-	slot.attr('title', slot.text());
+	slot.attr('title', "");
 
 }
 
