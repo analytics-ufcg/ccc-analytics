@@ -112,7 +112,6 @@ directory.CoursesView = Backbone.View.extend({
 		$(".w").css("opacity", 1);
 
         _.each(dataframe, function(data) {
-        	//console.log(data);
 
         	var frequencia_absoluta = data["reprovacaoAbsoluta"]
         	var media_de_reprovacoes = data["reprovacaoRelativa"];
@@ -142,7 +141,8 @@ directory.CoursesView = Backbone.View.extend({
 	
 	
 	correlacao: function(url) {
-		
+		$(".w").unbind('mouseover mouseout');
+
 		var dataframe = readJSON(url);
 		var min = 1;
 
@@ -150,41 +150,31 @@ directory.CoursesView = Backbone.View.extend({
 		    return data["correlacao"];
 		});
 
-		//console.log(min);
-
+		
 		jsplumbdeleteEveryEndpoint();
 
 		instance.setSuspendDrawing(true);
+
+		//Tabela hash, onde a chave é o código da disciplina e o conteúdo é um array contendo todas as disciplinas
+		//que são correlacionadas com ela.
 		var hash = {};
+
         _.each(dataframe, function(data) {
-        	//console.log(data);
-
+        	var codigo1 = data["codigo1"];
+			var codigo2 = data["codigo2"];
         	
-        	//Destacando caixas que possuem correlação
-        	var slot1 = $("#" + data["codigo1"]);
-        	var slot2 = $("#" + data["codigo2"]);
-        	if (hash[data["codigo1"]] == undefined){
-        		hash[data["codigo1"]] = [data["codigo2"]];
-        	}else{
-        		hash[data["codigo1"]].push(data["codigo2"]);
-        	}
+        	//Adiciona disciplina correlacinada na hash        	
+        	adicionaValorHash(hash,codigo1,codigo2);
+        	adicionaValorHash(hash,codigo2,codigo1);
 
-        	if ( hash[data["codigo2"]] == undefined){
-        		hash[data["codigo2"]] = [data["codigo1"]];
-        	}else{
-        		hash[data["codigo2"]].push(data["codigo1"]);
-        	}
-
-        	//mouseOverCorrelacao(slot1, slot2);
-
-        	jsplumb_CorrelationConnection(data["codigo2"], data["codigo1"], data["correlacao"], min["correlacao"]);
+        	jsplumb_CorrelationConnection(codigo2, codigo1, data["correlacao"], min["correlacao"]);
 
         });
 
+        //Loop para criar evento que pinta caixinhas correlacionadas ao passar mouseover
         _.each(Object.keys(hash), function(data) {
         	
         	mouseOverCorrelacao(data, hash[data]);
-
 
         });
 
@@ -214,15 +204,28 @@ directory.CourseView = Backbone.View.extend({
 
 });
 
+//Função que adiciona um valor num array de uma key de um hash
+function adicionaValorHash(hash,key,value){
+	if (hash[key] == undefined){
+		hash[key] = [value];
+	}else{
+		hash[key].push(value);
+	}
 
+}
+
+//Função que cadastra mouseover e mouseout na tela de correlação (pinta caixinhas de disciplinas correlacionadas)
 function mouseOverCorrelacao(codigo, codigoRelacionadas){
 
 	var slot1 = $("#"+codigo);
 
 
 	slot1.mouseover(function() {
+		//Cor anterior da caixinha que foi passada pelo mouse. Será preciso para voltar a esta cor no moseout
 		var corAnterior1 = slot1.css("background-color");
 
+		//Para cada caixa de disciplina correlacionada, cria evento do mouseout que pinta para a cor atual
+		//e depois muda a cor
 		_.each(codigoRelacionadas,function(codigo2){
 			var slot2 = $("#"+codigo2);
 			var corAnterior2 = slot2.css("background-color");
@@ -233,7 +236,7 @@ function mouseOverCorrelacao(codigo, codigoRelacionadas){
 
 		})
 
-	
+		//Muda a cor da caixa que o mouse passou por cima
 		slot1.css("background-color", "#0570b0");
 		slot1.mouseout(function() {
 			slot1.css("background-color", corAnterior1);
@@ -325,7 +328,6 @@ function refreshSlots(){
 	$("#blocagem2").css("background-color", "#34495e");
 	$(".w").css("background-color", "#34495e");
 	$(".w").css("opacity", "1");
-	$(".w").unbind('mouseover mouseout');
 
 
 }
