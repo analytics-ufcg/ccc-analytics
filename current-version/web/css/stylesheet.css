@@ -86,3 +86,11 @@
 .footer dd a:visited {
 	color: #ecf0f1;
 }
+
+.popover2{
+   width:500px;
+   max-width:500px;
+      height:200px;
+
+   max-height: 200px;
+}

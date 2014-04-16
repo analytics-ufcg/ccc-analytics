@@ -50,7 +50,7 @@ directory.ShellView = Backbone.View.extend({
             $("#idtitulo").text("Blocagem mais comum");
             $("#iddescricao").text("É a execução curricular mais comumente (mais frequente) cursada pelos alunos de graduação.");
             $("#botao_legenda").show();
-            var linkText = $("#legenda_reprovacao").html();
+            var linkText = $("#legenda_blocagem").html();
             $("#legendaParaMostrar").html(linkText);
 
         } 
@@ -131,7 +131,8 @@ directory.ShellView = Backbone.View.extend({
 			$("#idtitulo").text("Taxa de Reprovação de cada Disciplinas");
             $("#iddescricao").text("Representa o índice de reprovação dos alunos em cada disciplina. Quanto mais escura a disciplina, maior seu índice de reprovação.");
             $("#botao_legenda").show();
-            $("#legendaParaMostrar").html('b'); 
+            var linkText = $("#legenda_reprovacao").html();
+            $("#legendaParaMostrar").html(linkText);
         }    
     }
 });

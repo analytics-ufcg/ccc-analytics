@@ -91,15 +91,16 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 		<br />
 		<div class="" id="botao_legenda" style="display: none;">
 
-			<a href="#" id="exemploDaLegenda" rel="popover" data-placement="left" data-original-title="Legenda">
-				<span class="glyphicon glyphicon-info-sign" style="size: 27px;"></span> <!-- icone provisorio -->
+			<a href="#" id="exemploDaLegenda" rel="popover" data-placement="bottom" data-original-title="Legenda">
+				
+				<span class="glyphicon glyphicon-info-sign" style="font-size: 20px;"></span> <!-- icone provisorio -->
 			</a>
 
 
 		</div>
 
-		<div id="legendaParaMostrar" style="display: none;">
-
+		<div id="legendaParaMostrar" style="display: none; width: 500px;" >
+			
 		</div>
 
 		<script>
@@ -107,9 +108,11 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 				$("#exemploDaLegenda").popover({
 					html : true,
 					trigger : 'hover',
+					container: 'body',
 					content : function() {
 						return $('#legendaParaMostrar').html();
-					}
+					},
+					template: '<div class="popover popover2"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
 				});
 			});
 		</script>
@@ -228,4 +231,54 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 			<br/>
 		</div>
 	</div>
+</div>
+
+<div id="legenda_blocagem" style="display:none;">
+				<svg>
+					<rect x="5" y="40" width="10" height="10" fill="#7faaca" />
+					 
+					<rect x="5" y="60" width="10" height="10" fill="#3277aa" />
+
+					<rect x="5" y="80" width="10" height="10" fill="#004d86" />
+
+					<rect x="5" y="100" width="10" height="10" fill="#003359" />
+
+					<rect x="5" y="120" width="10" height="10" fill="#00192c" />
+
+					<g fill="black" stroke="none">
+				    	<text x="5" y="10">Porcentagem de alunos que cursaram</text>
+				    	<text x="5" y="30">a disciplina no período indicado:</text>
+					    <text x="25" y="50">Até 20%</text>
+					    <text x="25" y="70">De 20% a 35%</text>
+					    <text x="25" y="90">De 35% a 50%</text>
+					  	<text x="25" y="110">De 50% a 65%</text>
+					    <text x="25" y="130">De 65% a 100%</text>
+					</g>
+
+				</svg>
+			</div>
+
+<div id="legenda_reprovacao" style="display:none;">
+	<svg>
+		<rect x="5" y="20" width="10" height="10" fill="#FF4D94" />
+		 
+		<rect x="5" y="40" width="10" height="10" fill="#B23668" />
+
+		<rect x="5" y="60" width="10" height="10" fill="#8E2B53" />
+
+		<rect x="5" y="80" width="10" height="10" fill="#722242" />
+
+		<rect x="5" y="100" width="10" height="10" fill="#441428" />
+
+		<g  fill="black" stroke="none">
+			<text x="5" y="10">Porcentagem de reprovação:</text>
+
+		    <text x="25" y="30">Até 10%</text>
+		    <text x="25" y="50">De 10% a 30%</text>
+		    <text x="25" y="70">De 30% a 50%</text>
+		  	<text x="25" y="90">De 50% a 70% de reprovação</text>
+		    <text x="25" y="110">De 70% a 100% de reprovação</text>
+		</g>
+
+	</svg>
 </div>
