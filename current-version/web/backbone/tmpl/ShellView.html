@@ -20,7 +20,7 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 				<ul class="nav nav-pills">
 					<li class="dropdown" id="menu1">
 						<!-- imagem do menu 1 -->
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1"><img src="image/menu.png" width="15px" height="15px"/></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1"><img src="image/menu2.png" width="56px" height="10px"/></a>
 						<!-- lista de links do menu 1 -->
 						<ul class="dropdown-menu">
 							<li>
@@ -72,35 +72,28 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 <br />
 
 <div class="row-fluid">
-	<div class="span2" style="float: left; margin-left: 110px;">
+	<div class="span2" style="float: left; margin-left: 110px; width: 50%;">
 		<br />
 		<div class="titulo" id="idtitulo">
 			Plano de Curso
 		</div>
 
 		<div class="descricao" id="iddescricao">
-			É o plano padrão de curso sugerido pela coordenação do curso
-			<br/>
-			- não inclui as disciplinas optativas.
-			A oferta de disciplinas e a organização do horário semestral das disciplinas obrigatórias são baseadas neste plano de curso.
+			Este é o plano de curso proposto pela coordenação com as disciplinas obrigatórias e suas relações de pré-requisito. Cada coluna representa um semestre letivo.
 		</div>
 		<br />
 	</div>
 
-	<div class="span10" style="float: right; margin-right: 250px;">
+	<div class="span10" style="float: right; margin-right: 250px; width: 20%; text-align: right;">
 		<br />
 		<div class="" id="botao_legenda" style="display: none;">
 
-			<a href="#" id="exemploDaLegenda" rel="popover" data-placement="bottom" data-original-title="Legenda">
-				
-				<span class="glyphicon glyphicon-info-sign" style="font-size: 20px;"></span> <!-- icone provisorio -->
-			</a>
-
+			<a href="#" id="exemploDaLegenda" rel="popover" data-placement="bottom" data-original-title="Legenda"> <span class="glyphicon glyphicon-info-sign" style="font-size: 20px;"></span> <!-- icone provisorio --> </a>
 
 		</div>
 
 		<div id="legendaParaMostrar" style="display: none; width: 500px;" >
-			
+
 		</div>
 
 		<script>
@@ -108,14 +101,15 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 				$("#exemploDaLegenda").popover({
 					html : true,
 					trigger : 'hover',
-					container: 'body',
+					container : 'body',
 					content : function() {
 						return $('#legendaParaMostrar').html();
 					},
-					template: '<div class="popover popover2"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
+					template : '<div class="popover popover2"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
 				});
 			});
 		</script>
+		
 		<br />
 	</div>
 </div>
@@ -234,34 +228,48 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 </div>
 
 <div id="legenda_blocagem" style="display:none;">
-				<svg>
-					<rect x="5" y="40" width="10" height="10" fill="#7faaca" />
-					 
-					<rect x="5" y="60" width="10" height="10" fill="#3277aa" />
+	<svg>
+		<rect x="5" y="40" width="10" height="10" fill="#7faaca" />
 
-					<rect x="5" y="80" width="10" height="10" fill="#004d86" />
+		<rect x="5" y="60" width="10" height="10" fill="#3277aa" />
 
-					<rect x="5" y="100" width="10" height="10" fill="#003359" />
+		<rect x="5" y="80" width="10" height="10" fill="#004d86" />
 
-					<rect x="5" y="120" width="10" height="10" fill="#00192c" />
+		<rect x="5" y="100" width="10" height="10" fill="#003359" />
 
-					<g fill="black" stroke="none">
-				    	<text x="5" y="10">Porcentagem de alunos que cursaram</text>
-				    	<text x="5" y="30">a disciplina no período indicado:</text>
-					    <text x="25" y="50">Até 20%</text>
-					    <text x="25" y="70">De 20% a 35%</text>
-					    <text x="25" y="90">De 35% a 50%</text>
-					  	<text x="25" y="110">De 50% a 65%</text>
-					    <text x="25" y="130">De 65% a 100%</text>
-					</g>
+		<rect x="5" y="120" width="10" height="10" fill="#00192c" />
 
-				</svg>
-			</div>
+		<g fill="black" stroke="none">
+			<text x="5" y="10">
+				Porcentagem de alunos que cursaram
+			</text>
+			<text x="5" y="30">
+				a disciplina no período indicado:
+			</text>
+			<text x="25" y="50">
+				Até 20%
+			</text>
+			<text x="25" y="70">
+				De 20% a 35%
+			</text>
+			<text x="25" y="90">
+				De 35% a 50%
+			</text>
+			<text x="25" y="110">
+				De 50% a 65%
+			</text>
+			<text x="25" y="130">
+				De 65% a 100%
+			</text>
+		</g>
+
+	</svg>
+</div>
 
 <div id="legenda_reprovacao" style="display:none;">
 	<svg>
 		<rect x="5" y="20" width="10" height="10" fill="#FF4D94" />
-		 
+
 		<rect x="5" y="40" width="10" height="10" fill="#B23668" />
 
 		<rect x="5" y="60" width="10" height="10" fill="#8E2B53" />
@@ -271,13 +279,25 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 		<rect x="5" y="100" width="10" height="10" fill="#441428" />
 
 		<g  fill="black" stroke="none">
-			<text x="5" y="10">Porcentagem de reprovação:</text>
+			<text x="5" y="10">
+				Porcentagem de reprovação:
+			</text>
 
-		    <text x="25" y="30">Até 10%</text>
-		    <text x="25" y="50">De 10% a 30%</text>
-		    <text x="25" y="70">De 30% a 50%</text>
-		  	<text x="25" y="90">De 50% a 70% de reprovação</text>
-		    <text x="25" y="110">De 70% a 100% de reprovação</text>
+			<text x="25" y="30">
+				Até 10%
+			</text>
+			<text x="25" y="50">
+				De 10% a 30%
+			</text>
+			<text x="25" y="70">
+				De 30% a 50%
+			</text>
+			<text x="25" y="90">
+				De 50% a 70% de reprovação
+			</text>
+			<text x="25" y="110">
+				De 70% a 100% de reprovação
+			</text>
 		</g>
 
 	</svg>
