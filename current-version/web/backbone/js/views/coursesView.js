@@ -155,6 +155,7 @@ directory.CoursesView = Backbone.View.extend({
 		jsplumbdeleteEveryEndpoint();
 
 		instance.setSuspendDrawing(true);
+		var hash = {};
         _.each(dataframe, function(data) {
         	//console.log(data);
 
@@ -162,12 +163,31 @@ directory.CoursesView = Backbone.View.extend({
         	//Destacando caixas que possuem correlação
         	var slot1 = $("#" + data["codigo1"]);
         	var slot2 = $("#" + data["codigo2"]);
+        	if (hash[data["codigo1"]] == undefined){
+        		hash[data["codigo1"]] = [data["codigo2"]];
+        	}else{
+        		hash[data["codigo1"]].push(data["codigo2"]);
+        	}
 
-        	mouseOverCorrelacao(slot1, slot2);
+        	if ( hash[data["codigo2"]] == undefined){
+        		hash[data["codigo2"]] = [data["codigo1"]];
+        	}else{
+        		hash[data["codigo2"]].push(data["codigo1"]);
+        	}
+
+        	//mouseOverCorrelacao(slot1, slot2);
 
         	jsplumb_CorrelationConnection(data["codigo2"], data["codigo1"], data["correlacao"], min["correlacao"]);
 
         });
+
+        _.each(Object.keys(hash), function(data) {
+        	
+        	mouseOverCorrelacao(data, hash[data]);
+
+
+        });
+
         instance.setSuspendDrawing(false,true);
 	}
 
@@ -195,32 +215,35 @@ directory.CourseView = Backbone.View.extend({
 });
 
 
-function mouseOverCorrelacao(slot1, slot2){
+function mouseOverCorrelacao(codigo, codigoRelacionadas){
 
-	console.log("aqui eh a minha cor " + slot1.css("background-color"));
+	var slot1 = $("#"+codigo);
 
-	var corAnterior1 = slot1.css("background-color");
-	var corAnterior2 = slot2.css("background-color");
 
 	slot1.mouseover(function() {
+		var corAnterior1 = slot1.css("background-color");
+
+		_.each(codigoRelacionadas,function(codigo2){
+			var slot2 = $("#"+codigo2);
+			var corAnterior2 = slot2.css("background-color");
+			slot1.mouseout(function() {
+				slot2.css("background-color", corAnterior2);
+			 });
+			slot2.css("background-color", "#0570b0");
+
+		})
+
+	
 		slot1.css("background-color", "#0570b0");
-		slot2.css("background-color", "#0570b0");
+		slot1.mouseout(function() {
+			slot1.css("background-color", corAnterior1);
+		 });
 	});
+ 	
 
-	slot1.mouseout(function() {
-		slot1.css("background-color", corAnterior1);
-		slot2.css("background-color", corAnterior2);
-	});
 
-	slot2.mouseover(function() {
-		slot1.css("background-color", "#0570b0");
-		slot2.css("background-color", "#0570b0");
-	});
 
-	slot2.mouseout(function() {
-		slot1.css("background-color", corAnterior1);
-		slot2.css("background-color", corAnterior2);
-	});
+
 }
 
 
@@ -302,6 +325,8 @@ function refreshSlots(){
 	$("#blocagem2").css("background-color", "#34495e");
 	$(".w").css("background-color", "#34495e");
 	$(".w").css("opacity", "1");
+	$(".w").unbind('mouseover mouseout');
+
 
 }
 
