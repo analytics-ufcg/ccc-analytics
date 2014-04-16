@@ -116,7 +116,9 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Correlacao");
 			$("#idtitulo").text("Correlação entre Disciplinas");
 			$("#iddescricao").text("As disciplinas que apresentam fortes correlações (baseadas na média de notas e carga horária) de desempenho por parte dos alunos estão relacionadas a seguir.");
-			$("#botao_legenda").hide()
+			$("#botao_legenda").show();
+			var linkText = $("#legenda_correlacao").html();
+			$("#legendaParaMostrar").html(linkText);
 
 		}
 	},
