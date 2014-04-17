@@ -48,6 +48,8 @@ directory.CoursesView = Backbone.View.extend({
 		var top_div = new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
 		refreshSlots();
+		//
+		$(".w").unbind('mouseover mouseout');
 
 		_.each(dataframe, function(data) {
 
@@ -90,7 +92,6 @@ directory.CoursesView = Backbone.View.extend({
 			}
 			else{
 				slot.css({"opacity":0.9});
-				$(".w").unbind('mouseover mouseout');
 			}
 			slot.show();
 
@@ -141,7 +142,7 @@ directory.CoursesView = Backbone.View.extend({
 	
 	
 	correlacao: function(url) {
-		$(".w").unbind('mouseover mouseout');
+	//	$(".w").unbind('mouseover mouseout');
 
 		var dataframe = readJSON(url);
 		var min = 1;
