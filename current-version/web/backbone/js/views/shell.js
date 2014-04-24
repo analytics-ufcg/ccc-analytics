@@ -1,9 +1,11 @@
 var position;
+var rep;
 
 directory.ShellView = Backbone.View.extend({
 
 	initialize : function() {
 		position = 1;
+		rep = 0;
 	},
 
 	render : function() {
@@ -27,13 +29,14 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no fluxograma");
 		else {
 			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
+			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito",true);
 
 			position = 1;
 			console.log("Fluxograma comum");
 			$("#idtitulo").text("Plano de curso");
 			$("#iddescricao").text("Este é o plano de curso proposto pela coordenação. Contém as disciplinas obrigatórias e suas relações de pré-requisito, onde cada coluna representa um semestre letivo.");
-			$("#botao_legenda").hide()
+			$("#botao_legenda").hide();
+			$("#setas").show();
 
 		}
 	},
@@ -51,6 +54,7 @@ directory.ShellView = Backbone.View.extend({
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_blocagem").html();
 			$("#legendaParaMostrar").html(linkText);
+			$("#setas").hide();
 
 		}
 	},
@@ -68,7 +72,7 @@ directory.ShellView = Backbone.View.extend({
 			$("#idtitulo").text("Execução curricular 1");
 			$("#iddescricao").text("{a definir}");
 			$("#botao_legenda").hide()
-
+			$("#setas").hide();
 		}
 	},
 
@@ -83,7 +87,7 @@ directory.ShellView = Backbone.View.extend({
 			$("#idtitulo").text("Execução curricular 2");
 			$("#iddescricao").text("{a definir}");
 			$("#botao_legenda").hide()
-
+			$("#setas").hide();
 		}
 
 	},
@@ -99,7 +103,7 @@ directory.ShellView = Backbone.View.extend({
 			$("#idtitulo").text("Execução curricular 3");
 			$("#iddescricao").text("{a definir}");
 			$("#botao_legenda").hide()
-
+			$("#setas").hide();
 		}
 	},
 
@@ -119,24 +123,35 @@ directory.ShellView = Backbone.View.extend({
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_correlacao").html();
 			$("#legendaParaMostrar").html(linkText);
-
+			$("#setas").hide();
 		}
 	},
 
 	taxareprovacao : function() {
-		if (position == 8)
+		if (rep == 1){
 			console.log("Já está na taxa reprovacao");
+			rep = 0;
+			var temp = position;
+			position = 0;
+			if(temp == 1) this.fluxograma(); 
+			if(temp == 2) this.blocagemComum();
+			if(temp == 3) this.blocagem1();
+			if(temp == 4) this.blocagem2();
+			if(temp == 5) this.blocagem3();
+			if(temp == 7) this.correlacao();
+		}
 		else {
 			//directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
 			directory.coursesView.taxaReprovacao("http://analytics.lsd.ufcg.edu.br/ccc/reprovacoes", 0);
 
-			position = 8;
+			rep = 1;
 			console.log("taxareprovacao");
 			$("#idtitulo").text("Taxa de reprovação de cada disciplina");
 			$("#iddescricao").text("As taxas de reprovação das disciplinas estão representadas a seguir.");
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_reprovacao").html();
 			$("#legendaParaMostrar").html(linkText);
+			
 		}
 	}
 });

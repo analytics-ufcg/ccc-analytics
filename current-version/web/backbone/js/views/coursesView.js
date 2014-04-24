@@ -29,10 +29,10 @@ directory.CoursesView = Backbone.View.extend({
 		return this;
 	},
 
-	connect : function(url, geraConexao) {
+	connect : function(url, vaiGerar) {
 
 			var dataframe = readJSON(url);
-
+		if (vaiGerar) {
 			instance.setSuspendDrawing(true);
 
 			_.each(dataframe, function(data) {
@@ -40,6 +40,8 @@ directory.CoursesView = Backbone.View.extend({
 			});
 
 			instance.setSuspendDrawing(false, true);
+
+		};
 	},
 
 	setPositions : function(url, change_opacity) {
