@@ -24,14 +24,14 @@ directory.ShellView = Backbone.View.extend({
 
 	fluxograma : function() {
 		if (position == 1)
-			console.log("Já está no Fluxograma");
+			console.log("Já está no fluxograma");
 		else {
 			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
 			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
 
 			position = 1;
-			console.log("Fluxograma Comum");
-			$("#idtitulo").text("Plano de Curso");
+			console.log("Fluxograma comum");
+			$("#idtitulo").text("Plano de curso");
 			$("#iddescricao").text("Este é o plano de curso proposto pela coordenação. Contém as disciplinas obrigatórias e suas relações de pré-requisito, onde cada coluna representa um semestre letivo.");
 			$("#botao_legenda").hide()
 
@@ -40,12 +40,12 @@ directory.ShellView = Backbone.View.extend({
 
 	blocagemComum : function() {
 		if (position == 2)
-			console.log("Já está no execução curricular Comum");
+			console.log("Já está no execução curricular comum");
 		else {
 			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/maioresFrequencias", 1);
 
 			position = 2;
-			console.log("Blocagem Comum");
+			console.log("Blocagem comum");
 			$("#idtitulo").text("Execução curricular mais comum");
 			$("#iddescricao").text("Na prática as disciplinas cursadas pelos alunos ao longo do curso representam outro arranjo que não é, necessariamente, o mesmo planejado pela coordenação. Com base nos dados de [anos], é possível observar a seguinte distribuição de disciplinas ao longo dos semestres letivos.");
 			$("#botao_legenda").show();
@@ -105,7 +105,7 @@ directory.ShellView = Backbone.View.extend({
 
 	correlacao : function() {
 		if (position == 7)
-			console.log("Já está na Correlação");
+			console.log("Já está na correlação");
 		else {
 
 			if (position != 1)
@@ -114,7 +114,7 @@ directory.ShellView = Backbone.View.extend({
 
 			position = 7;
 			console.log("Correlacao");
-			$("#idtitulo").text("Correlação entre Disciplinas");
+			$("#idtitulo").text("Correlação entre disciplinas");
 			$("#iddescricao").text("As disciplinas que apresentam fortes correlações, baseadas na média de notas, de desempenho por parte dos alunos estão relacionadas a seguir.");
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_correlacao").html();
@@ -125,14 +125,14 @@ directory.ShellView = Backbone.View.extend({
 
 	taxareprovacao : function() {
 		if (position == 8)
-			console.log("Já está na Taxa Reprovacao");
+			console.log("Já está na taxa reprovacao");
 		else {
 			//directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
 			directory.coursesView.taxaReprovacao("http://analytics.lsd.ufcg.edu.br/ccc/reprovacoes", 0);
 
 			position = 8;
 			console.log("taxareprovacao");
-			$("#idtitulo").text("Taxa de Reprovação de cada Disciplina");
+			$("#idtitulo").text("Taxa de reprovação de cada disciplina");
 			$("#iddescricao").text("As taxas de reprovação das disciplinas estão representadas a seguir.");
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_reprovacao").html();
