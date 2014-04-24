@@ -33,10 +33,11 @@ directory.CoursesView = Backbone.View.extend({
 		var dataframe = readJSON(url);
 
 		instance.setSuspendDrawing(true);
+        
         _.each(dataframe, function(data) {
         	jsplumb_connection(data["codigoPreRequisito"], data["codigo"]);
-
         });
+        
         instance.setSuspendDrawing(false,true);
 	},
 
@@ -98,6 +99,8 @@ directory.CoursesView = Backbone.View.extend({
         });
 
 	},
+	
+	
 
 	taxaReprovacao: function(url) {
 		
@@ -251,11 +254,8 @@ function mouseOverCorrelacao(codigo, codigoRelacionadas){
 }
 
 
-
 function resetTooltip(slot){
-
 	slot.attr('title', "");
-
 }
 
 
@@ -329,8 +329,4 @@ function refreshSlots(){
 	$("#blocagem2").css("background-color", "#34495e");
 	$(".w").css("background-color", "#34495e");
 	$(".w").css("opacity", "1");
-
-
 }
-
-
