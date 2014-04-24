@@ -27,7 +27,7 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no fluxograma");
 		else {
 			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-			//directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", false);
+			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
 
 			position = 1;
 			console.log("Fluxograma comum");
