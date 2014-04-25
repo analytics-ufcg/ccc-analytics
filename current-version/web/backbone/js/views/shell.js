@@ -1,11 +1,13 @@
 var position;
 var rep;
+var seta;
 
 directory.ShellView = Backbone.View.extend({
 
 	initialize : function() {
 		position = 1;
-		rep = 0;
+		rep = false;
+		seta = true;
 	},
 
 	render : function() {
@@ -22,6 +24,8 @@ directory.ShellView = Backbone.View.extend({
 		"click #bloc4" : "blocagem4",
 		"click #correlacao" : "correlacao",
 		"click #taxareprovacao" : "taxareprovacao",
+		"click #checkSetas" : "checkSetas",
+
 	},
 
 	fluxograma : function() {
@@ -29,7 +33,7 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no fluxograma");
 		else {
 			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito",true);
+			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
 
 			position = 1;
 			console.log("Fluxograma comum");
@@ -37,7 +41,6 @@ directory.ShellView = Backbone.View.extend({
 			$("#iddescricao").text("Este é o plano de curso proposto pela coordenação. Contém as disciplinas obrigatórias e suas relações de pré-requisito, onde cada coluna representa um semestre letivo.");
 			$("#botao_legenda").hide();
 			$("#setas").show();
-
 		}
 	},
 
@@ -128,9 +131,9 @@ directory.ShellView = Backbone.View.extend({
 	},
 
 	taxareprovacao : function() {
-		if (rep == 1){
+		if (rep == true){
 			console.log("Já está na taxa reprovacao");
-			rep = 0;
+			rep = false;
 			var temp = position;
 			position = 0;
 			if(temp == 1) this.fluxograma(); 
@@ -144,7 +147,7 @@ directory.ShellView = Backbone.View.extend({
 			//directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
 			directory.coursesView.taxaReprovacao("http://analytics.lsd.ufcg.edu.br/ccc/reprovacoes", 0);
 
-			rep = 1;
+			rep = true;
 			console.log("taxareprovacao");
 			$("#idtitulo").text("Taxa de reprovação de cada disciplina");
 			$("#iddescricao").text("As taxas de reprovação das disciplinas estão representadas a seguir.");
@@ -153,5 +156,16 @@ directory.ShellView = Backbone.View.extend({
 			$("#legendaParaMostrar").html(linkText);
 			
 		}
+	},
+
+	checkSetas : function(){
+		if (seta) {
+			seta = false;
+			jsplumbdeleteEveryEndpoint();
+		} else{
+			seta = true;
+			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
+		};
+
 	}
 });
