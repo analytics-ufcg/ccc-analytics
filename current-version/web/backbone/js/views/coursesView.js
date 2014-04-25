@@ -29,15 +29,19 @@ directory.CoursesView = Backbone.View.extend({
 		return this;
 	},
 
-	connect : function(url) {
+	connect : function(url, vaiGerar) {
 
-		var dataframe = readJSON(url);
-		instance.setSuspendDrawing(true);
-		_.each(dataframe, function(data) {
-			jsplumb_connection(data["codigoPreRequisito"], data["codigo"]);
-		});
-		instance.setSuspendDrawing(false, true);
+			var dataframe = readJSON(url);
+		if (vaiGerar) {
+			instance.setSuspendDrawing(true);
 
+			_.each(dataframe, function(data) {
+				jsplumb_connection(data["codigoPreRequisito"], data["codigo"]);
+			});
+
+			instance.setSuspendDrawing(false, true);
+
+		};
 	},
 
 	setPositions : function(url, change_opacity) {

@@ -33,7 +33,7 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no fluxograma");
 		else {
 			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
+			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", seta);
 
 			position = 1;
 			console.log("Fluxograma comum");
@@ -136,7 +136,9 @@ directory.ShellView = Backbone.View.extend({
 			rep = false;
 			var temp = position;
 			position = 0;
-			if(temp == 1) this.fluxograma(); 
+			if(temp == 1){
+				this.fluxograma(); 	
+			}
 			if(temp == 2) this.blocagemComum();
 			if(temp == 3) this.blocagem1();
 			if(temp == 4) this.blocagem2();
@@ -164,7 +166,7 @@ directory.ShellView = Backbone.View.extend({
 			jsplumbdeleteEveryEndpoint();
 		} else{
 			seta = true;
-			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
+			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", seta);
 		};
 
 	}
