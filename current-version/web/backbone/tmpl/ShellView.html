@@ -51,13 +51,13 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 							</li>
 							<!--
 							<li class="dropdown-submenu">
-								<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Outras opções</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a id="taxareprovacao" href="#" >Taxa de reprovação </a>
-									</li>
+							<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Outras opções</a>
+							<ul class="dropdown-menu">
+							<li>
+							<a id="taxareprovacao" href="#" >Taxa de reprovação </a>
+							</li>
 
-								</ul>
+							</ul>
 							</li> -->
 						</ul>
 					</li>
@@ -86,20 +86,53 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 	</div>
 
 	<div class="span10" style="float: right; margin-right: 250px; width: 20%; text-align: right;">
-		
+
 		<br />
-		<div class="descricao" id="setas">Remover Setas  <input type="checkbox" name="setas" value="setas" id="checkSetas"></div>
+		<div class="descricao" id="setas">
+			Remover Setas
+			<input type="checkbox" name="setas" value="setas" id="checkSetas">
+		</div>
 
+		<div class="descricao">
+			Taxa de Reprovação
+			<input type="checkbox" name="reprovacao" value="taxa_reprovacao" id="taxareprovacao">
+		</div>
+		<br />
 
-		<div class="descricao">Taxa de Reprovação  <input type="checkbox" name="reprovacao" value="taxa_reprovacao" id="taxareprovacao"></div><br />
+		<!-- _____ -->
 		
+		
+		
+		<div class="span4 offset2">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+              <label class="onoffswitch-label" for="myonoffswitch">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="span4 offset1">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitchoff" >
+              <label class="onoffswitch-label" for="myonoffswitchoff">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </div>
+
+
+
+		<!-- _____ -->
+
 		<div class="" id="botao_legenda" style="display: none;">
 
 			<a href="#" id="exemploDaLegenda" rel="popover" data-placement="bottom" data-original-title="Legenda"> <span class="glyphicon glyphicon-info-sign" style="font-size: 20px;"></span></a>
 		</div>
 
-		<div id="legendaParaMostrar" style="display: none; width: 500px;">
-		</div>
+		<div id="legendaParaMostrar" style="display: none; width: 500px;"></div>
 
 		<script>
 			$(function() {
@@ -114,9 +147,9 @@ HTML DA VISUALIZAÇÃO PRINCIPAL
 				});
 			});
 		</script>
-		
+
 		<br />
-	</div>	
+	</div>
 </div>
 
 <div class="row"></div>
