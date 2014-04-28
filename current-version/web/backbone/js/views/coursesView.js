@@ -30,6 +30,7 @@ directory.CoursesView = Backbone.View.extend({
 	},
 
 	connect : function(url, vaiGerar) {
+		$(".w").unbind('mouseover mouseout');
 
 		var dataframe = readJSON(url);
 
