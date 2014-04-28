@@ -92,7 +92,6 @@ directory.ShellView = Backbone.View.extend({
 			$("#botao_legenda").hide()
 			$("#setas").hide();
 		}
-
 	},
 
 	blocagem3 : function() {
@@ -163,11 +162,11 @@ directory.ShellView = Backbone.View.extend({
 	// revisar o local desse codigo
 	checkSetas : function() {
 		if (seta) {
-			seta = false;
-			jsplumbdeleteEveryEndpoint();
-		} else {
 			seta = true;
 			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", seta);
+		} else {
+			seta = false;
+			jsplumbdeleteEveryEndpoint();
 		}
 	}
 });
