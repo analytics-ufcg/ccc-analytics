@@ -41,6 +41,9 @@ directory.ShellView = Backbone.View.extend({
 			$("#iddescricao").text("Este é o plano de curso proposto pela coordenação. Contém as disciplinas obrigatórias e suas relações de pré-requisito, onde cada coluna representa um semestre letivo.");
 			$("#botao_legenda").hide();
 			$("#setas").show();
+
+			$("#taxareprovacao").attr('checked', false);
+			rep = false;
 		}
 	},
 
@@ -59,6 +62,8 @@ directory.ShellView = Backbone.View.extend({
 			$("#legendaParaMostrar").html(linkText);
 			$("#setas").hide();
 
+			$("#taxareprovacao").attr('checked', false);
+			rep = false;
 		}
 	},
 
@@ -76,6 +81,9 @@ directory.ShellView = Backbone.View.extend({
 			$("#iddescricao").text("{a definir}");
 			$("#botao_legenda").hide()
 			$("#setas").hide();
+
+			$("#taxareprovacao").attr('checked', false);
+			rep = false;
 		}
 	},
 
@@ -91,6 +99,9 @@ directory.ShellView = Backbone.View.extend({
 			$("#iddescricao").text("{a definir}");
 			$("#botao_legenda").hide()
 			$("#setas").hide();
+
+			$("#taxareprovacao").attr('checked', false);
+			rep = false;
 		}
 	},
 
@@ -106,6 +117,9 @@ directory.ShellView = Backbone.View.extend({
 			$("#iddescricao").text("{a definir}");
 			$("#botao_legenda").hide()
 			$("#setas").hide();
+
+			$("#taxareprovacao").attr('checked', false);
+			rep = false;
 		}
 	},
 
@@ -113,9 +127,7 @@ directory.ShellView = Backbone.View.extend({
 		if (position == 7)
 			console.log("Já está na correlação");
 		else {
-
-			if (position != 1)
-				directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
+			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
 			directory.coursesView.correlacao("http://analytics.lsd.ufcg.edu.br/ccc//correlacoes/0.545");
 
 			position = 7;
@@ -126,6 +138,9 @@ directory.ShellView = Backbone.View.extend({
 			var linkText = $("#legenda_correlacao").html();
 			$("#legendaParaMostrar").html(linkText);
 			$("#setas").hide();
+
+			$("#taxareprovacao").attr('checked', false);
+			rep = false;
 		}
 	},
 
@@ -135,14 +150,24 @@ directory.ShellView = Backbone.View.extend({
 			rep = false;
 			var temp = position;
 			position = 0;
-			if(temp == 1){
+			if(temp == 1) {
 				this.fluxograma(); 	
 			}
-			if(temp == 2) this.blocagemComum();
-			if(temp == 3) this.blocagem1();
-			if(temp == 4) this.blocagem2();
-			if(temp == 5) this.blocagem3();
-			if(temp == 7) this.correlacao();
+			if(temp == 2) {
+				this.blocagemComum();
+			}
+			if(temp == 3) {
+				this.blocagem1();
+			}
+			if(temp == 4) {
+				this.blocagem2();
+			}
+			if(temp == 5) {
+				this.blocagem3();
+			}
+			if(temp == 7) {
+				this.correlacao();
+			}
 		}
 		else {
 			//directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);

@@ -35,10 +35,15 @@ directory.CoursesView = Backbone.View.extend({
 
 		///////////////////Cadastrar evento de Mouseover///////////////////
 		hashPreRequesitos = {}
+		instance.setSuspendDrawing(true);
 
 		_.each(dataframe, function(data) {
 			codigoPreRequisito = data["codigoPreRequisito"];
 			codigo = data["codigo"];
+			//Cria conexões
+			if (vaiGerar) {
+				jsplumb_connection(codigoPreRequisito, codigo);
+			}
 			adicionaValorHash(hashPreRequesitos, codigoPreRequisito, codigo);
 			adicionaValorHash(hashPreRequesitos, codigo, codigoPreRequisito);
 
@@ -52,9 +57,10 @@ directory.CoursesView = Backbone.View.extend({
 		 });
 		 //////////////////////////////////////////////////////////////////
 
+		instance.setSuspendDrawing(false, true);
 
-		 //Cria conexões
-		if (vaiGerar) {
+		 
+/*		if (vaiGerar) {
 			instance.setSuspendDrawing(true);
 
 			_.each(dataframe, function(data) {
@@ -66,7 +72,7 @@ directory.CoursesView = Backbone.View.extend({
 
 
 			instance.setSuspendDrawing(false, true);
-		}
+		}*/
 
 	},
 
