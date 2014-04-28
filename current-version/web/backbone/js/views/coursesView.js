@@ -31,17 +31,44 @@ directory.CoursesView = Backbone.View.extend({
 
 	connect : function(url, vaiGerar) {
 
-			var dataframe = readJSON(url);
+		var dataframe = readJSON(url);
+
+		///////////////////Cadastrar evento de Mouseover///////////////////
+		hashPreRequesitos = {}
+
+		_.each(dataframe, function(data) {
+			codigoPreRequisito = data["codigoPreRequisito"];
+			codigo = data["codigo"];
+			jsplumb_connection(codigoPreRequisito, codigo);
+			adicionaValorHash(hashPreRequesitos, codigoPreRequisito, codigo);
+			adicionaValorHash(hashPreRequesitos, codigo, codigoPreRequisito);
+
+		});
+
+		//Loop para criar evento que pinta caixinhas correlacionadas ao passar mouseover
+		 _.each(Object.keys(hashPreRequesitos), function(data) {
+
+		 	mouseOverPrerequeisitos(data, hashPreRequesitos[data]);
+
+		 });
+		 //////////////////////////////////////////////////////////////////
+
+
+		 //Cria conexões
 		if (vaiGerar) {
 			instance.setSuspendDrawing(true);
 
 			_.each(dataframe, function(data) {
-				jsplumb_connection(data["codigoPreRequisito"], data["codigo"]);
+				codigoPreRequisito = data["codigoPreRequisito"];
+				codigo = data["codigo"];
+				jsplumb_connection(codigoPreRequisito, codigo);
+
 			});
 
-			instance.setSuspendDrawing(false, true);
 
-		};
+			instance.setSuspendDrawing(false, true);
+		}
+
 	},
 
 	setPositions : function(url, change_opacity) {
@@ -144,7 +171,7 @@ directory.CoursesView = Backbone.View.extend({
 	},
 
 	correlacao : function(url) {
-		//	$(".w").unbind('mouseover mouseout');
+		$(".w").unbind('mouseover mouseout');
 
 		var dataframe = readJSON(url);
 		var min = 1;
@@ -215,6 +242,34 @@ function adicionaValorHash(hash, key, value) {
 
 //Função que cadastra mouseover e mouseout na tela de correlação (pinta caixinhas de disciplinas correlacionadas)
 function mouseOverCorrelacao(codigo, codigoRelacionadas) {
+
+	var slot1 = $("#" + codigo);
+
+	slot1.mouseover(function() {
+		//Cor anterior da caixinha que foi passada pelo mouse. Será preciso para voltar a esta cor no moseout
+		var corAnterior1 = slot1.css("background-color");
+
+		//Para cada caixa de disciplina correlacionada, cria evento do mouseout que pinta para a cor atual
+		//e depois muda a cor
+		_.each(codigoRelacionadas, function(codigo2) {
+			var slot2 = $("#" + codigo2);
+			var corAnterior2 = slot2.css("background-color");
+			slot1.mouseout(function() {
+				slot2.css("background-color", corAnterior2);
+			});
+			slot2.css("background-color", "#0570b0");
+
+		})
+		//Muda a cor da caixa que o mouse passou por cima
+		slot1.css("background-color", "#0570b0");
+		slot1.mouseout(function() {
+			slot1.css("background-color", corAnterior1);
+		});
+	});
+
+}
+
+function mouseOverPrerequeisitos(codigo, codigoRelacionadas) {
 
 	var slot1 = $("#" + codigo);
 
