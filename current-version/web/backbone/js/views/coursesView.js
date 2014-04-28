@@ -39,7 +39,6 @@ directory.CoursesView = Backbone.View.extend({
 		_.each(dataframe, function(data) {
 			codigoPreRequisito = data["codigoPreRequisito"];
 			codigo = data["codigo"];
-			jsplumb_connection(codigoPreRequisito, codigo);
 			adicionaValorHash(hashPreRequesitos, codigoPreRequisito, codigo);
 			adicionaValorHash(hashPreRequesitos, codigo, codigoPreRequisito);
 

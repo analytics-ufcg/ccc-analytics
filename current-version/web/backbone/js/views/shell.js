@@ -7,7 +7,7 @@ directory.ShellView = Backbone.View.extend({
 	initialize : function() {
 		position = 1;
 		rep = false;
-		seta = true;
+		seta = false;
 	},
 
 	render : function() {
@@ -161,7 +161,7 @@ directory.ShellView = Backbone.View.extend({
 
 	// revisar o local desse codigo
 	checkSetas : function() {
-		if (seta) {
+		if (seta == false) {
 			seta = true;
 			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", seta);
 		} else {
