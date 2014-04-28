@@ -160,14 +160,14 @@ directory.ShellView = Backbone.View.extend({
 		}
 	},
 
-	checkSetas : function(){
+	// revisar o local desse codigo
+	checkSetas : function() {
 		if (seta) {
 			seta = false;
 			jsplumbdeleteEveryEndpoint();
-		} else{
+		} else {
 			seta = true;
 			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", seta);
-		};
-
+		}
 	}
 });
