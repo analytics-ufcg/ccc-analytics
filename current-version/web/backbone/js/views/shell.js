@@ -146,7 +146,7 @@ directory.ShellView = Backbone.View.extend({
 
 	taxareprovacao : function() {
 		if (rep == true){
-			console.log("Já está na taxa reprovacao");
+			console.log("Já está na taxa de sucesso");
 			rep = false;
 			var temp = position;
 			position = 0;
@@ -175,8 +175,8 @@ directory.ShellView = Backbone.View.extend({
 
 			rep = true;
 			console.log("taxareprovacao");
-			$("#idtitulo").text("Taxa de reprovação de cada disciplina");
-			$("#iddescricao").text("As taxas de reprovação das disciplinas estão representadas a seguir.");
+			$("#idtitulo").text("Taxa de sucesso em cada disciplina");
+			$("#iddescricao").text("As taxas de sucesso das disciplinas estão representadas a seguir.");
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_reprovacao").html();
 			$("#legendaParaMostrar").html(linkText);
