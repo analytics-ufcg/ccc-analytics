@@ -32,7 +32,7 @@ directory.ShellView = Backbone.View.extend({
 		if (position == 1)
 			console.log("Já está no fluxograma");
 		else {
-			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
+			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
 			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", seta);
 
 			position = 1;
@@ -51,7 +51,7 @@ directory.ShellView = Backbone.View.extend({
 		if (position == 2)
 			console.log("Já está no execução curricular comum");
 		else {
-			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/maioresFrequencias", 1);
+			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/maioresFrequencias", 1);
 
 			position = 2;
 			console.log("Blocagem comum");
@@ -73,7 +73,7 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no execução curricular 1");
 		else {
 			//directory.coursesView.setPositions("data/cls_fa/1_cluster.json", 0);
-			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/clusters/1", 0);
+			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/clusters/1", 0);
 
 			position = 3;
 			console.log("Blocagem 1");
@@ -92,7 +92,7 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no execução curricular 2");
 		else {
 			//directory.coursesView.setPositions("data/cls_fa/2_cluster.json", 0);
-			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/clusters/2", 0);
+			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/clusters/2", 0);
 			position = 4;
 			console.log("Blocagem 2");
 			$("#idtitulo").text("Execução curricular 2");
@@ -110,7 +110,7 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no execução curricular 3");
 		else {
 			//directory.coursesView.setPositions("data/cls_fa/3_cluster.json", 0);
-			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/clusters/3", 0);
+			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/clusters/3", 0);
 			position = 5;
 			console.log("Blocagem 3");
 			$("#idtitulo").text("Execução curricular 3");
@@ -127,7 +127,7 @@ directory.ShellView = Backbone.View.extend({
 		if (position == 7)
 			console.log("Já está na correlação");
 		else {
-			directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
+			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
 			directory.coursesView.correlacao("http://analytics.lsd.ufcg.edu.br/ccc//correlacoes/0.545");
 
 			position = 7;
