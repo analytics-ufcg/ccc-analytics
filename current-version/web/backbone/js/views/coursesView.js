@@ -135,6 +135,78 @@ directory.CoursesView = Backbone.View.extend({
 
 	},
 
+	setPositions2 : function(url, change_opacity) {
+
+		var dataframe = readJSON(url);
+
+		var top_div = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+		refreshSlots();
+		//
+		$(".w").unbind('mouseover mouseout');
+
+		var per;
+
+		_.each(dataframe, function(data) {
+
+			var periodo;
+			if (change_opacity == 1) {
+				periodo = data["periodoMaisFreq1st"];
+			} else{
+				periodo = data["periodo"];
+			}
+			per = periodo;
+		});
+
+		_.each(dataframe, function(data) {
+
+			var periodo;
+			var topMin = 1;
+
+			if (change_opacity == 1) {
+				topMin = 12;
+				periodo = data["periodoMaisFreq1st"];
+			} else{
+				periodo = data["periodo"];
+			}
+
+			var slot = $("#" + data["codigo"]);
+
+			slot.css('top', 12 * top_div[periodo] + topMin + '%');
+
+			top_div[periodo]++;
+
+			slot.css('left', (95/per) * (periodo - 1) + '%');
+
+			var frequencia1 = data["freqRelativa1st"];
+			var total_de_alunos_da_disciplina = data["totalDeAlunos"];
+
+			//Resetar tooltip
+			resetTooltip(slot);
+
+			//if para saber se é blocagem comum
+			if (change_opacity == 1) {
+
+				coloracaoDaBlocagemMaisComum(slot, frequencia1);
+				slot.attr('title', "Frequência de alunos neste período: " + (frequencia1 * 100).toString().substr(0, 4) + "%" + "\nTotal de alunos: " + total_de_alunos_da_disciplina);
+
+				slot.mouseover(function() {
+					setDivMouseOn2(slot, data["periodoMaisFreq2nd"], data["periodoMaisFreq3rd"], data["freqRelativa2nd"], data["freqRelativa3rd"], (95/per),slot.text());
+					$("#blocagem1").show();
+					$("#blocagem2").show();
+				});
+
+			} else {
+				slot.css({
+					"opacity" : 0.9
+				});
+			}
+			slot.show();
+
+		});
+
+	},
+
 	taxaReprovacao : function(url) {
 
 		var dataframe = readJSON(url);
@@ -319,6 +391,7 @@ function getSlotCaixa() {
 
 }
 
+
 function setDivMouseOn(slot, PMFreq1, PMFreq2, freqR1, freqR2, nomeCadeira) {
 	//console.log(freqR1+" "+freqR2)
 
@@ -342,6 +415,32 @@ function setDivMouseOn(slot, PMFreq1, PMFreq2, freqR1, freqR2, nomeCadeira) {
 
 	$("#blocagem1").css("left", getSlotCaixa() * (PMFreq1 - 1));
 	$("#blocagem2").css("left", getSlotCaixa() * (PMFreq2 - 1));
+
+}
+
+function setDivMouseOn2(slot, PMFreq1, PMFreq2, freqR1, freqR2, espacamentoEsquerda,nomeCadeira) {
+	//console.log(freqR1+" "+freqR2)
+
+	slot.mouseout(function() {
+		$("#blocagem1").hide();
+		$("#blocagem2").hide();
+	});
+
+	slot.mouseover(function() {
+
+		$("#blocagem1").show();
+		$("#blocagem2").show();
+
+	});
+
+	$("#blocagem1").text(nomeCadeira);
+	$("#blocagem2").text(nomeCadeira);
+
+	coloracaoDaBlocagemMaisComum($("#blocagem1"), freqR1);
+	coloracaoDaBlocagemMaisComum($("#blocagem2"), freqR2);
+
+	$("#blocagem1").css('left', espacamentoEsquerda * (PMFreq1 - 1) + '%');
+	$("#blocagem2").css('left', espacamentoEsquerda * (PMFreq2 - 1) + '%');
 
 }
 
