@@ -33,7 +33,9 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no fluxograma");
 		else {
 			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-			directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", seta);
+			if (seta){
+				directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
+			}
 
 			position = 1;
 			console.log("Fluxograma comum");
@@ -192,6 +194,8 @@ directory.ShellView = Backbone.View.extend({
 		} else {
 			seta = false;
 			jsplumbdeleteEveryEndpoint();
+			$(".w").unbind('mouseover mouseout');
+
 		}
 	}
 });

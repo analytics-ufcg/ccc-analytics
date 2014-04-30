@@ -29,7 +29,7 @@ directory.CoursesView = Backbone.View.extend({
 		return this;
 	},
 
-	connect : function(url, vaiGerar) {
+	connect : function(url) {
 		$(".w").unbind('mouseover mouseout');
 
 		var dataframe = readJSON(url);
@@ -42,9 +42,9 @@ directory.CoursesView = Backbone.View.extend({
 			codigoPreRequisito = data["codigoPreRequisito"];
 			codigo = data["codigo"];
 			//Cria conexões
-			if (vaiGerar) {
-				jsplumb_connection(codigoPreRequisito, codigo);
-			}
+			//if (vaiGerar) {
+			jsplumb_connection(codigoPreRequisito, codigo);
+			//}
 			adicionaValorHash(hashPreRequesitos, codigoPreRequisito, codigo);
 			adicionaValorHash(hashPreRequesitos, codigo, codigoPreRequisito);
 

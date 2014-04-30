@@ -43,7 +43,6 @@ directory.Router = Backbone.Router.extend({
 
 		init_jsplumb();
 		directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-		directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito", false);
 	}
 });
 
