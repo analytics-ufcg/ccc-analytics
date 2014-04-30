@@ -243,7 +243,7 @@ directory.CoursesView = Backbone.View.extend({
 			if (media_de_reprovacoes > 0.7) {
 				slot.css("background-color", "#441428");
 			}
-			slot.attr('title', "Porcentagem de reprovação: " + ((1 - media_de_reprovacoes) * 100).toString().substr(0, 4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
+			slot.attr('title', "Porcentagem de sucesso: " + ((1 - media_de_reprovacoes) * 100).toString().substr(0, 4) + "%" + "\nTotal de alunos que cursaram: " + Math.round(total_de_alunos));
 
 		});
 	},
