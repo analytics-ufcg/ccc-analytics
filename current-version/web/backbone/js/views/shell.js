@@ -41,6 +41,9 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Fluxograma comum");
 			$("#idtitulo").text("Plano de curso");
 			$("#iddescricao").text("Este é o plano de curso proposto pela coordenação. Contém as disciplinas obrigatórias e suas relações de pré-requisito, onde cada coluna representa um semestre letivo.");
+			
+			
+			
 			$("#botao_legenda").hide();
 			$("#setas").show();
 

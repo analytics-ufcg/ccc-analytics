@@ -24,11 +24,11 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a id="grade2" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Execução curricular mais comum</a>
+								<a id="correlacao" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Correlação entre disciplinas</a>
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a id="correlacao" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Correlação entre disciplinas</a>
+								<a id="grade2" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Execução curricular mais comum</a>
 							</li>
 							<li class="divider"></li>
 							<li class="dropdown-submenu">
@@ -58,6 +58,8 @@
 <br />
 <br />
 
+
+
 <div class="row-fluid">
 	<div class="span2" style="float: left; margin-left: 6%; width: 50%;">
 		<br />
@@ -67,6 +69,7 @@
 
 		<div class="descricao" id="iddescricao">
 			Este é o plano de curso proposto pela coordenação com as disciplinas obrigatórias e suas relações de pré-requisito. Cada coluna representa um semestre letivo.
+			<a href="#dialog" name="modal">[Explanação técnica]</a>
 		</div>
 		<br />
 	</div>
@@ -101,10 +104,10 @@
 			</div>
 		</div>
 		<br/>
-		<br/><div class="" id="botao_legenda" style="display: none;">
+		<br/>
+		<div class="" id="botao_legenda" style="display: none;">
 			<a href="#" id="exemploDaLegenda" rel="popover" data-placement="bottom" data-original-title="Legenda"> <span class="glyphicon glyphicon-info-sign" style="font-size: 20px;"></span></a>
 		</div>
-		
 
 		<div id="legendaParaMostrar" style="display: none; width: 500px;"></div>
 
@@ -123,7 +126,6 @@
 		</script>
 		<br />
 
-		
 	</div>
 </div>
 
@@ -175,11 +177,13 @@
 				<dd>
 					Quais disciplinas têm mais relação entre si? O que os alunos de Computação geralmente cursam em conjunto?
 					CCC Analytics responde essas perguntas!
+					<br />
 				</dd>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <!--  FOOTER  -->
 <br/>
@@ -223,6 +227,7 @@
 	</div>
 </div>
 
+
 <div id="legenda_blocagem" style="display:none;">
 	<svg>
 		<rect x="5" y="60" width="10" height="10" fill="#7faaca" />
@@ -240,7 +245,7 @@
 				Porcentagem de alunos que
 			</text>
 			<text x="5" y="30">
-				cursaram a disciplina no 
+				cursaram a disciplina no
 			</text>
 			<text x="5" y="50">
 				período indicado:
@@ -320,4 +325,37 @@
 			</text>
 		</g>
 	</svg>
+</div>
+<br />
+
+
+<div id="boxes">
+
+	<div id="dialog" class="window">
+		<div class="tituloModal">Plano de Curso</div>
+		<p>Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.<br />
+		Cada disciplina aparece então no período em que foi cursada com maior frequência.</p>
+		<br />
+		<a href="#" class="close">Fechar</a>
+	</div>
+	
+	<div id="dialog2" class="window">
+		<div class="tituloModal">Correlação entre disciplinas</div>
+		<p>Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.<br />
+		Cada disciplina aparece então no período em que foi cursada com maior frequência.</p>
+		<br />
+		<a href="#" class="close">Fechar</a>
+	</div>
+	
+	<div id="dialog3" class="window">
+		<div class="tituloModal">Execução curricular mais comum</div>
+		<p>Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.<br />
+		Cada disciplina aparece então no período em que foi cursada com maior frequência.</p>
+		<br />
+		<a href="#" class="close">Fechar</a>
+	</div>
+
+	<!-- Mascara -->
+	<div id="mask"></div>
+
 </div>

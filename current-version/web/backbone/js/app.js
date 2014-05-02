@@ -36,13 +36,13 @@ directory.Router = Backbone.Router.extend({
 		directory.flowchartView = new directory.FlowChartView();
 		$("#div_flowchart").html(directory.flowchartView.render().el);
 
-		initModal();
-
 		directory.coursesView = new directory.CoursesView();
 		$("#main").append(directory.coursesView.render().el);
 
 		init_jsplumb();
 		directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
+		
+		initModal();
 	}
 });
 
