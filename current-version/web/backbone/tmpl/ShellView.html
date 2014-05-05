@@ -438,6 +438,25 @@
 				Análise interpretativa
 			</div>
 			<p>
+				Podemos notar que muitas disciplinas de laboratórios e suas equivalentes teóricas são correlacionadas positivamente. Uma possível causa para isso é a semelhança dos assuntos vistos. Além disso, em alguns períodos, as notas das disciplinas de laboratório são calculadas em função das notas das disciplinas teóricas.
+				<br/><br/>
+				O gráfico a seguir foi gerado considerando toda a população de alunos do curso de Computação.
+				<br/><br/>
+				<img src="image/corr_todos.png" alt="Correlação todos os alunos">
+				<br/><br/>
+				Foi levantada uma hipótese na qual o grande número de correlações altas, especialmente entre as disciplinas dos primeiros semestre, seriam por haver um grupo de alunos que possuem notas baixas em relação aos demais alunos da disciplina. Desta forma, forçam o aumento do valor da correlação. No caso destes alunos possuirem tal comportamento constante, é válido identificá-los como alunos desistentes ou potencialmente desistentes.
+				<br/>
+				Visando calcular as correlações entre disciplinas sem este grupo de alunos e testar a hipótese, retiramos todos aqueles que não cursaram Projeto Em Computação 1, considerado um limiar adequado para que separa os alunos desistentes dos demais.
+				As correlações calculadas a partir de tal teste estão a seguir.
+				<br/><br/>
+				<img src="image/corr_formados.png" alt="Correlação dos alunos formados">
+				<br/><br/>
+				Comparando as duas visualizações, percebemos que há menos correlações, principalmente entre as disciplinas dos primeiros períodos (foi usado o mesmo filtro:  0,545).
+				<br/>
+				De fato, a média das correlações e seu desvio padrão é menor no caso em que os potenciais desistentes foram retirados. É possível afirmar com alguma certeza que os aqueles alunos forçam as correlações de Spearman entre disciplinas serem mais altas.
+
+
+			</p>
 			<br/>
 
 		</p>
