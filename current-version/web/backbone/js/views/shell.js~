@@ -49,12 +49,6 @@ directory.ShellView = Backbone.View.extend({
 
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
-
-			var dialogHTML = $("#dialog_fluxograma").html();
-			$("#dialog").html(dialogHTML);
-
-			$("dialog").hide();
-
 		}
 	},
 
