@@ -228,8 +228,6 @@ directory.ShellView = Backbone.View.extend({
 			var dialogHTML = $("#dialog_taxa_sucesso").html();
 			$("#dialog").html(dialogHTML);
 
-			$("#botao_analise").show();
-
 		}
 	},
 
