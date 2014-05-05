@@ -69,7 +69,7 @@ directory.ShellView = Backbone.View.extend({
 			position = 7;
 			console.log("Correlacao");
 			$("#idtitulo").text("Correlação entre disciplinas");
-			$("#iddescricao").text("As disciplinas que apresentam fortes correlações, baseadas na média de notas, de desempenho por parte dos alunos estão relacionadas a seguir.");
+			$("#iddescricao").text("As linhas no fluxograma abaixo representam a correlação entre as notas das disciplinas. As correlações encontradas são quase sempre positivas, e significam que se um aluno foi melhor avaliado que seus colegas em uma das duas disciplinas ligadas por uma linha, há uma alta probabilidade de que ele será avaliado da mesma forma também na outra; se ele foi avaliado abaixo da média de seus colegas, ele provavelmente irá obter uma avaliação também abaixo da média na outra. Quanto mais forte a correlação entre as disciplinas, mais espessa é a linha que as liga.");
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_correlacao").html();
 			$("#legendaParaMostrar").html(linkText);
