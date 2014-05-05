@@ -25,9 +25,10 @@
 
 #boxes #dialog, #boxes #dialog1, #boxes #dialog2, #boxes #dialog3 {
 	width: 730px;
-	height: auto;
+	height: 550px;
 	padding: 10px;
 	background-color: #ffffff;
+	overflow-y: scroll;
 }
 
 
