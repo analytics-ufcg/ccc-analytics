@@ -502,9 +502,28 @@
 		<div class="tituloModal">
 			Execução curricular mais comum 1
 		</div>
-		<p>
-			exec 1
+		<div class="subTituloModal">
+				Análise técnica</h4>
+		</div>
+			<p>
+			Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
+			<br/><br/>
+			Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
+			<br/><br/>
+			Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
+			</p>
+
+		<div class="subTituloModal">
+				Análise interpretativa
+		</div>
+			<p>
+			<br/>
+			Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
+			<br/><br/>
+
+			Especificamente, os alunos neste grupo tendem, a partir do segundo período, a cursar cinco disciplinas obrigatórias por período. No sétimo período esse valor cai para quatro disciplinas. Isso caracteriza um aluno que tem uma tendência de manter um número fixo de disciplinas obrigatórias. Podemos perceber nesse grupo que esses alunos possuem um planejamento maior para balancear a sobre-carga das obrigatórias.
 		</p>
+		<br />
 		<br />
 	</div>
 
@@ -512,8 +531,26 @@
 		<div class="tituloModal">
 			Execução curricular mais comum 2
 		</div>
-		<p>
-			exec 2
+		<div class="subTituloModal">
+				Análise técnica</h4>
+		</div>
+			<p>
+			Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
+			<br/><br/>
+			Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
+			<br/><br/>
+			Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
+			</p>
+
+		<div class="subTituloModal">
+				Análise interpretativa
+		</div>
+			<p>
+			<br/>
+			Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
+			<br/><br/>
+
+			Especificamente, é o grupo de alunos que segue mais fielmente o plano de curso oficial, e que ao longo do tempo vai colocando menos disciplinas obrigatórias por semestre. As disciplinas do quinto período, tradicionalmente são tidas como difíceis pelos alunos, e são separadas e redistribuídas nesta execução curricular. Essa distribuição leva ao aumento em um período na duração do curso.
 		</p>
 		<br />
 	</div>
@@ -522,8 +559,26 @@
 		<div class="tituloModal">
 			Execução curricular mais comum 3
 		</div>
-		<p>
-			exec 3
+	<div class="subTituloModal">
+				Análise técnica</h4>
+		</div>
+			<p>
+			Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
+			<br/><br/>
+			Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
+			<br/><br/>
+			Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
+			</p>
+
+		<div class="subTituloModal">
+				Análise interpretativa
+		</div>
+			<p>
+			<br/>
+			Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
+			<br/><br/>
+
+			Especificamente, representa uma execução curricular com algumas semelhanças com o plano de curso oficial, porém neste caso acontecem algumas reprovações em disciplinas do começo do curso (com a presença de Cálculo I no segundo período e Cálculo II no terceiro período).
 		</p>
 		<br />
 	</div>

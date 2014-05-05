@@ -1,6 +1,7 @@
 var position;
 var rep;
 var seta;
+var textoBlocagens;
 
 directory.ShellView = Backbone.View.extend({
 
@@ -8,6 +9,7 @@ directory.ShellView = Backbone.View.extend({
 		position = 1;
 		rep = false;
 		seta = false;
+		textoBlocagens = "Execuções curriculares mais comuns dos alunos. Estas são execuções curriculares que muitos alunos cursaram";
 	},
 
 	render : function() {
@@ -114,8 +116,9 @@ directory.ShellView = Backbone.View.extend({
 
 			position = 3;
 			console.log("Blocagem 1");
-			$("#idtitulo").text("Execução curricular 1");
-			$("#iddescricao").text("{a definir}");
+			$("#idtitulo").text("Execuções > Execução curricular 1");
+			$("#iddescricao").text(textoBlocagens);
+			$("#iddescricao").append("<br/> <br/>Os alunos neste grupo tendem, a partir do segundo período, a cursar cinco disciplinas obrigatórias por período. No sétimo período esse valor cai para quatro disciplinas. Isso caracteriza um aluno que tem uma tendência de manter um número fixo de disciplinas obrigatórias. Podemos perceber nesse grupo que esses alunos possuem um planejamento maior para balancear a sobre-carga das obrigatórias.")
 			$("#botao_legenda").hide()
 			$("#setas").hide();
 
@@ -135,8 +138,10 @@ directory.ShellView = Backbone.View.extend({
 			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/clusters/2", 0);
 			position = 4;
 			console.log("Blocagem 2");
-			$("#idtitulo").text("Execução curricular 2");
-			$("#iddescricao").text("{a definir}");
+			$("#idtitulo").text("Execuções > Execução curricular 2");
+			$("#iddescricao").text(textoBlocagens);
+
+			$("#iddescricao").append("<br/> <br/> É o grupo de alunos que segue mais fielmente o plano de curso oficial, e que ao longo do tempo vai colocando menos disciplinas obrigatórias por semestre. As disciplinas do quinto período, tradicionalmente são tidas como difíceis pelos alunos, e são separadas e redistribuídas nesta execução curricular. Essa distribuição leva ao aumento em um período na duração do curso.")
 			$("#botao_legenda").hide()
 			$("#setas").hide();
 
@@ -156,8 +161,10 @@ directory.ShellView = Backbone.View.extend({
 			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/clusters/3", 0);
 			position = 5;
 			console.log("Blocagem 3");
-			$("#idtitulo").text("Execução curricular 3");
-			$("#iddescricao").text("{a definir}");
+			$("#idtitulo").text("Execuções > Execução curricular 3");
+			$("#iddescricao").text(textoBlocagens);
+			$("#iddescricao").append("<br/> <br/>  Representa uma execução curricular com algumas semelhanças com o plano de curso oficial, porém neste caso acontecem algumas reprovações em disciplinas do começo do curso (com a presença de Cálculo I no segundo período e Cálculo II no terceiro período).")
+
 			$("#botao_legenda").hide()
 			$("#setas").hide();
 
@@ -223,4 +230,5 @@ directory.ShellView = Backbone.View.extend({
 
 		}
 	}
+
 }); 
