@@ -53,7 +53,7 @@ directory.ShellView = Backbone.View.extend({
 			var dialogHTML = $("#dialog_fluxograma").html();
 			$("#dialog").html(dialogHTML);
 
-			$("dialog").hide();
+			$("#botao_analise").hide();
 
 		}
 	},
@@ -80,6 +80,9 @@ directory.ShellView = Backbone.View.extend({
 			
 			var dialogHTML = $("#dialog_correlacao").html();
 			$("#dialog").html(dialogHTML);
+
+			$("#botao_analise").show();
+
 		}
 	},
 
@@ -105,6 +108,8 @@ directory.ShellView = Backbone.View.extend({
 
 			var dialogHTML = $("#dialog_execucao_comum").html();
 			$("#dialog").html(dialogHTML);
+
+			$("#botao_analise").show();
 		}
 	},
 
@@ -129,6 +134,8 @@ directory.ShellView = Backbone.View.extend({
 			
 			var dialogHTML = $("#dialog4").html();
 			$("#dialog").html(dialogHTML);
+
+			$("#botao_analise").show();
 		}
 	},
 
@@ -152,6 +159,8 @@ directory.ShellView = Backbone.View.extend({
 			
 			var dialogHTML = $("#dialog5").html();
 			$("#dialog").html(dialogHTML);
+
+			$("#botao_analise").show();
 		}
 	},
 
@@ -175,6 +184,8 @@ directory.ShellView = Backbone.View.extend({
 			
 			var dialogHTML = $("#dialog6").html();
 			$("#dialog").html(dialogHTML);
+
+			$("#botao_analise").show();
 		}
 	},
 
@@ -216,6 +227,8 @@ directory.ShellView = Backbone.View.extend({
 
 			var dialogHTML = $("#dialog_taxa_sucesso").html();
 			$("#dialog").html(dialogHTML);
+
+			$("#botao_analise").show();
 
 		}
 	},
