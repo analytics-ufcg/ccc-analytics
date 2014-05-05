@@ -33,7 +33,7 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Já está no fluxograma");
 		else {
 			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-			if (seta){
+			if (seta) {
 				directory.coursesView.connect("http://analytics.lsd.ufcg.edu.br/ccc/preRequisito");
 			}
 
@@ -41,18 +41,44 @@ directory.ShellView = Backbone.View.extend({
 			console.log("Fluxograma comum");
 			$("#idtitulo").text("Plano de curso");
 			$("#iddescricao").text("Este é o plano de curso proposto pela coordenação. Contém as disciplinas obrigatórias e suas relações de pré-requisito, onde cada coluna representa um semestre letivo.");
-			
-			
-			
+
 			$("#botao_legenda").hide();
 			$("#setas").show();
 
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
-			
-		    
+
+			var dialogHTML = $("#dialog1").html();
+			$("#dialog").html(dialogHTML);
+
 		}
 	},
+
+
+	correlacao : function() {
+		if (position == 7)
+			console.log("Já está na correlação");
+		else {
+			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
+			directory.coursesView.correlacao("http://analytics.lsd.ufcg.edu.br/ccc//correlacoes/0.545");
+
+			position = 7;
+			console.log("Correlacao");
+			$("#idtitulo").text("Correlação entre disciplinas");
+			$("#iddescricao").text("As disciplinas que apresentam fortes correlações, baseadas na média de notas, de desempenho por parte dos alunos estão relacionadas a seguir.");
+			$("#botao_legenda").show();
+			var linkText = $("#legenda_correlacao").html();
+			$("#legendaParaMostrar").html(linkText);
+			$("#setas").hide();
+
+			$("#taxareprovacao").attr('checked', false);
+			rep = false;
+			
+			var dialogHTML = $("#dialog2").html();
+			$("#dialog").html(dialogHTML);
+		}
+	},
+
 
 	blocagemComum : function() {
 		if (position == 2)
@@ -65,14 +91,16 @@ directory.ShellView = Backbone.View.extend({
 			$("#idtitulo").text("Execução curricular mais comum");
 			$("#iddescricao").text("Na prática as disciplinas cursadas pelos alunos ao longo do curso representam outro arranjo que não é, necessariamente, o mesmo planejado pela coordenação. Com base nos dados de [anos], é possível observar a seguinte distribuição de disciplinas ao longo dos semestres letivos.");
 			$("#botao_legenda").show();
-			
-			
+
 			var linkText = $("#legenda_blocagem").html();
 			$("#legendaParaMostrar").html(linkText);
 			$("#setas").hide();
 
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
+
+			var dialogHTML = $("#dialog3").html();
+			$("#dialog").html(dialogHTML);
 		}
 	},
 
@@ -93,6 +121,9 @@ directory.ShellView = Backbone.View.extend({
 
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
+			
+			var dialogHTML = $("#dialog4").html();
+			$("#dialog").html(dialogHTML);
 		}
 	},
 
@@ -111,6 +142,9 @@ directory.ShellView = Backbone.View.extend({
 
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
+			
+			var dialogHTML = $("#dialog5").html();
+			$("#dialog").html(dialogHTML);
 		}
 	},
 
@@ -129,56 +163,37 @@ directory.ShellView = Backbone.View.extend({
 
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
-		}
-	},
-
-	correlacao : function() {
-		if (position == 7)
-			console.log("Já está na correlação");
-		else {
-			directory.coursesView.setPositions2("http://analytics.lsd.ufcg.edu.br/ccc/disciplinasPorPeriodo", 0);
-			directory.coursesView.correlacao("http://analytics.lsd.ufcg.edu.br/ccc//correlacoes/0.545");
-
-			position = 7;
-			console.log("Correlacao");
-			$("#idtitulo").text("Correlação entre disciplinas");
-			$("#iddescricao").text("As disciplinas que apresentam fortes correlações, baseadas na média de notas, de desempenho por parte dos alunos estão relacionadas a seguir.");
-			$("#botao_legenda").show();
-			var linkText = $("#legenda_correlacao").html();
-			$("#legendaParaMostrar").html(linkText);
-			$("#setas").hide();
-
-			$("#taxareprovacao").attr('checked', false);
-			rep = false;
+			
+			var dialogHTML = $("#dialog6").html();
+			$("#dialog").html(dialogHTML);
 		}
 	},
 
 	taxareprovacao : function() {
-		if (rep == true){
+		if (rep == true) {
 			console.log("Já está na taxa de sucesso");
 			rep = false;
 			var temp = position;
 			position = 0;
-			if(temp == 1) {
-				this.fluxograma(); 	
+			if (temp == 1) {
+				this.fluxograma();
 			}
-			if(temp == 2) {
+			if (temp == 2) {
 				this.blocagemComum();
 			}
-			if(temp == 3) {
+			if (temp == 3) {
 				this.blocagem1();
 			}
-			if(temp == 4) {
+			if (temp == 4) {
 				this.blocagem2();
 			}
-			if(temp == 5) {
+			if (temp == 5) {
 				this.blocagem3();
 			}
-			if(temp == 7) {
+			if (temp == 7) {
 				this.correlacao();
 			}
-		}
-		else {
+		} else {
 			//directory.coursesView.setPositions("http://analytics.lsd.ufcg.edu.br/ccc/getDisciplinasPorPeriodo", 0);
 			directory.coursesView.taxaReprovacao("http://analytics.lsd.ufcg.edu.br/ccc/reprovacoes", 0);
 
@@ -189,7 +204,7 @@ directory.ShellView = Backbone.View.extend({
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_reprovacao").html();
 			$("#legendaParaMostrar").html(linkText);
-			
+
 		}
 	},
 
@@ -205,4 +220,4 @@ directory.ShellView = Backbone.View.extend({
 
 		}
 	}
-});
+}); 
