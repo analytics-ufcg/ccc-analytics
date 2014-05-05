@@ -48,7 +48,7 @@ directory.ShellView = Backbone.View.extend({
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
 
-			var dialogHTML = $("#dialog1").html();
+			var dialogHTML = $("#dialog_fluxograma").html();
 			$("#dialog").html(dialogHTML);
 
 		}
@@ -74,7 +74,7 @@ directory.ShellView = Backbone.View.extend({
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
 			
-			var dialogHTML = $("#dialog2").html();
+			var dialogHTML = $("#dialog_correlacao").html();
 			$("#dialog").html(dialogHTML);
 		}
 	},
@@ -89,7 +89,7 @@ directory.ShellView = Backbone.View.extend({
 			position = 2;
 			console.log("Blocagem comum");
 			$("#idtitulo").text("Execução curricular mais comum");
-			$("#iddescricao").text("Na prática as disciplinas cursadas pelos alunos ao longo do curso representam outro arranjo que não é, necessariamente, o mesmo planejado pela coordenação. Com base nos dados de [anos], é possível observar a seguinte distribuição de disciplinas ao longo dos semestres letivos.");
+			$("#iddescricao").html("Esta é a execução curricular onde as disciplinas são mostradas nos semestres os quais elas tem sido cursadas com <b>maior frequência pelos alunos</b>. Ao passar o mouse em cada disciplina, aparecem o segundo e terceiro semestres nos quais ela é cursada com mais frequência.");
 			$("#botao_legenda").show();
 
 			var linkText = $("#legenda_blocagem").html();
@@ -99,7 +99,7 @@ directory.ShellView = Backbone.View.extend({
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
 
-			var dialogHTML = $("#dialog3").html();
+			var dialogHTML = $("#dialog_execucao_comum").html();
 			$("#dialog").html(dialogHTML);
 		}
 	},
