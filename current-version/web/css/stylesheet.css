@@ -48,6 +48,7 @@
 
 p {
 	line-height:130%; /* espaçamento entre as linhas do parágrafo */
+	padding: 10px;
 }
 
 
