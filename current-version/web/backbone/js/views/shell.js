@@ -200,10 +200,13 @@ directory.ShellView = Backbone.View.extend({
 			rep = true;
 			console.log("taxareprovacao");
 			$("#idtitulo").text("Taxa de sucesso em cada disciplina");
-			$("#iddescricao").text("As taxas de sucesso das disciplinas estão representadas a seguir.");
+			$("#iddescricao").text("A taxa de sucesso da disciplina representa a porcentagem de aprovados da mesma, nos dados estudados.");
 			$("#botao_legenda").show();
 			var linkText = $("#legenda_reprovacao").html();
 			$("#legendaParaMostrar").html(linkText);
+
+			var dialogHTML = $("#dialog_taxa_sucesso").html();
+			$("#dialog").html(dialogHTML);
 
 		}
 	},
