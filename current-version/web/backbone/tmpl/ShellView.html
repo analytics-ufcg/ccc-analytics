@@ -27,24 +27,52 @@
 								<a id="correlacao" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Correlação entre disciplinas</a>
 							</li>
 							<li class="divider"></li>
+
+							<!--
 							<li>
-								<a id="grade2" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Execução curricular mais comum</a>
+							<a id="grade2" href="#"><span class="glyphicon glyphicon-chevron-right"></span> Execução curricular mais comum</a>
 							</li>
 							<li class="divider"></li>
 							<li class="dropdown-submenu">
-								<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Execuções curriculares mais comuns</a>
+							<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Execuções curriculares mais comuns</a>
+							<ul class="dropdown-menu">
+							<li>
+							<a id="bloc1" href="#bloc1" >Exec. curricular 1</a>
+							</li>
+							<li>
+							<a id="bloc2" href="#bloc2" >Exec. curricular 2</a>
+							</li>
+							<li>
+							<a id="bloc3" href="#bloc3" >Exec. curricular 3</a>
+							</li>
+							</ul>
+							</li>
+							-->
+
+							<li class="dropdown-submenu">
+								<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Caminhos do curso</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a id="bloc1" href="#bloc1" >Exec. curricular 1</a>
+										<a id="grade2" href="#" >Exec. curricular mais comum</a>
 									</li>
-									<li>
-										<a id="bloc2" href="#bloc2" >Exec. curricular 2</a>
-									</li>
-									<li>
-										<a id="bloc3" href="#bloc3" >Exec. curricular 3</a>
+									<li class="divider"></li>
+									<li class="dropdown-submenu">
+										<a href="#" tabindex="-1"><span class="glyphicon glyphicon-chevron-right"></span> Exec. curriculares mais comuns</a>
+										<ul class="dropdown-menu">
+											<li>
+												<a id="bloc1" href="#bloc1" >Exec. curricular 1</a>
+											</li>
+											<li>
+												<a id="bloc2" href="#bloc2" >Exec. curricular 2</a>
+											</li>
+											<li>
+												<a id="bloc3" href="#bloc3" >Exec. curricular 3</a>
+											</li>
+										</ul>
 									</li>
 								</ul>
 							</li>
+
 						</ul>
 					</li>
 				</ul><!-- / navbar-right : drop menu-->
@@ -57,8 +85,6 @@
 <br />
 <br />
 <br />
-
-
 
 <div class="row-fluid">
 	<div class="span2" style="float: left; margin-left: 6%; width: 50%;">
@@ -184,45 +210,39 @@
 	</div>
 </div>
 
-
 <!--  FOOTER  -->
 <br/>
 <br/>
 <br/>
 <br/>
-<div class="footer">
-	<div class="container">
-		<div class="footer">
-			<br/>
-			<div class="row">
-				<div class="col-sm-6">
-					<dl>
-						<dt>
-							<b>Analytics Lab</b>
-						</dt>
-					</dl>
-					<dd>
-						<a href="https://sites.google.com/a/computacao.ufcg.edu.br/analytics/" >Programa</a>
-					</dd>
-					<dd>
-						<a href="http://analytics.lsd.ufcg.edu.br/">Projetos</a>
-					</dd>
-					<dd>
-						<a href="team.html">Time</a>
-					</dd>
-				</div>
 
-				<div class="col-sm-6">
-					<dl>
-						<dt></dt>
-					</dl>
-					<dd>
-						<br/>
-						<a href="index.html"> <img src="image/ccc-header2.png" width="200px"/> </a>
-					</dd>
-				</div>
-			</div>
-			<br/>
+<div class="rodape">
+	<div class="row">
+		<div class="col-sm-6">
+			<dl>
+				<dt>
+					<b>Analytics Lab</b>
+				</dt>
+			</dl>
+			<dd>
+				<a href="https://sites.google.com/a/computacao.ufcg.edu.br/analytics/" >Programa</a>
+			</dd>
+			<dd>
+				<a href="http://analytics.lsd.ufcg.edu.br/">Projetos</a>
+			</dd>
+			<dd>
+				<a href="team.html">Time</a>
+			</dd>
+		</div>
+
+		<div class="col-sm-6">
+			<dl>
+				<dt></dt>
+			</dl>
+			<dd>
+				<br/>
+				<a href="index.html"> <img src="image/ccc-header2.png" width="200px"/> </a>
+			</dd>
 		</div>
 	</div>
 </div>
@@ -328,29 +348,43 @@
 </div>
 <br />
 
-
 <div id="boxes">
 
 	<div id="dialog" class="window">
-		<div class="tituloModal">Plano de Curso</div>
-		<p>Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.<br />
-		Cada disciplina aparece então no período em que foi cursada com maior frequência.</p>
+		<div class="tituloModal">
+			Plano de Curso
+		</div>
+		<p>
+			Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.
+			<br />
+			Cada disciplina aparece então no período em que foi cursada com maior frequência.
+		</p>
 		<br />
 		<a href="#" class="close">Fechar</a>
 	</div>
-	
+
 	<div id="dialog2" class="window">
-		<div class="tituloModal">Correlação entre disciplinas</div>
-		<p>Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.<br />
-		Cada disciplina aparece então no período em que foi cursada com maior frequência.</p>
+		<div class="tituloModal">
+			Correlação entre disciplinas
+		</div>
+		<p>
+			Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.
+			<br />
+			Cada disciplina aparece então no período em que foi cursada com maior frequência.
+		</p>
 		<br />
 		<a href="#" class="close">Fechar</a>
 	</div>
-	
+
 	<div id="dialog3" class="window">
-		<div class="tituloModal">Execução curricular mais comum</div>
-		<p>Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.<br />
-		Cada disciplina aparece então no período em que foi cursada com maior frequência.</p>
+		<div class="tituloModal">
+			Execução curricular mais comum
+		</div>
+		<p>
+			Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período.
+			<br />
+			Cada disciplina aparece então no período em que foi cursada com maior frequência.
+		</p>
 		<br />
 		<a href="#" class="close">Fechar</a>
 	</div>
