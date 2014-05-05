@@ -49,6 +49,8 @@ directory.ShellView = Backbone.View.extend({
 
 			$("#taxareprovacao").attr('checked', false);
 			rep = false;
+			
+		    
 		}
 	},
 
@@ -63,6 +65,8 @@ directory.ShellView = Backbone.View.extend({
 			$("#idtitulo").text("Execução curricular mais comum");
 			$("#iddescricao").text("Na prática as disciplinas cursadas pelos alunos ao longo do curso representam outro arranjo que não é, necessariamente, o mesmo planejado pela coordenação. Com base nos dados de [anos], é possível observar a seguinte distribuição de disciplinas ao longo dos semestres letivos.");
 			$("#botao_legenda").show();
+			
+			
 			var linkText = $("#legenda_blocagem").html();
 			$("#legendaParaMostrar").html(linkText);
 			$("#setas").hide();

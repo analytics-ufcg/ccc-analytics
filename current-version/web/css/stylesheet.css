@@ -1,4 +1,6 @@
 /* janela modal */
+
+
 #mask {
 	position: absolute;
 	left: 0;
@@ -21,7 +23,7 @@
 }
 
 
-#boxes #dialog, #boxes #dialog2 {
+#boxes #dialog, #boxes #dialog2, #boxes #dialog3 {
 	width: 730px;
 	height: auto;
 	padding: 10px;
@@ -43,8 +45,9 @@
 	
 }
 
+
 p {
-	line-height:130%;
+	line-height:130%; /* espaçamento entre as linhas do parágrafo */
 }
 
 
