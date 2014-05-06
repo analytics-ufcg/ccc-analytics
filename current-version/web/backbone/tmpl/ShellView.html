@@ -444,10 +444,9 @@
 				<br/><br/>
 				<img src="image/corr_todos.png" alt="Correlação todos os alunos">
 				<br/><br/>
-				Foi levantada uma hipótese na qual o grande número de correlações altas, especialmente entre as disciplinas dos primeiros semestre, seriam por haver um grupo de alunos que possuem notas baixas em relação aos demais alunos da disciplina. Desta forma, forçam o aumento do valor da correlação. No caso destes alunos possuirem tal comportamento constante, é válido identificá-los como alunos desistentes ou potencialmente desistentes.
-				<br/>
-				Visando calcular as correlações entre disciplinas sem este grupo de alunos e testar a hipótese, retiramos todos aqueles que não cursaram Projeto Em Computação 1, considerado um limiar adequado para que separa os alunos desistentes dos demais.
-				As correlações calculadas a partir de tal teste estão a seguir.
+				É possível notar que há mais disciplinas correlacionadas na primeira metade do curso. Identificamos que isso acontece porque há um grupo significativo de alunos que tem notas baixas em todas as disciplinas que cursam e que não chegam ao final do curso. Como eles têm notas baixas em várias das disciplinas, eles inflacionam a correlação das disciplinas que cursam.
+				<br/><br/>
+				Para visualizar esse fenômeno, calculamos as correlações entre as disciplinas considerando apenas alunos que cursaram Projeto em Computação 1, uma disciplina no final do curso:
 				<br/><br/>
 				<img src="image/corr_formados.png" alt="Correlação dos alunos formados">
 				<br/><br/>
