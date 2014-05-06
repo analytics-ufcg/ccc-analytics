@@ -128,7 +128,7 @@ function initModal() {
 				'height' : maskHeight
 			});
 
-			$('#mask').fadeIn(1000);
+			$('#mask').fadeIn(400);
 			$('#mask').fadeTo("slow", 0.8);
 
 			//Get the window height and width
