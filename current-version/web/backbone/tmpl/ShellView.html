@@ -421,6 +421,7 @@
 		<br />
 	</div>
 
+
 	<div id="dialog_correlacao" class="window">
 		<div class="tituloModal">
 			Correlação entre disciplinas
@@ -429,30 +430,30 @@
 				Análise técnica</h4>
 			</div>
 			<p>
-				Correlação mede o relacionamento entre duas variáveis. Nesta análise, usamos o método de Spearman para calcular correlação, que mede a relação entre o ranking de notas dos alunos em duas disciplinas. O resultado está no intervalo de -1 a 1. Quanto mais próximo de 1, significa que há uma forte relação entre o desempenho entre duas disciplinas, ou seja, um bom desempenho em uma disciplina indica um bom desempenho na outra, indica também que um mau desempenho de uma indica um mau desempenho na outra. Quanto mais perto de -1 indica que há uma correlação inversa, ou seja, no geral um bom desempenho em uma disciplina indica um mau desempenho na outra. Quando a correlação é próxima a zero não há uma aparente relação entre os desempenhos das disciplinas.
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Correlação mede o relacionamento entre duas variáveis. Nesta análise, usamos o método de Spearman para calcular correlação, que mede a relação entre o ranking de notas dos alunos em duas disciplinas. O resultado está no intervalo de -1 a 1. Quanto mais próximo de 1, significa que há uma forte relação entre o desempenho entre duas disciplinas, ou seja, um bom desempenho em uma disciplina indica um bom desempenho na outra, indica também que um mau desempenho de uma indica um mau desempenho na outra. Quanto mais perto de -1 indica que há uma correlação inversa, ou seja, no geral um bom desempenho em uma disciplina indica um mau desempenho na outra. Quando a correlação é próxima a zero não há uma aparente relação entre os desempenhos das disciplinas.
 				<br/><br/>
-				São mostradas as correlações com coeficiente maiores que 0,545. Esse valor foi decidido baseado em um trade-off entre quantidade de informação e poluição visual. Quanto maior este limiar, menos correlações são mostradas na tela. Quanto menor, mais correlações são mostradas. Um limiar baixo torna ilegível a visualização.
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;São mostradas as correlações com coeficiente maiores que 0,545. Esse valor foi decidido baseado em um trade-off entre quantidade de informação e poluição visual. Quanto maior este limiar, menos correlações são mostradas na tela. Quanto menor, mais correlações são mostradas. Um limiar baixo torna ilegível a visualização.
 			</p>
 
 			<div class="subTituloModal">
 				Análise interpretativa
 			</div>
 			<p>
-				Podemos notar que muitas disciplinas de laboratórios e suas equivalentes teóricas são correlacionadas positivamente. Uma possível causa para isso é a semelhança dos assuntos vistos. Além disso, em alguns períodos, as notas das disciplinas de laboratório são calculadas em função das notas das disciplinas teóricas.
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Podemos notar que muitas disciplinas de laboratórios e suas equivalentes teóricas são correlacionadas positivamente. Uma possível causa para isso é a semelhança dos assuntos vistos. Além disso, em alguns períodos, as notas das disciplinas de laboratório são calculadas em função das notas das disciplinas teóricas.
 				<br/><br/>
 				O gráfico a seguir foi gerado considerando toda a população de alunos do curso de Computação.
 				<br/><br/>
 				<img src="image/corr_todos.png" alt="Correlação todos os alunos">
 				<br/><br/>
-				É possível notar que há mais disciplinas correlacionadas na primeira metade do curso. Identificamos que isso acontece porque há um grupo significativo de alunos que tem notas baixas em todas as disciplinas que cursam e que não chegam ao final do curso. Como eles têm notas baixas em várias das disciplinas, eles inflacionam a correlação das disciplinas que cursam.
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;É possível notar que há mais disciplinas correlacionadas na primeira metade do curso. Identificamos que isso acontece porque há um grupo significativo de alunos que tem notas baixas em todas as disciplinas que cursam e que não chegam ao final do curso. Como eles têm notas baixas em várias das disciplinas, eles inflacionam a correlação das disciplinas que cursam.
 				<br/><br/>
-				Para visualizar esse fenômeno, calculamos as correlações entre as disciplinas considerando apenas alunos que cursaram Projeto em Computação 1, uma disciplina no final do curso:
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para visualizar esse fenômeno, calculamos as correlações entre as disciplinas considerando apenas alunos que cursaram Projeto em Computação 1, uma disciplina no final do curso:
 				<br/><br/>
 				<img src="image/corr_formados.png" alt="Correlação dos alunos formados">
 				<br/><br/>
-				Comparando as duas visualizações, percebemos que há menos correlações, principalmente entre as disciplinas dos primeiros períodos (foi usado o mesmo filtro:  0,545).
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comparando as duas visualizações, percebemos que há menos correlações, principalmente entre as disciplinas dos primeiros períodos (foi usado o mesmo filtro:  0,545).
 				<br/>
-				De fato, a média das correlações e seu desvio padrão é menor no caso em que os potenciais desistentes foram retirados. É possível afirmar com alguma certeza que os aqueles alunos forçam as correlações de Spearman entre disciplinas serem mais altas.
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;De fato, a média das correlações e seu desvio padrão é menor no caso em que os potenciais desistentes foram retirados. É possível afirmar com alguma certeza que os aqueles alunos forçam as correlações de Spearman entre disciplinas serem mais altas.
 
 
 			</p>
@@ -460,6 +461,7 @@
 
 		</p>
 	</div>
+	
 
 	<div id="dialog_execucao_comum" class="window">
 		<div class="tituloModal">
@@ -471,16 +473,16 @@
 				Análise técnica</h4>
 			</div>
 	<p>
-			Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período. Cada disciplina aparece, então, no período em que foi cursada com maior frequência.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para gerar a execução curricular abaixo, calculamos para cada disciplina a frequência com que ela foi cursada em cada período. Cada disciplina aparece, então, no período em que foi cursada com maior frequência.
 		</p>
 			<div class="subTituloModal">
 				Análise interpretativa
 			</div>
 	<p>
 			<br/>
-			Em muitas situações as disciplinas cursadas pelos alunos representam arranjo diferente do indicado no plano de curso sugerido pela coordenação. Analisando o semestre onde cada disciplina foi cursada com maior frequência, podemos constatar estas diferenças.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Em muitas situações as disciplinas cursadas pelos alunos representam arranjo diferente do indicado no plano de curso sugerido pela coordenação. Analisando o semestre onde cada disciplina foi cursada com maior frequência, podemos constatar estas diferenças.
 			<br/><br/>
-			Duas diferenças entre esta execução e o plano de curso sugerido se destacam. Primeiro, a execução curricular proposta pela coordenação tem oito semestres para a conclusão do curso, enquanto a execução curricular mais comum tem nove semestres. Outra diferença é que a partir do quarto semestre a quantidade de disciplinas obrigatórias, por período, é menor na execução curricular que encontramos. 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Duas diferenças entre esta execução e o plano de curso sugerido se destacam. Primeiro, a execução curricular proposta pela coordenação tem oito semestres para a conclusão do curso, enquanto a execução curricular mais comum tem nove semestres. Outra diferença é que a partir do quarto semestre a quantidade de disciplinas obrigatórias, por período, é menor na execução curricular que encontramos. 
 			<br/>
 			<br/>
 			Possíveis explicações para essas diferenças são:
@@ -512,7 +514,7 @@
 				Análise técnica</h4>
 			</div>
 			<p>
-			Para calcular a taxa de sucesso utilizamos a proporção entre a quantidade de alunos que foram aprovados em cada disciplina e o total de alunos que a cursaram por completo (ou seja, não trancaram a disciplina).
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para calcular a taxa de sucesso utilizamos a proporção entre a quantidade de alunos que foram aprovados em cada disciplina e o total de alunos que a cursaram por completo (ou seja, não trancaram a disciplina).
 			</p>
 
 			<div class="subTituloModal">
@@ -520,10 +522,10 @@
 			</div>
 			<p>
 			<br/>
-				As disciplinas com menor taxa de sucesso são as disciplinas de matemática e estatística ofertadas pelo DME, seguidas pelas de Física e disciplinas de Matemática ofertadas pelo DSC. As disciplinas do DSC com menor taxa de sucesso são Programação 1 e Laboratório de Programação 1, possivelmente por estarem no início do curso, onde os alunos não estão acostumados com o ritmo de estudos e nem com o contexto do curso.  
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As disciplinas com menor taxa de sucesso são as disciplinas de matemática e estatística ofertadas pelo DME, seguidas pelas de Física e disciplinas de Matemática ofertadas pelo DSC. As disciplinas do DSC com menor taxa de sucesso são Programação 1 e Laboratório de Programação 1, possivelmente por estarem no início do curso, onde os alunos não estão acostumados com o ritmo de estudos e nem com o contexto do curso.  
 				<br/><br/>
 
-				Ao analisar a taxa de sucesso no plano de curso sugerido pela coordenação há um aumento na taxa de sucesso entre as disciplinas. Enquanto no primeiro período mais da metade das disciplinas possuem taxa de sucesso de menos de 65%, entre o 2º e o 5º períodos boa parte das disciplinas possuem taxa de sucesso maior que 80% e entre o 6º e 8º períodos a maioria das disciplinas possuem taxa de sucesso superior a 90%. Um possível motivo para o aumento da taxa de sucesso do meio para o fim do curso seria os alunos serem mais experientes, conhecendo o ritmo do curso e conseguindo conciliar as disciplinas. Outro motivo seria que a maioria das disciplinas a partir do meio do curso são do departamento de computação.
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ao analisar a taxa de sucesso no plano de curso sugerido pela coordenação há um aumento na taxa de sucesso entre as disciplinas. Enquanto no primeiro período mais da metade das disciplinas possuem taxa de sucesso de menos de 65%, entre o 2º e o 5º períodos boa parte das disciplinas possuem taxa de sucesso maior que 80% e entre o 6º e 8º períodos a maioria das disciplinas possuem taxa de sucesso superior a 90%. Um possível motivo para o aumento da taxa de sucesso do meio para o fim do curso seria os alunos serem mais experientes, conhecendo o ritmo do curso e conseguindo conciliar as disciplinas. Outro motivo seria que a maioria das disciplinas a partir do meio do curso são do departamento de computação.
 		</p>
 		<br />
 	</div>
@@ -536,11 +538,11 @@
 				Análise técnica</h4>
 		</div>
 			<p>
-			Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
 			<br/><br/>
-			Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
 			<br/><br/>
-			Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
 			</p>
 
 		<div class="subTituloModal">
@@ -548,10 +550,10 @@
 		</div>
 			<p>
 			<br/>
-			Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
 			<br/><br/>
 
-			Especificamente, os alunos neste grupo tendem, a partir do segundo período, a cursar cinco disciplinas obrigatórias por período. No sétimo período esse valor cai para quatro disciplinas. Isso caracteriza um aluno que tem uma tendência de manter um número fixo de disciplinas obrigatórias. Podemos perceber nesse grupo que esses alunos possuem um planejamento maior para balancear a sobre-carga das obrigatórias.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especificamente, os alunos neste grupo tendem, a partir do segundo período, a cursar cinco disciplinas obrigatórias por período. No sétimo período esse valor cai para quatro disciplinas. Isso caracteriza um aluno que tem uma tendência de manter um número fixo de disciplinas obrigatórias. Podemos perceber nesse grupo que esses alunos possuem um planejamento maior para balancear a sobre-carga das obrigatórias.
 		</p>
 		<br />
 		<br />
@@ -565,11 +567,11 @@
 				Análise técnica</h4>
 		</div>
 			<p>
-			Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
 			<br/><br/>
-			Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
 			<br/><br/>
-			Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
 			</p>
 
 		<div class="subTituloModal">
@@ -577,10 +579,10 @@
 		</div>
 			<p>
 			<br/>
-			Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
 			<br/><br/>
 
-			Especificamente, é o grupo de alunos que segue mais fielmente o plano de curso oficial, e que ao longo do tempo vai colocando menos disciplinas obrigatórias por semestre. As disciplinas do quinto período, tradicionalmente são tidas como difíceis pelos alunos, e são separadas e redistribuídas nesta execução curricular. Essa distribuição leva ao aumento em um período na duração do curso.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especificamente, é o grupo de alunos que segue mais fielmente o plano de curso oficial, e que ao longo do tempo vai colocando menos disciplinas obrigatórias por semestre. As disciplinas do quinto período, tradicionalmente são tidas como difíceis pelos alunos, e são separadas e redistribuídas nesta execução curricular. Essa distribuição leva ao aumento em um período na duração do curso.
 		</p>
 		<br />
 	</div>
@@ -593,11 +595,11 @@
 				Análise técnica</h4>
 		</div>
 			<p>
-			Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para encontrar execuções curriculares similares, usamos uma análise de agrupamento das execuções dos alunos. Para tal foi utilizado o algoritmo DBScan,  nas execuções curriculares dos alunos ingressaram em 2004 (início dos nossos dados) e completaram o curso. Utilizamos este filtro para agrupar apenas as execuções curriculares completas, ignorando as execuções curriculares de alunos desistentes.
 			<br/><br/>
-			Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para o DBScan  agrupar as execuções curriculares similares, foi necessário criar uma medida de similaridade entre as execuções. Assim, foi criada uma medida de similaridade que define a proximidade entre duas execuções curriculares em função de quão próximos são os períodos em que os alunos se matricularam nas disciplinas que cursaram em comum. Por exemplo: com todas as outras disciplinas iguais, alunos que cursaram Teoria da Computação no 4º período estão mais próximos de alunos que cursaram Teoria da Computação no 5º do que aqueles que cursaram esta mesma disciplina no 7º período.
 			<br/><br/>
-			Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foram encontrados 3 grupos de execuções curriculares semelhantes. Além dos grupos, o algoritmo detectou muitos outliers, no nosso caso execuções curriculares de alunos que não foram similares a execuções de nenhum grupo formado. Podemos elencar como justificativas para esse outliers: o alto número de execuções curriculares possíveis, ao permutar 43 disciplinas obrigatórias e a possibilidade de alunos reprovarem disciplinas, forçando a uma configuração diferente da execução curricular
 			</p>
 
 		<div class="subTituloModal">
@@ -605,10 +607,9 @@
 		</div>
 			<p>
 			<br/>
-			Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Como característica geral, nota-se que até o 3º período de curso existe uma grande semelhança entre todos os grupos encontrados. Além disso, há uma semelhança com a execução curricular proposta pela coordenação. Por outro lado, pode-se notar que todos os clusters possuem nove semestres, diferentemente do plano de curso oficial, que possui 8 semestres.				
 			<br/><br/>
-
-			Especificamente, representa uma execução curricular com algumas semelhanças com o plano de curso oficial, porém neste caso acontecem algumas reprovações em disciplinas do começo do curso (com a presença de Cálculo I no segundo período e Cálculo II no terceiro período).
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Especificamente, representa uma execução curricular com algumas semelhanças com o plano de curso oficial, porém neste caso acontecem algumas reprovações em disciplinas do começo do curso (com a presença de Cálculo I no segundo período e Cálculo II no terceiro período).
 		</p>
 		<br />
 	</div>

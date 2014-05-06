@@ -45,6 +45,7 @@
 	color: #273A87;
 	
 }
+
 .subTituloModal {
 	text-align: center;
 	font-size: 15px;
@@ -55,8 +56,12 @@
 p {
 	line-height:130%; /* espaçamento entre as linhas do parágrafo */
 	padding: 10px;
+	text-align: left;
 }
 
+ul {
+	text-align: left;
+}
 
 
 /* demais estilos */
@@ -85,6 +90,10 @@ p {
 
 .align-center {
 	text-align: center;
+}
+
+.lef {
+	text-align: left;
 }
 
 .align-left {
