@@ -38,7 +38,7 @@ Estrutura de Diretórios:
 		Plots em geral (utilizar nomes intuitivos para os arquivos)
 
 	> src
-		Códigos
+		Códigos como da API/REST, SQLs e R
 
 	> web
 		Versão web do projeto	
