@@ -16,7 +16,7 @@ def disciplinas_por_periodo():
        lista_tuplas.append(tupla)
     col = ["codigo", "periodo", "disciplina"]
     response = montaJson(lista_tuplas, col)
-    return json.dumps(response)
+    return json.dumps(response).decode("utf-8")
 
 
 def pre_requisitos():
@@ -30,7 +30,7 @@ def pre_requisitos():
        lista_tuplas.append(tupla)
     col = ["codigo", "codigoPreRequisito"]
     response = montaJson(lista_tuplas, col)
-    return json.dumps(response)
+    return json.dumps(response).encode("utf-8")
 
 
 def maiores_frequencias():
@@ -44,7 +44,7 @@ def maiores_frequencias():
        lista_tuplas.append(tupla)
     col = ["codigo", "disciplina", "periodoMaisFreq1st", "freqRelativa1st", "periodoMaisFreq2nd", "freqRelativa2nd", "periodoMaisFreq3rd", "freqRelativa3rd", "totalDeAlunos"]
     response = montaJson(lista_tuplas, col)
-    return json.dumps(response)
+    return json.dumps(response).encode("utf-8")
 
 def reprovacoes():
     cnxn = create_connection()
@@ -55,9 +55,9 @@ def reprovacoes():
     lista_tuplas = []
     for tupla in rows:
        lista_tuplas.append(tupla)
-    col = ["disciplina", "codigo", "reprovacaoAbsoluta", "reprovacaoRelativa"]
+    col = ["disciplina", "codigo", "reprovacaoAbsoluta", "reprovacaoRelativa", "totalDeAlunos"]
     response = montaJson(lista_tuplas, col)
-    return json.dumps(response)
+    return json.dumps(response).encode("utf-8")
 
 def correlacoes(valor):
     cnxn = create_connection()
@@ -70,7 +70,7 @@ def correlacoes(valor):
        lista_tuplas.append(tupla)
     col = ["disciplina1", "codigo1", "disciplina2", "codigo2", "correlacao"]
     response = montaJson(lista_tuplas, col)
-    return json.dumps(response)
+    return json.dumps(response).encode("utf-8")
 
 def info_clusters():
     cnxn = create_connection()
@@ -83,7 +83,7 @@ def info_clusters():
        lista_tuplas.append(tupla)
     col = ["cluster", "rotulo", "descricao"]
     response = montaJson(lista_tuplas, col)
-    return json.dumps(response)
+    return json.dumps(response).encode("utf-8")
 
 def clusters(numero_cluster):
     cnxn = create_connection()
@@ -96,7 +96,7 @@ def clusters(numero_cluster):
        lista_tuplas.append(tupla)
     col = ["disciplina","codigo", "periodo", "cluster"]
     response = montaJson(lista_tuplas, col)
-    return json.dumps(response)
+    return json.dumps(response).encode("utf-8")
 
 
 
